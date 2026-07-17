@@ -1,20 +1,20 @@
 {
   "schemaVersion": 1,
-  "siteUrl": "https://gym-anything.github.io/",
+  "siteUrl": "https://gym-anything.github.io/robotics/",
   "sourceRepository": "gym-anything/gym_anything_for_robotics",
-  "sourceCommit": "577afb48b79bf9d42475470cafb210e42ff7da75",
+  "sourceCommit": "924288bd433abcff4f7f7d85d748abcca065ab83",
   "assetCount": 100,
-  "assetBytes": 95664858,
+  "assetBytes": 95487174,
   "assets": [
     {
       "path": "applecut/FINDINGS.md",
-      "bytes": 16978,
-      "sha256": "71896bad64d13adea64279a63c5c207cfd842a7095be329b8d99ddcd35cfc4ed"
+      "bytes": 16677,
+      "sha256": "227bbf70b4a1179489e498f174af06973701e68a02bee4949f81a9f175347dc8"
     },
     {
       "path": "applecut/RESEARCH.md",
-      "bytes": 54122,
-      "sha256": "00039452ad1078994331eadb42dec1fa47b24438621955e4dbf806a44a70dddf"
+      "bytes": 53094,
+      "sha256": "46ae80fd7c95b609498d8f9cd68fd24bd98d7aa1a56f85c9b839a4e244cd4a47"
     },
     {
       "path": "applecut/paper/applecut_physics_report.pdf",
@@ -53,13 +53,13 @@
     },
     {
       "path": "applecut/traces/gpu_fem_full_cut_probe.json",
-      "bytes": 87307,
-      "sha256": "61c3b2f79fc021ac3d6a88fdf5f1b582a305c8af3e32d0d8a22407ff471a5699"
+      "bytes": 85164,
+      "sha256": "8147500ebac21fd6df2ea5b4c3e3b85f08b3ff5026bdeaf3e231132542bc8dea"
     },
     {
       "path": "applecut/traces/gpu_fem_robot_coupling_probe.json",
-      "bytes": 18409,
-      "sha256": "2891fbac2862ce125564c32958c5d15afb280061b7f86350ed7e2be0a1588130"
+      "bytes": 17917,
+      "sha256": "c921c7583849c348534c3df5d7b30da08fe0e4b716bb48e94bdc360526b2b96c"
     },
     {
       "path": "code_policy/artifacts/best_attempt_videos_20260715/01_applecut_pass_attempt-001_6x.mp4",
@@ -93,28 +93,28 @@
     },
     {
       "path": "football/outputs/isaac_p5_integrated_shot.json",
-      "bytes": 2851162,
-      "sha256": "768127a02dce124e621451b9d0d6dda5eac84345bb5898a1aaf314d537e5f1a6"
+      "bytes": 2760449,
+      "sha256": "3d58a05ac96663fada8424a050898929a5a5fc382ace5e5001b223964e76f61b"
     },
     {
       "path": "football/outputs/isaac_p5_integrated_shot_low_spin.json",
-      "bytes": 2375617,
-      "sha256": "337131dddad1a50326ea6f6f74c4837008bf589c8456ad8d3a6ff20a64fb19f3"
+      "bytes": 2300463,
+      "sha256": "5bee29e30c3446bb9d6807bf9be377a7e5555fabf5c5ffdfd54ef5aa29aeaf4f"
     },
     {
       "path": "football/outputs/p4_foot_contact_tensor_rate_sweep.json",
-      "bytes": 3748,
-      "sha256": "df71fe6e7da0cb487ddc9722133a990d03c86421281e2a4d7a5f5fcab5bd8ede"
+      "bytes": 3645,
+      "sha256": "fc561cd07f737e3dbcce64f1b558b8e5c1c3d19b767ab9f4fd29e695c6cd27da"
     },
     {
       "path": "football/outputs/p5_integrated_evidence_summary.json",
-      "bytes": 3509,
-      "sha256": "fabe0b7cce9d0d6373b119924ef80b7322e70581843a4a0681779f74fb04fb97"
+      "bytes": 3430,
+      "sha256": "1f80b88b2e1c2058e6a3a061b1bed20e75a459e0eb42b37967c3d1680d943542"
     },
     {
       "path": "football/outputs/p5_shot_profiles_summary.json",
-      "bytes": 3275,
-      "sha256": "b51d1948ec39bb2ff3dfc783017298e180f110ed9233f03dd5d697a830fe3350"
+      "bytes": 3196,
+      "sha256": "683ffaad8adbfdb0ced6e07b5bc02b1aafdddbfea85b718297e683328505aeb9"
     },
     {
       "path": "football/paper/figures/mechanism_architecture.png",
@@ -188,18 +188,18 @@
     },
     {
       "path": "football/videos/video_evidence_summary.json",
-      "bytes": 3812,
-      "sha256": "5290c818f106b2c8ac02de9a91b6033c3f94a237c28711f328622f98407a9c84"
+      "bytes": 3724,
+      "sha256": "6415c52fc5f0aebd9cc03effc93c8c672bbbc1b6584226e8f22c7d5d5c9968d1"
     },
     {
       "path": "lego/FINDINGS.md",
-      "bytes": 10746,
-      "sha256": "c5f5f1a56a06525109c46de748b3ce9949a9b7f0eb6209d7f906b882a0684c00"
+      "bytes": 10538,
+      "sha256": "1744f9383e20d978bb7525407d6941bf50745d9975e4d98610c77359d29d77e4"
     },
     {
       "path": "lego/RESEARCH.md",
-      "bytes": 49555,
-      "sha256": "92019f4894f3c3b0fe2f9448c183799085d41cafff8d52b61914c144adb5f2d6"
+      "bytes": 48565,
+      "sha256": "ace725e5cdcf2f260a8d8ce7b1840f570c393473f8884fc2e5ebf427ff402b50"
     },
     {
       "path": "lego/paper/lego_physics_report.pdf",
@@ -238,18 +238,18 @@
     },
     {
       "path": "lego/traces/contact_matrix_runs.json",
-      "bytes": 744,
-      "sha256": "303e857d57724c895d02be8b012b166efeb2339dbae78e0fb41c7f1559e94deb"
+      "bytes": 714,
+      "sha256": "3e4eb1838c80f0b169594b2cc8b963af1b2f3fafcb40c045df0bb8db4b341e51"
     },
     {
       "path": "lego/traces/robot_assemble_interactive_report_v33.json",
-      "bytes": 305095,
-      "sha256": "196013b3482baf4b1f87c1676a918e6a004b3cbd3ff8d0446fcb44d1876c1441"
+      "bytes": 299356,
+      "sha256": "88962d87312f2b33a94ca01c130660eb11b8a967a1861f62d9a75e7f49b42ea1"
     },
     {
       "path": "lockkey/FINDINGS.md",
-      "bytes": 20021,
-      "sha256": "4167e6ce31340372c11e7dc37b07f80787b7c3fe736a8a46e3ec89d61248ba3e"
+      "bytes": 19722,
+      "sha256": "b9669c6d7fb832d75cbf9d5cf3f35d2e3391fa74694d695c6bb02ceb7a113f11"
     },
     {
       "path": "lockkey/RESEARCH.md",
@@ -353,8 +353,8 @@
     },
     {
       "path": "portal/README.md",
-      "bytes": 4976,
-      "sha256": "aaafd91f05e0797e29e4d5af0726465056db3d29a5bf279c4a389b68b289ff08"
+      "bytes": 5500,
+      "sha256": "e17c6f1588ea3fc3daec8aa595825ad6dad15cf8ceddf55978c48cd57f098054"
     },
     {
       "path": "quarry/ATTRIBUTIONS.md",
@@ -388,18 +388,18 @@
     },
     {
       "path": "quarry/quarry_task_params.json",
-      "bytes": 843,
-      "sha256": "3711c8fe221938245a9339e1a562e1f296bff5db94137136f59197278884b6d3"
+      "bytes": 803,
+      "sha256": "6a906e5e6135d262c290fe705c05c8d1fe1c1feef9c0278af4f1c27d0db5fb0d"
     },
     {
       "path": "quarry/verify_report.json",
-      "bytes": 587,
-      "sha256": "8d778566a7ba4ba2c33f5f2c421f5d3d10f97983448e03c26e9d1c6eca9294dc"
+      "bytes": 556,
+      "sha256": "702adc07fb38b95f87b0b808fd997bf509561829d3f3f67168e804830f4d5492"
     },
     {
       "path": "sorthub/ACCEPTANCE.md",
-      "bytes": 4480,
-      "sha256": "7ad9081ce46eeaa7cd3593ef78cd8908373e112c0faa5dfee9cd35fc58b9f52d"
+      "bytes": 4422,
+      "sha256": "df2125d25a3f629bee9dc77ea9bc89a18c1989602998ae9f5cc352d1d547a812"
     },
     {
       "path": "sorthub/audit_frames/fac_overview.png",
@@ -418,8 +418,8 @@
     },
     {
       "path": "sorthub/memory/SORTHUB_NOTES.md",
-      "bytes": 51419,
-      "sha256": "2742f8c294451c0735c53b287937ac29d8477da5765caee00713d046397511b8"
+      "bytes": 50786,
+      "sha256": "e2d0cea867b902ef7a020231172ea035cf5fc4bd4c492d3c3accf5cb2ed0bda6"
     },
     {
       "path": "sorthub/sorted_front.png",

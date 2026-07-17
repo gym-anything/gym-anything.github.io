@@ -67,7 +67,8 @@ public atlas therefore preserves catalog navigation, search, reports, renders,
 videos, traces, notes, and documented launch profiles while labeling launch
 execution as local-only.
 
-Export a self-contained Pages tree into an empty directory:
+Export a self-contained Pages tree into an empty directory. The default public
+URL is the Robotics project path, `https://gym-anything.github.io/robotics/`:
 
 ```powershell
 python portal/export_pages.py --output D:\path\to\gym-anything.github.io
@@ -80,10 +81,20 @@ every referenced artifact exists inside the repository, and writes
 asset. Use `--clean` only when refreshing a directory that already contains the
 export marker.
 
-The organization site is published from the separate public
-`gym-anything/gym-anything.github.io` repository. This keeps the simulation source
-repository private without turning the public dashboard into a hand-maintained
-copy.
+The public `gym-anything/gym-anything.github.io` repository is a deployment
+target, not a second source tree. Its root is the organization landing page and
+the generated Atlas lives under `/robotics/`. The `Publish Environment Atlas`
+workflow runs the exporter after every push to the private repository's `main`
+branch, replaces only the marked Robotics export, and publishes through a
+write-enabled deploy key scoped exclusively to the public repository. This keeps
+the simulation source private without requiring paid GitHub seats or a
+hand-maintained copy.
+
+To stage the same layout against a local checkout of the public repository:
+
+```powershell
+python -m portal.stage_pages --pages-repository D:\path\to\gym-anything.github.io
+```
 
 ## Add or update an environment
 

@@ -5,25 +5,132 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="A public visual catalog and evidence browser for Gym Anything for Robotics."
+      content="Gym Anything builds physics-first environments for embodied intelligence."
     />
-    <link rel="canonical" href="https://gym-anything.github.io/" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Gym Anything · Environment Atlas" />
-    <meta property="og:description" content="Physics-first robotics environments, renders, videos, reports, and numerical evidence." />
-    <meta property="og:url" content="https://gym-anything.github.io/" />
-    <meta property="og:image" content="https://gym-anything.github.io/assets/football/renders/p5_00_ready.png" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <title>Gym Anything · Environment Atlas</title>
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23d7f764'/%3E%3Ctext x='32' y='44' text-anchor='middle' font-family='Arial' font-size='38' font-weight='700' fill='%23111506'%3EG%3C/text%3E%3C/svg%3E" />
+    <meta property="og:title" content="Gym Anything" />
+    <meta
+      property="og:description"
+      content="Measured worlds for embodied intelligence, with renders, reports, traces, and honest evidence."
+    />
+    <meta
+      property="og:image"
+      content="https://gym-anything.github.io/robotics/assets/football/renders/p5_05_goal.png"
+    />
+    <title>Gym Anything</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23d7f764'/%3E%3Ctext x='32' y='44' text-anchor='middle' font-family='Arial' font-size='38' font-weight='700' fill='%23111506'%3EG%3C/text%3E%3C/svg%3E"
+    />
     <link rel="stylesheet" href="./styles.css" />
+    <script>
+      if (location.hash && location.hash !== "#main") {
+        location.replace("./robotics/" + location.hash);
+      }
+    </script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
-    <div id="app" aria-live="polite"></div>
-    <div id="lightbox" class="lightbox" hidden></div>
-    <div id="toast-region" class="toast-region" aria-live="polite"></div>
-    <script>globalThis.ATLAS_CONFIG = Object.freeze({"mode":"static","manifestUrl":"./environments.json","assetBase":"./assets/","organizationUrl":"https://github.com/gym-anything","sourceRepositoryUrl":"https://github.com/gym-anything/gym_anything_for_robotics"});</script>
-    <script type="module" src="./app.js"></script>
+    <div class="ambient ambient-a" aria-hidden="true"></div>
+    <div class="ambient ambient-b" aria-hidden="true"></div>
+
+    <header class="site-header shell">
+      <a class="brand" href="./" aria-label="Gym Anything home">
+        <span class="brand-mark">G</span>
+        <span>Gym Anything</span>
+      </a>
+      <a
+        class="github-link"
+        href="https://github.com/gym-anything"
+        rel="noreferrer"
+      >
+        GitHub organization
+        <span aria-hidden="true">&#8599;</span>
+      </a>
+    </header>
+
+    <main id="main" class="shell">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow"><span></span> Open research infrastructure</p>
+          <h1>Build worlds<br />robots can trust.</h1>
+          <p class="lede">
+            Physics-first environments for embodied intelligence. Every world pairs an
+            interactive task with visual evidence, measurements, reports, and explicit
+            claim boundaries.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="./robotics/">
+              Explore Robotics Atlas
+              <span aria-hidden="true">&#8594;</span>
+            </a>
+            <a
+              class="button button-secondary"
+              href="https://github.com/gym-anything"
+              rel="noreferrer"
+            >
+              View source organization
+            </a>
+          </div>
+        </div>
+
+        <a class="atlas-card" href="./robotics/" aria-label="Open the Robotics Environment Atlas">
+          <div class="card-media">
+            <img
+              class="card-hero"
+              src="./robotics/assets/football/renders/p5_05_goal.png"
+              alt="A humanoid robot shooting a football toward a goal in simulation"
+            />
+            <span class="live-pill"><span></span> Live atlas</span>
+            <div class="media-scrim"></div>
+            <div class="media-caption">
+              <span>Featured environment</span>
+              <strong>Humanoid Football</strong>
+            </div>
+          </div>
+          <div class="card-body">
+            <div>
+              <p class="card-kicker">Robotics</p>
+              <h2>Environment Atlas</h2>
+              <p>
+                9 atomic robot tasks, from deformable apple cutting to aerodynamic
+                football, each backed by inspectable evidence.
+              </p>
+            </div>
+            <div class="card-footer">
+              <ul aria-label="Atlas contents">
+                <li><strong>09</strong><span>Environments</span></li>
+                <li><strong>PDF</strong><span>Reports</span></li>
+                <li><strong>MP4</strong><span>Motion</span></li>
+              </ul>
+              <span class="round-arrow" aria-hidden="true">&#8599;</span>
+            </div>
+          </div>
+        </a>
+      </section>
+
+      <section class="principles" aria-label="Research principles">
+        <article>
+          <span class="principle-number">01</span>
+          <h3>Physics before spectacle</h3>
+          <p>Mechanisms and coefficients are treated as measured models, not demo decoration.</p>
+        </article>
+        <article>
+          <span class="principle-number">02</span>
+          <h3>Evidence beside claims</h3>
+          <p>Renders, motion, reports, traces, and limitations stay one click from every task.</p>
+        </article>
+        <article>
+          <span class="principle-number">03</span>
+          <h3>Worlds built to be tested</h3>
+          <p>Interactive controls and falsifiable acceptance gates make the simulation inspectable.</p>
+        </article>
+      </section>
+    </main>
+
+    <footer class="site-footer shell">
+      <span>Gym Anything</span>
+      <span>Measured worlds for embodied intelligence.</span>
+    </footer>
   </body>
 </html>

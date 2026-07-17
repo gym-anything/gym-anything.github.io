@@ -1,5 +1,11 @@
-# Gym Anything · Environment Atlas
+# Gym Anything Pages
 
-This public repository contains the static GitHub Pages export for [https://gym-anything.github.io](https://gym-anything.github.io). It exposes only the curated dashboard, reports, renders, videos, traces, and research notes. Isaac Sim launch actions remain local-only.
+This is the public deployment surface for the Gym Anything organization.
 
-Source snapshot: `gym-anything/gym_anything_for_robotics@577afb48b79bf9d42475470cafb210e42ff7da75`. Exact exported asset hashes are recorded in [`site-manifest.json`](site-manifest.json).
+- `/` is the organization landing page.
+- `/robotics/` is a generated, sanitized Environment Atlas export.
+
+The source of truth lives in the private
+`gym-anything/gym_anything_for_robotics` repository. The deployment workflow
+replaces the Robotics export after changes land on `main`; do not edit generated
+files in `robotics/` by hand.

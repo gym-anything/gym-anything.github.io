@@ -5,17 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Gym Anything builds physics-first environments for embodied intelligence."
+      content="Gym Anything is a home for ambitious, inspectable environment projects."
     />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Gym Anything" />
     <meta
       property="og:description"
-      content="Measured worlds for embodied intelligence, with renders, reports, traces, and honest evidence."
-    />
-    <meta
-      property="og:image"
-      content="https://gym-anything.github.io/robotics/assets/football/renders/p5_05_goal.png"
+      content="Independent environment projects, collected under one shared home."
     />
     <title>Gym Anything</title>
     <link
@@ -23,11 +19,6 @@
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23d7f764'/%3E%3Ctext x='32' y='44' text-anchor='middle' font-family='Arial' font-size='38' font-weight='700' fill='%23111506'%3EG%3C/text%3E%3C/svg%3E"
     />
     <link rel="stylesheet" href="./styles.css" />
-    <script>
-      if (location.hash && location.hash !== "#main") {
-        location.replace("./robotics/" + location.hash);
-      }
-    </script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -52,16 +43,16 @@
     <main id="main" class="shell">
       <section class="hero">
         <div class="hero-copy">
-          <p class="eyebrow"><span></span> Open research infrastructure</p>
-          <h1>Build worlds<br />robots can trust.</h1>
+          <p class="eyebrow"><span></span> Open environment infrastructure</p>
+          <h1>Make anything<br />an environment.</h1>
           <p class="lede">
-            Physics-first environments for embodied intelligence. Every world pairs an
-            interactive task with visual evidence, measurements, reports, and explicit
-            claim boundaries.
+            Gym Anything is a home for ambitious interactive environments. Each project
+            keeps its own identity, scope, evidence, and tools, connected by a shared
+            commitment to inspectable work.
           </p>
           <div class="hero-actions">
-            <a class="button button-primary" href="./robotics/">
-              Explore Robotics Atlas
+            <a class="button button-primary" href="#projects">
+              Explore projects
               <span aria-hidden="true">&#8594;</span>
             </a>
             <a
@@ -74,24 +65,29 @@
           </div>
         </div>
 
-        <a class="atlas-card" href="./robotics/" aria-label="Open the Robotics Environment Atlas">
+        <a
+          id="projects"
+          class="atlas-card"
+          href="./robotics/"
+          aria-label="Open the Gym Anything for Robotics project"
+        >
           <div class="card-media">
             <img
               class="card-hero"
               src="./robotics/assets/football/renders/p5_05_goal.png"
               alt="A humanoid robot shooting a football toward a goal in simulation"
             />
-            <span class="live-pill"><span></span> Live atlas</span>
+            <span class="live-pill"><span></span> Project 01</span>
             <div class="media-scrim"></div>
             <div class="media-caption">
-              <span>Featured environment</span>
-              <strong>Humanoid Football</strong>
+              <span>Gym Anything project</span>
+              <strong>Robotics</strong>
             </div>
           </div>
           <div class="card-body">
             <div>
-              <p class="card-kicker">Robotics</p>
-              <h2>Environment Atlas</h2>
+              <p class="card-kicker">Gym Anything for Robotics</p>
+              <h2>Robotics Environment Atlas</h2>
               <p>
                 9 atomic robot tasks, from deformable apple cutting to aerodynamic
                 football, each backed by inspectable evidence.
@@ -112,8 +108,8 @@
       <section class="principles" aria-label="Research principles">
         <article>
           <span class="principle-number">01</span>
-          <h3>Physics before spectacle</h3>
-          <p>Mechanisms and coefficients are treated as measured models, not demo decoration.</p>
+          <h3>Projects stay distinct</h3>
+          <p>Each environment family keeps its own scope, identity, and dedicated entry point.</p>
         </article>
         <article>
           <span class="principle-number">02</span>
@@ -130,7 +126,7 @@
 
     <footer class="site-footer shell">
       <span>Gym Anything</span>
-      <span>Measured worlds for embodied intelligence.</span>
+      <span>Independent environment projects, one shared home.</span>
     </footer>
   </body>
 </html>

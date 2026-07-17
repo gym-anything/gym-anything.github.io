@@ -1,0 +1,510 @@
+{
+  "schemaVersion": 1,
+  "siteUrl": "https://gym-anything.github.io/",
+  "sourceRepository": "gym-anything/gym_anything_for_robotics",
+  "sourceCommit": "577afb48b79bf9d42475470cafb210e42ff7da75",
+  "assetCount": 100,
+  "assetBytes": 95664858,
+  "assets": [
+    {
+      "path": "applecut/FINDINGS.md",
+      "bytes": 16978,
+      "sha256": "71896bad64d13adea64279a63c5c207cfd842a7095be329b8d99ddcd35cfc4ed"
+    },
+    {
+      "path": "applecut/RESEARCH.md",
+      "bytes": 54122,
+      "sha256": "00039452ad1078994331eadb42dec1fa47b24438621955e4dbf806a44a70dddf"
+    },
+    {
+      "path": "applecut/paper/applecut_physics_report.pdf",
+      "bytes": 7123165,
+      "sha256": "3f139daf351d54dec5da5750d50c5f773bcf7fb71ce3f9cd9e2cb0bfbde5c5ef"
+    },
+    {
+      "path": "applecut/paper/motion_frames/03_mid_depth_robot.png",
+      "bytes": 427943,
+      "sha256": "f145290e79511b6079914f99c14efcc1d5c24c99a0f0b9daad845010a0b2ae24"
+    },
+    {
+      "path": "applecut/paper/motion_frames/06_board_clear_terminal_robot.png",
+      "bytes": 422971,
+      "sha256": "45c57d79c5cb60c848d7d0b3151b9648753dc4ac34e500083a452ddbc35a5252"
+    },
+    {
+      "path": "applecut/paper/rendered_pages/page_01.png",
+      "bytes": 350864,
+      "sha256": "a01d2e98d554fadd5009a021b456b4805de4b15542cb4b05346239c965673bb7"
+    },
+    {
+      "path": "applecut/renders/applecut_gpu_fem_edge.png",
+      "bytes": 1209125,
+      "sha256": "d4b988d2ffe2cfb12e62d7485981eb3e97f62f74e9e75cdca68110e76c9b7d3e"
+    },
+    {
+      "path": "applecut/renders/applecut_gpu_fem_hero.png",
+      "bytes": 641276,
+      "sha256": "46509cd1c50966da318862eb0d27ec9bd68f4e72de8cbf47c0fc0c8abedca66d"
+    },
+    {
+      "path": "applecut/renders/applecut_robot_robot.png",
+      "bytes": 671431,
+      "sha256": "22554556f49592d59949a9c60cc602d1cd7310ecf187c5db92374ff2ebbc1587"
+    },
+    {
+      "path": "applecut/traces/gpu_fem_full_cut_probe.json",
+      "bytes": 87307,
+      "sha256": "61c3b2f79fc021ac3d6a88fdf5f1b582a305c8af3e32d0d8a22407ff471a5699"
+    },
+    {
+      "path": "applecut/traces/gpu_fem_robot_coupling_probe.json",
+      "bytes": 18409,
+      "sha256": "2891fbac2862ce125564c32958c5d15afb280061b7f86350ed7e2be0a1588130"
+    },
+    {
+      "path": "code_policy/artifacts/best_attempt_videos_20260715/01_applecut_pass_attempt-001_6x.mp4",
+      "bytes": 2493742,
+      "sha256": "2250940300eac3d6059ed448dde50de980b7fc1404c14a25d7510fe010fafe26"
+    },
+    {
+      "path": "code_policy/artifacts/best_attempt_videos_20260715/02_lego_pass_blue-10mm-extraction_attempt-001_6x.mp4",
+      "bytes": 9909531,
+      "sha256": "a5df96a97f43c5053cd4df6050a47104d6cd8155d63a8dfc3ab78d44e1c01605"
+    },
+    {
+      "path": "code_policy/artifacts/best_attempt_videos_20260715/03_lockkey_pass_attempt-001_6x.mp4",
+      "bytes": 8332794,
+      "sha256": "e3424355781b1cef1c49b5dc5e1d7cac05579e21266b0dd1da97b167f20c3f07"
+    },
+    {
+      "path": "code_policy/artifacts/best_attempt_videos_20260715/04_pencap_near-success_attempt-001_6x.mp4",
+      "bytes": 1315493,
+      "sha256": "3aa817943ab8aa1887bef6803a7afb49c93f9a2e1cbe1eddbc76cf1403e2bf8f"
+    },
+    {
+      "path": "football/FINDINGS.md",
+      "bytes": 9337,
+      "sha256": "f4cc07e28f5271c1d635c3a8d5d3eac30db855a71d2109c3273f0528af29e38d"
+    },
+    {
+      "path": "football/RESEARCH.md",
+      "bytes": 65802,
+      "sha256": "4c8073943cf80fd5176c8e1543eeada585914e19cfa97ed446c19386f30c112c"
+    },
+    {
+      "path": "football/outputs/isaac_p5_integrated_shot.json",
+      "bytes": 2851162,
+      "sha256": "768127a02dce124e621451b9d0d6dda5eac84345bb5898a1aaf314d537e5f1a6"
+    },
+    {
+      "path": "football/outputs/isaac_p5_integrated_shot_low_spin.json",
+      "bytes": 2375617,
+      "sha256": "337131dddad1a50326ea6f6f74c4837008bf589c8456ad8d3a6ff20a64fb19f3"
+    },
+    {
+      "path": "football/outputs/p4_foot_contact_tensor_rate_sweep.json",
+      "bytes": 3748,
+      "sha256": "df71fe6e7da0cb487ddc9722133a990d03c86421281e2a4d7a5f5fcab5bd8ede"
+    },
+    {
+      "path": "football/outputs/p5_integrated_evidence_summary.json",
+      "bytes": 3509,
+      "sha256": "fabe0b7cce9d0d6373b119924ef80b7322e70581843a4a0681779f74fb04fb97"
+    },
+    {
+      "path": "football/outputs/p5_shot_profiles_summary.json",
+      "bytes": 3275,
+      "sha256": "b51d1948ec39bb2ff3dfc783017298e180f110ed9233f03dd5d697a830fe3350"
+    },
+    {
+      "path": "football/paper/figures/mechanism_architecture.png",
+      "bytes": 128503,
+      "sha256": "2fad5533bba720d5e7f4a109fbd0a5cf478ed9f62e7381c35593a9f3c58d1630"
+    },
+    {
+      "path": "football/paper/figures/shot_trajectories.png",
+      "bytes": 109411,
+      "sha256": "9a8d0c9303e2edacbfa5641e050e9ca33b71c57193ae65732da1d9791c8e0bd8"
+    },
+    {
+      "path": "football/paper/football_physics_report.pdf",
+      "bytes": 5292405,
+      "sha256": "32714292faa7b8cd92074e3b0bec024ddc43cbc133a048e95ccb37a58d75f7fa"
+    },
+    {
+      "path": "football/paper/rendered_pages/page_01.png",
+      "bytes": 383621,
+      "sha256": "3002e5ad3d34811d41dd07c7e179344317280b002d76f726d47a3fda39c8943c"
+    },
+    {
+      "path": "football/renders/p5_00_ready.png",
+      "bytes": 1205234,
+      "sha256": "d2972aef69dd0f1292f3d0829502b6d77b555c3a434f46a1525c25da7fc16a66"
+    },
+    {
+      "path": "football/renders/p5_01_windup.png",
+      "bytes": 1218781,
+      "sha256": "50cb48bfa7d7f56ee396a8098a3fc79a0a9d2169a83a03f18b6bafe9903cbcbb"
+    },
+    {
+      "path": "football/renders/p5_02_strike.png",
+      "bytes": 979122,
+      "sha256": "bffa9da04da5cc3d590afb00c2cc20d95cdb759b545c495a27d2c5ae488c8b1f"
+    },
+    {
+      "path": "football/renders/p5_03_braking.png",
+      "bytes": 911140,
+      "sha256": "bad51ddfff8430306bad04610cade9dc3353ab6ffa7d7ee5b795d6d4227be9a5"
+    },
+    {
+      "path": "football/renders/p5_04_travel.png",
+      "bytes": 895900,
+      "sha256": "551755fa11f8ffb95d3f1dafd293f79198aabd5f7f08f02e0d310791123d3fb6"
+    },
+    {
+      "path": "football/renders/p5_05_goal.png",
+      "bytes": 1169296,
+      "sha256": "2bceefc276276abffdb3cc5699ee4c7c67c9e0dc53865bdc2f977f3a5462cb5d"
+    },
+    {
+      "path": "football/videos/humanoid_football_curl_1p5x.mp4",
+      "bytes": 1384765,
+      "sha256": "242b56a8f583d1e48889efe3c5b16c9f551ab252169f7807178b8e34748b09bd"
+    },
+    {
+      "path": "football/videos/humanoid_football_curl_contact_sheet.jpg",
+      "bytes": 224027,
+      "sha256": "2daac008259c5a23b8919e42a628b3071db076d4a96bdb108f6d5d73d08cfbfb"
+    },
+    {
+      "path": "football/videos/humanoid_football_low_spin_1p5x.mp4",
+      "bytes": 1190429,
+      "sha256": "dd2b00a68b5ed0e509c4d9a8a074ffe711ac28aeef292311e703fc383da7c3c2"
+    },
+    {
+      "path": "football/videos/humanoid_football_low_spin_contact_sheet.jpg",
+      "bytes": 227693,
+      "sha256": "40f0024ea64f1c759d8548ff9425fc02e91b67b2ab0dc6b854df622014dfa7d3"
+    },
+    {
+      "path": "football/videos/video_evidence_summary.json",
+      "bytes": 3812,
+      "sha256": "5290c818f106b2c8ac02de9a91b6033c3f94a237c28711f328622f98407a9c84"
+    },
+    {
+      "path": "lego/FINDINGS.md",
+      "bytes": 10746,
+      "sha256": "c5f5f1a56a06525109c46de748b3ce9949a9b7f0eb6209d7f906b882a0684c00"
+    },
+    {
+      "path": "lego/RESEARCH.md",
+      "bytes": 49555,
+      "sha256": "92019f4894f3c3b0fe2f9448c183799085d41cafff8d52b61914c144adb5f2d6"
+    },
+    {
+      "path": "lego/paper/lego_physics_report.pdf",
+      "bytes": 9738306,
+      "sha256": "58095c066017a8042a4c0b26171bde2c48dc6dc42e3a1f8ef4cce86b3e1eb131"
+    },
+    {
+      "path": "lego/paper/motion_frames/00_ready_hero.png",
+      "bytes": 494285,
+      "sha256": "49c86839e93f3d047b80c7f0b467bb298b7151b9c2c7ff35f3934a5edbc3709b"
+    },
+    {
+      "path": "lego/paper/motion_frames/03_physical_lift_hero.png",
+      "bytes": 507367,
+      "sha256": "95fc5970968cc03ab1535dbd4bc00676a942ee62e3273119f2eaebeffa4d3b28"
+    },
+    {
+      "path": "lego/paper/motion_frames/06_contact_loaded_press_macro.png",
+      "bytes": 591296,
+      "sha256": "6b5dcd5e9f5c0da9b93a3ac137e6c68051188b3b26f6bd261db2295b973b4e89"
+    },
+    {
+      "path": "lego/renders/scene_close.png",
+      "bytes": 953643,
+      "sha256": "d4966bf9421347bfc0ba193c0e9bce9e7abab1a7f8b03c29ba05ec898e0f137f"
+    },
+    {
+      "path": "lego/renders/scene_hero.png",
+      "bytes": 790302,
+      "sha256": "5b8329859bb6af77db6416b5a5be7cc023a6e3fa2a6f7c5f6d1387daaa6a6884"
+    },
+    {
+      "path": "lego/renders/scene_macro.png",
+      "bytes": 972505,
+      "sha256": "1fb31a2939cab4101c7dda0e098c1324b78806cb008dc96fd0a74ec5e2c0a7bf"
+    },
+    {
+      "path": "lego/traces/contact_matrix_runs.json",
+      "bytes": 744,
+      "sha256": "303e857d57724c895d02be8b012b166efeb2339dbae78e0fb41c7f1559e94deb"
+    },
+    {
+      "path": "lego/traces/robot_assemble_interactive_report_v33.json",
+      "bytes": 305095,
+      "sha256": "196013b3482baf4b1f87c1676a918e6a004b3cbd3ff8d0446fcb44d1876c1441"
+    },
+    {
+      "path": "lockkey/FINDINGS.md",
+      "bytes": 20021,
+      "sha256": "4167e6ce31340372c11e7dc37b07f80787b7c3fe736a8a46e3ec89d61248ba3e"
+    },
+    {
+      "path": "lockkey/RESEARCH.md",
+      "bytes": 17903,
+      "sha256": "1bcbbe0d770713334c608f73c401d6c403d1d89eedda9df13ca7ed201659cb4b"
+    },
+    {
+      "path": "lockkey/figs/fig_mechanism.png",
+      "bytes": 70971,
+      "sha256": "d27f772132082bd1962a4b9e1afadfe672fce7766a6d4c4ebe8c75fdd7520a73"
+    },
+    {
+      "path": "lockkey/figs/fig_results.png",
+      "bytes": 47076,
+      "sha256": "a5a33d1a1bcd8e7bbbbb18d5d0160a286785060a3fc8799177fa28ebd6ef9242"
+    },
+    {
+      "path": "lockkey/paper/fig_padlock.png",
+      "bytes": 190618,
+      "sha256": "2129997d232477f68f431fbf90f3e0dca338568b7fe27ac0dad86c6344e7013a"
+    },
+    {
+      "path": "lockkey/paper/lockkey.pdf",
+      "bytes": 407181,
+      "sha256": "6adbc5edb3a988b0d78967f431044dd302f39d866dde227d151ec129aab16427"
+    },
+    {
+      "path": "lockkey/renders/eo_beauty.png",
+      "bytes": 1002035,
+      "sha256": "ce4096543195a7ce89d8a48db061e772487a94e9caaabebde4b4f4cac95d756d"
+    },
+    {
+      "path": "lockkey/renders/key_iso.png",
+      "bytes": 96079,
+      "sha256": "0ab9e1c0952eb9be823e641dbcb59a22e2890f7620e38eb96d3ff8c55ac7730e"
+    },
+    {
+      "path": "lockkey/renders/lock_iso.png",
+      "bytes": 231642,
+      "sha256": "7e3fa979262bb7cba73af6721795bcfba73420ddef5a01dcde05642657469421"
+    },
+    {
+      "path": "lockkey/renders/ub_scene_hero.png",
+      "bytes": 1005573,
+      "sha256": "2765d92ce56435fbe4908b977dd4637b1202b35abe016d50cfb4f94ee3b62932"
+    },
+    {
+      "path": "pencap/FINDINGS.md",
+      "bytes": 5540,
+      "sha256": "5b69414e0f81a96270dcbc299edfdacc3bc53c253b8d3f8bfc2a873487d83555"
+    },
+    {
+      "path": "pencap/RESEARCH.md",
+      "bytes": 8501,
+      "sha256": "074cacec53a7c5c9530ea6bf9c615a3ebc67f786d1c45665248badac3687a775"
+    },
+    {
+      "path": "pencap/final_capflare.png",
+      "bytes": 705923,
+      "sha256": "30d37e8550b6d832c24003342b0210b470544c79b6d64875e94641d9ae0bcb41"
+    },
+    {
+      "path": "pencap/final_wide.png",
+      "bytes": 483708,
+      "sha256": "2f3e838dc2fe5adcb53a34934a48cbbd988099196502c2b0c245264dfac27b94"
+    },
+    {
+      "path": "pencap/p1i_trace.json",
+      "bytes": 516885,
+      "sha256": "8cf2f3506ae4f707db054f4351f239b48c7c25685d567d4b74344c51d9455a8a"
+    },
+    {
+      "path": "pencap/paper/figs/final_wide.png",
+      "bytes": 420653,
+      "sha256": "8a33bab91b14cf31bdc1458f4e0e46eb2061a68b0c82a71c4bbf671704b95720"
+    },
+    {
+      "path": "pencap/paper/figs/p1i_curve.png",
+      "bytes": 60935,
+      "sha256": "776e8d033332ddb7fc1c2599d7cc0f2b9e5719fa16274eb15ce77607891e7ed0"
+    },
+    {
+      "path": "pencap/paper/figs/snap_after.png",
+      "bytes": 58192,
+      "sha256": "82e342848404c7adcf2217bcc15aca4ef362740f04ad2fc6911e20c2c0a70373"
+    },
+    {
+      "path": "pencap/paper/figs/snap_before.png",
+      "bytes": 75431,
+      "sha256": "fd5cc49b15984b1ab629f9a546c673861f9a6579486a5236822e84db780f52b3"
+    },
+    {
+      "path": "pencap/paper/pencap_click.pdf",
+      "bytes": 3012310,
+      "sha256": "e849b74bdb3ca5312f9eed4a0dffc8610223afd0cfc819a54ca03b543eafc39b"
+    },
+    {
+      "path": "pencap/pencap_snap.mp4",
+      "bytes": 288677,
+      "sha256": "d673b5d2f440f2682891b542d5f988c1a095cab7b5bd955f1940cb362d7c9cf5"
+    },
+    {
+      "path": "portal/README.md",
+      "bytes": 4976,
+      "sha256": "aaafd91f05e0797e29e4d5af0726465056db3d29a5bf279c4a389b68b289ff08"
+    },
+    {
+      "path": "quarry/ATTRIBUTIONS.md",
+      "bytes": 1223,
+      "sha256": "21e78fca58df74744898adaa7fce98997acf62622223d8f1f76573c1355ca5d2"
+    },
+    {
+      "path": "quarry/memory/OPEN_ISSUES.md",
+      "bytes": 8730,
+      "sha256": "a0c21f1a02fc51e8b1fb8c0f4ffcca33d91fdeb448d819f05341880e5daacd1f"
+    },
+    {
+      "path": "quarry/memory/TECHNICAL_REFERENCE.md",
+      "bytes": 22302,
+      "sha256": "3182e65197bc104dcb6d85d64310e068ea5b45d2dcefc588ea90c41ca6a4cd83"
+    },
+    {
+      "path": "quarry/previews_proof/rgb_0000.png",
+      "bytes": 1080763,
+      "sha256": "bc8d95f066167b356b910b42d88c2920f346744ec48bed2ed4b3df11a2771609"
+    },
+    {
+      "path": "quarry/previews_proof/rgb_0005.png",
+      "bytes": 1128982,
+      "sha256": "f028e9a461a060248166ca00bef1af6ee04ac600eead66284eaf242efa0c20dc"
+    },
+    {
+      "path": "quarry/previews_proof/rgb_0015.png",
+      "bytes": 883111,
+      "sha256": "994017061ecda7eda20c8f5e6067d54c557fafc25cd7ab09ebae793f35750acb"
+    },
+    {
+      "path": "quarry/quarry_task_params.json",
+      "bytes": 843,
+      "sha256": "3711c8fe221938245a9339e1a562e1f296bff5db94137136f59197278884b6d3"
+    },
+    {
+      "path": "quarry/verify_report.json",
+      "bytes": 587,
+      "sha256": "8d778566a7ba4ba2c33f5f2c421f5d3d10f97983448e03c26e9d1c6eca9294dc"
+    },
+    {
+      "path": "sorthub/ACCEPTANCE.md",
+      "bytes": 4480,
+      "sha256": "7ad9081ce46eeaa7cd3593ef78cd8908373e112c0faa5dfee9cd35fc58b9f52d"
+    },
+    {
+      "path": "sorthub/audit_frames/fac_overview.png",
+      "bytes": 814122,
+      "sha256": "03a3af01f67b21184ba763b2e943915bdd3c990c3fe4da0b68e8a37447fcb496"
+    },
+    {
+      "path": "sorthub/grasp_frames/fg_1_open_at_box.png",
+      "bytes": 440417,
+      "sha256": "c71686dd3c851856df9e4f7a05d53dc7a0ae2aa6421d0156b8653e2126826086"
+    },
+    {
+      "path": "sorthub/grasp_frames/fg_3_lifted.png",
+      "bytes": 463468,
+      "sha256": "cc35321f28fd4d45f1bb84045f1a09de16341e481c061f536d365a12f6574c21"
+    },
+    {
+      "path": "sorthub/memory/SORTHUB_NOTES.md",
+      "bytes": 51419,
+      "sha256": "2742f8c294451c0735c53b287937ac29d8477da5765caee00713d046397511b8"
+    },
+    {
+      "path": "sorthub/sorted_front.png",
+      "bytes": 1456279,
+      "sha256": "be7c4592d3e2318259d51b51cb4fb3d38c2d8a585c399dd9487978413234cdf1"
+    },
+    {
+      "path": "sorthub/sorted_over.png",
+      "bytes": 1452815,
+      "sha256": "5a00375c8b6bd9acedbea4cb47df9bcc428106da032ba5093252826fe6811deb"
+    },
+    {
+      "path": "titrate/FINDINGS.md",
+      "bytes": 18627,
+      "sha256": "1fa913997b487c94ce03a2dd6d1e75ea1c318eaffbadb8c7b54de48edad4f000"
+    },
+    {
+      "path": "titrate/RESEARCH.md",
+      "bytes": 13197,
+      "sha256": "4dfbddc522ecc7a2b4b80090fea1884d0cba859b5b5501b40ecf4be4545e9bfb"
+    },
+    {
+      "path": "titrate/paper/figs/t3_curve.png",
+      "bytes": 72059,
+      "sha256": "86fa19ab81356026bd9b4b2cf05912cb59ea8c1dc77859d0747ebe3dc944e346"
+    },
+    {
+      "path": "titrate/paper/figs/t5a_wide.png",
+      "bytes": 764246,
+      "sha256": "d16f199babcb674347133d0600fb316184716fd61e54fc5123193ae65a086f75"
+    },
+    {
+      "path": "titrate/paper/figs/t5b_grip.png",
+      "bytes": 629275,
+      "sha256": "e3391a2f9146b378048b426e3302880f89582f87cbc33624451a3e16eb983db5"
+    },
+    {
+      "path": "titrate/paper/figs/t5d_endpoint.png",
+      "bytes": 539066,
+      "sha256": "b472aa85d123a01f1924773c70ec6213bc6c87646d04b8958aaeb57ca9fa6b57"
+    },
+    {
+      "path": "titrate/paper/figs/t5e_v2_crop.png",
+      "bytes": 377428,
+      "sha256": "c76b2b329995dbdff063bc9457a474a79a73122629ed5e3f8a80becf0ddbd88f"
+    },
+    {
+      "path": "titrate/paper/page1.png",
+      "bytes": 205202,
+      "sha256": "9f141f65dfea2edeba2b8ef774a072cfe00d1575037912dd0206f8104121f164"
+    },
+    {
+      "path": "titrate/paper/titrate.pdf",
+      "bytes": 5162102,
+      "sha256": "9b3c4d318f517aa037a99c50cc15df88e2597c93810ba284f80010b59a01ff17"
+    },
+    {
+      "path": "triage/WHITEPAPER.md",
+      "bytes": 20537,
+      "sha256": "0593b4ece26f67b0bca62e52d23583ebefb670b05e986d0af33f9556fff4c776"
+    },
+    {
+      "path": "triage/live_operator.png",
+      "bytes": 900335,
+      "sha256": "987402547fe4189449286a86eb80f88640e411f3a81541b7d7dd253f01cb481d"
+    },
+    {
+      "path": "triage/live_overview.png",
+      "bytes": 1386554,
+      "sha256": "7577521cbec971052d79a3025d15bf5dc29ea12ff731597c42975d784e299472"
+    },
+    {
+      "path": "triage/live_tray_close.png",
+      "bytes": 828217,
+      "sha256": "20bc9518363727b29bed81c3f4954204cfbb0bc1198b0d7137f9edd7ee39d5e0"
+    },
+    {
+      "path": "triage/memory/PHASE1_FINDINGS.md",
+      "bytes": 6733,
+      "sha256": "e1dfb479f84138991d2dd2f2a9696b623331d661dfd0c2db5c14c860ab2c3877"
+    },
+    {
+      "path": "triage/paper/triage_station.pdf",
+      "bytes": 75325,
+      "sha256": "cf591eea2d2332856faa738ea1654f11447f56a593ffdf7296774f516823bcf8"
+    }
+  ]
+}

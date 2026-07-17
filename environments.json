@@ -1,0 +1,1366 @@
+{
+  "schemaVersion": 1,
+  "repository": {
+    "name": "Gym Anything for Robotics",
+    "shortName": "Gym Anything",
+    "description": "Physics-first embodied task environments for Isaac Sim, with inspectable evidence from first principles to full robot execution.",
+    "owner": "Robotics Environment Lab"
+  },
+  "categories": [
+    "All",
+    "Deformables",
+    "Assembly",
+    "Manipulation",
+    "Sports",
+    "Fluids",
+    "Industrial",
+    "Mobile manipulation"
+  ],
+  "environments": [
+    {
+      "id": "applecut",
+      "title": "AppleCut",
+      "eyebrow": "Deformable cutting",
+      "category": "Deformables",
+      "summary": "A robot-driven knife cuts a volumetric apple with explicit fracture, contact, and energy accounting.",
+      "description": "AppleCut couples a Franka-held knife to a GPU deformable apple and measures the complete cut as a physics experiment: interface separation, fracture work, contact reaction, element quality, vibration, and energy closure are all recorded rather than inferred from animation.",
+      "version": "0.4.0",
+      "updated": "2026-07-12",
+      "accent": "#ff5b45",
+      "hero": "applecut/renders/applecut_robot_robot.png",
+      "featured": true,
+      "mode": "Keyboard \u00b7 force-responsive servo",
+      "status": {
+        "label": "Execution proven",
+        "tone": "amber",
+        "detail": "The whole apple separates in the coupled robot run; the separate whole-cut energy-acceptance gate remains open."
+      },
+      "tags": [
+        "Fracture",
+        "GPU FEM",
+        "Franka",
+        "Contact"
+      ],
+      "metrics": [
+        {
+          "label": "Separated bands",
+          "value": "19 / 19"
+        },
+        {
+          "label": "Cohesive area",
+          "value": "100%"
+        },
+        {
+          "label": "Peak reaction",
+          "value": "26.68 N"
+        },
+        {
+          "label": "Energy residual",
+          "value": "5.833%",
+          "tone": "amber"
+        }
+      ],
+      "profiles": [
+        {
+          "id": "interactive",
+          "label": "Robot + full apple",
+          "description": "Launch the embodied keyboard-controlled cutting scene."
+        },
+        {
+          "id": "coupon",
+          "label": "FEM coupon",
+          "description": "Open the smaller fracture coupon for fast mechanism inspection."
+        }
+      ],
+      "controls": [
+        {
+          "keys": "I / K",
+          "action": "Move knife +X / \u2212X"
+        },
+        {
+          "keys": "J / L",
+          "action": "Move knife +Y / \u2212Y"
+        },
+        {
+          "keys": "U / N",
+          "action": "Raise / lower knife"
+        },
+        {
+          "keys": "B",
+          "action": "Return to home pose"
+        },
+        {
+          "keys": "R",
+          "action": "Reset the environment"
+        },
+        {
+          "keys": "C",
+          "action": "Print physics diagnostics"
+        },
+        {
+          "keys": "V",
+          "action": "Cycle inspection camera"
+        }
+      ],
+      "artifacts": [
+        {
+          "label": "Physics report",
+          "path": "applecut/paper/applecut_physics_report.pdf",
+          "preview": "applecut/paper/rendered_pages/page_01.png",
+          "type": "pdf",
+          "group": "Reports",
+          "caption": "Full derivation, validation contract, related work, motion frames, and reward definition."
+        },
+        {
+          "label": "Autonomous pass video",
+          "path": "code_policy/artifacts/best_attempt_videos_20260715/01_applecut_pass_attempt-001_6x.mp4",
+          "preview": "applecut/renders/applecut_robot_robot.png",
+          "type": "video",
+          "group": "Motion",
+          "caption": "Fresh authoritative robot-policy pass with environment and trace audits; complete viewport trajectory at 6\u00d7 playback."
+        },
+        {
+          "label": "Embodied scene",
+          "path": "applecut/renders/applecut_robot_robot.png",
+          "type": "image",
+          "group": "Renders",
+          "caption": "Robot-held knife, apple fixture, board, and task lighting."
+        },
+        {
+          "label": "GPU FEM cut",
+          "path": "applecut/renders/applecut_gpu_fem_hero.png",
+          "type": "image",
+          "group": "Renders",
+          "caption": "Deformable discretization and explicit cutting interface."
+        },
+        {
+          "label": "Edge detail",
+          "path": "applecut/renders/applecut_gpu_fem_edge.png",
+          "type": "image",
+          "group": "Renders",
+          "caption": "Knife-edge and deformable contact close-up."
+        },
+        {
+          "label": "Cut progression",
+          "path": "applecut/paper/motion_frames/03_mid_depth_robot.png",
+          "type": "image",
+          "group": "Motion",
+          "caption": "Mid-depth coupled execution frame."
+        },
+        {
+          "label": "Terminal cut",
+          "path": "applecut/paper/motion_frames/06_board_clear_terminal_robot.png",
+          "type": "image",
+          "group": "Motion",
+          "caption": "Board-clear terminal proof frame."
+        },
+        {
+          "label": "Coupling trace",
+          "path": "applecut/traces/gpu_fem_robot_coupling_probe.json",
+          "type": "json",
+          "group": "Data",
+          "caption": "Measured robot/deformable coupling probe."
+        },
+        {
+          "label": "Full-cut trace",
+          "path": "applecut/traces/gpu_fem_full_cut_probe.json",
+          "type": "json",
+          "group": "Data",
+          "caption": "Complete cut topology, stability, reaction, and energy channels."
+        },
+        {
+          "label": "Research dossier",
+          "path": "applecut/RESEARCH.md",
+          "type": "text",
+          "group": "Notes",
+          "caption": "Primary-source material research and modeling decisions."
+        },
+        {
+          "label": "Verified findings",
+          "path": "applecut/FINDINGS.md",
+          "type": "text",
+          "group": "Notes",
+          "caption": "Chronological measurements, failures, and retained claims."
+        }
+      ]
+    },
+    {
+      "id": "football",
+      "title": "Humanoid Football",
+      "eyebrow": "Aerodynamic sports dynamics",
+      "category": "Sports",
+      "summary": "A floating-base G1 causally kicks a regulation-scale ball through shoe impact, spin, aerodynamics, pitch, and a continuous whole-ball goal test.",
+      "description": "Humanoid Football treats an atomic penalty kick as a coupled physics experiment. Bounded robot commands create a real shoe-ball impulse and outgoing spin; a six-DoF ball then evolves under pressure-shell contact, compliant grass, Reynolds-dependent drag, Magnus, coherent low-spin wake, frame/net contact, and IFAB whole-ball scoring. Two profiles pass internally, while named-specimen calibration remains explicit and open.",
+      "version": "0.1.0",
+      "updated": "2026-07-16",
+      "accent": "#39b86f",
+      "hero": "football/renders/p5_00_ready.png",
+      "featured": true,
+      "mode": "Autonomous / causal full-body kick",
+      "status": {
+        "label": "Two causal profiles pass",
+        "tone": "amber",
+        "detail": "Curl and low-spin runs both score and recover with zero outgoing ball-state assignments; ball, pitch, net, and exact G1 calibration remain open."
+      },
+      "tags": [
+        "G1",
+        "Aerodynamics",
+        "Impact",
+        "Sports"
+      ],
+      "metrics": [
+        {
+          "label": "Curl goal",
+          "value": "7.036 s"
+        },
+        {
+          "label": "Curl residual",
+          "value": "+0.500 m"
+        },
+        {
+          "label": "Low-spin S",
+          "value": "0.019"
+        },
+        {
+          "label": "Recovery",
+          "value": "0.985 / 0.980"
+        }
+      ],
+      "profiles": [
+        {
+          "id": "curl",
+          "label": "Causal curl goal",
+          "description": "Run the canonical visible G1 strike whose contact-generated sidespin bends the ground shot into goal."
+        },
+        {
+          "id": "low-spin",
+          "label": "Low-spin goal",
+          "description": "Run the contact-generated low-spin profile with a deterministic coherent wake; this is not yet a calibrated high-speed knuckleball."
+        }
+      ],
+      "controls": [
+        {
+          "keys": "Automatic",
+          "action": "Runs the finite 10 s kick, goal, and recovery audit"
+        },
+        {
+          "keys": "Mouse",
+          "action": "Orbit and inspect the Isaac viewport while the rollout runs"
+        },
+        {
+          "keys": "Profile",
+          "action": "Choose curl or low-spin before launch"
+        }
+      ],
+      "artifacts": [
+        {
+          "label": "Physics report",
+          "path": "football/paper/football_physics_report.pdf",
+          "preview": "football/paper/rendered_pages/page_01.png",
+          "type": "pdf",
+          "group": "Reports",
+          "caption": "Thirty-page engineering dossier covering equations, model ownership, sources, impact, aerodynamics, convergence, motion frames, reward, and calibration."
+        },
+        {
+          "label": "Verified curl video",
+          "path": "football/videos/humanoid_football_curl_1p5x.mp4",
+          "preview": "football/videos/humanoid_football_curl_contact_sheet.jpg",
+          "type": "video",
+          "group": "Motion",
+          "caption": "Fresh causal Isaac viewport run: exact canonical physical-state match, whole-ball goal at 7.036 s, H.264 at 1.5x playback."
+        },
+        {
+          "label": "Verified low-spin video",
+          "path": "football/videos/humanoid_football_low_spin_1p5x.mp4",
+          "preview": "football/videos/humanoid_football_low_spin_contact_sheet.jpg",
+          "type": "video",
+          "group": "Motion",
+          "caption": "Fresh low-spin Isaac viewport run: exact canonical physical-state match, whole-ball goal at 6.147 s, then natural settled termination."
+        },
+        {
+          "label": "Ready scene",
+          "path": "football/renders/p5_00_ready.png",
+          "type": "image",
+          "group": "Renders",
+          "caption": "Regulation-scale penalty scene with a floating-base G1, marked grass pitch, ball, and full goal."
+        },
+        {
+          "label": "Wind-up",
+          "path": "football/renders/p5_01_windup.png",
+          "type": "image",
+          "group": "Motion",
+          "caption": "Support shift, leg wind-up, and arm counter-swing before contact."
+        },
+        {
+          "label": "Shoe-ball strike",
+          "path": "football/renders/p5_02_strike.png",
+          "type": "image",
+          "group": "Motion",
+          "caption": "Close view of the mesh-derived shoe proxy contacting the pressure-shell ball."
+        },
+        {
+          "label": "Braking and recovery",
+          "path": "football/renders/p5_03_braking.png",
+          "type": "image",
+          "group": "Motion",
+          "caption": "Finite-contact release followed by leg braking and floating-base recovery."
+        },
+        {
+          "label": "Goal approach",
+          "path": "football/renders/p5_04_travel.png",
+          "type": "image",
+          "group": "Motion",
+          "caption": "Contact-generated shot evolving under pitch and aerodynamic forces."
+        },
+        {
+          "label": "Whole-ball goal",
+          "path": "football/renders/p5_05_goal.png",
+          "type": "image",
+          "group": "Motion",
+          "caption": "Curl ball fully inside after the continuous legal crossing at 7.036 s."
+        },
+        {
+          "label": "Trajectory comparison",
+          "path": "football/paper/figures/shot_trajectories.png",
+          "type": "image",
+          "group": "Evidence",
+          "caption": "Plan and elevation histories for curl and low-spin profiles under one unchanged physical model."
+        },
+        {
+          "label": "Mechanism architecture",
+          "path": "football/paper/figures/mechanism_architecture.png",
+          "type": "image",
+          "group": "Evidence",
+          "caption": "Module ownership, two-way reaction, and no-launcher causality contract."
+        },
+        {
+          "label": "Canonical curl trace",
+          "path": "football/outputs/isaac_p5_integrated_shot.json",
+          "type": "json",
+          "group": "Data",
+          "caption": "Full fixed-step robot, contact, deformation, pitch, aerodynamic, recovery, and goal trace."
+        },
+        {
+          "label": "Low-spin trace",
+          "path": "football/outputs/isaac_p5_integrated_shot_low_spin.json",
+          "type": "json",
+          "group": "Data",
+          "caption": "Second named profile with contact-generated low spin and coherent-wake diagnostics."
+        },
+        {
+          "label": "Independent evidence gate",
+          "path": "football/outputs/p5_integrated_evidence_summary.json",
+          "type": "json",
+          "group": "Data",
+          "caption": "Compact re-gate for causality, conservation, fixed-step rendering, recovery, and no-write evidence."
+        },
+        {
+          "label": "Profile comparison gate",
+          "path": "football/outputs/p5_shot_profiles_summary.json",
+          "type": "json",
+          "group": "Data",
+          "caption": "Cross-profile proof that both scores share one model and prescribe no ball outcome."
+        },
+        {
+          "label": "Video evidence gate",
+          "path": "football/videos/video_evidence_summary.json",
+          "type": "json",
+          "group": "Data",
+          "caption": "Full-decode, hash, renderer-clock, and exact visible/headless physical-history verification for both MP4 deliveries."
+        },
+        {
+          "label": "Contact-rate sweep",
+          "path": "football/outputs/p4_foot_contact_tensor_rate_sweep.json",
+          "type": "json",
+          "group": "Data",
+          "caption": "10/20/40 kHz convex-shoe rate convergence; numerical evidence, not calibration."
+        },
+        {
+          "label": "Research dossier",
+          "path": "football/RESEARCH.md",
+          "type": "text",
+          "group": "Notes",
+          "caption": "Extensive source catalogue, first-principles architecture, calibration ladder, and falsification plan."
+        },
+        {
+          "label": "Verified findings",
+          "path": "football/FINDINGS.md",
+          "type": "text",
+          "group": "Notes",
+          "caption": "Retained results, rejected shortcuts, failed branches, and exact open claims."
+        }
+      ]
+    },
+    {
+      "id": "lego",
+      "title": "LEGO Assembly",
+      "eyebrow": "Compliant assembly",
+      "category": "Assembly",
+      "summary": "A Franka grasps, aligns, presses, and pulls real-scale bricks through a calibrated stud-and-tube clutch.",
+      "description": "The LEGO environment begins with independent rigid bricks and explicit connector contact. Its evidence separates the high-resolution calibration fixture from the interactive embodied task and audits reach, grasp, alignment, insertion, seating, retention, and pull-off without treating a visual snap as success.",
+      "version": "0.6.0",
+      "updated": "2026-07-15",
+      "accent": "#ffcf33",
+      "hero": "lego/renders/scene_hero.png",
+      "featured": true,
+      "mode": "Keyboard \u00b7 Cartesian servo",
+      "status": {
+        "label": "Assembly + extraction proof",
+        "tone": "amber",
+        "detail": "A fresh policy run seats blue, then extracts it 11.128 mm relative to fixture-retained red with zero red motion; calibration to measured physical bricks remains an explicit open gate."
+      },
+      "tags": [
+        "Contact",
+        "Assembly",
+        "Franka",
+        "Clutch"
+      ],
+      "metrics": [
+        {
+          "label": "Blue extraction",
+          "value": "11.128 mm"
+        },
+        {
+          "label": "Peak insertion",
+          "value": "20.97 N"
+        },
+        {
+          "label": "Red motion",
+          "value": "0.000 mm"
+        },
+        {
+          "label": "Terminal engagement",
+          "value": "0.000 mm"
+        }
+      ],
+      "profiles": [
+        {
+          "id": "interactive",
+          "label": "Interactive assembly",
+          "description": "Launch the full Franka brick-assembly task."
+        }
+      ],
+      "controls": [
+        {
+          "keys": "I / K",
+          "action": "Move +X / \u2212X"
+        },
+        {
+          "keys": "J / L",
+          "action": "Move +Y / \u2212Y"
+        },
+        {
+          "keys": "U / N",
+          "action": "Move up / down"
+        },
+        {
+          "keys": "T / G",
+          "action": "Yaw clockwise / counter-clockwise"
+        },
+        {
+          "keys": "O / P",
+          "action": "Close / open gripper"
+        },
+        {
+          "keys": "B",
+          "action": "Home the arm"
+        },
+        {
+          "keys": "R",
+          "action": "Reset task"
+        },
+        {
+          "keys": "C / V",
+          "action": "Diagnostics / camera"
+        }
+      ],
+      "artifacts": [
+        {
+          "label": "Physics report",
+          "path": "lego/paper/lego_physics_report.pdf",
+          "preview": "lego/paper/motion_frames/00_ready_hero.png",
+          "type": "pdf",
+          "group": "Reports",
+          "caption": "Mechanism, solver audit, validation matrix, robot proof, and reward formalization."
+        },
+        {
+          "label": "Verified extraction video",
+          "path": "code_policy/artifacts/best_attempt_videos_20260715/02_lego_pass_blue-10mm-extraction_attempt-001_6x.mp4",
+          "preview": "lego/renders/scene_hero.png",
+          "type": "video",
+          "group": "Motion",
+          "caption": "Fresh authoritative pass: blue extracted 11.128 mm relative to fixture-retained red, which moved 0.000 mm; 6\u00d7 playback."
+        },
+        {
+          "label": "Assembly scene",
+          "path": "lego/renders/scene_hero.png",
+          "type": "image",
+          "group": "Renders",
+          "caption": "Full robot workcell and brick fixture."
+        },
+        {
+          "label": "Stud close-up",
+          "path": "lego/renders/scene_close.png",
+          "type": "image",
+          "group": "Renders",
+          "caption": "Real-scale connector geometry."
+        },
+        {
+          "label": "Contact macro",
+          "path": "lego/renders/scene_macro.png",
+          "type": "image",
+          "group": "Renders",
+          "caption": "Macro view of stud, wall, and receiving tube."
+        },
+        {
+          "label": "Legacy retention frame",
+          "path": "lego/paper/motion_frames/03_physical_lift_hero.png",
+          "type": "image",
+          "group": "Motion",
+          "caption": "Earlier grip-retention frame; the corrected video is the authoritative 10 mm relative-extraction proof."
+        },
+        {
+          "label": "Loaded press",
+          "path": "lego/paper/motion_frames/06_contact_loaded_press_macro.png",
+          "type": "image",
+          "group": "Motion",
+          "caption": "Measured loaded connector state."
+        },
+        {
+          "label": "Robot episode",
+          "path": "lego/traces/robot_assemble_interactive_report_v33.json",
+          "type": "json",
+          "group": "Data",
+          "caption": "Combined reach, grasp, place, insertion, and retention evidence."
+        },
+        {
+          "label": "Contact matrix",
+          "path": "lego/traces/contact_matrix_runs.json",
+          "type": "json",
+          "group": "Data",
+          "caption": "Perturbation and convergence cases."
+        },
+        {
+          "label": "Research dossier",
+          "path": "lego/RESEARCH.md",
+          "type": "text",
+          "group": "Notes",
+          "caption": "Real-brick geometry, materials, clutch force, and numerical research."
+        },
+        {
+          "label": "Verified findings",
+          "path": "lego/FINDINGS.md",
+          "type": "text",
+          "group": "Notes",
+          "caption": "Retained results and known transfer limits."
+        }
+      ]
+    },
+    {
+      "id": "lockkey",
+      "title": "Lock & Key",
+      "eyebrow": "Fine manipulation",
+      "category": "Manipulation",
+      "summary": "Insert and turn the correct cut key in a five-pin professional padlock; wrong keys bind physically.",
+      "description": "A real-scale padlock scene combines a recognizable laminated lock body and key set with the verified pin-stack mechanism underneath. Correct-key opening, wrong-key binding, ward refusal, insertion, turning, and shackle release are exposed as separate evidence rather than hidden in a scripted unlock event.",
+      "version": "0.6.0",
+      "updated": "2026-06-28",
+      "accent": "#ff9e45",
+      "hero": "lockkey/renders/ub_scene_hero.png",
+      "featured": true,
+      "mode": "Keyboard \u00b7 key actuation",
+      "status": {
+        "label": "Mechanism verified",
+        "tone": "green",
+        "detail": "The five-pin discrimination, physical insertion, turning, and shackle presentation passes are retained."
+      },
+      "tags": [
+        "Pin tumbler",
+        "Keys",
+        "Contact",
+        "Padlock"
+      ],
+      "metrics": [
+        {
+          "label": "Pin stacks",
+          "value": "5"
+        },
+        {
+          "label": "Correct key",
+          "value": "31542"
+        },
+        {
+          "label": "Open rotation",
+          "value": "51.7\u00b0"
+        },
+        {
+          "label": "Insertion force",
+          "value": "26 N"
+        }
+      ],
+      "profiles": [
+        {
+          "id": "interactive",
+          "label": "Padlock bench",
+          "description": "Launch the complete interactive lock-and-key scene."
+        }
+      ],
+      "controls": [
+        {
+          "keys": "I",
+          "action": "Push key into lock"
+        },
+        {
+          "keys": "K",
+          "action": "Pull key out"
+        },
+        {
+          "keys": "O",
+          "action": "Apply opening torque"
+        },
+        {
+          "keys": "P",
+          "action": "Turn key back"
+        },
+        {
+          "keys": "R",
+          "action": "Reset scene"
+        }
+      ],
+      "artifacts": [
+        {
+          "label": "Technical report",
+          "path": "lockkey/paper/lockkey.pdf",
+          "preview": "lockkey/paper/fig_padlock.png",
+          "type": "pdf",
+          "group": "Reports",
+          "caption": "Geometry, pin-stack equations, verification battery, and embodied task."
+        },
+        {
+          "label": "Autonomous pass video",
+          "path": "code_policy/artifacts/best_attempt_videos_20260715/03_lockkey_pass_attempt-001_6x.mp4",
+          "preview": "lockkey/renders/ub_scene_hero.png",
+          "type": "video",
+          "group": "Motion",
+          "caption": "Fresh authoritative robot-policy pass with environment and trace audits; complete viewport trajectory at 6\u00d7 playback."
+        },
+        {
+          "label": "Padlock scene",
+          "path": "lockkey/renders/ub_scene_hero.png",
+          "type": "image",
+          "group": "Renders",
+          "caption": "Updated professional padlock presentation."
+        },
+        {
+          "label": "Bench beauty",
+          "path": "lockkey/renders/eo_beauty.png",
+          "type": "image",
+          "group": "Renders",
+          "caption": "Lock, shackle, and key interaction detail."
+        },
+        {
+          "label": "Lock construction",
+          "path": "lockkey/renders/lock_iso.png",
+          "type": "image",
+          "group": "Renders",
+          "caption": "Isometric mechanism view."
+        },
+        {
+          "label": "Key profile",
+          "path": "lockkey/renders/key_iso.png",
+          "type": "image",
+          "group": "Renders",
+          "caption": "Cut key and shoulder geometry."
+        },
+        {
+          "label": "Mechanism figure",
+          "path": "lockkey/figs/fig_mechanism.png",
+          "type": "image",
+          "group": "Evidence",
+          "caption": "Pin-stack and shear-line explanation."
+        },
+        {
+          "label": "Result matrix",
+          "path": "lockkey/figs/fig_results.png",
+          "type": "image",
+          "group": "Evidence",
+          "caption": "Correct, wrong, and partial-key outcomes."
+        },
+        {
+          "label": "Research dossier",
+          "path": "lockkey/RESEARCH.md",
+          "type": "text",
+          "group": "Notes",
+          "caption": "Lock standards, dimensions, friction, springs, and user-force research."
+        },
+        {
+          "label": "Verified findings",
+          "path": "lockkey/FINDINGS.md",
+          "type": "text",
+          "group": "Notes",
+          "caption": "Probe-by-probe retained physics claims."
+        }
+      ]
+    },
+    {
+      "id": "pencap",
+      "title": "PenCap Click",
+      "eyebrow": "Snap-fit manipulation",
+      "category": "Manipulation",
+      "summary": "Push and pull a cap through a compliant pen snap while measuring the force-displacement click.",
+      "description": "PenCap models the tiny interference and compliance that create a cap's tactile click. It includes a direct force-control mechanism scene and an embodied dual-Franka workspace, with traces for insertion, retention, release, cap lift, and the remaining calibration gaps.",
+      "version": "0.4.0",
+      "updated": "2026-06-19",
+      "accent": "#5dd9ff",
+      "hero": "pencap/final_wide.png",
+      "featured": false,
+      "mode": "Keyboard \u00b7 force or dual arm",
+      "status": {
+        "label": "Snap-fit verified",
+        "tone": "amber",
+        "detail": "The simulated click and embodied manipulation work; force calibration and tolerance sensitivity remain open."
+      },
+      "tags": [
+        "Snap fit",
+        "Compliance",
+        "Dual arm",
+        "Force curve"
+      ],
+      "metrics": [
+        {
+          "label": "Evidence",
+          "value": "Force\u2013travel"
+        },
+        {
+          "label": "Robots",
+          "value": "2 \u00d7 Franka"
+        },
+        {
+          "label": "Modes",
+          "value": "2"
+        },
+        {
+          "label": "Calibration",
+          "value": "Open",
+          "tone": "amber"
+        }
+      ],
+      "profiles": [
+        {
+          "id": "mechanism",
+          "label": "Snap mechanism",
+          "description": "Directly push and pull the cap through the snap fit."
+        },
+        {
+          "id": "dual-arm",
+          "label": "Dual-arm workcell",
+          "description": "Manipulate pen and cap with either Franka arm."
+        }
+      ],
+      "controls": [
+        {
+          "keys": "\u2191 / \u2193",
+          "action": "Pull cap off / push cap on (mechanism)"
+        },
+        {
+          "keys": "T",
+          "action": "Switch active arm (dual-arm)"
+        },
+        {
+          "keys": "I K / J L",
+          "action": "Move active arm in X / Y"
+        },
+        {
+          "keys": "U / N",
+          "action": "Raise / lower active arm"
+        },
+        {
+          "keys": "O / P",
+          "action": "Close / open gripper"
+        },
+        {
+          "keys": "R",
+          "action": "Reset scene"
+        }
+      ],
+      "artifacts": [
+        {
+          "label": "Technical report",
+          "path": "pencap/paper/pencap_click.pdf",
+          "preview": "pencap/paper/figs/final_wide.png",
+          "type": "pdf",
+          "group": "Reports",
+          "caption": "Snap-fit model, force law, numerical study, and embodied workcell."
+        },
+        {
+          "label": "Best policy attempt (near-success)",
+          "path": "code_policy/artifacts/best_attempt_videos_20260715/04_pencap_near-success_attempt-001_6x.mp4",
+          "preview": "pencap/final_wide.png",
+          "type": "video",
+          "group": "Motion",
+          "caption": "Best captured code-policy run; near-success, not a pass\u2014physical snap was observed, but retention regrasp and proof pull were not completed. 6\u00d7 playback."
+        },
+        {
+          "label": "Dual-arm scene",
+          "path": "pencap/final_wide.png",
+          "type": "image",
+          "group": "Renders",
+          "caption": "Full pen-and-cap robot workcell."
+        },
+        {
+          "label": "Cap close-up",
+          "path": "pencap/final_capflare.png",
+          "type": "image",
+          "group": "Renders",
+          "caption": "Cap flare and pen-body alignment."
+        },
+        {
+          "label": "Snap animation",
+          "path": "pencap/pencap_snap.mp4",
+          "type": "video",
+          "group": "Motion",
+          "caption": "Recorded click cycle."
+        },
+        {
+          "label": "Before snap",
+          "path": "pencap/paper/figs/snap_before.png",
+          "type": "image",
+          "group": "Motion",
+          "caption": "Pre-engagement geometry."
+        },
+        {
+          "label": "After snap",
+          "path": "pencap/paper/figs/snap_after.png",
+          "type": "image",
+          "group": "Motion",
+          "caption": "Retained post-click state."
+        },
+        {
+          "label": "Force curve",
+          "path": "pencap/paper/figs/p1i_curve.png",
+          "type": "image",
+          "group": "Evidence",
+          "caption": "Measured insertion and release signature."
+        },
+        {
+          "label": "Interactive trace",
+          "path": "pencap/p1i_trace.json",
+          "type": "json",
+          "group": "Data",
+          "caption": "Force, position, contact, and state channels."
+        },
+        {
+          "label": "Research dossier",
+          "path": "pencap/RESEARCH.md",
+          "type": "text",
+          "group": "Notes",
+          "caption": "Snap-fit geometry, polymer response, and interaction research."
+        },
+        {
+          "label": "Verified findings",
+          "path": "pencap/FINDINGS.md",
+          "type": "text",
+          "group": "Notes",
+          "caption": "Confirmed behavior and explicit calibration work."
+        }
+      ]
+    },
+    {
+      "id": "titrate",
+      "title": "Titration Lab",
+      "eyebrow": "Particle fluid chemistry",
+      "category": "Fluids",
+      "summary": "A particle burette dispenses calibrated aliquots into a laboratory titration with measured mixing and endpoint logic.",
+      "description": "Titration Lab joins particle-based fluid mechanics to a separately tested chemistry layer. The retained scene audits volume per particle, leakage, droplet formation, drainage, mixing, endpoint crossing, and repeatability across the complete laboratory procedure.",
+      "version": "0.5.0",
+      "updated": "2026-06-17",
+      "accent": "#8a7dff",
+      "hero": "titrate/paper/figs/t5a_wide.png",
+      "featured": true,
+      "mode": "Autonomous \u00b7 live inspection",
+      "status": {
+        "label": "Bench gates passed",
+        "tone": "green",
+        "detail": "The physical bench and full emergent titration pass their retained gates; droplet-scale fidelity is documented separately."
+      },
+      "tags": [
+        "PBD fluid",
+        "Chemistry",
+        "Burette",
+        "Endpoint"
+      ],
+      "metrics": [
+        {
+          "label": "Volume / particle",
+          "value": "1.32 \u03bcL"
+        },
+        {
+          "label": "Chemistry tests",
+          "value": "9 / 9"
+        },
+        {
+          "label": "Physical runs",
+          "value": "8"
+        },
+        {
+          "label": "Endpoint gates",
+          "value": "5 / 5"
+        }
+      ],
+      "profiles": [
+        {
+          "id": "live-bench",
+          "label": "Live titration bench",
+          "description": "Run twelve dispense cycles, then hold the live state for inspection."
+        }
+      ],
+      "controls": [
+        {
+          "keys": "Automatic",
+          "action": "Runs 12 valve open/close dispense cycles"
+        },
+        {
+          "keys": "Mouse",
+          "action": "Orbit and inspect the retained live state"
+        },
+        {
+          "keys": "Camera",
+          "action": "Cycles three evidence cameras every 40 s"
+        }
+      ],
+      "artifacts": [
+        {
+          "label": "Technical report",
+          "path": "titrate/paper/titrate.pdf",
+          "preview": "titrate/paper/page1.png",
+          "type": "pdf",
+          "group": "Reports",
+          "caption": "Fluid, glassware, chemistry, endpoint, validation, and reward model."
+        },
+        {
+          "label": "Laboratory bench",
+          "path": "titrate/paper/figs/t5a_wide.png",
+          "type": "image",
+          "group": "Renders",
+          "caption": "Full procedural workbench."
+        },
+        {
+          "label": "Burette liquid",
+          "path": "titrate/paper/figs/t5e_v2_crop.png",
+          "type": "image",
+          "group": "Renders",
+          "caption": "Particle-filled glass tube close-up."
+        },
+        {
+          "label": "Robot grip",
+          "path": "titrate/paper/figs/t5b_grip.png",
+          "type": "image",
+          "group": "Motion",
+          "caption": "Physical manipulation stage."
+        },
+        {
+          "label": "Endpoint",
+          "path": "titrate/paper/figs/t5d_endpoint.png",
+          "type": "image",
+          "group": "Motion",
+          "caption": "Retained visual endpoint state."
+        },
+        {
+          "label": "Titration curve",
+          "path": "titrate/paper/figs/t3_curve.png",
+          "type": "image",
+          "group": "Evidence",
+          "caption": "Emergent pH trajectory and endpoint crossing."
+        },
+        {
+          "label": "Research dossier",
+          "path": "titrate/RESEARCH.md",
+          "type": "text",
+          "group": "Notes",
+          "caption": "Glassware, flow, mixing, chemistry, and procedure sources."
+        },
+        {
+          "label": "Verified findings",
+          "path": "titrate/FINDINGS.md",
+          "type": "text",
+          "group": "Notes",
+          "caption": "Fluid and chemistry probe results, including rejected approaches."
+        }
+      ]
+    },
+    {
+      "id": "sorthub",
+      "title": "SortHub",
+      "eyebrow": "Industrial parcel routing",
+      "category": "Industrial",
+      "summary": "Scan labeled parcels, route them through a live conveyor cell, and sort with a humanoid station operator.",
+      "description": "SortHub reconstructs an industrial facility around a measurable end-to-end pipeline: optical reads, moving parcels, controlled routing, reachable robot interaction, and destination placement. Its acceptance record distinguishes the verified routing chain from the harder transfer questions around general grasping.",
+      "version": "0.6.0",
+      "updated": "2026-06-14",
+      "accent": "#ffb14f",
+      "hero": "sorthub/sorted_front.png",
+      "featured": true,
+      "mode": "Autonomous \u00b7 live routing",
+      "status": {
+        "label": "End-to-end verified",
+        "tone": "green",
+        "detail": "Fresh acceptance reports 12/12 barcode reads and 12/12 sorts with no missort."
+      },
+      "tags": [
+        "Conveyors",
+        "G1",
+        "Barcode",
+        "Digital twin"
+      ],
+      "metrics": [
+        {
+          "label": "Barcode reads",
+          "value": "12 / 12"
+        },
+        {
+          "label": "Sorted",
+          "value": "12 / 12"
+        },
+        {
+          "label": "Missorts",
+          "value": "0"
+        },
+        {
+          "label": "Destinations",
+          "value": "2"
+        }
+      ],
+      "profiles": [
+        {
+          "id": "live-routing",
+          "label": "Live routing cell",
+          "description": "Open the facility with continuously moving parcels and routing logic."
+        }
+      ],
+      "controls": [
+        {
+          "keys": "Automatic",
+          "action": "Parcels feed and route continuously"
+        },
+        {
+          "keys": "Alt + drag",
+          "action": "Orbit the Isaac Sim camera"
+        },
+        {
+          "keys": "Toolbar",
+          "action": "Play, pause, and inspect physics"
+        }
+      ],
+      "artifacts": [
+        {
+          "label": "Sorted front",
+          "path": "sorthub/sorted_front.png",
+          "type": "image",
+          "group": "Renders",
+          "caption": "Robot, parcel stream, and destination tote."
+        },
+        {
+          "label": "Sorted overview",
+          "path": "sorthub/sorted_over.png",
+          "type": "image",
+          "group": "Renders",
+          "caption": "Full routing layout from above."
+        },
+        {
+          "label": "Facility perspective",
+          "path": "sorthub/audit_frames/fac_overview.png",
+          "type": "image",
+          "group": "Renders",
+          "caption": "Facility-scale inspection frame."
+        },
+        {
+          "label": "Open grasp",
+          "path": "sorthub/grasp_frames/fg_1_open_at_box.png",
+          "type": "image",
+          "group": "Motion",
+          "caption": "Pre-contact gripper alignment."
+        },
+        {
+          "label": "Physical lift",
+          "path": "sorthub/grasp_frames/fg_3_lifted.png",
+          "type": "image",
+          "group": "Motion",
+          "caption": "Recorded parcel lift."
+        },
+        {
+          "label": "Acceptance record",
+          "path": "sorthub/ACCEPTANCE.md",
+          "type": "text",
+          "group": "Evidence",
+          "caption": "Measured end-to-end acceptance chain and failure corrections."
+        },
+        {
+          "label": "Facility notes",
+          "path": "sorthub/memory/SORTHUB_NOTES.md",
+          "type": "text",
+          "group": "Notes",
+          "caption": "Geometry, reach, conveyor, and realism audit trail."
+        }
+      ]
+    },
+    {
+      "id": "triage",
+      "title": "Parcel Triage",
+      "eyebrow": "Mobile manipulation",
+      "category": "Mobile manipulation",
+      "summary": "Drive a humanoid station worker, operate conveyors, and route spawned parcels into a sorting hopper.",
+      "description": "Parcel Triage is a hands-on station environment: the robot can locomote or work from a fixed stance while the operator controls waist, arms, wrists, grippers, belts, and parcel spawning. It is the most direct sandbox for studying the control surface around a complete sorting task.",
+      "version": "0.4.0",
+      "updated": "2026-06-11",
+      "accent": "#54df9a",
+      "hero": "triage/live_overview.png",
+      "featured": false,
+      "mode": "Keyboard \u00b7 whole-body control",
+      "status": {
+        "label": "Interactive station",
+        "tone": "amber",
+        "detail": "Station interaction and parcel flow are available; locomotion is retained as an explicit prototype profile."
+      },
+      "tags": [
+        "Humanoid",
+        "Conveyors",
+        "Teleoperation",
+        "Parcels"
+      ],
+      "metrics": [
+        {
+          "label": "Launch profiles",
+          "value": "2"
+        },
+        {
+          "label": "Control groups",
+          "value": "7"
+        },
+        {
+          "label": "Parcel inputs",
+          "value": "2"
+        },
+        {
+          "label": "Locomotion",
+          "value": "Prototype",
+          "tone": "amber"
+        }
+      ],
+      "profiles": [
+        {
+          "id": "station",
+          "label": "Station controls",
+          "description": "Operate the upper body, grippers, belts, and parcel flow."
+        },
+        {
+          "id": "locomotion",
+          "label": "Locomotion prototype",
+          "description": "Add walking, strafing, turning, and respawn controls."
+        }
+      ],
+      "controls": [
+        {
+          "keys": "W S / A D / Q E",
+          "action": "Walk, strafe, and turn (locomotion profile)"
+        },
+        {
+          "keys": "Arrow keys",
+          "action": "Waist yaw and arm motion"
+        },
+        {
+          "keys": "I / K",
+          "action": "Move arms inward / outward"
+        },
+        {
+          "keys": "U J / O L",
+          "action": "Wrist pitch / grippers"
+        },
+        {
+          "keys": "B / N",
+          "action": "Toggle stance / belts"
+        },
+        {
+          "keys": "G / V",
+          "action": "Spawn on belt / drop into hopper"
+        },
+        {
+          "keys": "R / T",
+          "action": "Respawn / print state"
+        }
+      ],
+      "artifacts": [
+        {
+          "label": "Technical report",
+          "path": "triage/paper/triage_station.pdf",
+          "preview": "triage/live_overview.png",
+          "type": "pdf",
+          "group": "Reports",
+          "caption": "Station layout, manipulation objectives, controls, and task design."
+        },
+        {
+          "label": "Station overview",
+          "path": "triage/live_overview.png",
+          "type": "image",
+          "group": "Renders",
+          "caption": "Full live parcel triage station."
+        },
+        {
+          "label": "Operator view",
+          "path": "triage/live_operator.png",
+          "type": "image",
+          "group": "Renders",
+          "caption": "Humanoid operator and control workspace."
+        },
+        {
+          "label": "Tray detail",
+          "path": "triage/live_tray_close.png",
+          "type": "image",
+          "group": "Renders",
+          "caption": "Parcel tray and belt interaction."
+        },
+        {
+          "label": "Environment paper",
+          "path": "triage/WHITEPAPER.md",
+          "type": "text",
+          "group": "Notes",
+          "caption": "Task rationale, scene architecture, and evaluation plan."
+        },
+        {
+          "label": "Phase-one findings",
+          "path": "triage/memory/PHASE1_FINDINGS.md",
+          "type": "text",
+          "group": "Notes",
+          "caption": "Measured implementation findings and remaining work."
+        }
+      ]
+    },
+    {
+      "id": "quarry",
+      "title": "Quarry Loading",
+      "eyebrow": "Heavy equipment digital twin",
+      "category": "Industrial",
+      "summary": "Inspect a scanned quarry, excavator, settled muck pile, and truck-loading geometry at full scene scale.",
+      "description": "Quarry Loading combines reconstructed site geometry with articulated heavy equipment and physically settled rocks. The current default profile is deliberately an inspection environment: it exposes the authored world and physics state while the complete autonomous dig/load cycle remains a documented engineering frontier.",
+      "version": "0.3.0",
+      "updated": "2026-06-08",
+      "accent": "#e2a55c",
+      "hero": "quarry/previews_proof/rgb_0005.png",
+      "featured": false,
+      "mode": "Visual inspection \u00b7 authored USD",
+      "status": {
+        "label": "Inspection scene",
+        "tone": "gray",
+        "detail": "The quarry, machine, truck, colliders, and settled muck are inspectable; full task execution is not claimed by this profile."
+      },
+      "tags": [
+        "Excavator",
+        "Quarry",
+        "Scanned world",
+        "Granular"
+      ],
+      "metrics": [
+        {
+          "label": "Scale",
+          "value": "Full site"
+        },
+        {
+          "label": "Equipment",
+          "value": "2 vehicles"
+        },
+        {
+          "label": "Muck",
+          "value": "Settled rigid"
+        },
+        {
+          "label": "Task gate",
+          "value": "Open",
+          "tone": "gray"
+        }
+      ],
+      "profiles": [
+        {
+          "id": "inspect",
+          "label": "Inspect quarry scene",
+          "description": "Open the saved scanned-muck scene for orbit, play, and collider inspection."
+        }
+      ],
+      "controls": [
+        {
+          "keys": "Alt + drag",
+          "action": "Orbit and inspect the site"
+        },
+        {
+          "keys": "Mouse wheel",
+          "action": "Dolly through the scene"
+        },
+        {
+          "keys": "Toolbar",
+          "action": "Play to re-cook or re-settle physics"
+        }
+      ],
+      "artifacts": [
+        {
+          "label": "Quarry overview",
+          "path": "quarry/previews_proof/rgb_0000.png",
+          "type": "image",
+          "group": "Renders",
+          "caption": "Scanned quarry, excavator, muck bay, and truck pad."
+        },
+        {
+          "label": "Bucket at muck",
+          "path": "quarry/previews_proof/rgb_0005.png",
+          "type": "image",
+          "group": "Renders",
+          "caption": "Excavator bucket interacting with the settled rock pile."
+        },
+        {
+          "label": "Truck loading view",
+          "path": "quarry/previews_proof/rgb_0015.png",
+          "type": "image",
+          "group": "Motion",
+          "caption": "Bucket and haul truck geometry from above."
+        },
+        {
+          "label": "Task parameters",
+          "path": "quarry/quarry_task_params.json",
+          "type": "json",
+          "group": "Data",
+          "caption": "Measured task coordinates and scene landmarks."
+        },
+        {
+          "label": "Collider verification",
+          "path": "quarry/verify_report.json",
+          "type": "json",
+          "group": "Data",
+          "caption": "Saved-world verification output."
+        },
+        {
+          "label": "Technical reference",
+          "path": "quarry/memory/TECHNICAL_REFERENCE.md",
+          "type": "text",
+          "group": "Notes",
+          "caption": "Transforms, assets, collision rules, machine setup, and reproduction notes."
+        },
+        {
+          "label": "Open issues",
+          "path": "quarry/memory/OPEN_ISSUES.md",
+          "type": "text",
+          "group": "Notes",
+          "caption": "Explicit task-physics limitations and next gates."
+        },
+        {
+          "label": "Asset attribution",
+          "path": "quarry/ATTRIBUTIONS.md",
+          "type": "text",
+          "group": "Notes",
+          "caption": "Provenance and licenses for reconstructed scene assets."
+        }
+      ]
+    }
+  ],
+  "hosting": {
+    "mode": "static",
+    "sourceRepository": "gym-anything/gym_anything_for_robotics",
+    "sourceCommit": "577afb48b79bf9d42475470cafb210e42ff7da75"
+  }
+}

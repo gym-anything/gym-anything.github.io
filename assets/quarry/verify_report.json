@@ -1,0 +1,32 @@
+{
+  "mesh_authored": true,
+  "mesh_points": 179667,
+  "mesh_faces": 359874,
+  "splat_open_stage": "True",
+  "splat_volume_path": "/World/gauss/gauss",
+  "splat_volume_type": "Volume",
+  "splat_isNuRecVolume": true,
+  "splat_bbox_min": [
+    -145.463,
+    -1.568,
+    -430.322
+  ],
+  "splat_bbox_max": [
+    481.184,
+    697.198,
+    335.301
+  ],
+  "splat_render_exists": false,
+  "scene_saved": true,
+  "mesh_bbox_min": [
+    -12.039,
+    -81.459,
+    -45.773
+  ],
+  "mesh_bbox_max": [
+    72.921,
+    1.726,
+    42.555
+  ],
+  "mesh_render_exists": false
+}

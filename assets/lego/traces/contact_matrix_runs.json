@@ -1,0 +1,31 @@
+[
+  {
+    "case": {
+      "tag": "aligned_v5",
+      "SPEED_MM_S": "5"
+    },
+    "returncode": 0,
+    "elapsed_s": 51.810354400000506,
+    "log": "D:\\gym_anything_for_robotics\\lego\\traces\\matrix_aligned_v5.log"
+  },
+  {
+    "case": {
+      "tag": "offset_x_0p25",
+      "SPEED_MM_S": "5",
+      "OFFSET_X_MM": "0.25"
+    },
+    "returncode": 0,
+    "elapsed_s": 50.925604599997314,
+    "log": "D:\\gym_anything_for_robotics\\lego\\traces\\matrix_offset_x_0p25.log"
+  },
+  {
+    "case": {
+      "tag": "tilt_x_1",
+      "SPEED_MM_S": "5",
+      "TILT_X_DEG": "1"
+    },
+    "returncode": 0,
+    "elapsed_s": 51.98370970000178,
+    "log": "D:\\gym_anything_for_robotics\\lego\\traces\\matrix_tilt_x_1.log"
+  }
+]

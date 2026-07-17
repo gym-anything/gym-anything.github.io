@@ -1,0 +1,79 @@
+{
+  "schema": "football-p5-shot-profiles-summary-v1",
+  "model_status": "INTEGRATED CAUSAL PROFILE COMPARISON / PRIOR-ONLY PHYSICS / NOT HARDWARE-CALIBRATED",
+  "sources": {
+    "curl": "outputs\\isaac_p5_integrated_shot.json",
+    "low_spin": "outputs\\isaac_p5_integrated_shot_low_spin.json"
+  },
+  "checks": {
+    "named_profiles_have_no_runtime_parameter_overrides": true,
+    "both_profiles_score_and_recover": true,
+    "profiles_share_the_same_physical_model": true,
+    "profiles_prescribe_no_ball_state_or_result": true,
+    "curl_profile_generates_spin_and_bending": true,
+    "low_spin_profile_activates_coherent_wake_with_little_bend": true,
+    "all_profile_states_are_finite": true
+  },
+  "metrics": {
+    "curl": {
+      "goal_time_s": 7.036193997392759,
+      "goal_center_world_m": [
+        0.10981691073340778,
+        1.0376214998710442,
+        0.1091657429933548
+      ],
+      "separation_velocity_world_m_s": [
+        7.344831466674805,
+        0.35591113567352295,
+        1.1876239776611328
+      ],
+      "separation_angular_velocity_world_rad_s": [
+        -1.8762236833572388,
+        0.44182196259498596,
+        10.759103775024414
+      ],
+      "separation_spin_magnitude_rad_s": 10.930404201051601,
+      "separation_spin_parameter": 0.16113853966232994,
+      "launch_elevation_deg": 9.174373527088145,
+      "launch_azimuth_deg": 2.7742321129796905,
+      "lateral_residual_at_goal_vs_constant_heading_m": 0.5004709350451979,
+      "maximum_magnus_force_n": 0.26313074076974163,
+      "maximum_knuckle_force_n": 1.3207414594134462e-06,
+      "maximum_knuckle_coefficient": 1.7830802868835837e-06,
+      "maximum_wake_amplitude": 1.2736287763454168e-05,
+      "minimum_recovery_upright_cosine": 0.9852277501670287,
+      "maximum_robot_base_excursion_m": 0.34552062814027373
+    },
+    "low_spin": {
+      "goal_time_s": 6.147041246250226,
+      "goal_center_world_m": [
+        0.10981691073340778,
+        -0.6825107020567907,
+        0.10916464775800705
+      ],
+      "separation_velocity_world_m_s": [
+        7.761539459228516,
+        -0.4458412826061249,
+        1.241727352142334
+      ],
+      "separation_angular_velocity_world_rad_s": [
+        0.162918359041214,
+        -0.3638172149658203,
+        -1.2994239330291748
+      ],
+      "separation_spin_magnitude_rad_s": 1.3591938475976033,
+      "separation_spin_parameter": 0.018956191182559097,
+      "launch_elevation_deg": 9.074710938568431,
+      "launch_azimuth_deg": -3.2875930509803246,
+      "lateral_residual_at_goal_vs_constant_heading_m": -0.045480732044771544,
+      "maximum_magnus_force_n": 0.23097682438468004,
+      "maximum_knuckle_force_n": 0.009204726330957159,
+      "maximum_knuckle_coefficient": 0.00876098206475172,
+      "maximum_wake_amplitude": 0.06257844331965513,
+      "minimum_recovery_upright_cosine": 0.9795384987374748,
+      "maximum_robot_base_excursion_m": 0.4165442778610328
+    }
+  },
+  "interpretation": "The low-spin profile demonstrates a contact-generated low-spin goal and a deterministic wake response. Its 9 mN peak prior force at roughly 8 m/s is not evidence of a visually dramatic or physically calibrated high-speed knuckleball.",
+  "pass": true
+}

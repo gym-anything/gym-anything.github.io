@@ -1,0 +1,88 @@
+{
+  "schema": "football-p5-video-evidence-summary-v1",
+  "model_status": "FRESH ISAAC VIEWPORT CAPTURES / EXACT CANONICAL PHYSICAL STATE MATCH REQUIRED / PRIOR-ONLY AND NOT HARDWARE-CALIBRATED",
+  "profiles": {
+    "curl": {
+      "sources": {
+        "canonical_trace": "outputs/isaac_p5_integrated_shot.json",
+        "capture_trace": "outputs/isaac_p5_integrated_shot_curl_video_capture.json",
+        "manifest": "videos/humanoid_football_curl_1p5x.json",
+        "video": "videos/humanoid_football_curl_1p5x.mp4",
+        "contact_sheet": "videos/humanoid_football_curl_contact_sheet.jpg"
+      },
+      "checks": {
+        "capture_runner_passed": true,
+        "profile_matches": true,
+        "physical_samples_exactly_match_canonical": true,
+        "contact_streams_exactly_match_canonical": true,
+        "physical_outcome_exactly_matches_canonical": true,
+        "renderer_added_zero_physics": true,
+        "capture_plan_completed": true,
+        "capture_trace_hash_matches_manifest": true,
+        "video_hash_matches_manifest": true,
+        "contact_sheet_hash_matches_manifest": true,
+        "video_fully_decodes": true,
+        "h264_delivery_is_commit_sized": true,
+        "source_sequence_is_nontrivial": true,
+        "no_ball_state_cheat": true
+      },
+      "metrics": {
+        "source_frame_count": 170,
+        "decoded_frame_count": 200,
+        "capture_fps": 20.0,
+        "playback_fps": 30.0,
+        "playback_speed": 1.5,
+        "video_duration_s": 6.666666666666667,
+        "video_bytes": 1384765,
+        "video_sha256": "242B56A8F583D1E48889EFE3C5B16C9F551AB252169F7807178B8E34748B09BD",
+        "fourcc": "h264",
+        "render_only_updates": 1095,
+        "maximum_render_clock_advance_s": 0.0,
+        "goal_time_s": 7.036193997392759
+      },
+      "pass": true
+    },
+    "low_spin": {
+      "sources": {
+        "canonical_trace": "outputs/isaac_p5_integrated_shot_low_spin.json",
+        "capture_trace": "outputs/isaac_p5_integrated_shot_low_spin_video_capture.json",
+        "manifest": "videos/humanoid_football_low_spin_1p5x.json",
+        "video": "videos/humanoid_football_low_spin_1p5x.mp4",
+        "contact_sheet": "videos/humanoid_football_low_spin_contact_sheet.jpg"
+      },
+      "checks": {
+        "capture_runner_passed": true,
+        "profile_matches": true,
+        "physical_samples_exactly_match_canonical": true,
+        "contact_streams_exactly_match_canonical": true,
+        "physical_outcome_exactly_matches_canonical": true,
+        "renderer_added_zero_physics": true,
+        "capture_plan_completed": true,
+        "capture_trace_hash_matches_manifest": true,
+        "video_hash_matches_manifest": true,
+        "contact_sheet_hash_matches_manifest": true,
+        "video_fully_decodes": true,
+        "h264_delivery_is_commit_sized": true,
+        "source_sequence_is_nontrivial": true,
+        "no_ball_state_cheat": true
+      },
+      "metrics": {
+        "source_frame_count": 136,
+        "decoded_frame_count": 166,
+        "capture_fps": 20.0,
+        "playback_fps": 30.0,
+        "playback_speed": 1.5,
+        "video_duration_s": 5.533333333333333,
+        "video_bytes": 1190429,
+        "video_sha256": "DD2B00A68B5ED0E509C4D9A8A074FFE711AC28AEEF292311E703FC383DA7C3C2",
+        "fourcc": "h264",
+        "render_only_updates": 890,
+        "maximum_render_clock_advance_s": 0.0,
+        "goal_time_s": 6.147041246250226
+      },
+      "pass": true
+    }
+  },
+  "pass": true,
+  "interpretation": "Passing proves each MP4 is an ordered encoding of a fresh, physics-neutral viewport capture whose simulated state exactly matches the corresponding canonical causal run. It does not establish real-ball or real-robot calibration."
+}

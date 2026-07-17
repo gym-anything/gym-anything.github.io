@@ -1,0 +1,1029 @@
+# Physics-first robotic apple cutting
+
+Status: research and architecture dossier, 11 July 2026. No apple-cutting
+simulation result is claimed here. Every number is labelled as a published
+measurement, a derived value, a numerical starting prior, or an open
+measurement. The final environment must retain that distinction.
+
+## Executive decision
+
+Cutting an apple is not a rigid-body contact task with a visual mesh swap. It is
+a coupled problem involving a micron-scale blade edge, indentation and peel
+puncture, nonlinear and time-dependent deformation of a porous cellular solid,
+friction on newly created wet surfaces, fracture initiation, anisotropic crack
+propagation, evolving topology, crack-face contact, a heterogeneous core, and a
+robot whose measured wrench must receive the equal-and-opposite cutting load.
+
+The installed Isaac Sim 5.1 / Omni PhysX stack can provide the robot,
+articulation dynamics, rigid knife and board, cameras, rendering, and rigid
+contact. Its native volume-deformable implementation cannot be the final apple
+solver: it uses a fixed-topology tetrahedral body, exposes no runtime cutting or
+damage API in this installation, and does not provide deformable contact reports.
+The installed runtime also exposes no PhysX MPM schema or Python API.
+
+The provisional target is therefore a **two-way coupled custom continuum
+solver** beside PhysX:
+
+1. Isaac/PhysX owns the robot, rigid knife body, fixture/board, control, and RTX
+   scene.
+2. A GPU cutting solver owns apple mass, deformation, material history, damage,
+   crack topology, and knife/apple and board/apple contact.
+3. Every cutting microstep reads the rigid knife/board poses and velocities;
+   accumulated contact impulses return as an equal-and-opposite wrench to the
+   PhysX knife before the next rigid step.
+4. The rendered peel and newly exposed flesh are driven from solver state. A
+   detached visual half is never substituted for an unbroken physical apple.
+
+The most credible runtime route is an MLS-MPM/CPIC-style solver with a
+**fracture-energy gate** added before a displacement discontinuity may activate.
+The open BSD-3-Clause CRESSim-MPM implementation is a useful engine-level
+starting point, not a physics model to copy unchanged. Its published slicer
+blocks particle/grid transfer as soon as a knife surface separates the two
+locations; it has no apple fracture energy, damage evolution, peel, anisotropy,
+or initiation threshold. Those are the central pieces we must add and validate.
+
+Before that architecture is locked, a P0 bakeoff must compare:
+
+- an explicit cohesive MLS-MPM/CPIC coupon implementation, integrated in the
+  Isaac process or through a small CUDA C API;
+- a variational phase-field/CD-MPM coupon with the same measured `G_c` and a
+  declared regularization length;
+- a standalone Newton 1.3 implicit-MPM coupon for stiffness, contact, and
+  two-way-coupling performance; and
+- a cohesive/virtual-node FEM reference on the same small coupons.
+
+The winner is selected by force, work, crack-path, energy-balance, convergence,
+and coupling tests—not by which demo looks best.
+
+## Evidence vocabulary
+
+| Label | Meaning |
+|---|---|
+| **MEASURED** | Published experiment on a real apple/peel/blade, with its cultivar and test conditions retained. |
+| **ENGINE** | Official documentation or a locally reproduced capability result. |
+| **DERIVED** | Calculation from identified measured inputs; not an independent measurement. |
+| **PRIOR** | Initial simulation value or model choice awaiting our physical calibration. |
+| **OPEN** | Required measurement or validation not yet available. |
+
+No fitted simulator parameter becomes a material fact merely because it makes
+one force curve look right.
+
+## The causal chain the environment must preserve
+
+The physical episode is successful only if all of these events occur in order:
+
+1. The robot moves a knife with measured mass and inertia through an explicit
+   physical attachment: either a validated grasp or, for the retained task, a
+   visible finite-strength bolted tool holder.
+2. The true rounded edge and peel meet without initial overlap.
+3. The apple deforms and stores/relaxes energy before puncture.
+4. The peel fails only after its traction/work criterion is met.
+5. A flesh crack initiates only after the local strength and fracture-work
+   conditions are met.
+6. The crack advances from the active front according to local loading,
+   anisotropy, and heterogeneous material—not merely according to a target plane.
+7. Blade faces wedge open and rub against the new crack faces; slice motion
+   changes the force.
+8. Cutting the denser carpel/core region produces a different response from an
+   off-centre cortex-only cut.
+9. The final components separate because their remaining ligament is severed,
+   not because a pose, attachment, collision filter, or visibility flag changes.
+10. The knife and robot receive the reaction wrench generated by the apple.
+
+These are anti-cheat invariants, not presentation preferences.
+
+## Repository and installed-engine audit
+
+The repository contains no existing apple/knife/cutting environment. Existing
+deformable probes are useful for API knowledge but do not solve topology change.
+
+### Locally reproduced capability result
+
+The 5.1 runtime at
+`$env:ISAAC_SIM_ROOT` was started headless
+and queried after extension initialization.
+
+| Capability | Local result | Consequence |
+|---|---|---|
+| Isaac Sim | 5.1.0 | Keep compatibility with the other repository environments unless an upgrade is explicitly approved. |
+| Omni PhysX extension | 107.3.26 | Rigid/articulation and FEM deformable support are available. |
+| GPU | RTX 3090, 24 GiB | A moderate single-apple GPU continuum solve is plausible. |
+| Volume/surface deformable schemas | Present | Useful for non-cutting controls and reference probes. |
+| MPM schema/API | Not exposed | Old PhysX MPM cutting flags cannot be used from this runtime. |
+| Damage, tearing, or cutting schema/API | Not exposed | Native FEM cannot own the final topology-changing apple. |
+| Warp after Kit startup | 1.8.2 | Custom kernels are possible, but current external Newton/Warp packages cannot be injected blindly into Kit. |
+| CUDA toolkit on host | 12.8 | A CUDA side library is buildable in principle. |
+| CMake / MSVC compiler in current PATH | Missing | A C++/CUDA route needs a reproducible build-tool bootstrap first. |
+
+`engine_capability_probe.py` reproduces the schema/API part of this audit. A
+future Isaac update must rerun it before architecture assumptions are changed.
+NVIDIA now marks the 5.1 documentation as an unsupported release. That makes an
+isolated Isaac 6.0/Newton feasibility branch worthwhile, but it does not justify
+silently migrating or invalidating the five existing 5.1 environments.
+
+### Documented engine limits that matter here
+
+- PhysX soft bodies use separate simulation and collision tetrahedral meshes.
+  When an application changes topology because of cutting or tearing, the
+  cooked structures must be updated; the SDK documentation does not provide an
+  application-ready apple-fracture pipeline.
+- The deformable geometry has moving vertices but fixed topology.
+- Isaac documents that particle/deformable contact reports are unsupported.
+- Isaac documents no static friction for deformables, no friction combine mode,
+  and dynamic friction taken from the deformable actor.
+- Custom geometry may not collide with GPU particles/deformables, so an
+  apparently sharp custom knife collider is not a safe native workaround.
+- Resume-from-contact is not deterministic because internal contact state is
+  not fully serialized.
+
+Primary engine sources are collected in the source catalogue below.
+
+## What a real apple is mechanically
+
+### It is a heterogeneous, porous cellular solid
+
+An apple is not a homogeneous isotropic sphere. X-ray micro-CT of `Jonagold`
+fruit resolves a cortex, an outer carpel/core line, five carpel-related vascular
+systems, seed cavities, seeds, and a dense branching vascular network. Mature
+cortex porosity in that study rose to about 26.4%; core porosity was lower and
+its voids were narrower and more fragmented. Total vascular length exceeded
+20 m, roughly 5 cm of vascular tissue per cubic centimetre of apple.
+
+Khan and Vincent report a strong radial organization of cortex tissue. Cells
+near the outside are about 50 micrometres across; cells toward the inside can be
+about 300 micrometres. Radially elongated intercellular spaces can reach about
+3 mm in length and 100--200 micrometres in width. This structure makes a crack
+travelling radially easier than a tangential crack. Their crack-opening tests
+found tangential fracture toughness about 50% greater than radial toughness.
+
+The simulation therefore needs at least these regions:
+
+- a codimensional peel/epidermal layer;
+- outer cortex;
+- inner cortex with a radial material direction field;
+- a five-lobed carpel/core region with lower porosity and separate calibration;
+- seed cavities (void/contact surfaces);
+- seeds, represented as separate stiff bodies or stiff elastic inclusions; and
+- optional vascular reinforcement only if core-cut data show it is required at
+  the resolved scale.
+
+A single scalar `Young's modulus` for all of these regions is insufficient.
+
+### Turgor and cell adhesion are causal
+
+Apple parenchyma comprises pressurized cells, adhesive middle lamellae, and
+intercellular air. Cell-level FEM work used initial turgor pressure to prestress
+the cell wall; an example validated model used 200 kPa, a 26.4 MPa cell-wall
+modulus, and 1.25 micrometre wall thickness. Tissue studies show that turgor,
+cell geometry, porosity, wall properties, and cell-to-cell adhesion all affect
+the macroscopic response.
+
+We will not resolve every cell in the full apple. Turgor and adhesion must
+instead appear through calibrated continuum stiffness, relaxation, strength,
+and cohesive fracture energy. Storage history cannot be hidden: published
+Granny Smith cutting energy dropped by roughly 30% over 28 days, while the
+fracture-toughness response changed differently with turgor manipulation.
+
+### Measured material ledger
+
+The ranges below are intentionally not collapsed into one authoritative row.
+Different cultivar, position, orientation, maturity, temperature, moisture,
+storage, sample geometry, and loading rate produce different answers.
+
+| Quantity | Published evidence | Intended use | Status |
+|---|---|---|---|
+| Flesh density | 839.9 kg/m3 for Fuji specimens in Kim et al.; 787 kg/m3 in the Jamdagni/Jia robotic-cutting model | Mass initialization checked against the actual mesh volume | **MEASURED / model-specific** |
+| Flesh moisture | 84.0% for the conditioned Fuji fruit in Kim et al. | Rendering/wetness context; not a fluid parameter by itself | **MEASURED** |
+| Cortex stiffness range | 0.5--7 MPa across nine varieties/locations in Vincent; 0.6--0.9 g/cm3 density | Domain range and reason to test location/orientation | **MEASURED** |
+| Short-term continuum modulus | Optimized E about 2.327--2.343 MPa, Poisson ratio 0.302--0.333 in Kim et al. | First homogeneous coupon prior only | **MEASURED** |
+| Long-term fit | E 2.366 MPa; beta1 0.269, tau1 170.2 s; beta2 0.213, tau2 18.2 s in Kim et al. | Two-branch relaxation starting point | **MEASURED** |
+| Failure/equivalent stress | About 263--265 kPa at the bioyield point in Kim et al. | Sanity check, not a universal crack strength | **MEASURED** |
+| Fuji local properties | Minimum reported E 5.0 +/- 0.52 MPa, yield strength 2.2 +/- 0.15 MPa, shear strength 0.45 +/- 0.02 MPa, compressive strength 2.4 +/- 0.21 MPa at the maximum radial radius | Shows spatial/test-method variability; fit curves, not a mixed scalar set | **MEASURED** |
+| Radial/tangential fracture | Tangential toughness about 50% above radial in crack-opening tests | First directional fracture-energy ratio | **MEASURED ratio** |
+| Fresh Granny Smith cutting energy | About 237 J/m2 at day 0, falling to about 168 J/m2 at day 28 | Flesh cohesive-energy prior and storage sensitivity | **MEASURED** |
+| Soaked-tissue cutting energy | About 177 to 117 J/m2 over the same storage interval | Turgor/adhesion sensitivity | **MEASURED** |
+| Robotic FEM flesh fracture prior | 150 N/m interior | Reproduction comparison only | **PRIOR fitted in earlier work** |
+| Robotic FEM skin fracture prior | 400 N/m skin | Reproduction comparison only | **PRIOR fitted in earlier work** |
+| Peel tensile strength | Maximum 2.56 MPa across tested Fuji/Starkrimson samples | Peel membrane calibration range | **MEASURED** |
+| Peel modulus | Maximum 24 MPa; Fuji groups about 17.79--22.61 MPa | Peel membrane stiffness range | **MEASURED** |
+| Peel failure strain | Up to 19.92% | Peel failure curve | **MEASURED** |
+| Peel tear strength | Up to 0.391 kN/m | Tear-energy/traction sanity check | **MEASURED** |
+| Peel puncture strength | Up to 0.289 N/mm2 | Edge-initiation validation | **MEASURED** |
+| Cuticle thickness | Roughly 12.86 micrometres (Starkrimson) and 13.78 micrometres (Fuji) | Proves the cuticle is sub-grid | **MEASURED** |
+| Structural peel specimen | Epidermal segments in another study were 0.25--1.8 mm thick; epidermis/hypodermis carry load after cuticle failure | Defines a codimensional composite layer, not a 13-micrometre volume mesh | **MEASURED** |
+| Peel/stainless static friction | 0.332 at the equator in a 2025 whole-apple study | Board/handling clue only; not wet flesh/blade friction | **MEASURED, wrong interface** |
+| Wet flesh/blade friction | No sufficiently transferable apple-specific value found | Direct tribology/cutting calibration | **OPEN** |
+| Core/carpel constitutive and fracture data | CT anatomy found; transferable mechanical constants not found | Separate core coupon/cut test | **OPEN** |
+
+The apparent absolute `K_IC` units in OCR copies of one apple paper are
+ambiguous. The value must not enter code until checked against the typeset
+paper and specimen equation. Cutting energy in J/m2 is the safer current
+fracture input.
+
+### First continuum constitutive hypothesis
+
+For pre-failure deformation, start with a compressible finite-strain elastic
+law augmented by a two-branch generalized Maxwell relaxation. In small-strain
+notation, the measured relaxation can be represented as
+
+```text
+G(t) = G_inf + G_1 exp(-t/tau_1) + G_2 exp(-t/tau_2),
+sigma_dev(t) = integral_0^t 2 G(t-s) d(epsilon_dev)/ds ds.
+```
+
+The Kim `beta` and `tau` values initialize normalized branch magnitudes and
+times. We must refit them to our cultivar and cutting-rate window. A generic
+viscosity coefficient is not a substitute for the measured relaxation curve.
+
+Bulk orthotropy is introduced only if radial/tangential compression tests
+justify it. Fracture anisotropy is required from the start. A simple first
+directional law, to be calibrated rather than asserted, is
+
+```text
+G_c(q, x) = G_c,r(x) [1 + a_f (1 - (q . e_r(x))^2)],
+```
+
+where `q` is the local crack-advance direction, `e_r` is the cortex radial
+direction, and the first **PRIOR** is `a_f = 0.5`, matching only the reported
+radial/tangential endpoint ratio.
+
+## Knife mechanics
+
+### Sharpness is geometry, not a label
+
+McCarthy and colleagues separated the influence of the rounded apex radius
+from the wedge angle. Their FE study swept 1--5 micrometre tip radii and found
+the required initiation force approximately linear in radius over that range;
+tip radius had a larger first-order influence than wedge angle. Their companion
+indentation work defines cut initiation from the departure of the pre-puncture
+force/displacement curve from its elastic trend.
+
+The knife model must carry measured values for:
+
+- the edge apex radius along the usable blade, including wear variation;
+- included edge angle and any microbevel;
+- blade thickness as a function of height above the edge and along the blade;
+- blade curvature, length, and tip/heel geometry;
+- mass, centre of mass, and inertia;
+- surface finish/roughness; and
+- rigid attachment transform to the robot gripper.
+
+The actual knife is to be measured by microscopy or profilometry. A nominal
+"sharp" value is not enough. ISO 8442-5 remains the current published standard
+for professional/domestic knife sharpness and edge retention as of this
+research date, but it measures controlled card cutting, not apple mechanics;
+it is an independent blade-quality check.
+
+### The edge is below any affordable apple grid
+
+A 1--10 micrometre apex cannot be resolved directly on a 0.5--1.0 mm apple
+grid. Giving the knife a one-grid-cell collision radius would silently turn a
+sharp knife into a 500--1000 micrometre blunt wedge.
+
+Use two representations:
+
+1. a full-resolution visual blade and a broad-face rigid collider for the
+   macroscopic wedge; and
+2. an analytic rounded-wedge edge SDF plus a sub-grid initiation/cohesive law
+   parameterized by the measured apex radius.
+
+The sub-grid law must reproduce edge-radius sensitivity in coupon tests. It may
+regularize contact over the grid support, but its integrated force and fracture
+work must converge to the measured blade response.
+
+### Slice/push motion is part of the physics
+
+Let `v_n` be motion normal to the edge and `v_t` motion parallel to the edge.
+The slice/push ratio is
+
+```text
+xi = |v_t| / |v_n|.
+```
+
+Atkins shows that increasing this ratio reduces cutting force for soft solids,
+even with friction, while later work shows a competition between slicing,
+friction, and out-of-plane deformation. Mora and Pomeau additionally model a
+lubricating liquid layer on weak wet solids. Therefore pure vertical pressing,
+oblique cutting, and controlled lateral slicing are distinct validation cases;
+one cannot calibrate on one and claim the others.
+
+### Force is not just fracture
+
+For a blade advancing by `dx` through width `b`, a useful cutting-energy split
+is
+
+```text
+dW_ext = F_cut dx
+       = G_c b dx + dW_friction + dU_strain + dD_viscous + dK + dE_numeric.
+```
+
+At steady state the strain/kinetic terms may be small, but apple puncture and a
+finite robot episode are not steady throughout. Blade-face friction can be a
+large fraction of the apparent cutting energy. Fitting `G_c` to total force
+while using the wrong friction simply bakes friction into a fake toughness.
+
+## Fracture law and topology
+
+### Cohesive damage, not element deletion
+
+The first runtime fracture model should use a traction--separation law:
+
+```text
+T(delta) = (1 - d) K_c delta,
+G_c      = integral_0^delta_f T(delta) d(delta),
+d        in [0, 1], irreversible.
+```
+
+For a triangular/bilinear envelope, peak traction controls initiation and the
+area controls fracture work. Normal and shear separation use a mixed-mode law.
+The parameters have distinct jobs:
+
+- `K_c`: intact interface stiffness, chosen high enough not to add visible
+  compliance but low enough to converge numerically;
+- `T_max`: strength/edge-initiation threshold;
+- `G_c`: energy per new crack area;
+- mode-mix parameter: how shear and opening combine; and
+- anisotropy/region multipliers: cortex direction, peel, and core.
+
+Deleting particles or tetrahedra loses mass and fracture work and creates a gap
+whose width depends on resolution. It is a rejected shortcut.
+
+### Damage-gated CPIC discontinuity
+
+CPIC/colored-distance MPM prevents particle/grid transfers across a known
+surface, enabling independent velocity fields on its two sides. Existing
+cutting examples activate that discontinuity geometrically when the blade
+passes. Our required sequence is stricter:
+
+1. Detect edge contact and evaluate local cohesive traction/work.
+2. Advance irreversible damage at the crack front.
+3. Activate the particle/node incompatibility only where `d` reaches the
+   separation threshold.
+4. Extend the crack surface from the damaged front according to local energy,
+   strength, and anisotropy; do not extend the full knife plane at once.
+5. Preserve unilateral contact and friction between the new crack faces and
+   between each face and the blade.
+6. Accumulate created area and dissipated fracture energy explicitly.
+
+This combines MPM's large-deformation/contact advantage with a physically
+calibratable fracture gate.
+
+### Peel as a codimensional composite
+
+Neither the roughly 13 micrometre cuticle nor its cell layers should be rounded
+to a millimetre-thick volume merely to fit the grid. Represent the peel as a
+surface membrane/cohesive composite attached to cortex particles:
+
+- in-plane membrane stiffness and anisotropy from tensile tests;
+- puncture/tear traction and energy from peel tests;
+- areal mass, if it materially changes the full-apple mass budget;
+- attachment to cortex that can itself damage if experiments show delamination;
+  and
+- an independent cut state that must fail before the flesh discontinuity opens
+  at first entry.
+
+The published 400 N/m skin and 150 N/m flesh values are useful reproduction
+priors, not calibration truth.
+
+## Numerical-method comparison
+
+| Method | Strength for this task | Critical problem | Role |
+|---|---|---|---|
+| Native PhysX FEM deformable | Already in Isaac; robust robot/scene integration | Fixed topology, limited deformable friction/reporting, no exposed cut/damage API | Non-cutting compression/reference only |
+| Element-boundary cohesive FEM | Clear energy law, mature mechanics, easy accounting | Mesh-biased crack paths unless highly refined/adaptive; large distortion/contact complexity | P0 reference and possibly path-bounded baseline |
+| Virtual-node / XFEM | Discontinuity can cross elements; avoids tiny sliver CFL restrictions | Dynamic surface reconstruction, self/contact, branching, and GPU implementation are substantial | High-quality reference; possible later upgrade |
+| Phase-field FEM/MPM | Crack nucleation/branching without explicit tracking; anisotropic formulations exist | Crack is diffuse over a length scale; needs multiple cells across that scale; crack-face contact is nontrivial | Offline/reference research, not first runtime |
+| MLS-MPM + CPIC | Large deformation, grid contact, topology-independent particles, efficient GPU structure | CPIC by itself is a geometric cut, not fracture; grid crossing/contact and rendering need care | Provisional runtime target after damage gate |
+| Damage/phase-field MPM | Natural large deformation plus physically evolving cracks | Research-grade complexity, resolution and multi-field crack-face contact | Longer-term high-fidelity target |
+| Position-based MPM/PBD | Large steps and stable-looking motion | Iteration-dependent/nonphysical stiffness; published authors explicitly note this | Rejected as calibration truth; visual prototype only |
+
+### Lessons from prior cutting simulators
+
+**DiSECt.** DiSECt combines FEM, SDF knife contact, duplicated virtual nodes,
+and springs across a preselected cut surface. It demonstrated calibration to a
+real apple force trace with a reported 0.253 N mean absolute error and used a
+10 microsecond step for stiff food examples. It is important evidence that
+force-aware calibration and differentiable parameter inference are possible.
+Its preprocessed cut plane and many spring parameters also make overfitting and
+restricted crack paths explicit limitations. Its code uses the NVIDIA Source
+Code License; its included LS-DYNA dataset is CC BY-NC 4.0. It is a comparison,
+not code to absorb casually.
+
+**CD-MPM / phase-field MPM.** Wolper et al. formulate MPM damage from a
+variational Griffith-energy functional, evolve an irreversible phase field,
+and degrade only the tensile part of elastic energy. This is substantially more
+physical than increasing damage merely because a blade is nearby. It also
+provides a useful route to mesh-independent crack energy and complex crack
+paths. Its crack remains diffuse over a regularization length, however, and the
+paper targets dynamic fracture animation rather than calibrated food cutting.
+Knife contact, wet crack-face friction, a sharp separated surface, and apple
+anisotropy remain our work. P0 should test it as an energy-based reference and
+consider a diffuse-to-discrete handoff to CPIC only after damage is complete.
+
+**Jamdagni and Jia.** Their robotic cutting model used 3 MPa, Poisson ratio
+0.17, blade friction 0.6, flesh toughness 150 N/m, and skin toughness 400 N/m;
+the experiment moved at 6.25 mm/s and recorded force/torque. Their fine 2-D
+model had about 10,000 elements, while a comparable 3-D near-edge resolution
+would require around one million. The model is linear/isotropic and assumes a
+fixed cutting plane, so it is a benchmark—not our final material truth.
+
+**CRESSim-MPM.** It provides CUDA standard MPM, MLS-MPM, PB-MPM, SDF rigid
+coupling, slicer geometries, a C API, and a BSD-3-Clause license. The paper and
+source show that slicer-side signs suppress P2G/G2P transfer. The current source
+offers co-rotational, Neo-Hookean, and linear-elastic particle types and notes
+that additional elastoplastic materials and improved particle rendering remain
+future work. It supplies useful infrastructure but no apple damage model.
+
+**SOFA cutting and mesh refinement.** SOFA is a mature FEM research framework,
+and its cutting plugin can dynamically subdivide tetrahedra, propagate changes
+to neighbouring elements to keep the topology coherent, and split elements
+along a plane or finite-width/depth incision. That makes it useful as an offline
+topology and element-boundary FEM comparison. The cut input is still geometric,
+however: subdivision does not by itself provide a calibrated apple fracture
+criterion, crack energy, peel law, or blade-force validation. It is therefore a
+reference implementation, not the default runtime solver.
+
+**Newton 1.3.** Current Newton is Apache-2.0 and supplies an implicit MPM solver,
+per-particle modulus/Poisson ratio/damping/yield/viscosity attributes, rigid/MPM
+two-way coupling, and multi-material examples. Its solver is documented as
+unconditionally stable with respect to timestep for stiff/inelastic materials,
+but it contains no cutting, damage, or crack-discontinuity feature in the
+current source. It is not part of the installed Isaac 5.1 runtime. It deserves
+a coupon bakeoff, not an assumed migration.
+
+**CulinaryCut-VLAP (2026 preprint).** This is the closest recent published
+example to the requested task: it includes apples among seven foods and couples
+ManiSkill to an MLS-MPM cutting simulator. Its supplement is also a useful
+warning about the difference between topology-changing visuals and calibrated
+fracture. It uses co-rotated elasticity, optional J2 plasticity, a per-particle
+damage scalar accumulated in a blade band, linear reduction of the Lame
+moduli, a contact/approach-speed/downstroke gate, a small added `tip force` to
+separate the two sides, a quadratic speed-resistance rule, and
+connectivity/colour post-processing to stabilize visual separation. The paper's
+physical-realism experiment sweeps `E` from 0.1 to 0.9 MPa and observes that
+peak simulated force rises from 69.96 to 77.34 N; it states that all cutting
+experiments are conducted in simulation. That is a useful monotonic sanity
+check, not validation against real apple force/work, anatomy, crack path, peel,
+or blade metrology. We should compare against it, not inherit its claims.
+
+## Proposed co-simulation architecture
+
+```text
+Franka joints/control ----> PhysX rigid step ----> knife pose/velocity
+       ^                           |                       |
+       |                           |                       v
+joint reaction <---- knife wrench + impulse <---- apple cutting solver
+                                                        |
+                          +-----------------------------+------------------+
+                          | deformation | damage | crack faces | energies |
+                          +-----------------------------+------------------+
+                                                        |
+                                         render-surface reconstruction
+                                                        |
+                                                RTX / sensors / logs
+```
+
+### Ownership rules
+
+- PhysX is the sole owner of robot and knife rigid state.
+- The cutting solver is the sole owner of apple continuum state.
+- There is no duplicate hidden rigid apple collider during cutting.
+- Coupling is impulse-consistent. The apple cannot push on the knife visually
+  without applying the same impulse to the robot.
+- Renderer state is read-only with respect to physics.
+- Reset reconstructs all material history; resuming a mid-contact USD snapshot
+  is not treated as deterministic replay.
+
+### Coupling schedule
+
+For each rigid step `Delta t_r`:
+
+1. Read knife, board, and fixture transforms/velocities.
+2. Interpolate their motion over `N` continuum microsteps `Delta t_c`.
+3. Solve apple stress, relaxation, contact, damage, topology, and face contact.
+4. Sum every knife-contact impulse and its moment arm.
+5. Apply the total equal-and-opposite spatial impulse/wrench to the PhysX knife.
+6. Advance or iteratively correct the rigid step.
+
+One-way kinematic knife motion is allowed only in the material calibration
+carriage, where the measured reaction force is the output. The robot task must
+use two-way coupling.
+
+Operator splitting can add energy or delay force. A coupling-refinement test
+must compare 1, 2, and 4 rigid/continuum exchanges per rigid step.
+
+## Resolution and timestep reality
+
+Using the Kim long-term modulus merely as a calculation example,
+
+```text
+E = 2.366 MPa, nu = 0.31, rho = 839.9 kg/m3
+G = E / [2(1 + nu)]                         = 0.903 MPa
+K = E / [3(1 - 2 nu)]                      = 2.075 MPa
+c_p = sqrt[(K + 4G/3) / rho]               = 62.49 m/s
+c_s = sqrt[G / rho]                         = 32.79 m/s
+```
+
+These are **DERIVED** from one experiment, not universal apple constants. For
+an explicit solver, `h/c_p` is about 8.0, 12.0, and 16.0 microseconds at
+0.5, 0.75, and 1.0 mm cells. A provisional safety factor of 0.3 gives about
+2.4--4.8 microseconds. One physical second could therefore require hundreds of
+thousands of microsteps. DiSECt's reported 10 microsecond step is consistent in
+order of magnitude but is not a convergence guarantee for our model.
+
+Consequences:
+
+- Start coupon studies at 0.5, 0.75, and 1.0 mm, with local refinement around
+  the crack front if supported.
+- Never reduce modulus or increase mass merely to make the GUI fast without
+  labelling and quantifying the altered dynamics.
+- An implicit method may remove the explicit stability bound, but timestep
+  accuracy, contact resolution, damage evolution, and coupling still require
+  refinement.
+- The blade edge and cuticle remain sub-grid in all practical profiles and
+  require the calibrated surface laws described above.
+- A slower-than-real-time calibration profile is acceptable. Physics fidelity
+  outranks viewport speed.
+
+## Energy audit
+
+Every calibration and task trace must report
+
+```text
+W_knife = Delta K_apple + Delta U_elastic + E_fracture
+        + D_viscoelastic + D_contact_friction + W_board
+        + E_coupling + E_numeric_residual.
+```
+
+Required channels include:
+
+- knife force and torque in world and blade frames;
+- normal and lateral blade displacement/velocity;
+- elastic and kinetic energy;
+- cumulative peel and flesh fracture energy and created area;
+- blade-face and crack-face friction dissipation;
+- viscoelastic dissipation;
+- board/fixture work;
+- coupling impulse/work; and
+- unexplained residual.
+
+A plausible force curve with a poor energy balance is a failed simulation.
+
+## Real-world calibration programme
+
+### 1. Specimen intake
+
+For every apple record cultivar, orchard/batch if known, harvest/purchase date,
+days and conditions in storage, test temperature, mass, three principal axes,
+surface colour, visible defects, and firmness/Brix if instruments are available.
+Randomization distributions come from this population, not from aesthetic
+guessing.
+
+### 2. Geometry and anatomy
+
+- Structured-light/photogrammetry scan of each exterior.
+- Volume and density consistency check: `mesh volume * density` must agree with
+  measured mass.
+- At least a representative destructive cross-section series or CT scan to fit
+  the five-lobed core, cavities, peel depth, and spatial regions.
+- Register every material coupon to its radial/tangential direction and cortex
+  depth.
+
+### 3. Flesh deformation and relaxation
+
+Reproduce small cylindrical compression and stress-relaxation tests in radial
+and tangential orientations, sampled in outer/inner cortex. Fit full curves and
+confidence intervals for elastic/viscoelastic parameters. Repeat at cutting-
+relevant rates because the published quasi-static 0.1 mm/s test does not span a
+fast slice.
+
+### 4. Fracture and peel
+
+- Single-edge-notched bend or crack-opening tests in radial and tangential
+  directions.
+- Razor/knife cutting-energy coupons with and without peel.
+- Peel strip tension/tear and local puncture.
+- Core/carpel coupons or centre-cut comparison, since transferable core
+  constants are currently **OPEN**.
+- Repeat across storage ages; turgor/adhesion changes must be observable.
+
+### 5. Knife metrology
+
+- Image/profilometer samples of edge radius at heel, belly, and tip before and
+  after the campaign.
+- Measure included angle, microbevel, thickness-versus-height, mass, COM, and
+  inertia.
+- Run an ISO 8442-5-style independent sharpness/retention check where possible.
+- Never mix force curves from different sharpening states under one blade ID.
+
+### 6. Instrumented cutting matrix
+
+Use a stiff motion carriage or robot with a calibrated six-axis force/torque
+sensor and synchronized high-speed side/front video. First test a constrained
+coupon/apple fixture so material parameters are not confounded with apple roll.
+
+Minimum factors:
+
+- peel-on versus peeled entry;
+- radial and tangential crack orientation;
+- off-centre cortex-only versus centre/core cut;
+- at least three normal speeds spanning the intended task;
+- pure push and multiple controlled slice/push ratios;
+- multiple apex radii/sharpening states if feasible; and
+- repeated apples reserved as holdouts.
+
+Record force, torque, knife pose, fixture reactions, crack-front motion, surface
+opening, and final cut geometry. A single peak force is not enough.
+
+### 7. Identification without overfitting
+
+Fit parameters in causal groups:
+
+1. mass/geometry from metrology;
+2. bulk elastic/relaxation parameters from no-cut compression;
+3. knife contact/friction from sliding/indentation below fracture;
+4. peel strength/energy from peel-only entry;
+5. flesh cohesive strength/energy from peeled coupons;
+6. anisotropy from radial/tangential tests; and
+7. core parameters from centre-cut residuals.
+
+Then freeze them and evaluate unseen speeds, slice ratios, apples, and cut
+locations. Optimizing hundreds of per-interface values against one trace is
+explicitly rejected.
+
+## Numerical verification and physical validation gates
+
+### Solver-unit gates
+
+- Uniform deformation patch tests reproduce analytic stress.
+- Rigid translation/rotation produces no spurious stress.
+- Momentum is conserved without external contact.
+- Maxwell relaxation reproduces its analytic curve.
+- Cohesive opening dissipates the prescribed `G_c` independent of step size.
+- A separated interface transmits compression/contact but not tension.
+- Friction obeys the selected Coulomb/adhesive law and maximum dissipation.
+- Knife/apple impulses are equal and opposite to numerical tolerance.
+- No particle or element mass disappears during a cut.
+
+### Refinement gates
+
+Run at least three spatial and temporal profiles. Report convergence of:
+
+- puncture displacement and peak force;
+- total cutting work;
+- created crack area and path;
+- force-curve integral and core peak;
+- final component mass/volume;
+- energy residual; and
+- returned knife impulse.
+
+The acceptance band is to be set before looking at the finest result. A useful
+initial engineering target is under 5% change in work/impulse and under one
+coarse cell of crack-path change between the two finest profiles, but it remains
+a **PRIOR gate**, not proof of continuum truth.
+
+### Physical holdout gates
+
+- Pre-puncture stiffness and puncture displacement.
+- Peel peak and work.
+- Flesh force trace and total work.
+- Radial/tangential toughness ratio and path preference.
+- Monotonic response to measured edge radius.
+- Reduced force with controlled slicing, including any observed optimum.
+- Distinct centre/core signature.
+- Final cut-surface geometry and component separation.
+
+Report normalized curve error and feature errors; do not hide a shifted or
+smoothed crack event inside a single RMSE.
+
+## Falsification matrix
+
+The following tests are designed to make a wrong model fail visibly:
+
+| Perturbation | Required physical trend or question |
+|---|---|
+| Sharper versus blunter measured edge | Blunter edge should require more pre-initiation indentation/force. |
+| Same work, different wedge angle | Tip radius should dominate initiation in the small-radius regime; wedge affects later wedging/friction. |
+| Pure push versus slicing | Slicing should reduce force over a useful range, not merely change animation speed. |
+| Peel on versus peel removed | Entry peak/work and initial crack should change. |
+| Radial versus tangential crack | Tangential propagation should require roughly higher fracture work, subject to cultivar calibration. |
+| Outer versus inner cortex | Response should reflect measured spatial stiffness/porosity differences. |
+| Centre versus off-centre cut | Core/carpel interaction should add a reproducible signature. |
+| Fresh versus stored | Relaxation/adhesion/cutting energy should change in the measured direction. |
+| Knife reversed to spine | The blunt spine must indent/push, not cut merely because a slicer collider overlaps. |
+| Edge stopped after partial entry | Damage must not grow without force/work; relaxation may continue. |
+| Remove knife after partial cut | Crack faces may close/contact but cannot heal. |
+| Coarse versus fine grid | Fracture energy and force must not scale with deleted volume or cell width. |
+| Kinematic versus two-way knife | Prescribed trajectory forces should agree; free robot motion should respond to the returned wrench. |
+
+## Robot task definition
+
+The material-calibration carriage and the robot-learning environment are
+separate artifacts. The former may prescribe knife motion; the latter may not.
+
+### Initial compatible scope
+
+For compatibility with the repository's single-Franka environments, the first
+robot task should cut an apple held by a declared, low-profile physical cradle
+on a cutting board. The cradle is not hidden and cannot constrain the two halves
+after separation. A fully natural unfixtured apple requires a second arm/hand
+and is a later task variant.
+
+Episode phases:
+
+1. verify the pre-mounted knife-holder attachment and unloaded home state;
+2. approach the target cut line without apple contact;
+3. establish edge/peel contact;
+4. puncture peel;
+5. execute a controlled push/slice trajectory while reacting to wrench;
+6. sever the target ligament through the core or specified off-centre plane;
+7. retract safely; and
+8. apply a gentle proof-separation or allow gravity to verify two components.
+
+### Observation proposal
+
+- robot joint positions/velocities and gripper state;
+- knife 6-D pose/twist and blade-frame wrench;
+- apple/cradle pose and gross motion;
+- target-line error and blade progress;
+- peel/flesh contact flags derived from physics;
+- target and off-target damaged area;
+- remaining ligament/connectivity summary;
+- peak/cumulative force and work budgets; and
+- optional RGB-D/tactile observations for learning variants.
+
+Ground-truth damage fields may be privileged critic/training observations but
+should be separable from deployable sensor observations.
+
+### Reward proposal
+
+Use increments so the agent is rewarded for causal progress, not for occupying
+a pose:
+
+```text
+r_t = w_A Delta(A_target / A_goal)
+    - w_O Delta(A_offtarget / A_goal)
+    - w_F phi(||F_blade||; F_safe)
+    - w_B phi(J_board; J_safe)
+    - w_R apple_roll_or_fixture_load
+    - w_U ||action||^2
+    + b_success I(success).
+```
+
+The exact weights are **PRIOR** policy parameters. They may not alter physics.
+
+### Success verifier
+
+Success requires all of the following history-sensitive evidence:
+
+- target coverage above the declared threshold;
+- remaining target ligament/connectivity below threshold;
+- two solver components separate under a small declared proof load or gravity;
+- off-target damage below limit;
+- no forbidden board strike above its impulse limit;
+- no apple teleport, pose write, attachment, collision disable, or mass loss;
+- robot/knife forces and joint limits remain safe; and
+- finite state and acceptable energy residual throughout.
+
+Final visual separation alone is not success.
+
+## Rendering plan tied to physics
+
+Visual quality matters, but it must expose rather than conceal the mechanics.
+
+### Apple
+
+- Use a scanned or parametric asymmetric apple silhouette with top/bottom
+  dimples; randomize within measured axis/mass distributions.
+- Render a waxy peel with spatial colour, lenticels, roughness variation, and a
+  thin subsurface response.
+- Construct the five-carpel core, cavities, seeds, stem, and inner flesh so a
+  centre cut reveals real anatomy.
+- Map a high-resolution peel mesh to continuum/cage state until its local
+  cohesive layer breaks.
+- Generate newly exposed flesh from the actual crack surface, with its material
+  region and local orientation—not a pre-authored plane hidden inside the apple.
+- Give very young cut surfaces a moist roughness/specular response. Sparse
+  decorative droplets are allowed only if labelled visual; coupled juice flow
+  is a later multiphysics scope.
+- Browning occurs over minutes and is outside a short cutting episode unless
+  time is explicitly accelerated and labelled.
+
+### Knife and workcell
+
+- Model a professional paring/chef knife with measured blade profile, grind,
+  spine, bolster/tang, handle, mass, COM, and gripper fixture.
+- Keep visual and collision meshes separate; the analytic edge is physics
+  geometry, not a visibly thick wedge.
+- Use a realistic board, shallow cradle, kitchen/lab bench, area lighting, and
+  camera views that show the edge, crack opening, and robot simultaneously.
+- Add diagnostic overlays for edge SDF, damage front, crack surface, contact
+  traction, and energy channels; they must be toggleable and absent from clean
+  renders.
+
+Raw MPM particles are a debug view, never the final render.
+
+## Implementation ladder
+
+### R0 — research and engine audit (this document)
+
+- Source-backed material/knife/solver ledger.
+- Reproducible installed-engine capability probe.
+- No rendered cut or calibrated result claimed.
+
+### P0 — numerical coupons
+
+- Rounded-edge SDF contact without fracture.
+- Homogeneous compression/relaxation coupon.
+- One cohesive interface with exact work accounting.
+- Damage-gated discontinuity and crack-face contact.
+- Explicit MPM, implicit MPM, and FEM bakeoff.
+- Build-tool bootstrap if the CUDA C API route wins.
+
+Exit: unit gates and spatial/temporal refinement pass.
+
+### P1 — layered apple coupon
+
+- Codimensional peel plus anisotropic flesh.
+- Push/slice and radial/tangential matrix.
+- Force/torque and energy traces.
+- First physical coupon calibration.
+
+Exit: held-out coupon curves and trends pass.
+
+### P2 — full heterogeneous apple on a carriage
+
+- Measured exterior, cortex field, five-carpel core, cavities, seeds.
+- Off-centre and centre cuts.
+- Dynamic crack surface reconstruction.
+- High-quality clean and diagnostic renders.
+
+Exit: full-apple holdouts and component/mass accounting pass.
+
+### P3 — two-way robot environment
+
+- Franka with an explicit knife holder, physical cradle, coupled wrench, Gym API.
+- History-sensitive reward/verifier and anti-cheat audit.
+- Manual keyboard/GUI controls and deterministic calibration playback.
+
+Exit: one end-to-end physical episode plus randomized robustness runs.
+
+### P4 — engineering dossier
+
+- Governing equations, source/evidence labels, parameter posteriors.
+- Force/work/energy and convergence plots.
+- Rendered motion frames from live physics.
+- Reward/verifier, failures, limitations, and hardware holdouts.
+- PDF rebuilt with the repository Tectonic tool and every page visually checked.
+
+## Explicitly rejected shortcuts
+
+1. Boolean-cutting only the render mesh.
+2. Swapping an intact apple for two hidden rigid halves.
+3. Deleting particles/elements swept by the knife.
+4. Activating a full pre-cut plane solely from knife overlap.
+5. Treating the peel as a painted texture or a millimetre-thick rounded shell.
+6. Treating a grid-cell-wide edge as the real knife radius.
+7. A position-based solver whose iteration count silently defines apple
+   stiffness, presented as material calibration.
+8. One-way kinematic cutting in the robot task.
+9. Fitting fracture energy before friction and bulk relaxation are identified.
+10. Per-interface force-curve fitting without held-out apples/trajectories.
+11. Rewarding final half poses without ligament/connectivity history.
+12. Calling a simulation "realistic" because the render is photorealistic.
+
+## Open questions before P0 becomes P1
+
+- Which actual cultivar and knife will define the first calibrated benchmark?
+- Is the target a centre bisection through the core or an off-centre slice?
+- Is a physical cradle acceptable for v1, or is bimanual stabilization required?
+- Can we obtain high-rate six-axis force/torque data and edge microscopy?
+- Is installing MSVC Build Tools/CMake acceptable if the C++/CUDA path wins?
+- May a future branch target Isaac 6.0/Newton, while keeping current 5.1
+  environments reproducible?
+
+These choices change calibration and scope; they should be made after P0 proves
+the numerical mechanism, not guessed into the physics.
+
+## Primary source catalogue
+
+### Apple anatomy and mechanics
+
+1. Kim et al., *Determination of the Viscoelastic Properties of Apple Flesh
+   under Quasi-Static Compression Based on FEM Optimization*, Food Science and
+   Technology Research 14(3), 2008. Open paper and parameter tables:
+   <https://doi.org/10.3136/fstr.14.221>
+2. Vincent, *Relationship between density and stiffness of apple flesh*,
+   Journal of the Science of Food and Agriculture 47, 1989:
+   <https://doi.org/10.1002/jsfa.2740470406>
+3. Khan and Vincent, *Anisotropy of apple parenchyma*, Journal of the Science
+   of Food and Agriculture 52, 1990:
+   <https://doi.org/10.1002/jsfa.2740520404>
+4. Khan and Vincent, *Anisotropy in fracture properties of apple flesh as
+   investigated by crack-opening tests*, Journal of Materials Science 28, 1993:
+   <https://doi.org/10.1007/BF00349031>
+5. Khan and Vincent, *Compressive stiffness and fracture properties of apple
+   and potato parenchyma*, Journal of Texture Studies 24, 1993:
+   <https://doi.org/10.1111/j.1745-4603.1993.tb00052.x>
+6. Alvarez et al., *Fracture properties of stored fresh and osmotically
+   manipulated apple tissue*, European Food Research and Technology 211, 2000:
+   <https://doi.org/10.1007/s002170000160>
+7. Wu and Pitts, *Development and validation of a finite element model of an
+   apple fruit cell*, Postharvest Biology and Technology 16, 1999:
+   <https://doi.org/10.1016/S0925-5214(98)00095-7>
+8. Oey et al., *Effect of turgor on micromechanical and structural properties
+   of apple tissue: A quantitative analysis*, Postharvest Biology and Technology
+   44, 2007: <https://doi.org/10.1016/j.postharvbio.2006.12.015>
+9. Verboven et al., *Spatial development of transport structures in apple
+   fruit*, Frontiers in Plant Science 6, 2015 (micro-CT):
+   <https://doi.org/10.3389/fpls.2015.00679>
+10. Zhang et al., *Mechanical properties and microstructure of Fuji apple peel
+   and pulp*, International Journal of Food Properties 25, 2022:
+   <https://doi.org/10.1080/10942912.2022.2107006>
+11. Wang et al., *Experimental Research on Mechanical Properties of Apple
+    Peels*, Journal of Engineering and Technological Sciences 47(6), 2015:
+    <https://doi.org/10.5614/j.eng.technol.sci.2015.47.6.8>
+12. Khanal and Knoche, *Mechanical properties of apple skin are determined by
+    epidermis and hypodermis*, Journal of the American Society for Horticultural
+    Science 139, 2014: <https://doi.org/10.21273/JASHS.139.2.139>
+13. Sun et al., *Mechanical Properties of Apple Fruit and Fruit Stem*, Journal
+    of Nuclear Agricultural Sciences 39, 2025:
+    <https://doi.org/10.11869/j.issn.1000-8551.2025.05.1030>
+
+### Blade and cutting mechanics
+
+14. McCarthy, Hussey, and Gilchrist, *On the sharpness of straight edge blades
+    in cutting soft solids: Part I—indentation experiments*, Engineering
+    Fracture Mechanics 74, 2007:
+    <https://doi.org/10.1016/j.engfracmech.2006.10.015>
+15. McCarthy, Ni Annaidh, and Gilchrist, *Part II—analysis of blade geometry*,
+    Engineering Fracture Mechanics 77, 2010:
+    <https://doi.org/10.1016/j.engfracmech.2009.10.003>
+16. Atkins, *Optimum blade configurations for the cutting of soft solids*,
+    Engineering Fracture Mechanics 73, 2006:
+    <https://doi.org/10.1016/j.engfracmech.2006.06.006>
+17. Mora and Pomeau, *Cutting and Slicing Weak Solids*, Physical Review Letters
+    125, 2020: <https://doi.org/10.1103/PhysRevLett.125.038002>
+18. ISO 8442-5:2004, current confirmed 2021, *Sharpness and edge retention test
+    of cutlery*: <https://www.iso.org/standard/30037.html>
+
+### Numerical cutting and fracture
+
+19. Molino, Bao, and Fedkiw, *A Virtual Node Algorithm for Changing Mesh
+    Topology During Simulation*, ACM TOG 23, 2004:
+    <https://doi.org/10.1145/1015706.1015734>
+20. Jerabkova and Kuhlen, *Stable cutting of deformable objects in virtual
+    environments using XFEM*, IEEE Computer Graphics and Applications 29, 2009:
+    <https://doi.org/10.1109/MCG.2009.32>
+21. Hu et al., *A Moving Least Squares Material Point Method with Displacement
+    Discontinuity and Two-Way Rigid Body Coupling*, ACM TOG 37, 2018:
+    <https://doi.org/10.1145/3197517.3201293>
+22. Kakouris and Triantafyllou, *Phase-field material point method for dynamic
+    brittle fracture with isotropic and anisotropic surface energy*, 2019:
+    <https://arxiv.org/abs/1906.04740>
+23. Hakimzadeh et al., *Phase-Field Finite Deformation Fracture with an
+    Effective Energy for Regularized Crack Face Contact*, 2022:
+    <https://arxiv.org/abs/2206.15386>
+24. Heiden et al., *DiSECt: A Differentiable Simulation Engine for Autonomous
+    Robotic Cutting*, Robotics: Science and Systems 2021:
+    <https://doi.org/10.15607/RSS.2021.XVII.067>
+25. Jamdagni and Jia, *Robotic Cutting of Solids Based on Fracture Mechanics
+    and FEM*, IROS 2019 author manuscript:
+    <https://faculty.sites.iastate.edu/jia/files/inline-files/IROS19.pdf>
+26. Ou and Tavakoli, *CRESSim-MPM: A Material Point Method Library for Surgical
+    Soft Body Simulation with Cutting and Suturing*, IROS 2025 paper and source:
+    <https://www.ece.ualberta.ca/~tbs/pmwiki/pdf/Ou-IROS-2025a.pdf>,
+    <https://github.com/yafei-ou/CRESSim-MPM>
+27. Koh et al., *CulinaryCut-VLAP: A Vision-Language-Action-Physics Framework
+    for Food Cutting via a Force-Aware Material Point Method*, 2026 preprint:
+    <https://arxiv.org/abs/2601.06451>
+28. Wolper et al., *CD-MPM: Continuum Damage Material Point Methods for Dynamic
+    Fracture Animation*, ACM Transactions on Graphics 38, 2019:
+    <https://doi.org/10.1145/3306346.3322949>
+29. SOFA, *Cutting & Mesh Refinement* plugin and framework source:
+    <https://www.sofa-framework.org/applications/plugins/cutting-mesh-refinement/>,
+    <https://github.com/sofa-framework/sofa>
+
+### Engine sources
+
+30. PhysX 5.1 Soft Bodies documentation:
+    <https://nvidia-omniverse.github.io/PhysX/physx/5.1.2/docs/SoftBodies.html>
+31. PhysX 5.1 Geometry documentation:
+    <https://nvidia-omniverse.github.io/PhysX/physx/5.1.3/docs/Geometry.html>
+32. Isaac Sim PhysX/Omniverse limitations:
+    <https://docs.isaacsim.omniverse.nvidia.com/5.1.0/physics/physics_resources.html>
+33. Isaac Sim 5.1 release notes:
+    <https://docs.isaacsim.omniverse.nvidia.com/5.1.0/overview/release_notes.html>
+34. NVIDIA Warp documentation and FEM toolkit:
+    <https://nvidia.github.io/warp/>
+35. Newton 1.3 documentation, source, and implicit-MPM implementation:
+    <https://newton-physics.github.io/newton/stable/guide/overview.html>,
+    <https://github.com/newton-physics/newton>,
+    <https://github.com/newton-physics/newton/blob/main/newton/_src/solvers/implicit_mpm/solver_implicit_mpm.py>
+36. PhysX 5.1 reduced-coordinate articulations, link forces, and implicit joint
+    drives: <https://nvidia-omniverse.github.io/PhysX/physx/5.1.3/docs/Articulations.html>
+37. Isaac Sim 5.1 Lula RMPflow tutorial and articulation-motion-policy bridge:
+    <https://docs.isaacsim.omniverse.nvidia.com/5.1.0/manipulators/manipulators_rmpflow.html>
+38. Franka Control Interface control architecture, motion generators,
+    impedance controllers, rate limiting, and measured external wrench:
+    <https://frankarobotics.github.io/docs/doc/libfranka/docs/overview.html>

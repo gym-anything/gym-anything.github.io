@@ -1,0 +1,79 @@
+{
+  "schema": "football-p5-integrated-evidence-summary-v2",
+  "model_status": "INTEGRATED PRIOR-ONLY / NOT PHYSICALLY CALIBRATED; PHYSICAL BACK NET ONLY",
+  "source_trace": "outputs\\isaac_p5_integrated_shot.json",
+  "source_visual_trace": "outputs\\isaac_p5_integrated_shot_frames_evidence.json",
+  "source_net_coupon": "outputs\\isaac_p3_net_comparison.json",
+  "checks": {
+    "runner_gate_passed": true,
+    "shot_profile_preserves_contact_causality": true,
+    "fixed_step_clock_contract": true,
+    "visible_capture_is_physics_neutral": true,
+    "motion_frame_artifacts_are_complete": true,
+    "whole_ball_goal_scored": true,
+    "live_tensor_point_response": true,
+    "visible_foot_convex_proxy_is_pinned": true,
+    "partitioned_contact_release_is_explicit": true,
+    "two_way_foot_impulse_closes": true,
+    "foot_energy_closes_and_dissipates": true,
+    "custom_pitch_is_exclusive_and_bounded": true,
+    "visual_deformation_is_contact_driven_and_collider_neutral": true,
+    "custom_robot_ball_contact_is_exclusive": true,
+    "humanoid_recovers_without_other_ground_contact": true,
+    "no_hidden_support_or_joint_clipping": true,
+    "no_post_reset_or_outgoing_ball_state_write": true,
+    "physical_back_net_available_and_separately_validated": true,
+    "finite_state": true
+  },
+  "pass": true,
+  "metrics": {
+    "goal_time_s": 7.036193997392759,
+    "goal_center_world_m": [
+      0.10981691073340778,
+      1.0376214998710442,
+      0.1091657429933548
+    ],
+    "ball_velocity_at_foot_separation_world_m_s": [
+      7.344831466674805,
+      0.35591113567352295,
+      1.1876239776611328
+    ],
+    "ball_angular_velocity_at_foot_separation_world_rad_s": [
+      -1.8762236833572388,
+      0.44182196259498596,
+      10.759103775024414
+    ],
+    "separation_spin_parameter": 0.16113853966232994,
+    "lateral_residual_at_goal_vs_constant_heading_m": 0.5004709350451979,
+    "post_separation_aerodynamic_extrema": {
+      "maximum_drag_force_n": 0.6317313853568468,
+      "maximum_magnus_force_n": 0.26313074076974163,
+      "maximum_knuckle_force_n": 1.3207414594134462e-06,
+      "maximum_knuckle_coefficient": 1.7830802868835837e-06,
+      "maximum_wake_amplitude": 1.2736287763454168e-05,
+      "scope": "from first resolved foot separation through episode end"
+    },
+    "foot_directional_effective_mass_range_kg": [
+      0.653528871669103,
+      0.7028341482663994
+    ],
+    "combined_directional_reduced_mass_range_kg": [
+      0.2593538780234124,
+      0.26678105018024356
+    ],
+    "peak_foot_ball_force_n": 461.9881756533767,
+    "peak_foot_ball_compression_m": 0.021759879343083634,
+    "right_foot_contact_proxy_sha256": "232A588BEF5C4364DAA573C77F6F78874F17438F7A6F2CBF2EFBD6D1B46E80FD",
+    "minimum_visual_deformation_determinant": 0.9115717057843821,
+    "foot_contact_work_extracted_j": 2.0688765631671195,
+    "foot_constitutive_dissipation_j": 2.0688765631671187,
+    "minimum_upright_cosine": 0.906775463779977,
+    "minimum_recovery_upright_cosine": 0.9852277501670287,
+    "final_upright_cosine": 0.9999999986464787,
+    "back_net_contact_observed": false,
+    "visible_render_only_updates": 524,
+    "visible_maximum_render_clock_advance_s": 0.0,
+    "visible_headless_exact_sample_count": 500
+  },
+  "interpretation": "Passing establishes internal causal/numerical evidence for the current prior model. It is not physical calibration or a blind sim-to-real validation result."
+}

@@ -1,0 +1,103 @@
+{
+  "schema": "football-p4-convex-live-tensor-rate-sweep-v2",
+  "model_status": "ISAAC/PHYSX NUMERICAL CONVERGENCE EVIDENCE; PRESSURE-SHELL, PINNED VISIBLE-SHOE CONVEX PROXY, AND BALL-INERTIA PRIORS REMAIN UNCALIBRATED",
+  "fixed_outer_physics_hz": 500,
+  "swept_internal_contact_rates_hz": [
+    10000,
+    20000,
+    40000
+  ],
+  "runs": {
+    "10000": {
+      "source": "outputs\\isaac_p4_g1_ball_contact_convex_profile_curl_10khz.json",
+      "contact_substep_hz": 10000.0,
+      "metrics": {
+        "outgoing_forward_speed_m_s": 7.626460075378418,
+        "outgoing_vertical_speed_m_s": 1.2858073711395264,
+        "outgoing_spin_magnitude_rad_s": 10.239918998748848,
+        "peak_force_n": 481.0236346960805,
+        "peak_compression_m": 0.022282790777137657,
+        "normal_impulse_n_s": 3.2793776759018125
+      },
+      "foot_directional_effective_mass_range_kg": [
+        0.5186904144105268,
+        0.6134554013585984
+      ],
+      "combined_directional_reduced_mass_range_kg": [
+        0.23509974888395127,
+        0.2528002847469506
+      ]
+    },
+    "20000": {
+      "source": "outputs\\isaac_p4_g1_ball_contact_convex_profile_curl_20khz.json",
+      "contact_substep_hz": 20000.0,
+      "metrics": {
+        "outgoing_forward_speed_m_s": 7.630448341369629,
+        "outgoing_vertical_speed_m_s": 1.280555248260498,
+        "outgoing_spin_magnitude_rad_s": 10.231467941072337,
+        "peak_force_n": 481.1038657683669,
+        "peak_compression_m": 0.022306958996352565,
+        "normal_impulse_n_s": 3.281092778171106
+      },
+      "foot_directional_effective_mass_range_kg": [
+        0.5186904144105268,
+        0.6151597732801183
+      ],
+      "combined_directional_reduced_mass_range_kg": [
+        0.23509974888395127,
+        0.25308924938843386
+      ]
+    },
+    "40000": {
+      "source": "outputs\\isaac_p4_g1_ball_contact_convex_profile_curl_40khz.json",
+      "contact_substep_hz": 40000.0,
+      "metrics": {
+        "outgoing_forward_speed_m_s": 7.632493495941162,
+        "outgoing_vertical_speed_m_s": 1.2768158912658691,
+        "outgoing_spin_magnitude_rad_s": 10.229395209033425,
+        "peak_force_n": 481.15149235970347,
+        "peak_compression_m": 0.02231925611237351,
+        "normal_impulse_n_s": 3.2819720515727346
+      },
+      "foot_directional_effective_mass_range_kg": [
+        0.5186904144105268,
+        0.6160312138587457
+      ],
+      "combined_directional_reduced_mass_range_kg": [
+        0.23509974888395127,
+        0.2532366323774268
+      ]
+    }
+  },
+  "coarse_10khz_to_fine_40khz_relative_delta_percent": {
+    "outgoing_forward_speed_m_s": 0.07904914122694788,
+    "outgoing_vertical_speed_m_s": 0.7042111501872705,
+    "outgoing_spin_magnitude_rad_s": 0.102877926801865,
+    "peak_force_n": 0.02657326552099833,
+    "peak_compression_m": 0.16338060306425925,
+    "normal_impulse_n_s": 0.07904929201572261
+  },
+  "gate_threshold_percent": {
+    "outgoing_forward_speed_m_s": 0.1,
+    "outgoing_vertical_speed_m_s": 1.0,
+    "outgoing_spin_magnitude_rad_s": 0.25,
+    "peak_force_n": 0.25,
+    "peak_compression_m": 0.25,
+    "normal_impulse_n_s": 0.1
+  },
+  "gates": {
+    "outgoing_forward_speed_m_s": true,
+    "outgoing_vertical_speed_m_s": true,
+    "outgoing_spin_magnitude_rad_s": true,
+    "peak_force_n": true,
+    "peak_compression_m": true,
+    "normal_impulse_n_s": true
+  },
+  "source_invariant_gates": {
+    "10000": true,
+    "20000": true,
+    "40000": true
+  },
+  "pass": true,
+  "interpretation": "The sweep tests numerical rate sensitivity only. Agreement does not calibrate constitutive parameters or validate the G1 asset against hardware impacts."
+}

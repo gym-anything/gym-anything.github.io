@@ -1,0 +1,492 @@
+{
+  "purpose": "complete Franka-driven whole-apple through-cut proof",
+  "status": "whole-apple prescribed-plane cohesive FEM prototype using published priors; not physically calibrated",
+  "tool_attachment": "merged rigid panda_hand payload",
+  "physics_dt_s": 0.008335,
+  "fem_dt_s": 5e-06,
+  "fem_microsteps_per_physx_step": 1667,
+  "edge_servo_rate_s_inv": [
+    12.0,
+    6.0,
+    3.0
+  ],
+  "tracking_error_limit_m": 0.006,
+  "energy_residual_fraction_limit": 0.005,
+  "frames": 678,
+  "maximum_reaction_force_n": 26.683691024780273,
+  "maximum_tracking_error_m": 0.0058727413610461165,
+  "cut_lateral_peak_to_peak_m": 0.00027403208319773387,
+  "cut_orientation_excursion_rad": 0.0046881695811166945,
+  "full_cut_terminal_frame": 678,
+  "final_knife_position_m": [
+    0.04522541635940123,
+    0.015050669697198288,
+    0.8052474433171561
+  ],
+  "final_edge_clearance_above_board_m": 0.000247443317156093,
+  "cut_topology": {
+    "full_damage_threshold": 0.999,
+    "nominal_interface_area_m2": 0.0047781955800019205,
+    "damage_weighted_interface_fraction": 1.0,
+    "fully_separated_interface_fraction": 1.0,
+    "remaining_ligament_area_fraction": 0.0,
+    "minimum_vertical_band_separated_fraction": 1.0,
+    "vertical_bands": [
+      {
+        "band": 0,
+        "center_z_m": 0.0019736841204576194,
+        "area_m2": 0.00010789473890326917,
+        "damage_weighted_fraction": 1.0,
+        "maximum_damage": 1.0,
+        "maximum_history_separation_m": 0.0014372402802109718,
+        "mean_current_opening_m": 0.00042816233811511967,
+        "mean_current_center_z_m": 0.0025746010947581715,
+        "mean_current_center_y_m": -0.00024347239273733314,
+        "fully_separated_fraction": 1.0
+      },
+      {
+        "band": 1,
+        "center_z_m": 0.005921052303165197,
+        "area_m2": 0.00016954887541942298,
+        "damage_weighted_fraction": 1.0,
+        "maximum_damage": 1.0,
+        "maximum_history_separation_m": 0.0016225660219788551,
+        "mean_current_opening_m": 0.0005580907519205622,
+        "mean_current_center_z_m": 0.006521855311637575,
+        "mean_current_center_y_m": -0.0002080542926154468,
+        "fully_separated_fraction": 1.0
+      },
+      {
+        "band": 2,
+        "center_z_m": 0.009868420660495758,
+        "area_m2": 0.0002312030119355768,
+        "damage_weighted_fraction": 1.0,
+        "maximum_damage": 1.0,
+        "maximum_history_separation_m": 0.0018237560288980603,
+        "mean_current_opening_m": 0.0006907387274420923,
+        "mean_current_center_z_m": 0.010468322592270042,
+        "mean_current_center_y_m": -0.0001720432444320372,
+        "fully_separated_fraction": 1.0
+      },
+      {
+        "band": 3,
+        "center_z_m": 0.013815789017826319,
+        "area_m2": 0.0002620300801936537,
+        "damage_weighted_fraction": 1.0,
+        "maximum_damage": 1.0,
+        "maximum_history_separation_m": 0.0019528347766026855,
+        "mean_current_opening_m": 0.0008231368152408715,
+        "mean_current_center_z_m": 0.014414825335181519,
+        "mean_current_center_y_m": -0.0001350222417956911,
+        "fully_separated_fraction": 1.0
+      },
+      {
+        "band": 4,
+        "center_z_m": 0.01776315737515688,
+        "area_m2": 0.0002928571484517306,
+        "damage_weighted_fraction": 1.0,
+        "maximum_damage": 1.0,
+        "maximum_history_separation_m": 0.002086690394207835,
+        "mean_current_opening_m": 0.0009565664051415137,
+        "mean_current_center_z_m": 0.01836225228678239,
+        "mean_current_center_y_m": -9.838116238825006e-05,
+        "fully_separated_fraction": 1.0
+      },
+      {
+        "band": 5,
+        "center_z_m": 0.021710526198148727,
+        "area_m2": 0.0002928571484517306,
+        "damage_weighted_fraction": 1.0,
+        "maximum_damage": 1.0,
+        "maximum_history_separation_m": 0.002145355334505439,
+        "mean_current_opening_m": 0.001090806795043152,
+        "mean_current_center_z_m": 0.02230991577533515,
+        "mean_current_center_y_m": -6.278070188209153e-05,
+        "fully_separated_fraction": 1.0
+      },
+      {
+        "band": 6,
+        "center_z_m": 0.02565789595246315,
+        "area_m2": 0.0003236842167098075,
+        "damage_weighted_fraction": 1.0,
+        "maximum_damage": 1.0,
+        "maximum_history_separation_m": 0.0022946421522647142,
+        "mean_current_opening_m": 0.0012259939930305654,
+        "mean_current_center_z_m": 0.026257575740889896,
+        "mean_current_center_y_m": -2.725485163474738e-05,
+        "fully_separated_fraction": 1.0
+      },
+      {
+        "band": 7,
+        "center_z_m": 0.029605261981487274,
+        "area_m2": 0.0003236842167098075,
+        "damage_weighted_fraction": 1.0,
+        "maximum_damage": 1.0,
+        "maximum_history_separation_m": 0.0023741726763546467,
+        "mean_current_opening_m": 0.001360170387049457,
+        "mean_current_center_z_m": 0.03020473982074431,
+        "mean_current_center_y_m": 9.088988123934657e-06,
+        "fully_separated_fraction": 1.0
+      },
+      {
+        "band": 8,
+        "center_z_m": 0.0335526317358017,
+        "area_m2": 0.0003236842167098075,
+        "damage_weighted_fraction": 1.0,
+        "maximum_damage": 1.0,
+        "maximum_history_separation_m": 0.0024628497194498777,
+        "mean_current_opening_m": 0.0014948511070254006,
+        "mean_current_center_z_m": 0.034151711368135045,
+        "mean_current_center_y_m": 4.611033826164681e-05,
+        "fully_separated_fraction": 1.0
+      },
+      {
+        "band": 9,
+        "center_z_m": 0.03749999962747097,
+        "area_m2": 0.0003236842167098075,
+        "damage_weighted_fraction": 1.0,
+        "maximum_damage": 1.0,
+        "maximum_history_separation_m": 0.0025585193652659655,
+        "mean_current_opening_m": 0.001628658208545179,
+        "mean_current_center_z_m": 0.03809808074895825,
+        "mean_current_center_y_m": 8.351832770535548e-05,
+        "fully_separated_fraction": 1.0
+      },
+      {
+        "band": 10,
+        "center_z_m": 0.041447367519140244,
+        "area_m2": 0.0003236842167098075,
+        "damage_weighted_fraction": 1.0,
+        "maximum_damage": 1.0,
+        "maximum_history_separation_m": 0.0026633620727807283,
+        "mean_current_opening_m": 0.0017617566211681282,
+        "mean_current_center_z_m": 0.042044314541040906,
+        "mean_current_center_y_m": 0.00012041472401174288,
+        "fully_separated_fraction": 1.0
+      },
+      {
+        "band": 11,
+        "center_z_m": 0.045394739136099815,
+        "area_m2": 0.0002928571484517306,
+        "damage_weighted_fraction": 1.0,
+        "maximum_damage": 1.0,
+        "maximum_history_separation_m": 0.0027131899259984493,
+        "mean_current_opening_m": 0.0018932552657931585,
+        "mean_current_center_z_m": 0.045990454735593836,
+        "mean_current_center_y_m": 0.00015715267325408364,
+        "fully_separated_fraction": 1.0
+      },
+      {
+        "band": 12,
+        "center_z_m": 0.04934210330247879,
+        "area_m2": 0.0002928571484517306,
+        "damage_weighted_fraction": 1.0,
+        "maximum_damage": 1.0,
+        "maximum_history_separation_m": 0.002837143139913678,
+        "mean_current_opening_m": 0.0020238222526754008,
+        "mean_current_center_z_m": 0.049936792404766665,
+        "mean_current_center_y_m": 0.00019420198115863317,
+        "fully_separated_fraction": 1.0
+      },
+      {
+        "band": 13,
+        "center_z_m": 0.05328947305679321,
+        "area_m2": 0.00027744361432269216,
+        "damage_weighted_fraction": 1.0,
+        "maximum_damage": 1.0,
+        "maximum_history_separation_m": 0.0029030886944383383,
+        "mean_current_opening_m": 0.002153212551665665,
+        "mean_current_center_z_m": 0.05390079410884668,
+        "mean_current_center_y_m": -0.001721321340516658,
+        "fully_separated_fraction": 1.0
+      },
+      {
+        "band": 14,
+        "center_z_m": 0.057236842811107635,
+        "area_m2": 0.0002620300801936537,
+        "damage_weighted_fraction": 1.0,
+        "maximum_damage": 1.0,
+        "maximum_history_separation_m": 0.0030357965733855963,
+        "mean_current_opening_m": 0.0022842766644031393,
+        "mean_current_center_z_m": 0.05782920821551599,
+        "mean_current_center_y_m": 0.00026838864854938677,
+        "fully_separated_fraction": 1.0
+      },
+      {
+        "band": 15,
+        "center_z_m": 0.06118420884013176,
+        "area_m2": 0.0002312030119355768,
+        "damage_weighted_fraction": 1.0,
+        "maximum_damage": 1.0,
+        "maximum_history_separation_m": 0.0031113573350012302,
+        "mean_current_opening_m": 0.0024142768292222173,
+        "mean_current_center_z_m": 0.061775000041557684,
+        "mean_current_center_y_m": 0.0003060826242694424,
+        "fully_separated_fraction": 1.0
+      },
+      {
+        "band": 16,
+        "center_z_m": 0.06513157486915588,
+        "area_m2": 0.0002003759436774999,
+        "damage_weighted_fraction": 1.0,
+        "maximum_damage": 1.0,
+        "maximum_history_separation_m": 0.00320109142921865,
+        "mean_current_opening_m": 0.002544409883483194,
+        "mean_current_center_z_m": 0.06572082796348976,
+        "mean_current_center_y_m": 0.0003442326605391617,
+        "fully_separated_fraction": 1.0
+      },
+      {
+        "band": 17,
+        "center_z_m": 0.0690789520740509,
+        "area_m2": 0.00016954887541942298,
+        "damage_weighted_fraction": 1.0,
+        "maximum_damage": 1.0,
+        "maximum_history_separation_m": 0.0032956888899207115,
+        "mean_current_opening_m": 0.0026767250383272767,
+        "mean_current_center_z_m": 0.06966726306938764,
+        "mean_current_center_y_m": 0.00038252559501085074,
+        "fully_separated_fraction": 1.0
+      },
+      {
+        "band": 18,
+        "center_z_m": 0.07302631437778473,
+        "area_m2": 7.706767064519227e-05,
+        "damage_weighted_fraction": 1.0,
+        "maximum_damage": 1.0,
+        "maximum_history_separation_m": 0.003329557366669178,
+        "mean_current_opening_m": 0.0028075260925106704,
+        "mean_current_center_z_m": 0.07361167408525944,
+        "mean_current_center_y_m": 0.0004194944301464906,
+        "fully_separated_fraction": 1.0
+      }
+    ]
+  },
+  "motion_frames": [
+    {
+      "tag": "00_above_apple",
+      "camera": "robot",
+      "path": "paper\\motion_frames\\00_above_apple_robot.png",
+      "physics_frame": 1,
+      "fem_time_s": 0.008335,
+      "tool_position_m": [
+        0.045013465767370905,
+        0.014989534621529715,
+        0.8819713745132804
+      ],
+      "target_position_m": [
+        0.045,
+        0.015,
+        0.881874975
+      ],
+      "reaction_force_n": 0.0,
+      "maximum_damage": 0.0,
+      "fully_separated_interface_fraction": 0.0,
+      "minimum_deformation_jacobian": 0.9970179727486381,
+      "maximum_node_speed_m_s": 0.046576086997787515
+    },
+    {
+      "tag": "01_peel_entry",
+      "camera": "robot",
+      "path": "paper\\motion_frames\\01_peel_entry_robot.png",
+      "physics_frame": 120,
+      "fem_time_s": 1.0002,
+      "tool_position_m": [
+        0.04498615961054721,
+        0.014963694781621295,
+        0.8725595182883242
+      ],
+      "target_position_m": [
+        0.045,
+        0.015,
+        0.8669969999999999
+      ],
+      "reaction_force_n": 11.831326484680176,
+      "maximum_damage": 1.0,
+      "fully_separated_interface_fraction": 0.05161290322580645,
+      "minimum_deformation_jacobian": 0.9845025861600254,
+      "maximum_node_speed_m_s": 0.09639969413251405
+    },
+    {
+      "tag": "02_upper_flesh",
+      "camera": "robot",
+      "path": "paper\\motion_frames\\02_upper_flesh_robot.png",
+      "physics_frame": 260,
+      "fem_time_s": 2.1671,
+      "tool_position_m": [
+        0.044996147102910285,
+        0.014988327921798855,
+        0.8544864043232904
+      ],
+      "target_position_m": [
+        0.045,
+        0.015,
+        0.8495723703696857
+      ],
+      "reaction_force_n": 16.190765380859375,
+      "maximum_damage": 1.0,
+      "fully_separated_interface_fraction": 0.2854838709677419,
+      "minimum_deformation_jacobian": 0.9843508762214576,
+      "maximum_node_speed_m_s": 0.07758890339187649
+    },
+    {
+      "tag": "03_mid_depth",
+      "camera": "robot",
+      "path": "paper\\motion_frames\\03_mid_depth_robot.png",
+      "physics_frame": 400,
+      "fem_time_s": 3.334,
+      "tool_position_m": [
+        0.04499368312604565,
+        0.014987176687137588,
+        0.8373393339554229
+      ],
+      "target_position_m": [
+        0.045,
+        0.015,
+        0.8324692044467634
+      ],
+      "reaction_force_n": 18.09628677368164,
+      "maximum_damage": 1.0,
+      "fully_separated_interface_fraction": 0.5806451612903226,
+      "minimum_deformation_jacobian": 0.9783192745410433,
+      "maximum_node_speed_m_s": 0.37064605925693317
+    },
+    {
+      "tag": "04_lower_flesh",
+      "camera": "robot",
+      "path": "paper\\motion_frames\\04_lower_flesh_robot.png",
+      "physics_frame": 540,
+      "fem_time_s": 4.500900000000001,
+      "tool_position_m": [
+        0.044984018123750455,
+        0.015022374347469974,
+        0.8202104986103265
+      ],
+      "target_position_m": [
+        0.045,
+        0.015,
+        0.8152129590550291
+      ],
+      "reaction_force_n": 18.991378784179688,
+      "maximum_damage": 1.0,
+      "fully_separated_interface_fraction": 0.8387096774193549,
+      "minimum_deformation_jacobian": 0.9759908188863822,
+      "maximum_node_speed_m_s": 0.12884348119210742
+    },
+    {
+      "tag": "05_interface_separated",
+      "camera": "robot",
+      "path": "paper\\motion_frames\\05_interface_separated_robot.png",
+      "physics_frame": 653,
+      "fem_time_s": 5.442755,
+      "tool_position_m": [
+        0.0450218046584896,
+        0.015037369858172694,
+        0.8066298057315158
+      ],
+      "target_position_m": [
+        0.045,
+        0.015,
+        0.8053
+      ],
+      "reaction_force_n": 1.0912100076675415,
+      "maximum_damage": 1.0,
+      "fully_separated_interface_fraction": 1.0,
+      "minimum_deformation_jacobian": 0.9908536823924422,
+      "maximum_node_speed_m_s": 0.15048708240411368
+    },
+    {
+      "tag": "06_board_clear_terminal",
+      "camera": "robot",
+      "path": "paper\\motion_frames\\06_board_clear_terminal_robot.png",
+      "physics_frame": 678,
+      "fem_time_s": 5.65113,
+      "tool_position_m": [
+        0.04522541635940123,
+        0.015050669697198288,
+        0.8052474433171561
+      ],
+      "target_position_m": [
+        0.045,
+        0.015,
+        0.8053
+      ],
+      "reaction_force_n": 0.14437086880207062,
+      "maximum_damage": 1.0,
+      "fully_separated_interface_fraction": 1.0,
+      "minimum_deformation_jacobian": 0.9911386735916377,
+      "maximum_node_speed_m_s": 0.3454165590396115
+    }
+  ],
+  "motion_capture_complete": true,
+  "final_diagnostics": {
+    "time_s": 5.65113,
+    "knife_tip_z_m": 0.0002442545664962381,
+    "mass_kg": 0.22099703162166406,
+    "expected_mass_kg": 0.22099703739888454,
+    "kinetic_energy_j": 0.0003598305570292053,
+    "elastic_energy_j": 0.0003521569452849895,
+    "cohesive_recoverable_energy_j": 0.0,
+    "fracture_dissipation_j": 1.1324323524604551,
+    "fracture_dissipation_float32_atomic_raw_j": 1.0435898303985596,
+    "fracture_accumulator_precision_loss_j": 0.08884252206189558,
+    "directional_fracture_work_j": 0.9880820272949791,
+    "directional_release_dissipation_j": 0.14434340292585968,
+    "directional_knife_work_j": 0.9475016120166657,
+    "directional_material_work_j": -0.040573870787852684,
+    "compliant_knife_work_j": 0.15170631705964865,
+    "compliant_material_work_j": 0.13883130676762434,
+    "directional_damage_weighted_interface_area_m2": 0.0047781955800019205,
+    "board_contact_dissipation_j": 0.0,
+    "compliant_contact_dissipation_j": 0.029150206595659256,
+    "knife_contact_penalty_energy_j": 2.0955386048626679e-07,
+    "board_contact_penalty_energy_j": 6.104571184550878e-06,
+    "cradle_contact_penalty_energy_j": 0.0002690222463570535,
+    "gravitational_potential_change_j": 0.000751713714479698,
+    "contact_projection_loss_diagnostic_j": 0.0,
+    "contact_projection_loss_interpretation": "excluded from the physical balance: repeated explicit-force/contact projection cycles overlap numerical energy creation and loss",
+    "accounted_energy_j": 1.1633215966443105,
+    "knife_work_j": 1.0992079290763144,
+    "knife_work_float32_atomic_raw_j": 1.0982142883083839,
+    "knife_work_accumulator_precision_loss_j": 0.0009936407679305148,
+    "energy_residual_j": -0.06411366756799608,
+    "energy_residual_fraction": 0.05832715164443185,
+    "linear_momentum_kg_m_s": [
+      -0.00047239705218761913,
+      -3.2878134868480427e-06,
+      -0.003551783420908516
+    ],
+    "center_of_mass_m": [
+      0.0005310658361407424,
+      0.00029173294416147606,
+      0.03656513247873651
+    ],
+    "center_of_mass_displacement_m": [
+      0.00023727860162609584,
+      7.262294214687343e-05,
+      0.0003467344760014063
+    ],
+    "minimum_deformation_jacobian": 0.9911386735916377,
+    "maximum_node_speed_m_s": 0.3454165590396115,
+    "historical_maximum_node_speed_m_s": 4.787514764748059,
+    "maximum_damage": 1.0,
+    "maximum_normal_opening_m": 0.0028319674311205745,
+    "maximum_history_separation_m": 0.003329557366669178,
+    "minimum_node_height_above_board_m": -4.3661999370669946e-05,
+    "board_contact_node_count": 8,
+    "cradle_contact_node_count": 17,
+    "damaged_interface_area_m2": 0.0047781955800019205,
+    "damage_weighted_interface_area_m2": 0.0047781955800019205,
+    "fully_separated_interface_area_m2": 0.0047781955800019205,
+    "escaped_node_count": 0,
+    "node_count_outside_initial_aabb_plus_three_cells": 0,
+    "maximum_node_displacement_m": 0.0021199599345774448,
+    "node_count": 6004,
+    "tetrahedron_count": 27480,
+    "cohesive_triangle_count": 620
+  },
+  "coupled_execution_pass": true,
+  "energy_balance_pass": false,
+  "physics_acceptance_pass": false,
+  "pass": true
+}

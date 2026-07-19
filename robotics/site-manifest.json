@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "siteUrl": "https://gym-anything.github.io/robotics/",
   "sourceRepository": "gym-anything/gym_anything_for_robotics",
-  "sourceCommit": "ba0dc9cefca725864f7569138cff2951bf8ebdb6",
-  "assetCount": 100,
-  "assetBytes": 95487174,
+  "sourceCommit": "73aa8bbb335e8438b6bed98084a456c8af9b9f1b",
+  "assetCount": 132,
+  "assetBytes": 131898369,
   "assets": [
     {
       "path": "applecut/FINDINGS.md",
@@ -190,6 +190,166 @@
       "path": "football/videos/video_evidence_summary.json",
       "bytes": 3724,
       "sha256": "6415c52fc5f0aebd9cc03effc93c8c672bbbc1b6584226e8f22c7d5d5c9968d1"
+    },
+    {
+      "path": "laundry/FINDINGS.md",
+      "bytes": 29003,
+      "sha256": "57f61f8f63cc3533ceeac4691fca5e1a5ba76cd67316acce4753c9e998db7e1d"
+    },
+    {
+      "path": "laundry/RESEARCH.md",
+      "bytes": 81424,
+      "sha256": "67ca37f2265f5974d5cb552ff5559d81e0f74693f22d2e6f812ebf328ad85d93"
+    },
+    {
+      "path": "laundry/calibration/README.md",
+      "bytes": 961,
+      "sha256": "ba48366513f92d4fc24e7e883f70ba554525fa8c6d442d8483ef606b2773b042"
+    },
+    {
+      "path": "laundry/materials/spec_manifest.json",
+      "bytes": 4892,
+      "sha256": "0377eb44d789ec029c6900853659df5b4d544407cb1d80ce72e4f22f1e92edde"
+    },
+    {
+      "path": "laundry/outputs/p10_style3d_kinematic_grasp.json",
+      "bytes": 4471,
+      "sha256": "fe35ae5d04043b8b857e6015e0e9b9db9e80476eb99b2caeb659845fab280940"
+    },
+    {
+      "path": "laundry/outputs/p11_semantic_task_objectives.json",
+      "bytes": 15793,
+      "sha256": "bb96ed41eb014e7c1e4185dd0fb05f7af57c44d835a21b51512d729293d1bc23"
+    },
+    {
+      "path": "laundry/outputs/p12_topology_safe_flat_lay.json",
+      "bytes": 77720,
+      "sha256": "1f08940a7419917be3854a339cc82567efbb2710c481872c9220df3437e27fee"
+    },
+    {
+      "path": "laundry/outputs/p13_garment_flat_lay_catalog.json",
+      "bytes": 39475,
+      "sha256": "d4c5126d6043a944f0975fbe0c6a9cc6e6ad6900d080c05a66135d79aba7fb9f"
+    },
+    {
+      "path": "laundry/outputs/p6_released_half_fold.json",
+      "bytes": 1342692,
+      "sha256": "cf63d03633518ce26b513a17cb5533f0f38a6728a90550fda51619f900bfce04"
+    },
+    {
+      "path": "laundry/outputs/p9_garment_catalog_style3d.json",
+      "bytes": 28579,
+      "sha256": "a21dec24cd7b1c61b56dbed89a03834441a8bd20f79bb27fcec5ed39f21c614c"
+    },
+    {
+      "path": "laundry/paper/figures/garment_catalog.png",
+      "bytes": 549757,
+      "sha256": "4dc33dfc0ef180b34ca42e01726e703b72eb19a2a5bbd8471a5afdd61a605f3e"
+    },
+    {
+      "path": "laundry/paper/figures/garment_showcase.png",
+      "bytes": 3247245,
+      "sha256": "8cbcac57d859fa4539bb7e7d65b96804907dcda44622b80fae175a6df2eafa02"
+    },
+    {
+      "path": "laundry/paper/figures/mechanism_architecture.png",
+      "bytes": 181005,
+      "sha256": "96547c91c02d1b8de9364058a3505b61a73eb83480df76dc0ed2286ad95887dc"
+    },
+    {
+      "path": "laundry/paper/figures/p12_topology_release.png",
+      "bytes": 480940,
+      "sha256": "04cb66ba954c3c32fdac7cd117cf7818ee15c487157322dce1c3fd6487ba4f7f"
+    },
+    {
+      "path": "laundry/paper/figures/p6_integrated_trace.png",
+      "bytes": 320669,
+      "sha256": "e6c11c54fb96cd1be65eaf836fb28691a454883bfbc7c188cc0b5bbf296c5973"
+    },
+    {
+      "path": "laundry/paper/figures/probe_scorecard.png",
+      "bytes": 217136,
+      "sha256": "e6e11250d5419a0e98398189d84313daf61f349146077e171cf6af69ea53d300"
+    },
+    {
+      "path": "laundry/paper/laundryfold_physics_report.pdf",
+      "bytes": 17187146,
+      "sha256": "1ef818e9f8593190f35eb03669fac6e064d460758f5d8e1385cf6b9d7c9847d6"
+    },
+    {
+      "path": "laundry/paper/rendered_pages/page_01.png",
+      "bytes": 463517,
+      "sha256": "d3f4cee715effe74dd7d97eb52a66c04c1266461c657f964aa484036feb24bb3"
+    },
+    {
+      "path": "laundry/renders/garment_catalog/asymmetric_front.png",
+      "bytes": 1171065,
+      "sha256": "6fb69acb8d44d2fba72cf4d308b3cb353b0be1a6b1361c4d5f0924b1cf28b852"
+    },
+    {
+      "path": "laundry/renders/garment_catalog/jeans_front.png",
+      "bytes": 1212046,
+      "sha256": "a04a92b58759c4a03e98b95a2c336005ed91b5960ada67a20c1dc3d7444f8a57"
+    },
+    {
+      "path": "laundry/renders/garment_catalog/manifest.json",
+      "bytes": 12446,
+      "sha256": "81df3fdd1cf449e6d8bb9b5045aa01893164f59de02ff326cd44f9c7c6e7e953"
+    },
+    {
+      "path": "laundry/renders/garment_catalog/shirt_front.png",
+      "bytes": 1147163,
+      "sha256": "3b0ac167b08afac0afc06ba227d15f50f15ac37ae2ea06f75fe50b0b1b133d70"
+    },
+    {
+      "path": "laundry/renders/garment_catalog/tee_front.png",
+      "bytes": 953912,
+      "sha256": "079848dd82df19da9f7ebe262050fa90107e6b5076f87ba6ed9ed884a8c10915"
+    },
+    {
+      "path": "laundry/renders/garment_catalog/towel_front.png",
+      "bytes": 938204,
+      "sha256": "f95d7e7b6a5dc918fd8dfefd20027b168a900f7877cc87e0c7f23442d246bb85"
+    },
+    {
+      "path": "laundry/renders/p6_crease_pressed_crease.png",
+      "bytes": 704787,
+      "sha256": "37dccfdc3b5ae9a2615ecce3f5e625ec08ee426f95ef550a1c46a8a780210ee5"
+    },
+    {
+      "path": "laundry/renders/p6_fold_50_percent_hero.png",
+      "bytes": 922318,
+      "sha256": "88d03374010ea4296d761e95b25bb4f4b76a578c4ec03b5f9990f312dfbb7ba6"
+    },
+    {
+      "path": "laundry/renders/p6_fold_75_percent_hero.png",
+      "bytes": 933727,
+      "sha256": "4efdc49bec948dca125a348e51c5ac4aed4bb3cbb1b3d9aebcfba649d815301c"
+    },
+    {
+      "path": "laundry/renders/p6_initial_workcell.png",
+      "bytes": 919245,
+      "sha256": "aff8b1d3da18bb719d14573c5c334e879fdb12b25a11aa8db65a296a0b3ad63a"
+    },
+    {
+      "path": "laundry/renders/p6_released_hero.png",
+      "bytes": 897140,
+      "sha256": "69e9353474b337f545c8227fd650f59de891ad82a579bbd5e36d0dab4ef5360e"
+    },
+    {
+      "path": "laundry/renders/p6_render_manifest.json",
+      "bytes": 6172,
+      "sha256": "ac7a8371c665eb16b7a24465cc5b36357fbae1c48a2c918f85be3263a578014a"
+    },
+    {
+      "path": "laundry/renders/p6_settled_overhead.png",
+      "bytes": 1295857,
+      "sha256": "db2292f72a78a816580246af1ad9cdf5326d96859d2b4f3d690017998244ed2a"
+    },
+    {
+      "path": "laundry/renders/p6_settled_profile.png",
+      "bytes": 1024688,
+      "sha256": "2be04eb1474c2e1110cf401679d7171a21a39b31b1b65ae59fb1249f0684fb61"
     },
     {
       "path": "lego/FINDINGS.md",

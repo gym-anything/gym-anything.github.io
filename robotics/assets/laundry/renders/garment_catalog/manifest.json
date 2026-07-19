@@ -1,0 +1,360 @@
+{
+  "capture_count": 15,
+  "captures": [
+    {
+      "camera": "front",
+      "construction_id": "cotton_jersey_half_sleeve_tee",
+      "maximum_rgb": 226,
+      "mean_rgb": 160.09423265306123,
+      "minimum_rgb": 26,
+      "path": "renders/garment_catalog/tee_front.png",
+      "resolution": [
+        1500,
+        980
+      ],
+      "sha256": "sha256:079848dd82df19da9f7ebe262050fa90107e6b5076f87ba6ed9ed884a8c10915",
+      "view": "front",
+      "view_semantics": "front-owned physical panel layer isolation"
+    },
+    {
+      "camera": "back",
+      "construction_id": "cotton_jersey_half_sleeve_tee",
+      "maximum_rgb": 226,
+      "mean_rgb": 159.96371065759638,
+      "minimum_rgb": 43,
+      "path": "renders/garment_catalog/tee_back.png",
+      "resolution": [
+        1500,
+        980
+      ],
+      "sha256": "sha256:b49611f677a3095ce07a79e169b790a74d9b7ae4f8cb66e032ebde09f1ea792d",
+      "view": "back",
+      "view_semantics": "back-owned physical panel layer isolation"
+    },
+    {
+      "camera": "construction",
+      "construction_id": "cotton_jersey_half_sleeve_tee",
+      "maximum_rgb": 225,
+      "mean_rgb": 155.08859410430838,
+      "minimum_rgb": 10,
+      "path": "renders/garment_catalog/tee_construction.png",
+      "resolution": [
+        1500,
+        980
+      ],
+      "sha256": "sha256:407df0e10416e4e0249eb75be341bea6ee4bf98a3aea2b167d468b15596cdc65",
+      "view": "construction",
+      "view_semantics": "all physical cut panels and render annotations"
+    },
+    {
+      "camera": "front",
+      "construction_id": "woven_button_down_shirt",
+      "maximum_rgb": 225,
+      "mean_rgb": 171.57786757369615,
+      "minimum_rgb": 34,
+      "path": "renders/garment_catalog/shirt_front.png",
+      "resolution": [
+        1500,
+        980
+      ],
+      "sha256": "sha256:3b0ac167b08afac0afc06ba227d15f50f15ac37ae2ea06f75fe50b0b1b133d70",
+      "view": "front",
+      "view_semantics": "front-owned physical panel layer isolation"
+    },
+    {
+      "camera": "back",
+      "construction_id": "woven_button_down_shirt",
+      "maximum_rgb": 219,
+      "mean_rgb": 170.20921315192743,
+      "minimum_rgb": 37,
+      "path": "renders/garment_catalog/shirt_back.png",
+      "resolution": [
+        1500,
+        980
+      ],
+      "sha256": "sha256:d1098ddf603af817c4d9067725f81edbbf64bb8670eb9c87f1249915f05d3e35",
+      "view": "back",
+      "view_semantics": "back-owned physical panel layer isolation"
+    },
+    {
+      "camera": "construction",
+      "construction_id": "woven_button_down_shirt",
+      "maximum_rgb": 223,
+      "mean_rgb": 172.10947301587302,
+      "minimum_rgb": 3,
+      "path": "renders/garment_catalog/shirt_construction.png",
+      "resolution": [
+        1500,
+        980
+      ],
+      "sha256": "sha256:0e0654a4d35ad8de55571ca37656cc9dd516d71d8287af98915dc126bee4aabb",
+      "view": "construction",
+      "view_semantics": "all physical cut panels and render annotations"
+    },
+    {
+      "camera": "front",
+      "construction_id": "denim_five_pocket_jeans",
+      "maximum_rgb": 229,
+      "mean_rgb": 154.25867369614514,
+      "minimum_rgb": 8,
+      "path": "renders/garment_catalog/jeans_front.png",
+      "resolution": [
+        1500,
+        980
+      ],
+      "sha256": "sha256:a04a92b58759c4a03e98b95a2c336005ed91b5960ada67a20c1dc3d7444f8a57",
+      "view": "front",
+      "view_semantics": "front-owned physical panel layer isolation"
+    },
+    {
+      "camera": "back",
+      "construction_id": "denim_five_pocket_jeans",
+      "maximum_rgb": 227,
+      "mean_rgb": 151.73671700680273,
+      "minimum_rgb": 14,
+      "path": "renders/garment_catalog/jeans_back.png",
+      "resolution": [
+        1500,
+        980
+      ],
+      "sha256": "sha256:7ba7891bce85945217986c9f150bf951fd0133223ebcddbf6c0a04907511dfaf",
+      "view": "back",
+      "view_semantics": "back-owned physical panel layer isolation"
+    },
+    {
+      "camera": "construction",
+      "construction_id": "denim_five_pocket_jeans",
+      "maximum_rgb": 228,
+      "mean_rgb": 145.55319160997732,
+      "minimum_rgb": 1,
+      "path": "renders/garment_catalog/jeans_construction.png",
+      "resolution": [
+        1500,
+        980
+      ],
+      "sha256": "sha256:cb20662cb3b7b6b11683883c9026c8c76abc4581890b02a5498848c3e86c1080",
+      "view": "construction",
+      "view_semantics": "all physical cut panels and render annotations"
+    },
+    {
+      "camera": "front",
+      "construction_id": "terry_cotton_bath_towel",
+      "maximum_rgb": 222,
+      "mean_rgb": 173.86594784580498,
+      "minimum_rgb": 112,
+      "path": "renders/garment_catalog/towel_front.png",
+      "resolution": [
+        1500,
+        980
+      ],
+      "sha256": "sha256:f95d7e7b6a5dc918fd8dfefd20027b168a900f7877cc87e0c7f23442d246bb85",
+      "view": "front",
+      "view_semantics": "front-owned physical panel layer isolation"
+    },
+    {
+      "camera": "back",
+      "construction_id": "terry_cotton_bath_towel",
+      "maximum_rgb": 223,
+      "mean_rgb": 173.92300929705215,
+      "minimum_rgb": 114,
+      "path": "renders/garment_catalog/towel_back.png",
+      "resolution": [
+        1500,
+        980
+      ],
+      "sha256": "sha256:84fcd7767146e3b6b937a6a05a68dc9b1b2022d39507f167962753c9ee36ffab",
+      "view": "back",
+      "view_semantics": "back-owned physical panel layer isolation"
+    },
+    {
+      "camera": "construction",
+      "construction_id": "terry_cotton_bath_towel",
+      "maximum_rgb": 225,
+      "mean_rgb": 171.53589705215418,
+      "minimum_rgb": 43,
+      "path": "renders/garment_catalog/towel_construction.png",
+      "resolution": [
+        1500,
+        980
+      ],
+      "sha256": "sha256:32a2353ca91680d7f49c0487b796a8ec7f40b7b15dcc72a0633c1dbb85b3226a",
+      "view": "construction",
+      "view_semantics": "all physical cut panels and render annotations"
+    },
+    {
+      "camera": "front",
+      "construction_id": "asymmetric_draped_one_sleeve_top",
+      "maximum_rgb": 224,
+      "mean_rgb": 165.55258027210886,
+      "minimum_rgb": 39,
+      "path": "renders/garment_catalog/asymmetric_front.png",
+      "resolution": [
+        1500,
+        980
+      ],
+      "sha256": "sha256:6fb69acb8d44d2fba72cf4d308b3cb353b0be1a6b1361c4d5f0924b1cf28b852",
+      "view": "front",
+      "view_semantics": "front-owned physical panel layer isolation"
+    },
+    {
+      "camera": "back",
+      "construction_id": "asymmetric_draped_one_sleeve_top",
+      "maximum_rgb": 219,
+      "mean_rgb": 161.46446394557825,
+      "minimum_rgb": 16,
+      "path": "renders/garment_catalog/asymmetric_back.png",
+      "resolution": [
+        1500,
+        980
+      ],
+      "sha256": "sha256:adbc3bed081404b96675bf3a7c4f32f3207a685820dbf25d91c785cc16bacd7a",
+      "view": "back",
+      "view_semantics": "back-owned physical panel layer isolation"
+    },
+    {
+      "camera": "construction",
+      "construction_id": "asymmetric_draped_one_sleeve_top",
+      "maximum_rgb": 227,
+      "mean_rgb": 157.6272185941043,
+      "minimum_rgb": 3,
+      "path": "renders/garment_catalog/asymmetric_construction.png",
+      "resolution": [
+        1500,
+        980
+      ],
+      "sha256": "sha256:f5d46883e3acfca322e79292d077f5b9276692947b67306aeab36878c9e77f42",
+      "view": "construction",
+      "view_semantics": "all physical cut panels and render annotations"
+    }
+  ],
+  "evidence_status": "automated gates passed; direct visual review required",
+  "pass": true,
+  "physics_ownership": "P13 Newton Style3D state is authoritative; Isaac render annotations have no solver write path",
+  "render_resolution": [
+    1500,
+    980
+  ],
+  "scene_audit": {
+    "calibration_status": "construction-complete engineering priors; not garment-calibrated",
+    "cases": [
+      {
+        "actual_panel_count_retained": true,
+        "back_layer_panel_count": 4,
+        "construction_detail_primitives": 17,
+        "construction_id": "cotton_jersey_half_sleeve_tee",
+        "declared_features": 3,
+        "detail_view_assignments_valid": true,
+        "finite": true,
+        "front_layer_panel_count": 4,
+        "internal_or_overlay_panel_count": 0,
+        "physical_panels": 5,
+        "physical_triangles": 1248,
+        "physical_vertices": 650,
+        "render_panel_shells": 5,
+        "render_shell_faces": 10588,
+        "render_vertices": 5606,
+        "three_inspection_views": true,
+        "view_panel_sets_valid": true
+      },
+      {
+        "actual_panel_count_retained": true,
+        "back_layer_panel_count": 8,
+        "construction_detail_primitives": 71,
+        "construction_id": "woven_button_down_shirt",
+        "declared_features": 8,
+        "detail_view_assignments_valid": true,
+        "finite": true,
+        "front_layer_panel_count": 9,
+        "internal_or_overlay_panel_count": 0,
+        "physical_panels": 11,
+        "physical_triangles": 2114,
+        "physical_vertices": 1104,
+        "render_panel_shells": 11,
+        "render_shell_faces": 17936,
+        "render_vertices": 9502,
+        "three_inspection_views": true,
+        "view_panel_sets_valid": true
+      },
+      {
+        "actual_panel_count_retained": true,
+        "back_layer_panel_count": 8,
+        "construction_detail_primitives": 61,
+        "construction_id": "denim_five_pocket_jeans",
+        "declared_features": 9,
+        "detail_view_assignments_valid": true,
+        "finite": true,
+        "front_layer_panel_count": 5,
+        "internal_or_overlay_panel_count": 6,
+        "physical_panels": 19,
+        "physical_triangles": 1912,
+        "physical_vertices": 991,
+        "render_panel_shells": 19,
+        "render_shell_faces": 16452,
+        "render_vertices": 8842,
+        "three_inspection_views": true,
+        "view_panel_sets_valid": true
+      },
+      {
+        "actual_panel_count_retained": true,
+        "back_layer_panel_count": 1,
+        "construction_detail_primitives": 6,
+        "construction_id": "terry_cotton_bath_towel",
+        "declared_features": 3,
+        "detail_view_assignments_valid": true,
+        "finite": true,
+        "front_layer_panel_count": 1,
+        "internal_or_overlay_panel_count": 0,
+        "physical_panels": 1,
+        "physical_triangles": 484,
+        "physical_vertices": 273,
+        "render_panel_shells": 1,
+        "render_shell_faces": 3992,
+        "render_vertices": 2058,
+        "three_inspection_views": true,
+        "view_panel_sets_valid": true
+      },
+      {
+        "actual_panel_count_retained": true,
+        "back_layer_panel_count": 5,
+        "construction_detail_primitives": 20,
+        "construction_id": "asymmetric_draped_one_sleeve_top",
+        "declared_features": 4,
+        "detail_view_assignments_valid": true,
+        "finite": true,
+        "front_layer_panel_count": 6,
+        "internal_or_overlay_panel_count": 2,
+        "physical_panels": 9,
+        "physical_triangles": 1788,
+        "physical_vertices": 976,
+        "render_panel_shells": 9,
+        "render_shell_faces": 15156,
+        "render_vertices": 8022,
+        "three_inspection_views": true,
+        "view_panel_sets_valid": true
+      }
+    ],
+    "gates": {
+      "all_actual_cut_panels_have_render_shells": true,
+      "all_five_canonical_constructions_present": true,
+      "all_render_points_finite": true,
+      "construction_features_visible_for_every_garment": true,
+      "detail_annotations_follow_owned_layers": true,
+      "front_and_back_layer_sets_are_valid": true,
+      "front_back_construction_views_per_garment": true,
+      "selected_garment_is_valid": true,
+      "selected_view_is_valid": true,
+      "visual_scene_has_no_rigid_body_dynamics": true
+    },
+    "pass": true,
+    "render_only_annotations": "thread, buttons, buttonholes, rivets, zipper teeth, and dobby relief; all panel shells remain embedded in the committed welded P13 state; front/back are named layer-isolation views, not alternate poses",
+    "rigid_body_api_paths": [],
+    "schema_version": "laundry-garment-showcase-audit/1.1",
+    "source_artifact": "artifacts/frames/p13_garment_flat_lay_catalog.npz",
+    "source_artifact_sha256": "sha256:0649585cbb4314b8aa298c9f4f02289bba15b247abd9133bde16ac2fea361e2c",
+    "source_probe": "P13"
+  },
+  "schema_version": "laundry-garment-showcase-render/1.1",
+  "source_artifact": "artifacts/frames/p13_garment_flat_lay_catalog.npz",
+  "source_artifact_sha256": "sha256:0649585cbb4314b8aa298c9f4f02289bba15b247abd9133bde16ac2fea361e2c",
+  "source_probe": "P13"
+}

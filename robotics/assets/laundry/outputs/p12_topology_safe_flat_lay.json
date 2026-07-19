@@ -1,0 +1,2127 @@
+{
+  "schema_version": "laundry-topology-safe-flat-lay/1.3",
+  "probe": "P12",
+  "purpose": "Topology-aware T-shirt reset, metric preconditioning, a matched sleeve-layer topology stress, and an IPC-protected gravity/table release.",
+  "construction": {
+    "id": "cotton_jersey_half_sleeve_tee",
+    "label": "Cotton-jersey half-sleeve T-shirt",
+    "category": "knit_top",
+    "topology": "sewn_panel_shell",
+    "panel_count": 5,
+    "seam_count": 13,
+    "opening_count": 4,
+    "feature_count": 3,
+    "total_panel_area_m2": 0.7866554097724257,
+    "total_panel_mass_kg": 0.1263870211703418,
+    "material_profiles": [
+      "cotton_jersey_prior",
+      "cotton_rib_prior"
+    ],
+    "calibration_status": "construction-complete engineering prior; no named T-shirt measured"
+  },
+  "flat_lay_seed": {
+    "construction_id": "cotton_jersey_half_sleeve_tee",
+    "strategy_id": "sewn_tee_flattened_shell_v1",
+    "reset_only_numerical_preconditioner": true,
+    "body_layer_separation_m": 0.008,
+    "constrained_vertex_count_by_panel": {
+      "front": 0,
+      "back": 0,
+      "left_sleeve": 62,
+      "right_sleeve": 62,
+      "neck_rib": 32
+    },
+    "harmonic_vertex_count_by_panel": {
+      "front": 0,
+      "back": 0,
+      "left_sleeve": 46,
+      "right_sleeve": 46,
+      "neck_rib": 0
+    },
+    "inter_panel_seam_rms_gap_m": 0.005161768133825819,
+    "maximum_inter_panel_seam_rms_gap_m": 0.008,
+    "notes": [
+      "Body front and back are separated layers joined by welded construction seams.",
+      "Sleeves are open-cuff flattened tubes with cap, underarm, cuff, and fold-axis constraints.",
+      "The neck rib follows its stitched attachment and offsets toward the neck opening.",
+      "Layer separation is reset-only numerical preconditioning, not calibrated textile thickness."
+    ]
+  },
+  "raw_seed": {
+    "strain": {
+      "minimum_principal_stretch": 0.35902497873361927,
+      "maximum_principal_stretch": 1.6873589104616005,
+      "mean_absolute_area_strain": 0.04114791314183876,
+      "maximum_absolute_area_strain": 0.5676432760595065,
+      "minimum_world_triangle_area_m2": 3.390810465906919e-05,
+      "degenerate_triangle_count": 0
+    },
+    "has_ipc_intersections": false
+  },
+  "metric_preconditioner": {
+    "report": {
+      "applied": true,
+      "optimizer_converged": true,
+      "iterations": 1486,
+      "initial_edge_energy": 39.78619906659017,
+      "final_edge_energy": 4.370182264752693,
+      "rms_relative_edge_strain": 0.03517443426039214,
+      "maximum_absolute_relative_edge_strain": 0.2863579864743473,
+      "note": "Deterministic orthotropic edge-length preconditioner with an explicitly reported seed-height planarity penalty; Newton/Style3D settling and contact probes remain required.",
+      "flat_lay_planarity_weight": 2500.0,
+      "flat_lay_layer_order_weight": 0.0,
+      "flat_lay_layer_order_clearance_m": 0.0
+    },
+    "strain": {
+      "minimum_principal_stretch": 0.699007985327033,
+      "maximum_principal_stretch": 1.1705227159308689,
+      "mean_absolute_area_strain": 0.030199990266838995,
+      "maximum_absolute_area_strain": 0.2545638361787731,
+      "minimum_world_triangle_area_m2": 3.126922947107085e-05,
+      "degenerate_triangle_count": 0
+    },
+    "has_ipc_intersections": false,
+    "wall_time_s": 3.002342800000406,
+    "note": "The exact seed-height term is reset-only numerical preconditioning and is absent from runtime dynamics."
+  },
+  "matched_topology_stress": {
+    "protocol": {
+      "kind": "reset-only symmetric sleeve-layer topology stress",
+      "robot_or_policy_action": false,
+      "positions_modified": false,
+      "rest_state_modified": false,
+      "velocity_axis_world": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "relative_closing_speed_m_s": 2.0,
+      "layer_selection_clearance_m": 0.0015,
+      "selected_physical_vertex_count": 110,
+      "nonzero_velocity_vertex_count": 110,
+      "initial_kinetic_energy_j": 0.005440649821967748,
+      "initial_linear_momentum_kg_m_s": [
+        0.0,
+        0.0,
+        -1.2139431487486786e-10
+      ],
+      "initial_linear_momentum_norm_kg_m_s": 1.2139431487486786e-10,
+      "initial_angular_momentum_kg_m2_s": [
+        -3.430806511627565e-05,
+        -3.4567389195426954e-06,
+        0.0
+      ],
+      "initial_angular_momentum_norm_kg_m2_s": 3.448176874785415e-05,
+      "panels": {
+        "left_sleeve": {
+          "reset_midplane_z_m": 5.745082130383301e-06,
+          "upper_vertex_count": 27,
+          "lower_vertex_count": 28,
+          "upper_mass_kg": 0.00309201744198369,
+          "lower_mass_kg": 0.0024458329739002974,
+          "upper_velocity_z_m_s": -0.8833149291591611,
+          "lower_velocity_z_m_s": 1.116685070840839,
+          "relative_closing_speed_m_s": 2.0
+        },
+        "right_sleeve": {
+          "reset_midplane_z_m": -1.3404798933982814e-05,
+          "upper_vertex_count": 27,
+          "lower_vertex_count": 28,
+          "upper_mass_kg": 0.0030873065476184633,
+          "lower_mass_kg": 0.00241395973504278,
+          "upper_velocity_z_m_s": -0.8776014870071058,
+          "lower_velocity_z_m_s": 1.1223985129928944,
+          "relative_closing_speed_m_s": 2.0
+        }
+      },
+      "scope_note": "Synthetic, reset-only mechanism challenge; it establishes a topology-preservation distinction, not a real handling load or textile calibration claim."
+    },
+    "steps": 40,
+    "simulated_time_s": 0.16666666666666666,
+    "configuration_difference_keys": [
+      "ipc_self_contact"
+    ],
+    "shared_configuration": {
+      "device": "cuda:0",
+      "time_step_s": 0.004166666666666667,
+      "nonlinear_iterations": 20,
+      "linear_iterations": 60,
+      "gravity_m_s2": 0.0,
+      "enable_self_contact": true,
+      "self_contact_radius_m": 0.003,
+      "self_contact_vertex_face_stiffness": 0.5,
+      "self_contact_edge_edge_stiffness": 0.1,
+      "self_contact_edge_face_stiffness": 1.0,
+      "self_contact_topological_filter_graph_hops": 1,
+      "intersection_audit_local_exclusion_graph_hops": 1,
+      "intersection_audit_buffer_per_triangle": 256,
+      "enable_table": false,
+      "initial_translation_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "table_top_z_m": 0.0,
+      "table_half_extent_x_m": 0.75,
+      "table_half_extent_y_m": 0.75,
+      "table_thickness_m": 0.05,
+      "contact_stiffness_n_m": 50000.0,
+      "contact_damping_n_s_m": 100.0,
+      "table_friction_mu": 0.36,
+      "soft_contact_margin_m": 0.002,
+      "enable_table_normal_projection": false,
+      "enable_membrane_rate_damping": true,
+      "membrane_rate_damping_scale": 1.0,
+      "enable_bending_rate_damping": true,
+      "bending_rate_damping_scale": 1.0,
+      "enable_air_drag": false,
+      "air_density_kg_m3": 1.204,
+      "normal_drag_coefficient": 1.17,
+      "wind_velocity_m_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "structural_seam_bending_scale": 0.0,
+      "enforce_free_rigid_frame": false,
+      "table_plane_ccd": null,
+      "validate_mesh": true
+    },
+    "penalty_only": {
+      "ipc_enabled": false,
+      "checkpoints": {
+        "0": {
+          "step_count": 0,
+          "simulated_time_s": 0.0,
+          "finite": true,
+          "minimum_principal_stretch": 0.6990079939972411,
+          "maximum_principal_stretch": 1.1705228024213612,
+          "degenerate_triangle_count": 0,
+          "maximum_speed_m_s": 1.1223984956741333,
+          "rms_speed_m_s": 0.4148750808395974,
+          "center_of_mass_drift_m": 0.0,
+          "center_of_mass_velocity_m_s": 9.552755847826754e-10,
+          "linear_momentum_kg_m_s": 1.2073443763846448e-10,
+          "angular_momentum_kg_m2_s": 3.448176902413814e-05,
+          "total_mass_kg": 0.1263870211703418,
+          "center_of_mass_m": [
+            0.0017164066949140607,
+            -0.0013095058521760726,
+            1.4750614647361112e-05
+          ],
+          "kinetic_energy_j": 0.005440649821967748,
+          "intersection_audit": {
+            "nonlocal": 0,
+            "topologically_local": 0,
+            "raw": 0,
+            "newton_candidates": 10,
+            "newton_rejected_candidates": 10
+          },
+          "confirmed_intersection_triangle_pairs": []
+        },
+        "1": {
+          "step_count": 1,
+          "simulated_time_s": 0.004166666666666667,
+          "finite": true,
+          "minimum_principal_stretch": 0.8011233351276543,
+          "maximum_principal_stretch": 1.2297419230820084,
+          "degenerate_triangle_count": 0,
+          "maximum_speed_m_s": 1.4372363741749083,
+          "rms_speed_m_s": 0.5084829810299583,
+          "center_of_mass_drift_m": 9.752579339520919e-06,
+          "center_of_mass_velocity_m_s": 0.0023359381867060856,
+          "linear_momentum_kg_m_s": 0.0002952322741445704,
+          "angular_momentum_kg_m2_s": 4.5756250736887694e-05,
+          "total_mass_kg": 0.1263870211703418,
+          "center_of_mass_m": [
+            0.0017164164316547403,
+            -0.0013091754374524825,
+            2.449759033625898e-05
+          ],
+          "kinetic_energy_j": 0.012154684203594108,
+          "intersection_audit": {
+            "nonlocal": 0,
+            "topologically_local": 0,
+            "raw": 0,
+            "newton_candidates": 7,
+            "newton_rejected_candidates": 7
+          },
+          "confirmed_intersection_triangle_pairs": []
+        },
+        "5": {
+          "step_count": 5,
+          "simulated_time_s": 0.020833333333333332,
+          "finite": true,
+          "minimum_principal_stretch": 0.8023887927679526,
+          "maximum_principal_stretch": 1.2259219255633977,
+          "degenerate_triangle_count": 0,
+          "maximum_speed_m_s": 1.6897636966898968,
+          "rms_speed_m_s": 0.3968359602522608,
+          "center_of_mass_drift_m": 9.252325191544187e-05,
+          "center_of_mass_velocity_m_s": 0.008490221993220927,
+          "linear_momentum_kg_m_s": 0.00107305388529369,
+          "angular_momentum_kg_m2_s": 0.000207471332890169,
+          "total_mass_kg": 0.1263870211703418,
+          "center_of_mass_m": [
+            0.0017169568508702366,
+            -0.0013068210921845132,
+            0.00010723326997915792
+          ],
+          "kinetic_energy_j": 0.007041438800033855,
+          "intersection_audit": {
+            "nonlocal": 0,
+            "topologically_local": 0,
+            "raw": 0,
+            "newton_candidates": 11,
+            "newton_rejected_candidates": 11
+          },
+          "confirmed_intersection_triangle_pairs": []
+        },
+        "10": {
+          "step_count": 10,
+          "simulated_time_s": 0.041666666666666664,
+          "finite": true,
+          "minimum_principal_stretch": 0.8424782887953419,
+          "maximum_principal_stretch": 1.1718291907780454,
+          "degenerate_triangle_count": 0,
+          "maximum_speed_m_s": 1.4143269111148025,
+          "rms_speed_m_s": 0.3082302411180473,
+          "center_of_mass_drift_m": 0.0002331670188545898,
+          "center_of_mass_velocity_m_s": 0.003140959145127901,
+          "linear_momentum_kg_m_s": 0.00039697647681290004,
+          "angular_momentum_kg_m2_s": 0.00013026222446951534,
+          "total_mass_kg": 0.1263870211703418,
+          "center_of_mass_m": [
+            0.0017156911862018936,
+            -0.0012995088939992134,
+            0.00024770212796296415
+          ],
+          "kinetic_energy_j": 0.005514805670649961,
+          "intersection_audit": {
+            "nonlocal": 0,
+            "topologically_local": 0,
+            "raw": 0,
+            "newton_candidates": 1,
+            "newton_rejected_candidates": 1
+          },
+          "confirmed_intersection_triangle_pairs": []
+        },
+        "20": {
+          "step_count": 20,
+          "simulated_time_s": 0.08333333333333333,
+          "finite": true,
+          "minimum_principal_stretch": 0.8318639485841528,
+          "maximum_principal_stretch": 1.1488184860246229,
+          "degenerate_triangle_count": 0,
+          "maximum_speed_m_s": 0.57613325293502,
+          "rms_speed_m_s": 0.08795722350019021,
+          "center_of_mass_drift_m": 7.445084316176851e-05,
+          "center_of_mass_velocity_m_s": 0.013781566346055112,
+          "linear_momentum_kg_m_s": 0.0017418111475618738,
+          "angular_momentum_kg_m2_s": 0.0005815138993463108,
+          "total_mass_kg": 0.1263870211703418,
+          "center_of_mass_m": [
+            0.0016978136961158857,
+            -0.001292690427890595,
+            -5.535266594127239e-05
+          ],
+          "kinetic_energy_j": 0.0004480245026988051,
+          "intersection_audit": {
+            "nonlocal": 0,
+            "topologically_local": 0,
+            "raw": 0,
+            "newton_candidates": 5,
+            "newton_rejected_candidates": 5
+          },
+          "confirmed_intersection_triangle_pairs": []
+        },
+        "30": {
+          "step_count": 30,
+          "simulated_time_s": 0.125,
+          "finite": true,
+          "minimum_principal_stretch": 0.8921982617525955,
+          "maximum_principal_stretch": 1.1347051513853743,
+          "degenerate_triangle_count": 0,
+          "maximum_speed_m_s": 0.23211034654125023,
+          "rms_speed_m_s": 0.0675970556969545,
+          "center_of_mass_drift_m": 0.000770289277990273,
+          "center_of_mass_velocity_m_s": 0.0192205400863107,
+          "linear_momentum_kg_m_s": 0.0024292268486650545,
+          "angular_momentum_kg_m2_s": 0.0006837360970504484,
+          "total_mass_kg": 0.1263870211703418,
+          "center_of_mass_m": [
+            0.0016601285892953333,
+            -0.0012631294963830774,
+            -0.0007520789493615554
+          ],
+          "kinetic_energy_j": 0.0002617862290056699,
+          "intersection_audit": {
+            "nonlocal": 0,
+            "topologically_local": 0,
+            "raw": 0,
+            "newton_candidates": 15,
+            "newton_rejected_candidates": 15
+          },
+          "confirmed_intersection_triangle_pairs": []
+        },
+        "32": {
+          "step_count": 32,
+          "simulated_time_s": 0.13333333333333333,
+          "finite": true,
+          "minimum_principal_stretch": 0.8921249659976912,
+          "maximum_principal_stretch": 1.133693126671793,
+          "degenerate_triangle_count": 0,
+          "maximum_speed_m_s": 0.22921187812238886,
+          "rms_speed_m_s": 0.06616068185593114,
+          "center_of_mass_drift_m": 0.0009487070856973474,
+          "center_of_mass_velocity_m_s": 0.022032201251085532,
+          "linear_momentum_kg_m_s": 0.00278458433394636,
+          "angular_momentum_kg_m2_s": 0.000677580573298302,
+          "total_mass_kg": 0.1263870211703418,
+          "center_of_mass_m": [
+            0.0016516171309498698,
+            -0.0012497270473336732,
+            -0.000929851916232849
+          ],
+          "kinetic_energy_j": 0.00025322389285782935,
+          "intersection_audit": {
+            "nonlocal": 0,
+            "topologically_local": 3,
+            "raw": 3,
+            "newton_candidates": 14,
+            "newton_rejected_candidates": 11
+          },
+          "confirmed_intersection_triangle_pairs": [
+            [
+              1174,
+              1181
+            ],
+            [
+              1174,
+              1216
+            ],
+            [
+              1174,
+              1217
+            ]
+          ]
+        },
+        "40": {
+          "step_count": 40,
+          "simulated_time_s": 0.16666666666666666,
+          "finite": true,
+          "minimum_principal_stretch": 0.8906803486000527,
+          "maximum_principal_stretch": 1.1254646746715962,
+          "degenerate_triangle_count": 0,
+          "maximum_speed_m_s": 0.22531753355658035,
+          "rms_speed_m_s": 0.0781516857792505,
+          "center_of_mass_drift_m": 0.0018233578973218714,
+          "center_of_mass_velocity_m_s": 0.02909820418228873,
+          "linear_momentum_kg_m_s": 0.0036776354113950117,
+          "angular_momentum_kg_m2_s": 0.0006111913201252387,
+          "total_mass_kg": 0.1263870211703418,
+          "center_of_mass_m": [
+            0.0015952168476477166,
+            -0.001177447641122255,
+            -0.0017997762304389445
+          ],
+          "kinetic_energy_j": 0.0003458593529927707,
+          "intersection_audit": {
+            "nonlocal": 0,
+            "topologically_local": 0,
+            "raw": 0,
+            "newton_candidates": 19,
+            "newton_rejected_candidates": 19
+          },
+          "confirmed_intersection_triangle_pairs": []
+        }
+      },
+      "intersection_trace": [
+        {
+          "step": 0,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 1,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 2,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 3,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 4,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 5,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 6,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 7,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 8,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 9,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 10,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 11,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 12,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 13,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 14,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 15,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 16,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 17,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 18,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 19,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 20,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 21,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 22,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 23,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 24,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 25,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 26,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 27,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 28,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 29,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 30,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 31,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 32,
+          "raw": 3,
+          "nonlocal": 0,
+          "topologically_local": 3
+        },
+        {
+          "step": 33,
+          "raw": 3,
+          "nonlocal": 0,
+          "topologically_local": 3
+        },
+        {
+          "step": 34,
+          "raw": 3,
+          "nonlocal": 0,
+          "topologically_local": 3
+        },
+        {
+          "step": 35,
+          "raw": 3,
+          "nonlocal": 0,
+          "topologically_local": 3
+        },
+        {
+          "step": 36,
+          "raw": 3,
+          "nonlocal": 0,
+          "topologically_local": 3
+        },
+        {
+          "step": 37,
+          "raw": 3,
+          "nonlocal": 0,
+          "topologically_local": 3
+        },
+        {
+          "step": 38,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 39,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 40,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        }
+      ],
+      "first_confirmed_intersection_step": 32,
+      "first_confirmed_intersection_triangle_pairs": [
+        [
+          1174,
+          1181
+        ],
+        [
+          1174,
+          1216
+        ],
+        [
+          1174,
+          1217
+        ]
+      ],
+      "maximum_confirmed_intersection_count": 3,
+      "maximum_nonlocal_intersection_count": 0,
+      "maximum_topologically_local_intersection_count": 3,
+      "wall_time_s": 12.64206600000034,
+      "rejection_reason": "Style3D penalty proximity contact admits an exact local surface crossing in the matched folded-sleeve challenge."
+    },
+    "ipc_protected": {
+      "ipc_enabled": true,
+      "audit": {
+        "construction_id": "cotton_jersey_half_sleeve_tee",
+        "newton_version": "1.4.0",
+        "device": "cuda:0",
+        "particle_count": 651,
+        "material_vertex_count": 781,
+        "triangle_count": 1250,
+        "edge_count": 1903,
+        "maximum_projective_neighbor_count": 20,
+        "oriented_edge_audit": {
+          "edge_count": 1903,
+          "boundary_edge_count": 56,
+          "shared_edge_count": 1847,
+          "orientation_mismatch_edge_count": 0,
+          "nonmanifold_edge_count": 0
+        },
+        "authored_mass_kg": 0.1263870211703418,
+        "adapter_mass_kg": 0.1263870211703418,
+        "model_mass_kg": 0.12638701498508453,
+        "mass_error_kg": -6.185257278579215e-09,
+        "assembly_relaxation_applied": true,
+        "assembly_relaxation_optimizer_converged": true,
+        "assembly_relaxation_iterations": 1486,
+        "assembly_initial_edge_energy": 39.78619906659017,
+        "assembly_final_edge_energy": 4.370182264752693,
+        "assembly_minimum_principal_stretch": 0.699007985327033,
+        "assembly_maximum_principal_stretch": 1.1705227159308689,
+        "self_contact_enabled": true,
+        "self_contact_vertex_face_stiffness": 0.5,
+        "self_contact_edge_edge_stiffness": 0.1,
+        "self_contact_edge_face_stiffness": 1.0,
+        "self_contact_topological_filter_graph_hops": 1,
+        "intersection_audit_local_exclusion_graph_hops": 1,
+        "intersection_audit_buffer_per_triangle": 256,
+        "ipc_self_contact": {
+          "enabled": true,
+          "backend": "IPC Toolkit",
+          "ipctk_version": "1.6.0",
+          "operator_split": true,
+          "monolithic_incremental_potential_solve": false,
+          "activation_distance_m": 0.004,
+          "minimum_distance_m": 0.0,
+          "finite_thickness_provider": "Newton Style3D proximity contact",
+          "barrier_stiffness_prior": 10000.0,
+          "topological_filter_graph_hops": 1,
+          "excluded_vertex_pair_count": 1903,
+          "barrier_force_enabled": true,
+          "ccd_enabled": true,
+          "ccd_safety_factor": 0.99,
+          "verify_after_every_step": true,
+          "step_count": 40,
+          "ccd_clipped_step_count": 0,
+          "minimum_ccd_step_fraction": 1.0,
+          "last_ccd_step_fraction": 1.0,
+          "last_accepted_step_fraction": 1.0,
+          "last_barrier_collision_count": 14,
+          "maximum_barrier_collision_count": 451,
+          "last_barrier_potential": 2.98993662789667e-05,
+          "last_barrier_force_norm_n": 0.028850161688918095,
+          "maximum_barrier_force_norm_n": 0.5252209388464332,
+          "last_minimum_active_distance_m": 3.1001438239968517e-07
+        },
+        "table_plane_ccd": {
+          "enabled": false
+        },
+        "table_enabled": false,
+        "table_top_z_m": null,
+        "table_friction_mu": null,
+        "table_normal_projection_enabled": false,
+        "membrane_rate_damping_enabled": true,
+        "membrane_rate_damping_scale": 1.0,
+        "bending_rate_damping_enabled": true,
+        "bending_rate_damping_scale": 1.0,
+        "quadratic_normal_air_drag_enabled": false,
+        "air_density_kg_m3": null,
+        "normal_drag_coefficient": null,
+        "wind_velocity_m_s": null,
+        "structural_seam_hinge_count": 123,
+        "structural_seam_bending_scale": 0.0,
+        "free_rigid_frame_gauge_enabled": false,
+        "self_contact_radius_m": 0.003,
+        "calibration_status": "construction-complete; engine adapter verified structurally; material and seam coefficients remain prior-only",
+        "unsupported_terms": [
+          "warp/weft tension stiffening is nonlinear in the authored profiles but Style3D 1.4 uses constant triangle stiffness",
+          "cross-coupling ratio is not exposed by the Style3D 1.4 cloth helper",
+          "pressure-dependent thickness/compression is not exposed by the Style3D 1.4 cloth helper",
+          "measured per-seam rest angle and moment-curvature are unavailable; the explicit structural-seam bending scale defaults to a free hinge instead of silently treating a seam as continuous fabric",
+          "Style3D 1.4 does not consume its stored damping fields; the adapter can explicitly apply objective membrane-rate and dihedral-rate damping",
+          "quadratic normal air drag omits textile permeability, surrounding-flow coupling, wakes, and lift"
+        ]
+      },
+      "checkpoints": {
+        "0": {
+          "step_count": 0,
+          "simulated_time_s": 0.0,
+          "finite": true,
+          "minimum_principal_stretch": 0.6990079939972411,
+          "maximum_principal_stretch": 1.1705228024213612,
+          "degenerate_triangle_count": 0,
+          "maximum_speed_m_s": 1.1223984956741333,
+          "rms_speed_m_s": 0.4148750808395974,
+          "center_of_mass_drift_m": 0.0,
+          "center_of_mass_velocity_m_s": 9.552755847826754e-10,
+          "linear_momentum_kg_m_s": 1.2073443763846448e-10,
+          "angular_momentum_kg_m2_s": 3.448176902413814e-05,
+          "total_mass_kg": 0.1263870211703418,
+          "center_of_mass_m": [
+            0.0017164066949140607,
+            -0.0013095058521760726,
+            1.4750614647361112e-05
+          ],
+          "kinetic_energy_j": 0.005440649821967748,
+          "intersection_audit": {
+            "nonlocal": 0,
+            "topologically_local": 0,
+            "raw": 0,
+            "newton_candidates": 10,
+            "newton_rejected_candidates": 10
+          },
+          "confirmed_intersection_triangle_pairs": [],
+          "ipc_step": {
+            "last_ccd_step_fraction": 1.0,
+            "last_accepted_step_fraction": 1.0,
+            "cumulative_clipped_step_count": 0,
+            "last_barrier_collision_count": 0,
+            "last_barrier_force_norm_n": 0.0,
+            "last_minimum_active_distance_m": null
+          }
+        },
+        "1": {
+          "step_count": 1,
+          "simulated_time_s": 0.004166666666666667,
+          "finite": true,
+          "minimum_principal_stretch": 0.8011366273067243,
+          "maximum_principal_stretch": 1.2296843434122615,
+          "degenerate_triangle_count": 0,
+          "maximum_speed_m_s": 1.5255138900535934,
+          "rms_speed_m_s": 0.5404552550901671,
+          "center_of_mass_drift_m": 8.234548651687392e-06,
+          "center_of_mass_velocity_m_s": 0.001972339173971791,
+          "linear_momentum_kg_m_s": 0.00024927807723252134,
+          "angular_momentum_kg_m2_s": 3.476141095183788e-05,
+          "total_mass_kg": 0.1263870211703418,
+          "center_of_mass_m": [
+            0.0017163938044314618,
+            -0.0013092407604660674,
+            2.298088509964587e-05
+          ],
+          "kinetic_energy_j": 0.01451771959998146,
+          "intersection_audit": {
+            "nonlocal": 0,
+            "topologically_local": 0,
+            "raw": 0,
+            "newton_candidates": 7,
+            "newton_rejected_candidates": 7
+          },
+          "confirmed_intersection_triangle_pairs": [],
+          "ipc_step": {
+            "last_ccd_step_fraction": 1.0,
+            "last_accepted_step_fraction": 1.0,
+            "cumulative_clipped_step_count": 0,
+            "last_barrier_collision_count": 451,
+            "last_barrier_force_norm_n": 0.5252209388464332,
+            "last_minimum_active_distance_m": 3.355747975908322e-07
+          }
+        },
+        "5": {
+          "step_count": 5,
+          "simulated_time_s": 0.020833333333333332,
+          "finite": true,
+          "minimum_principal_stretch": 0.7997819198971649,
+          "maximum_principal_stretch": 1.2264738203572478,
+          "degenerate_triangle_count": 0,
+          "maximum_speed_m_s": 1.6904675426146125,
+          "rms_speed_m_s": 0.38921267458870334,
+          "center_of_mass_drift_m": 8.107124035503687e-05,
+          "center_of_mass_velocity_m_s": 0.007645644142574155,
+          "linear_momentum_kg_m_s": 0.000966310204764119,
+          "angular_momentum_kg_m2_s": 0.00019666046645797167,
+          "total_mass_kg": 0.1263870211703418,
+          "center_of_mass_m": [
+            0.00171720024233356,
+            -0.0013072775973005438,
+            9.578734197150006e-05
+          ],
+          "kinetic_energy_j": 0.006757565729829588,
+          "intersection_audit": {
+            "nonlocal": 0,
+            "topologically_local": 0,
+            "raw": 0,
+            "newton_candidates": 8,
+            "newton_rejected_candidates": 8
+          },
+          "confirmed_intersection_triangle_pairs": [],
+          "ipc_step": {
+            "last_ccd_step_fraction": 1.0,
+            "last_accepted_step_fraction": 1.0,
+            "cumulative_clipped_step_count": 0,
+            "last_barrier_collision_count": 24,
+            "last_barrier_force_norm_n": 0.007670579804950611,
+            "last_minimum_active_distance_m": 4.626108222684731e-06
+          }
+        },
+        "10": {
+          "step_count": 10,
+          "simulated_time_s": 0.041666666666666664,
+          "finite": true,
+          "minimum_principal_stretch": 0.8223719099925311,
+          "maximum_principal_stretch": 1.1722012622269966,
+          "degenerate_triangle_count": 0,
+          "maximum_speed_m_s": 1.4207031185563133,
+          "rms_speed_m_s": 0.3098388533598434,
+          "center_of_mass_drift_m": 0.00020037725514814684,
+          "center_of_mass_velocity_m_s": 0.0016291897307640119,
+          "linear_momentum_kg_m_s": 0.0002059084405416928,
+          "angular_momentum_kg_m2_s": 0.00012791085711775913,
+          "total_mass_kg": 0.1263870211703418,
+          "center_of_mass_m": [
+            0.0017172716181905621,
+            -0.0013019889404423941,
+            0.00021498495817119168
+          ],
+          "kinetic_energy_j": 0.00553230918063919,
+          "intersection_audit": {
+            "nonlocal": 0,
+            "topologically_local": 0,
+            "raw": 0,
+            "newton_candidates": 0,
+            "newton_rejected_candidates": 0
+          },
+          "confirmed_intersection_triangle_pairs": [],
+          "ipc_step": {
+            "last_ccd_step_fraction": 1.0,
+            "last_accepted_step_fraction": 1.0,
+            "cumulative_clipped_step_count": 0,
+            "last_barrier_collision_count": 23,
+            "last_barrier_force_norm_n": 0.010247176685508615,
+            "last_minimum_active_distance_m": 4.080076657172519e-06
+          }
+        },
+        "20": {
+          "step_count": 20,
+          "simulated_time_s": 0.08333333333333333,
+          "finite": true,
+          "minimum_principal_stretch": 0.8315030859117541,
+          "maximum_principal_stretch": 1.1488202197805149,
+          "degenerate_triangle_count": 0,
+          "maximum_speed_m_s": 0.567240591917957,
+          "rms_speed_m_s": 0.08762174763660484,
+          "center_of_mass_drift_m": 0.00015736171933218148,
+          "center_of_mass_velocity_m_s": 0.015021363563944092,
+          "linear_momentum_kg_m_s": 0.0018985054274869826,
+          "angular_momentum_kg_m2_s": 0.0005868082717806879,
+          "total_mass_kg": 0.1263870211703418,
+          "center_of_mass_m": [
+            0.001704523816727872,
+            -0.001302616167155165,
+            -0.00014201047796654338
+          ],
+          "kinetic_energy_j": 0.00044535900444221514,
+          "intersection_audit": {
+            "nonlocal": 0,
+            "topologically_local": 0,
+            "raw": 0,
+            "newton_candidates": 2,
+            "newton_rejected_candidates": 2
+          },
+          "confirmed_intersection_triangle_pairs": [],
+          "ipc_step": {
+            "last_ccd_step_fraction": 1.0,
+            "last_accepted_step_fraction": 1.0,
+            "cumulative_clipped_step_count": 0,
+            "last_barrier_collision_count": 23,
+            "last_barrier_force_norm_n": 0.021107744760294297,
+            "last_minimum_active_distance_m": 1.3234360911274705e-06
+          }
+        },
+        "30": {
+          "step_count": 30,
+          "simulated_time_s": 0.125,
+          "finite": true,
+          "minimum_principal_stretch": 0.8922117787527636,
+          "maximum_principal_stretch": 1.134255912777684,
+          "degenerate_triangle_count": 0,
+          "maximum_speed_m_s": 0.23408265872520176,
+          "rms_speed_m_s": 0.06933620644069337,
+          "center_of_mass_drift_m": 0.0009127343442419645,
+          "center_of_mass_velocity_m_s": 0.020537049170388202,
+          "linear_momentum_kg_m_s": 0.0025956165130132623,
+          "angular_momentum_kg_m2_s": 0.0007018009353727371,
+          "total_mass_kg": 0.1263870211703418,
+          "center_of_mass_m": [
+            0.0016775220831193494,
+            -0.0012842679538727128,
+            -0.000896805756957606
+          ],
+          "kinetic_energy_j": 0.00027561354028322085,
+          "intersection_audit": {
+            "nonlocal": 0,
+            "topologically_local": 0,
+            "raw": 0,
+            "newton_candidates": 7,
+            "newton_rejected_candidates": 7
+          },
+          "confirmed_intersection_triangle_pairs": [],
+          "ipc_step": {
+            "last_ccd_step_fraction": 1.0,
+            "last_accepted_step_fraction": 1.0,
+            "cumulative_clipped_step_count": 0,
+            "last_barrier_collision_count": 19,
+            "last_barrier_force_norm_n": 0.026060530905546594,
+            "last_minimum_active_distance_m": 5.735976967705226e-07
+          }
+        },
+        "32": {
+          "step_count": 32,
+          "simulated_time_s": 0.13333333333333333,
+          "finite": true,
+          "minimum_principal_stretch": 0.8921282033685695,
+          "maximum_principal_stretch": 1.1318117411722362,
+          "degenerate_triangle_count": 0,
+          "maximum_speed_m_s": 0.229826802290216,
+          "rms_speed_m_s": 0.06675854109003872,
+          "center_of_mass_drift_m": 0.0011004636778232085,
+          "center_of_mass_velocity_m_s": 0.023108961601113708,
+          "linear_momentum_kg_m_s": 0.0029206728694464302,
+          "angular_momentum_kg_m2_s": 0.0006918189185213303,
+          "total_mass_kg": 0.1263870211703418,
+          "center_of_mass_m": [
+            0.0016721038114827175,
+            -0.0012756700596344374,
+            -0.0010843002030453109
+          ],
+          "kinetic_energy_j": 0.0002585963796079292,
+          "intersection_audit": {
+            "nonlocal": 0,
+            "topologically_local": 0,
+            "raw": 0,
+            "newton_candidates": 10,
+            "newton_rejected_candidates": 10
+          },
+          "confirmed_intersection_triangle_pairs": [],
+          "ipc_step": {
+            "last_ccd_step_fraction": 1.0,
+            "last_accepted_step_fraction": 1.0,
+            "cumulative_clipped_step_count": 0,
+            "last_barrier_collision_count": 18,
+            "last_barrier_force_norm_n": 0.026006207817358365,
+            "last_minimum_active_distance_m": 5.31244175504683e-07
+          }
+        },
+        "40": {
+          "step_count": 40,
+          "simulated_time_s": 0.16666666666666666,
+          "finite": true,
+          "minimum_principal_stretch": 0.8884772504885996,
+          "maximum_principal_stretch": 1.1244739836030435,
+          "degenerate_triangle_count": 0,
+          "maximum_speed_m_s": 0.2014804379338768,
+          "rms_speed_m_s": 0.07435067118107581,
+          "center_of_mass_drift_m": 0.0019725971639529593,
+          "center_of_mass_velocity_m_s": 0.02696687277070064,
+          "linear_momentum_kg_m_s": 0.0034082627785146018,
+          "angular_momentum_kg_m2_s": 0.0006026975949627557,
+          "total_mass_kg": 0.1263870211703418,
+          "center_of_mass_m": [
+            0.0016336355570322548,
+            -0.001225511110133943,
+            -0.0019543185545994393
+          ],
+          "kinetic_energy_j": 0.00031871578806325307,
+          "intersection_audit": {
+            "nonlocal": 0,
+            "topologically_local": 0,
+            "raw": 0,
+            "newton_candidates": 19,
+            "newton_rejected_candidates": 19
+          },
+          "confirmed_intersection_triangle_pairs": [],
+          "ipc_step": {
+            "last_ccd_step_fraction": 1.0,
+            "last_accepted_step_fraction": 1.0,
+            "cumulative_clipped_step_count": 0,
+            "last_barrier_collision_count": 14,
+            "last_barrier_force_norm_n": 0.028850161688918095,
+            "last_minimum_active_distance_m": 3.1001438239968517e-07
+          }
+        }
+      },
+      "intersection_trace": [
+        {
+          "step": 0,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 1,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 2,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 3,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 4,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 5,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 6,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 7,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 8,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 9,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 10,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 11,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 12,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 13,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 14,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 15,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 16,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 17,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 18,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 19,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 20,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 21,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 22,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 23,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 24,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 25,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 26,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 27,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 28,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 29,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 30,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 31,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 32,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 33,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 34,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 35,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 36,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 37,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 38,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 39,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        },
+        {
+          "step": 40,
+          "raw": 0,
+          "nonlocal": 0,
+          "topologically_local": 0
+        }
+      ],
+      "first_confirmed_intersection_step": null,
+      "maximum_confirmed_intersection_count": 0,
+      "minimum_checkpoint_principal_stretch": 0.6990079939972411,
+      "maximum_checkpoint_principal_stretch": 1.2296843434122615,
+      "ipc_summary": {
+        "enabled": true,
+        "backend": "IPC Toolkit",
+        "ipctk_version": "1.6.0",
+        "operator_split": true,
+        "monolithic_incremental_potential_solve": false,
+        "activation_distance_m": 0.004,
+        "minimum_distance_m": 0.0,
+        "finite_thickness_provider": "Newton Style3D proximity contact",
+        "barrier_stiffness_prior": 10000.0,
+        "topological_filter_graph_hops": 1,
+        "excluded_vertex_pair_count": 1903,
+        "barrier_force_enabled": true,
+        "ccd_enabled": true,
+        "ccd_safety_factor": 0.99,
+        "verify_after_every_step": true,
+        "step_count": 40,
+        "ccd_clipped_step_count": 0,
+        "minimum_ccd_step_fraction": 1.0,
+        "last_ccd_step_fraction": 1.0,
+        "last_accepted_step_fraction": 1.0,
+        "last_barrier_collision_count": 14,
+        "maximum_barrier_collision_count": 451,
+        "last_barrier_potential": 2.98993662789667e-05,
+        "last_barrier_force_norm_n": 0.028850161688918095,
+        "maximum_barrier_force_norm_n": 0.5252209388464332,
+        "last_minimum_active_distance_m": 3.1001438239968517e-07
+      },
+      "wall_time_s": 12.630072599999949
+    }
+  },
+  "accepted_ipc_release": {
+    "audit": {
+      "construction_id": "cotton_jersey_half_sleeve_tee",
+      "newton_version": "1.4.0",
+      "device": "cuda:0",
+      "particle_count": 651,
+      "material_vertex_count": 781,
+      "triangle_count": 1250,
+      "edge_count": 1903,
+      "maximum_projective_neighbor_count": 20,
+      "oriented_edge_audit": {
+        "edge_count": 1903,
+        "boundary_edge_count": 56,
+        "shared_edge_count": 1847,
+        "orientation_mismatch_edge_count": 0,
+        "nonmanifold_edge_count": 0
+      },
+      "authored_mass_kg": 0.1263870211703418,
+      "adapter_mass_kg": 0.1263870211703418,
+      "model_mass_kg": 0.12638701498508453,
+      "mass_error_kg": -6.185257278579215e-09,
+      "assembly_relaxation_applied": true,
+      "assembly_relaxation_optimizer_converged": true,
+      "assembly_relaxation_iterations": 1486,
+      "assembly_initial_edge_energy": 39.78619906659017,
+      "assembly_final_edge_energy": 4.370182264752693,
+      "assembly_minimum_principal_stretch": 0.699007985327033,
+      "assembly_maximum_principal_stretch": 1.1705227159308689,
+      "self_contact_enabled": true,
+      "self_contact_vertex_face_stiffness": 0.5,
+      "self_contact_edge_edge_stiffness": 0.1,
+      "self_contact_edge_face_stiffness": 1.0,
+      "self_contact_topological_filter_graph_hops": 1,
+      "intersection_audit_local_exclusion_graph_hops": 1,
+      "intersection_audit_buffer_per_triangle": 256,
+      "ipc_self_contact": {
+        "enabled": true,
+        "backend": "IPC Toolkit",
+        "ipctk_version": "1.6.0",
+        "operator_split": true,
+        "monolithic_incremental_potential_solve": false,
+        "activation_distance_m": 0.004,
+        "minimum_distance_m": 0.0,
+        "finite_thickness_provider": "Newton Style3D proximity contact",
+        "barrier_stiffness_prior": 10000.0,
+        "topological_filter_graph_hops": 1,
+        "excluded_vertex_pair_count": 1903,
+        "barrier_force_enabled": true,
+        "ccd_enabled": true,
+        "ccd_safety_factor": 0.99,
+        "verify_after_every_step": true,
+        "step_count": 180,
+        "ccd_clipped_step_count": 0,
+        "minimum_ccd_step_fraction": 1.0,
+        "last_ccd_step_fraction": 1.0,
+        "last_accepted_step_fraction": 1.0,
+        "last_barrier_collision_count": 26,
+        "maximum_barrier_collision_count": 451,
+        "last_barrier_potential": 2.937048297581656e-05,
+        "last_barrier_force_norm_n": 0.02569351198695428,
+        "maximum_barrier_force_norm_n": 0.5252208763391525,
+        "last_minimum_active_distance_m": 5.664507947776916e-07
+      },
+      "table_plane_ccd": {
+        "enabled": true,
+        "method": "local swept-sphere/top-plane TOI plus normal impulse",
+        "operator_split": true,
+        "global_step_scaling": false,
+        "normal_restitution": 0.0,
+        "contact_epsilon_m": 1e-06,
+        "origin_penetration_tolerance_m": 5e-06,
+        "tangential_response_provider": "Newton Coulomb soft contact",
+        "step_count": 180,
+        "collision_step_count": 180,
+        "collision_event_count": 22317,
+        "maximum_events_in_one_step": 145,
+        "minimum_hit_time_fraction": 0.006027347719576117,
+        "cumulative_normal_impulse_kg_m_s": 0.00206285436134114,
+        "cumulative_removed_normal_kinetic_energy_j": 0.00024624239505054586,
+        "cumulative_endpoint_correction_m": 0.024185648452044642,
+        "maximum_endpoint_correction_m": 0.0010732810574807226,
+        "maximum_inward_speed_m_s": 1.0392440557479858,
+        "minimum_accepted_clearance_m": 1.0000000000000243e-06,
+        "last_hit_count": 145,
+        "last_minimum_hit_time_fraction": 0.07413552838116981,
+        "last_normal_impulse_kg_m_s": 7.542884292418884e-06,
+        "last_removed_normal_kinetic_energy_j": 2.3616111868381077e-09,
+        "last_minimum_proposed_clearance_m": -1.2488689157180493e-05,
+        "last_minimum_accepted_clearance_m": 1.0000000000000243e-06
+      },
+      "table_enabled": true,
+      "table_top_z_m": 0.0,
+      "table_friction_mu": 0.36,
+      "table_normal_projection_enabled": false,
+      "membrane_rate_damping_enabled": true,
+      "membrane_rate_damping_scale": 1.0,
+      "bending_rate_damping_enabled": true,
+      "bending_rate_damping_scale": 1.0,
+      "quadratic_normal_air_drag_enabled": true,
+      "air_density_kg_m3": 1.204,
+      "normal_drag_coefficient": 1.17,
+      "wind_velocity_m_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "structural_seam_hinge_count": 123,
+      "structural_seam_bending_scale": 0.0,
+      "free_rigid_frame_gauge_enabled": false,
+      "self_contact_radius_m": 0.003,
+      "calibration_status": "construction-complete; engine adapter verified structurally; material and seam coefficients remain prior-only",
+      "unsupported_terms": [
+        "warp/weft tension stiffening is nonlinear in the authored profiles but Style3D 1.4 uses constant triangle stiffness",
+        "cross-coupling ratio is not exposed by the Style3D 1.4 cloth helper",
+        "pressure-dependent thickness/compression is not exposed by the Style3D 1.4 cloth helper",
+        "measured per-seam rest angle and moment-curvature are unavailable; the explicit structural-seam bending scale defaults to a free hinge instead of silently treating a seam as continuous fabric",
+        "Style3D 1.4 does not consume its stored damping fields; the adapter can explicitly apply objective membrane-rate and dihedral-rate damping",
+        "quadratic normal air drag omits textile permeability, surrounding-flow coupling, wakes, and lift"
+      ]
+    },
+    "steps": 180,
+    "simulated_time_s": 0.75,
+    "checkpoints": {
+      "0": {
+        "step_count": 0,
+        "simulated_time_s": 0.0,
+        "finite": true,
+        "minimum_principal_stretch": 0.6990079939875717,
+        "maximum_principal_stretch": 1.1705228020046374,
+        "degenerate_triangle_count": 0,
+        "maximum_speed_m_s": 0.0,
+        "rms_speed_m_s": 0.0,
+        "center_of_mass_drift_m": 0.0,
+        "center_of_mass_velocity_m_s": 0.0,
+        "linear_momentum_kg_m_s": 0.0,
+        "angular_momentum_kg_m2_s": 0.0,
+        "total_mass_kg": 0.1263870211703418,
+        "center_of_mass_m": [
+          0.0017164066949140607,
+          -0.0013095058521760726,
+          0.010014750388719388
+        ],
+        "kinetic_energy_j": 0.0,
+        "intersection_audit": {
+          "nonlocal": 0,
+          "topologically_local": 0,
+          "raw": 0,
+          "newton_candidates": 10,
+          "newton_rejected_candidates": 10
+        },
+        "confirmed_intersection_triangle_pairs": [],
+        "minimum_table_surface_clearance_m": 0.0021975546088069675,
+        "ipc_step": {
+          "last_ccd_step_fraction": 1.0,
+          "last_accepted_step_fraction": 1.0,
+          "cumulative_clipped_step_count": 0,
+          "last_barrier_collision_count": 0,
+          "last_barrier_force_norm_n": 0.0,
+          "last_minimum_active_distance_m": null
+        },
+        "table_plane_ccd_step": {
+          "last_hit_count": 0,
+          "last_minimum_hit_time_fraction": 1.0,
+          "last_normal_impulse_kg_m_s": 0.0,
+          "last_removed_normal_kinetic_energy_j": 0.0,
+          "last_minimum_proposed_clearance_m": null,
+          "last_minimum_accepted_clearance_m": null,
+          "cumulative_collision_step_count": 0
+        }
+      },
+      "1": {
+        "step_count": 1,
+        "simulated_time_s": 0.004166666666666667,
+        "finite": true,
+        "minimum_principal_stretch": 0.8011725603277096,
+        "maximum_principal_stretch": 1.2290388491121944,
+        "degenerate_triangle_count": 0,
+        "maximum_speed_m_s": 1.5971927265573045,
+        "rms_speed_m_s": 0.5723260216058654,
+        "center_of_mass_drift_m": 0.000172585639683348,
+        "center_of_mass_velocity_m_s": 0.040288220971462126,
+        "linear_momentum_kg_m_s": 0.005091908324601709,
+        "angular_momentum_kg_m2_s": 2.2055745047699203e-05,
+        "total_mass_kg": 0.1263870211703418,
+        "center_of_mass_m": [
+          0.001716403767403113,
+          -0.0013094018138263283,
+          0.009842164780419153
+        ],
+        "kinetic_energy_j": 0.01621072337695501,
+        "intersection_audit": {
+          "nonlocal": 0,
+          "topologically_local": 0,
+          "raw": 0,
+          "newton_candidates": 7,
+          "newton_rejected_candidates": 7
+        },
+        "confirmed_intersection_triangle_pairs": [],
+        "minimum_table_surface_clearance_m": 9.999903850257345e-07,
+        "ipc_step": {
+          "last_ccd_step_fraction": 1.0,
+          "last_accepted_step_fraction": 1.0,
+          "cumulative_clipped_step_count": 0,
+          "last_barrier_collision_count": 451,
+          "last_barrier_force_norm_n": 0.5252208763391525,
+          "last_minimum_active_distance_m": 3.3557420993385335e-07
+        },
+        "table_plane_ccd_step": {
+          "last_hit_count": 3,
+          "last_minimum_hit_time_fraction": 0.7528658019720215,
+          "last_normal_impulse_kg_m_s": 0.00016461027138733175,
+          "last_removed_normal_kinetic_energy_j": 7.544689560431403e-05,
+          "last_minimum_proposed_clearance_m": -0.0010722810574807227,
+          "last_minimum_accepted_clearance_m": 1.0000000000000243e-06,
+          "cumulative_collision_step_count": 1
+        }
+      },
+      "5": {
+        "step_count": 5,
+        "simulated_time_s": 0.020833333333333332,
+        "finite": true,
+        "minimum_principal_stretch": 0.7853124974967967,
+        "maximum_principal_stretch": 1.230710003738642,
+        "degenerate_triangle_count": 0,
+        "maximum_speed_m_s": 1.697941820630726,
+        "rms_speed_m_s": 0.4263092569663954,
+        "center_of_mass_drift_m": 0.000855329941091195,
+        "center_of_mass_velocity_m_s": 0.07658479353576557,
+        "linear_momentum_kg_m_s": 0.009679324088767665,
+        "angular_momentum_kg_m2_s": 0.0045477651349781515,
+        "total_mass_kg": 0.1263870211703418,
+        "center_of_mass_m": [
+          0.0019416350467888557,
+          -0.0015072697540867632,
+          0.010815843976722618
+        ],
+        "kinetic_energy_j": 0.008561508874035697,
+        "intersection_audit": {
+          "nonlocal": 0,
+          "topologically_local": 0,
+          "raw": 0,
+          "newton_candidates": 15,
+          "newton_rejected_candidates": 15
+        },
+        "confirmed_intersection_triangle_pairs": [],
+        "minimum_table_surface_clearance_m": 9.999903850257345e-07,
+        "ipc_step": {
+          "last_ccd_step_fraction": 1.0,
+          "last_accepted_step_fraction": 1.0,
+          "cumulative_clipped_step_count": 0,
+          "last_barrier_collision_count": 28,
+          "last_barrier_force_norm_n": 0.13106542641666605,
+          "last_minimum_active_distance_m": 4.481647196980179e-06
+        },
+        "table_plane_ccd_step": {
+          "last_hit_count": 5,
+          "last_minimum_hit_time_fraction": 0.21275833926746848,
+          "last_normal_impulse_kg_m_s": 2.206821684855323e-05,
+          "last_removed_normal_kinetic_energy_j": 6.940384968671872e-07,
+          "last_minimum_proposed_clearance_m": -0.00016046196373645217,
+          "last_minimum_accepted_clearance_m": 1.0000000000000243e-06,
+          "cumulative_collision_step_count": 5
+        }
+      },
+      "10": {
+        "step_count": 10,
+        "simulated_time_s": 0.041666666666666664,
+        "finite": true,
+        "minimum_principal_stretch": 0.8488043705853676,
+        "maximum_principal_stretch": 1.1825019018705851,
+        "degenerate_triangle_count": 0,
+        "maximum_speed_m_s": 1.2229354399328853,
+        "rms_speed_m_s": 0.41287497567928577,
+        "center_of_mass_drift_m": 0.0028708962365974534,
+        "center_of_mass_velocity_m_s": 0.1199770438271238,
+        "linear_momentum_kg_m_s": 0.015163541439498433,
+        "angular_momentum_kg_m2_s": 0.0052147753809702,
+        "total_mass_kg": 0.1263870211703418,
+        "center_of_mass_m": [
+          0.0007085675748306055,
+          -0.00022632782628137377,
+          0.01247504119948906
+        ],
+        "kinetic_energy_j": 0.008548387465482584,
+        "intersection_audit": {
+          "nonlocal": 0,
+          "topologically_local": 0,
+          "raw": 0,
+          "newton_candidates": 8,
+          "newton_rejected_candidates": 8
+        },
+        "confirmed_intersection_triangle_pairs": [],
+        "minimum_table_surface_clearance_m": 9.999903850257345e-07,
+        "ipc_step": {
+          "last_ccd_step_fraction": 1.0,
+          "last_accepted_step_fraction": 1.0,
+          "cumulative_clipped_step_count": 0,
+          "last_barrier_collision_count": 23,
+          "last_barrier_force_norm_n": 0.0158334973595928,
+          "last_minimum_active_distance_m": 3.3749928455681165e-06
+        },
+        "table_plane_ccd_step": {
+          "last_hit_count": 6,
+          "last_minimum_hit_time_fraction": 0.021239062250810584,
+          "last_normal_impulse_kg_m_s": 1.1649416213006958e-05,
+          "last_removed_normal_kinetic_energy_j": 1.6430252812279812e-07,
+          "last_minimum_proposed_clearance_m": -4.608261492103339e-05,
+          "last_minimum_accepted_clearance_m": 1.0000000000000243e-06,
+          "cumulative_collision_step_count": 10
+        }
+      },
+      "20": {
+        "step_count": 20,
+        "simulated_time_s": 0.08333333333333333,
+        "finite": true,
+        "minimum_principal_stretch": 0.8927723493844688,
+        "maximum_principal_stretch": 1.1357390838599877,
+        "degenerate_triangle_count": 0,
+        "maximum_speed_m_s": 0.7987488128850373,
+        "rms_speed_m_s": 0.2630391274495798,
+        "center_of_mass_drift_m": 0.008044734754467146,
+        "center_of_mass_velocity_m_s": 0.1298730621977727,
+        "linear_momentum_kg_m_s": 0.01641426974436977,
+        "angular_momentum_kg_m2_s": 0.0029258956759070664,
+        "total_mass_kg": 0.1263870211703418,
+        "center_of_mass_m": [
+          0.0015882191202787148,
+          -0.004033198164950771,
+          0.017583292216626047
+        ],
+        "kinetic_energy_j": 0.0035543959666102624,
+        "intersection_audit": {
+          "nonlocal": 0,
+          "topologically_local": 0,
+          "raw": 0,
+          "newton_candidates": 15,
+          "newton_rejected_candidates": 15
+        },
+        "confirmed_intersection_triangle_pairs": [],
+        "minimum_table_surface_clearance_m": 9.999903850257345e-07,
+        "ipc_step": {
+          "last_ccd_step_fraction": 1.0,
+          "last_accepted_step_fraction": 1.0,
+          "cumulative_clipped_step_count": 0,
+          "last_barrier_collision_count": 22,
+          "last_barrier_force_norm_n": 0.0192656386481543,
+          "last_minimum_active_distance_m": 1.7793208421541497e-06
+        },
+        "table_plane_ccd_step": {
+          "last_hit_count": 90,
+          "last_minimum_hit_time_fraction": 0.37217729636048336,
+          "last_normal_impulse_kg_m_s": 3.980658171889806e-06,
+          "last_removed_normal_kinetic_energy_j": 5.119622857869888e-10,
+          "last_minimum_proposed_clearance_m": -1.686875242739921e-06,
+          "last_minimum_accepted_clearance_m": 1.0000000000000243e-06,
+          "cumulative_collision_step_count": 20
+        }
+      },
+      "30": {
+        "step_count": 30,
+        "simulated_time_s": 0.125,
+        "finite": true,
+        "minimum_principal_stretch": 0.8958584667482533,
+        "maximum_principal_stretch": 1.1178763618470544,
+        "degenerate_triangle_count": 0,
+        "maximum_speed_m_s": 0.36592036633144653,
+        "rms_speed_m_s": 0.10718208021830611,
+        "center_of_mass_drift_m": 0.010194077281449263,
+        "center_of_mass_velocity_m_s": 0.026979244399076254,
+        "linear_momentum_kg_m_s": 0.003409826391798973,
+        "angular_momentum_kg_m2_s": 0.0004663282212934811,
+        "total_mass_kg": 0.1263870211703418,
+        "center_of_mass_m": [
+          0.0022551468061083398,
+          -0.005481174149001192,
+          0.019300554302975524
+        ],
+        "kinetic_energy_j": 0.000555056047982497,
+        "intersection_audit": {
+          "nonlocal": 0,
+          "topologically_local": 0,
+          "raw": 0,
+          "newton_candidates": 5,
+          "newton_rejected_candidates": 5
+        },
+        "confirmed_intersection_triangle_pairs": [],
+        "minimum_table_surface_clearance_m": 9.999903850257345e-07,
+        "ipc_step": {
+          "last_ccd_step_fraction": 1.0,
+          "last_accepted_step_fraction": 1.0,
+          "cumulative_clipped_step_count": 0,
+          "last_barrier_collision_count": 19,
+          "last_barrier_force_norm_n": 0.01706010203970367,
+          "last_minimum_active_distance_m": 2.496005863793564e-06
+        },
+        "table_plane_ccd_step": {
+          "last_hit_count": 100,
+          "last_minimum_hit_time_fraction": 0.4369313563417155,
+          "last_normal_impulse_kg_m_s": 4.362621995964116e-06,
+          "last_removed_normal_kinetic_energy_j": 4.734080734750282e-10,
+          "last_minimum_proposed_clearance_m": -1.2886766344308905e-06,
+          "last_minimum_accepted_clearance_m": 1.0000000000000243e-06,
+          "cumulative_collision_step_count": 30
+        }
+      },
+      "45": {
+        "step_count": 45,
+        "simulated_time_s": 0.1875,
+        "finite": true,
+        "minimum_principal_stretch": 0.8859497394849805,
+        "maximum_principal_stretch": 1.1115035529902366,
+        "degenerate_triangle_count": 0,
+        "maximum_speed_m_s": 0.33232185282328647,
+        "rms_speed_m_s": 0.08607331405999223,
+        "center_of_mass_drift_m": 0.008524618190544059,
+        "center_of_mass_velocity_m_s": 0.04159577749482036,
+        "linear_momentum_kg_m_s": 0.005257166501449259,
+        "angular_momentum_kg_m2_s": 0.0008950664841310395,
+        "total_mass_kg": 0.1263870211703418,
+        "center_of_mass_m": [
+          0.002493900663170072,
+          -0.006559230365345289,
+          0.016685957997519343
+        ],
+        "kinetic_energy_j": 0.00036866815649926266,
+        "intersection_audit": {
+          "nonlocal": 0,
+          "topologically_local": 0,
+          "raw": 0,
+          "newton_candidates": 3,
+          "newton_rejected_candidates": 3
+        },
+        "confirmed_intersection_triangle_pairs": [],
+        "minimum_table_surface_clearance_m": 9.999903850257345e-07,
+        "ipc_step": {
+          "last_ccd_step_fraction": 1.0,
+          "last_accepted_step_fraction": 1.0,
+          "cumulative_clipped_step_count": 0,
+          "last_barrier_collision_count": 19,
+          "last_barrier_force_norm_n": 0.014069001085428282,
+          "last_minimum_active_distance_m": 2.4179783264461457e-06
+        },
+        "table_plane_ccd_step": {
+          "last_hit_count": 121,
+          "last_minimum_hit_time_fraction": 0.3309230369164667,
+          "last_normal_impulse_kg_m_s": 5.397029702077289e-06,
+          "last_removed_normal_kinetic_energy_j": 6.291639787452497e-10,
+          "last_minimum_proposed_clearance_m": -2.0218312274664692e-06,
+          "last_minimum_accepted_clearance_m": 1.0000000000000243e-06,
+          "cumulative_collision_step_count": 45
+        }
+      },
+      "60": {
+        "step_count": 60,
+        "simulated_time_s": 0.25,
+        "finite": true,
+        "minimum_principal_stretch": 0.8843981915641551,
+        "maximum_principal_stretch": 1.1119195545717162,
+        "degenerate_triangle_count": 0,
+        "maximum_speed_m_s": 0.11485212426335811,
+        "rms_speed_m_s": 0.0313079054204614,
+        "center_of_mass_drift_m": 0.008417076434460014,
+        "center_of_mass_velocity_m_s": 0.014087306589415916,
+        "linear_momentum_kg_m_s": 0.0017804527468381827,
+        "angular_momentum_kg_m2_s": 0.00028310055673633937,
+        "total_mass_kg": 0.1263870211703418,
+        "center_of_mass_m": [
+          0.002629974026782902,
+          -0.006884093940665103,
+          0.016254665298184128
+        ],
+        "kinetic_energy_j": 4.776809689281115e-05,
+        "intersection_audit": {
+          "nonlocal": 0,
+          "topologically_local": 0,
+          "raw": 0,
+          "newton_candidates": 2,
+          "newton_rejected_candidates": 2
+        },
+        "confirmed_intersection_triangle_pairs": [],
+        "minimum_table_surface_clearance_m": 9.999903850257345e-07,
+        "ipc_step": {
+          "last_ccd_step_fraction": 1.0,
+          "last_accepted_step_fraction": 1.0,
+          "cumulative_clipped_step_count": 0,
+          "last_barrier_collision_count": 16,
+          "last_barrier_force_norm_n": 0.009229154920352787,
+          "last_minimum_active_distance_m": 3.344317343623993e-06
+        },
+        "table_plane_ccd_step": {
+          "last_hit_count": 137,
+          "last_minimum_hit_time_fraction": 0.17066298446820785,
+          "last_normal_impulse_kg_m_s": 6.1188606198866414e-06,
+          "last_removed_normal_kinetic_energy_j": 7.710748837746922e-10,
+          "last_minimum_proposed_clearance_m": -4.859454696998005e-06,
+          "last_minimum_accepted_clearance_m": 1.0000000000000243e-06,
+          "cumulative_collision_step_count": 60
+        }
+      },
+      "90": {
+        "step_count": 90,
+        "simulated_time_s": 0.375,
+        "finite": true,
+        "minimum_principal_stretch": 0.8882238221777903,
+        "maximum_principal_stretch": 1.1103249536136632,
+        "degenerate_triangle_count": 0,
+        "maximum_speed_m_s": 0.05095329968772881,
+        "rms_speed_m_s": 0.013838270452349763,
+        "center_of_mass_drift_m": 0.009764629798389013,
+        "center_of_mass_velocity_m_s": 0.004262776924339775,
+        "linear_momentum_kg_m_s": 0.0005387596866672477,
+        "angular_momentum_kg_m2_s": 7.248838760292193e-05,
+        "total_mass_kg": 0.1263870211703418,
+        "center_of_mass_m": [
+          0.0029235292877715343,
+          -0.007625616140728494,
+          0.017363056381820244
+        ],
+        "kinetic_energy_j": 1.0254769925368081e-05,
+        "intersection_audit": {
+          "nonlocal": 0,
+          "topologically_local": 0,
+          "raw": 0,
+          "newton_candidates": 2,
+          "newton_rejected_candidates": 2
+        },
+        "confirmed_intersection_triangle_pairs": [],
+        "minimum_table_surface_clearance_m": 9.999903850257345e-07,
+        "ipc_step": {
+          "last_ccd_step_fraction": 1.0,
+          "last_accepted_step_fraction": 1.0,
+          "cumulative_clipped_step_count": 0,
+          "last_barrier_collision_count": 16,
+          "last_barrier_force_norm_n": 0.004239467321286887,
+          "last_minimum_active_distance_m": 6.307230231998957e-06
+        },
+        "table_plane_ccd_step": {
+          "last_hit_count": 140,
+          "last_minimum_hit_time_fraction": 0.38566210209670704,
+          "last_normal_impulse_kg_m_s": 5.9495614886407286e-06,
+          "last_removed_normal_kinetic_energy_j": 6.256937826756799e-10,
+          "last_minimum_proposed_clearance_m": -1.5929280780255847e-06,
+          "last_minimum_accepted_clearance_m": 1.0000000000000243e-06,
+          "cumulative_collision_step_count": 90
+        }
+      },
+      "135": {
+        "step_count": 135,
+        "simulated_time_s": 0.5625,
+        "finite": true,
+        "minimum_principal_stretch": 0.8902917466508616,
+        "maximum_principal_stretch": 1.109349582204436,
+        "degenerate_triangle_count": 0,
+        "maximum_speed_m_s": 0.04524830815015911,
+        "rms_speed_m_s": 0.010269534069979614,
+        "center_of_mass_drift_m": 0.01002073863461574,
+        "center_of_mass_velocity_m_s": 0.002056113101006114,
+        "linear_momentum_kg_m_s": 0.0002598660145046288,
+        "angular_momentum_kg_m2_s": 0.00010186532220564824,
+        "total_mass_kg": 0.1263870211703418,
+        "center_of_mass_m": [
+          0.002927465932044536,
+          -0.008039552787939304,
+          0.01733970817357149
+        ],
+        "kinetic_energy_j": 5.115990833058281e-06,
+        "intersection_audit": {
+          "nonlocal": 0,
+          "topologically_local": 0,
+          "raw": 0,
+          "newton_candidates": 6,
+          "newton_rejected_candidates": 6
+        },
+        "confirmed_intersection_triangle_pairs": [],
+        "minimum_table_surface_clearance_m": 9.999903850257345e-07,
+        "ipc_step": {
+          "last_ccd_step_fraction": 1.0,
+          "last_accepted_step_fraction": 1.0,
+          "cumulative_clipped_step_count": 0,
+          "last_barrier_collision_count": 28,
+          "last_barrier_force_norm_n": 0.02285408017601288,
+          "last_minimum_active_distance_m": 9.185421773266106e-07
+        },
+        "table_plane_ccd_step": {
+          "last_hit_count": 142,
+          "last_minimum_hit_time_fraction": 0.12791321407963002,
+          "last_normal_impulse_kg_m_s": 6.4910784952593674e-06,
+          "last_removed_normal_kinetic_energy_j": 1.0993477892927308e-09,
+          "last_minimum_proposed_clearance_m": -6.817735033109789e-06,
+          "last_minimum_accepted_clearance_m": 1.0000000000000243e-06,
+          "cumulative_collision_step_count": 135
+        }
+      },
+      "180": {
+        "step_count": 180,
+        "simulated_time_s": 0.75,
+        "finite": true,
+        "minimum_principal_stretch": 0.8922789081245678,
+        "maximum_principal_stretch": 1.108404846044249,
+        "degenerate_triangle_count": 0,
+        "maximum_speed_m_s": 0.05243384897413244,
+        "rms_speed_m_s": 0.004790056901559058,
+        "center_of_mass_drift_m": 0.010148375156599537,
+        "center_of_mass_velocity_m_s": 0.0010968754515864648,
+        "linear_momentum_kg_m_s": 0.00013863082331038164,
+        "angular_momentum_kg_m2_s": 2.3754792485293527e-05,
+        "total_mass_kg": 0.1263870211703418,
+        "center_of_mass_m": [
+          0.0030577523003532943,
+          -0.008183479350084356,
+          0.017359054211132378
+        ],
+        "kinetic_energy_j": 1.3028990457492482e-06,
+        "intersection_audit": {
+          "nonlocal": 0,
+          "topologically_local": 0,
+          "raw": 0,
+          "newton_candidates": 6,
+          "newton_rejected_candidates": 6
+        },
+        "confirmed_intersection_triangle_pairs": [],
+        "minimum_table_surface_clearance_m": 9.999903850257345e-07,
+        "ipc_step": {
+          "last_ccd_step_fraction": 1.0,
+          "last_accepted_step_fraction": 1.0,
+          "cumulative_clipped_step_count": 0,
+          "last_barrier_collision_count": 26,
+          "last_barrier_force_norm_n": 0.02569351198695428,
+          "last_minimum_active_distance_m": 5.664507947776916e-07
+        },
+        "table_plane_ccd_step": {
+          "last_hit_count": 145,
+          "last_minimum_hit_time_fraction": 0.07413552838116981,
+          "last_normal_impulse_kg_m_s": 7.542884292418884e-06,
+          "last_removed_normal_kinetic_energy_j": 2.3616111868381077e-09,
+          "last_minimum_proposed_clearance_m": -1.2488689157180493e-05,
+          "last_minimum_accepted_clearance_m": 1.0000000000000243e-06,
+          "cumulative_collision_step_count": 180
+        }
+      }
+    },
+    "ipc_summary": {
+      "enabled": true,
+      "backend": "IPC Toolkit",
+      "ipctk_version": "1.6.0",
+      "operator_split": true,
+      "monolithic_incremental_potential_solve": false,
+      "activation_distance_m": 0.004,
+      "minimum_distance_m": 0.0,
+      "finite_thickness_provider": "Newton Style3D proximity contact",
+      "barrier_stiffness_prior": 10000.0,
+      "topological_filter_graph_hops": 1,
+      "excluded_vertex_pair_count": 1903,
+      "barrier_force_enabled": true,
+      "ccd_enabled": true,
+      "ccd_safety_factor": 0.99,
+      "verify_after_every_step": true,
+      "step_count": 180,
+      "ccd_clipped_step_count": 0,
+      "minimum_ccd_step_fraction": 1.0,
+      "last_ccd_step_fraction": 1.0,
+      "last_accepted_step_fraction": 1.0,
+      "last_barrier_collision_count": 26,
+      "maximum_barrier_collision_count": 451,
+      "last_barrier_potential": 2.937048297581656e-05,
+      "last_barrier_force_norm_n": 0.02569351198695428,
+      "maximum_barrier_force_norm_n": 0.5252208763391525,
+      "last_minimum_active_distance_m": 5.664507947776916e-07
+    },
+    "table_plane_ccd_summary": {
+      "enabled": true,
+      "method": "local swept-sphere/top-plane TOI plus normal impulse",
+      "operator_split": true,
+      "global_step_scaling": false,
+      "normal_restitution": 0.0,
+      "contact_epsilon_m": 1e-06,
+      "origin_penetration_tolerance_m": 5e-06,
+      "tangential_response_provider": "Newton Coulomb soft contact",
+      "step_count": 180,
+      "collision_step_count": 180,
+      "collision_event_count": 22317,
+      "maximum_events_in_one_step": 145,
+      "minimum_hit_time_fraction": 0.006027347719576117,
+      "cumulative_normal_impulse_kg_m_s": 0.00206285436134114,
+      "cumulative_removed_normal_kinetic_energy_j": 0.00024624239505054586,
+      "cumulative_endpoint_correction_m": 0.024185648452044642,
+      "maximum_endpoint_correction_m": 0.0010732810574807226,
+      "maximum_inward_speed_m_s": 1.0392440557479858,
+      "minimum_accepted_clearance_m": 1.0000000000000243e-06,
+      "last_hit_count": 145,
+      "last_minimum_hit_time_fraction": 0.07413552838116981,
+      "last_normal_impulse_kg_m_s": 7.542884292418884e-06,
+      "last_removed_normal_kinetic_energy_j": 2.3616111868381077e-09,
+      "last_minimum_proposed_clearance_m": -1.2488689157180493e-05,
+      "last_minimum_accepted_clearance_m": 1.0000000000000243e-06
+    },
+    "maximum_checkpoint_intersection_count": 0,
+    "maximum_checkpoint_table_penetration_m": 0.0,
+    "minimum_checkpoint_principal_stretch": 0.6990079939875717,
+    "maximum_checkpoint_principal_stretch": 1.230710003738642,
+    "quiet_reference_step": 135,
+    "quiet_reference_clipped_step_count": 0,
+    "wall_time_s": 52.358771700000034
+  },
+  "acceptance_gates": {
+    "raw_topology_aware_seed_is_intersection_free": true,
+    "metric_preconditioner_converged": true,
+    "preconditioned_seed_is_intersection_free": true,
+    "preconditioned_principal_stretch_bounded_0p65_to_1p20": true,
+    "matched_stress_initial_positions_are_bitwise_identical": true,
+    "matched_stress_only_configuration_difference_is_ipc": true,
+    "matched_stress_initial_linear_momentum_below_1e_8_kg_m_s": true,
+    "penalty_only_matched_stress_develops_an_exact_crossing": true,
+    "ipc_every_matched_stress_step_verified_intersection_free": true,
+    "ipc_barrier_is_causally_active_under_matched_stress": true,
+    "ipc_matched_stress_stays_finite_and_non_degenerate": true,
+    "ipc_matched_stress_principal_stretch_bounded_0p69_to_1p30": true,
+    "ipc_every_release_step_verified_intersection_free": true,
+    "ipc_barrier_is_active_during_normal_release": true,
+    "ccd_guard_is_enabled": true,
+    "ccd_does_not_freeze_more_than_35_percent_of_steps": true,
+    "minimum_ccd_fraction_stays_above_0p005": true,
+    "ccd_is_inactive_through_final_quarter": true,
+    "table_contact_without_more_than_50_um_penetration": true,
+    "local_table_ccd_is_active_without_global_step_scaling": true,
+    "table_impact_response_is_dissipative": true,
+    "legacy_residual_table_projection_is_disabled": true,
+    "final_state_finite_without_degenerate_triangles": true,
+    "all_checkpoint_principal_stretch_bounded_0p55_to_1p30": true,
+    "final_principal_stretch_bounded_0p70_to_1p25": true,
+    "final_maximum_speed_below_0p10_m_s": true,
+    "model_mass_error_below_20_nanograms": true
+  },
+  "accepted": true,
+  "calibration_status": "mechanism/topology gate only; textile, contact, friction, damping, and reset-separation values remain unmeasured engineering priors",
+  "known_limitations": [
+    "IPC is operator-split rather than a monolithic incremental-potential solve.",
+    "Finite thickness remains Newton Style3D proximity contact; IPC dmin is zero at welded seams.",
+    "The local swept-particle table response is also operator-split; Newton supplies tangential Coulomb contact and no pressure-complementarity claim is made.",
+    "Exact intersection confirmation uses IPC Toolkit, while Newton private triangle-candidate internals require compatibility testing on upgrades.",
+    "The matched stress is a synthetic reset-only mechanism challenge, not robot actuation or a calibrated real handling load; its rejected crossing is topology-local within a folded sleeve rather than a claim of nonlocal whole-garment tunneling.",
+    "The topology-aware flat lay is a reset state, not evidence that a robot performed the fold.",
+    "Pressure-dependent thickness and measured garment calibration remain pending."
+  ],
+  "frame_artifact": "laundry/artifacts/frames/p12_topology_safe_flat_lay.npz"
+}

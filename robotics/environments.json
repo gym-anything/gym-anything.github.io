@@ -18,6 +18,320 @@
   ],
   "environments": [
     {
+      "id": "laundry",
+      "title": "LaundryFold",
+      "eyebrow": "Physics-first textile folding",
+      "category": "Deformables",
+      "summary": "A solved released towel fold plus five real panel-and-seam garment constructions with accepted topology-safe reset states.",
+      "description": "LaundryFold has two scoped evidence tracks: a finite-mass clamp and passive-spin roller causally complete the released P6 towel half-fold, while a cotton half-sleeve tee, button-down shirt, five-pocket denim jeans, loop-pile towel, and asymmetric draped top retain their actual cut panels, seams, openings, pockets, facings, and trims. P13 accepts all five garment-specific flat lays with zero degenerates and exact crossings and binds 15 reviewed Isaac front/back/construction views to those states. P12 separately verifies a topology-safe T-shirt release and matched IPC stress. Only P6 is an end-to-end manipulation; all materials, seams, contacts, and fixtures remain uncalibrated engineering priors.",
+      "version": "0.3.0",
+      "updated": "2026-07-19",
+      "accent": "#6fc9a6",
+      "hero": "laundry/paper/figures/garment_showcase.png",
+      "featured": true,
+      "mode": "Keyboard \u00b7 isolated Newton / Isaac",
+      "status": {
+        "label": "Towel task + five garment resets pass",
+        "tone": "amber",
+        "detail": "P6 is a solved numerical towel manipulation; P9--P13 add five construction, task, topology, and accepted-reset cases, not five solved robot folds."
+      },
+      "tags": [
+        "Cloth",
+        "Sewn garments",
+        "Newton",
+        "IPC",
+        "Folding"
+      ],
+      "metrics": [
+        {
+          "label": "P6 edge RMS",
+          "value": "16.40 mm"
+        },
+        {
+          "label": "P13 garments",
+          "value": "5 / 5"
+        },
+        {
+          "label": "P13 views",
+          "value": "15 / 15"
+        },
+        {
+          "label": "Accepted crossings",
+          "value": "0"
+        }
+      ],
+      "profiles": [
+        {
+          "id": "interactive",
+          "label": "Interactive isolated solver",
+          "description": "Open the Isaac visual/sensor frontend backed by the isolated Newton 1.4 worker; use manual fixtures or toggle the complete P6 reference controller."
+        },
+        {
+          "id": "garment-inspector",
+          "label": "Inspect five garments",
+          "description": "Open the P13-bound visual inspector and switch among five real constructions plus front-owned, back-owned, and all-panel views."
+        }
+      ],
+      "controls": [
+        {
+          "keys": "1--5 / V",
+          "action": "Select garment / cycle front, back, construction view"
+        },
+        {
+          "keys": "C / Q",
+          "action": "Print garment scene audit / close inspector"
+        },
+        {
+          "keys": "I / K",
+          "action": "Move gripper +X / \u2212X"
+        },
+        {
+          "keys": "U / N",
+          "action": "Raise / lower gripper"
+        },
+        {
+          "keys": "J / L",
+          "action": "Rotate wrist +Y / \u2212Y"
+        },
+        {
+          "keys": "O / P",
+          "action": "Close / open gripper pads"
+        },
+        {
+          "keys": "T / G",
+          "action": "Move crease roller +X / \u2212X"
+        },
+        {
+          "keys": "Y / H",
+          "action": "Raise / lower crease roller"
+        },
+        {
+          "keys": "B / Space / R / V",
+          "action": "Reference policy, pause, fresh reset, or cycle camera"
+        }
+      ],
+      "artifacts": [
+        {
+          "label": "Physics report",
+          "path": "laundry/paper/laundryfold_physics_report.pdf",
+          "preview": "laundry/paper/rendered_pages/page_01.png",
+          "type": "pdf",
+          "group": "Reports",
+          "caption": "Render-verified engineering dossier with equations, sources, P0--P13 scoped evidence, exact garment states, matched failures, motion frames, tasks, controls, calibration programme, and limitations."
+        },
+        {
+          "label": "Five real garment constructions",
+          "path": "laundry/paper/figures/garment_showcase.png",
+          "type": "image",
+          "group": "Garment evidence",
+          "caption": "Reviewed P13 Isaac views of the cotton tee, button-down, five-pocket jeans, terry towel, and asymmetric draped top, each driven by its accepted physical state."
+        },
+        {
+          "label": "P13 exact mechanical catalog",
+          "path": "laundry/paper/figures/garment_catalog.png",
+          "type": "image",
+          "group": "Garment evidence",
+          "caption": "Exact accepted P13 particles and triangles for five explicit constructions; all retain zero degenerates and exact crossings, and none is a robot-fold result."
+        },
+        {
+          "label": "T-shirt front",
+          "path": "laundry/renders/garment_catalog/tee_front.png",
+          "type": "image",
+          "group": "Garment renders",
+          "caption": "Five-panel half-sleeve jersey shell with a separately constructed neck rib."
+        },
+        {
+          "label": "Button-down front",
+          "path": "laundry/renders/garment_catalog/shirt_front.png",
+          "type": "image",
+          "group": "Garment renders",
+          "caption": "Eleven-panel poplin shirt with split fronts, plackets, buttons, pocket, cuffs, collar stand, and collar."
+        },
+        {
+          "label": "Five-pocket jeans front",
+          "path": "laundry/renders/garment_catalog/jeans_front.png",
+          "type": "image",
+          "group": "Garment renders",
+          "caption": "Nineteen-panel denim construction with physical front pocket layers, coin pocket, fly, waistbands, yokes, and back pockets."
+        },
+        {
+          "label": "Terry towel",
+          "path": "laundry/renders/garment_catalog/towel_front.png",
+          "type": "image",
+          "group": "Garment renders",
+          "caption": "Loop-pile towel with declared thickness, four multilayer hems, and two dobby bands."
+        },
+        {
+          "label": "Asymmetric top front",
+          "path": "laundry/renders/garment_catalog/asymmetric_front.png",
+          "type": "image",
+          "group": "Garment renders",
+          "caption": "Nine-panel asymmetric top with unequal sleeves, draped overlay, ties, and separate curved front/back neck facings."
+        },
+        {
+          "label": "Topology-safe T-shirt release",
+          "path": "laundry/paper/figures/p12_topology_release.png",
+          "type": "image",
+          "group": "Garment evidence",
+          "caption": "P12 evidence: three exact penalty-only crossings at step 32 versus 40/40 clean matched IPC stress steps, plus a separate 180-step crossing-free gravity/table release."
+        },
+        {
+          "label": "Initial workcell",
+          "path": "laundry/renders/p6_initial_workcell.png",
+          "type": "image",
+          "group": "Renders",
+          "caption": "Establishing view of the visual-only textile laboratory and calibration-status card."
+        },
+        {
+          "label": "Half-fold apex",
+          "path": "laundry/renders/p6_fold_50_percent_hero.png",
+          "type": "image",
+          "group": "Motion",
+          "caption": "The finite-mass clamp carries the moving panel through the causal folding arc."
+        },
+        {
+          "label": "Seventy-five percent fold",
+          "path": "laundry/renders/p6_fold_75_percent_hero.png",
+          "type": "image",
+          "group": "Motion",
+          "caption": "Late approach before physical placement; no cloth pose is authored."
+        },
+        {
+          "label": "Roller contact",
+          "path": "laundry/renders/p6_crease_pressed_crease.png",
+          "type": "image",
+          "group": "Motion",
+          "caption": "Side-on metrology view of the full passive-spin roller under measured load."
+        },
+        {
+          "label": "Released fold",
+          "path": "laundry/renders/p6_released_hero.png",
+          "type": "image",
+          "group": "Motion",
+          "caption": "Both layers evolve freely after gripper release while the roller support retracts."
+        },
+        {
+          "label": "Settled overhead",
+          "path": "laundry/renders/p6_settled_overhead.png",
+          "type": "image",
+          "group": "Renders",
+          "caption": "Terminal footprint, edge registration, layer order, and cleared fixtures."
+        },
+        {
+          "label": "Settled profile",
+          "path": "laundry/renders/p6_settled_profile.png",
+          "type": "image",
+          "group": "Renders",
+          "caption": "The rounded elastic fold ridge is preserved from mechanics rather than cosmetically flattened."
+        },
+        {
+          "label": "Integrated P6 trace",
+          "path": "laundry/paper/figures/p6_integrated_trace.png",
+          "type": "image",
+          "group": "Evidence",
+          "caption": "All 1,176 control samples: targets, roller load/spin, strain, speed, contacts, and phase boundaries."
+        },
+        {
+          "label": "Mechanism architecture",
+          "path": "laundry/paper/figures/mechanism_architecture.png",
+          "type": "image",
+          "group": "Evidence",
+          "caption": "Dynamics ownership, one-way visual bridge, evidence stores, and open hardware-calibration boundary."
+        },
+        {
+          "label": "Towel probe scorecard",
+          "path": "laundry/paper/figures/probe_scorecard.png",
+          "type": "image",
+          "group": "Evidence",
+          "caption": "Accepted P0--P6 towel mechanism gates and exact evidence artifacts; the garment track is shown separately."
+        },
+        {
+          "label": "Accepted P6 trace",
+          "path": "laundry/outputs/p6_released_half_fold.json",
+          "type": "json",
+          "group": "Data",
+          "caption": "Hash-addressed canonical task record with configuration, runtime, metrics, events, integrity, and pass gates."
+        },
+        {
+          "label": "Accepted P13 garment catalog",
+          "path": "laundry/outputs/p13_garment_flat_lay_catalog.json",
+          "type": "json",
+          "group": "Garment data",
+          "caption": "Five construction-specific accepted states with exact topology, reset strategy, strain, footprint, speed, degeneracy, and exact IPC crossing gates."
+        },
+        {
+          "label": "P9 ingestion checkpoint",
+          "path": "laundry/outputs/p9_garment_catalog_style3d.json",
+          "type": "json",
+          "group": "Garment data",
+          "caption": "Historical five-construction engine-ingestion checkpoint retained separately from the P13 accepted reset catalog."
+        },
+        {
+          "label": "Accepted P10 pad lift",
+          "path": "laundry/outputs/p10_style3d_kinematic_grasp.json",
+          "type": "json",
+          "group": "Garment data",
+          "caption": "One-way kinematic pad acquisition/lift evidence with zero cloth pose writes and an explicit two-way-coupling limitation."
+        },
+        {
+          "label": "Accepted P11 semantic tasks",
+          "path": "laundry/outputs/p11_semantic_task_objectives.json",
+          "type": "json",
+          "group": "Garment data",
+          "caption": "Five topology-bound task predicates with rigid-frame, task-appropriate baseline, witness, and anti-cheat audits; not policy success."
+        },
+        {
+          "label": "Accepted P12 topology release",
+          "path": "laundry/outputs/p12_topology_safe_flat_lay.json",
+          "type": "json",
+          "group": "Garment data",
+          "caption": "Operator-split barrier, exact every-step intersection checks, matched reset-only causal stress, and local table impact evidence."
+        },
+        {
+          "label": "RTX render manifest",
+          "path": "laundry/renders/p6_render_manifest.json",
+          "type": "json",
+          "group": "Data",
+          "caption": "Source-trace identity, per-image hashes, scene audit, pixel gates, and mechanical ridge diagnostics."
+        },
+        {
+          "label": "P13 garment render manifest",
+          "path": "laundry/renders/garment_catalog/manifest.json",
+          "type": "json",
+          "group": "Garment data",
+          "caption": "Fifteen per-image hashes, P13 source identity, all-panel retention, layer ownership, temporal-history-safe capture, and visual-only scene gates."
+        },
+        {
+          "label": "Material manifest",
+          "path": "laundry/materials/spec_manifest.json",
+          "type": "json",
+          "group": "Data",
+          "caption": "Machine-readable prior material, contact, fixture, and provenance declarations."
+        },
+        {
+          "label": "Research dossier",
+          "path": "laundry/RESEARCH.md",
+          "type": "text",
+          "group": "Notes",
+          "caption": "Extensive first-principles textile research, source catalogue, architecture decisions, falsification gates, and roadmap."
+        },
+        {
+          "label": "Verified findings",
+          "path": "laundry/FINDINGS.md",
+          "type": "text",
+          "group": "Notes",
+          "caption": "Chronological accepted and rejected numerical evidence, including the isolated Isaac boundary."
+        },
+        {
+          "label": "Calibration schema",
+          "path": "laundry/calibration/README.md",
+          "type": "text",
+          "group": "Notes",
+          "caption": "Named-specimen measurement, uncertainty, train/holdout, and immutable raw-data contract required for future fidelity claims."
+        }
+      ]
+    },
+    {
       "id": "applecut",
       "title": "AppleCut",
       "eyebrow": "Deformable cutting",
@@ -1361,6 +1675,6 @@
   "hosting": {
     "mode": "static",
     "sourceRepository": "gym-anything/gym_anything_for_robotics",
-    "sourceCommit": "ba0dc9cefca725864f7569138cff2951bf8ebdb6"
+    "sourceCommit": "73aa8bbb335e8438b6bed98084a456c8af9b9f1b"
   }
 }

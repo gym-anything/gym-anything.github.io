@@ -1,0 +1,135 @@
+{
+  "schema_version": "laundry-style3d-kinematic-grasp/1.0",
+  "probe": "P10",
+  "purpose": "Rigid-pad contact acquisition and lift through the official Newton Style3D kinematic-body path; not a two-way robot-dynamics claim.",
+  "construction": {
+    "id": "terry_cotton_bath_towel",
+    "label": "Loop-pile terry cotton bath towel",
+    "category": "household_linen",
+    "topology": "rectangular_sheet",
+    "panel_count": 1,
+    "seam_count": 0,
+    "opening_count": 1,
+    "feature_count": 3,
+    "total_panel_area_m2": 0.315,
+    "total_panel_mass_kg": 0.14175000000000001,
+    "material_profiles": [
+      "terry_cotton_prior"
+    ],
+    "calibration_status": "construction-complete engineering prior; terry pile/compression unmeasured"
+  },
+  "mesh": {
+    "physical_vertices": 185,
+    "triangles": 322,
+    "particle_radius_m": 0.0015
+  },
+  "solver": {
+    "time_step_s": 0.004166666666666667,
+    "nonlinear_iterations": 15,
+    "linear_iterations": 40,
+    "gravity_m_s2": 0.0,
+    "table_enabled": false,
+    "self_contact_enabled": false,
+    "coupling_mode": "official_kinematic_one_way",
+    "two_way_rigid_reaction": false
+  },
+  "tool": {
+    "name": "left",
+    "pad_half_width_m": 0.055,
+    "pad_half_height_m": 0.02,
+    "pad_half_normal_m": 0.003,
+    "open_surface_gap_m": 0.018000000000000002,
+    "closed_surface_gap_m": 0.0029,
+    "kinetic_friction_mu": 0.7,
+    "contact_stiffness_n_m": 1500.0,
+    "contact_damping_n_s_m": 15.0,
+    "maximum_linear_speed_m_s": 0.12,
+    "maximum_jaw_speed_m_s": 0.04,
+    "calibration_status": "terry-thickness grasp geometry and contact coefficients are engineering priors; pad/textile coupon unmeasured"
+  },
+  "metrics": {
+    "closure_steps": 55,
+    "lift_steps": 110,
+    "simulated_time_s": 0.6875,
+    "requested_tool_lift_m": 0.05,
+    "actual_tool_lift_m": 0.05,
+    "acquired_pinched_particle_count": 2,
+    "minimum_pinched_particle_count_during_lift": 2,
+    "final_pinched_particle_count": 2,
+    "acquired_particle_indices": [
+      4,
+      5
+    ],
+    "acquired_patch_mean_lift_m": 0.049993786960840225,
+    "acquired_patch_minimum_lift_m": 0.04999368637800217,
+    "cloth_center_of_mass_lift_m": 0.015052266136043858,
+    "maximum_particle_lift_m": 0.049993887543678284,
+    "final_maximum_speed_m_s": 0.06909800320863724,
+    "step_count": 165,
+    "finite": true,
+    "minimum_principal_stretch": 0.9990878365046701,
+    "maximum_principal_stretch": 1.0017737281159258,
+    "degenerate_triangle_count": 0,
+    "maximum_speed_m_s": 0.06909800103354381,
+    "rms_speed_m_s": 0.055244768643756985,
+    "center_of_mass_drift_m": 0.015165778714709083,
+    "center_of_mass_velocity_m_s": 0.054269881476240206,
+    "linear_momentum_kg_m_s": 0.007692755526046991,
+    "angular_momentum_kg_m2_s": 0.00020064153005579919,
+    "total_mass_kg": 0.14175000000000004
+  },
+  "integrity": {
+    "runtime_cloth_pose_writes": 0,
+    "direct_cloth_force_applications": 0,
+    "cloth_attachment_count": 0
+  },
+  "limitations": [
+    "Kinematic pad bodies have prescribed velocity-bounded motion and do not receive cloth reaction wrenches.",
+    "The coupon isolates grasp contact with zero gravity, no table, and no self-contact; it is not a folding-task solve.",
+    "Terry thickness, pad friction, contact stiffness, and damping are uncalibrated engineering priors.",
+    "Style3D 1.4 exposes one kinetic Coulomb coefficient here; static breakaway and pad compliance are not calibrated."
+  ],
+  "frames": {
+    "path": "laundry/artifacts/frames/p10_style3d_kinematic_grasp.npz",
+    "step_indices": [
+      0,
+      23,
+      55,
+      80,
+      105,
+      130,
+      165
+    ],
+    "phases": [
+      "initial_open",
+      "closing",
+      "closed_acquired",
+      "lift_25_percent",
+      "lift_50_percent",
+      "lift_75_percent",
+      "lift_complete"
+    ],
+    "pinched_particle_counts": [
+      0,
+      0,
+      2,
+      2,
+      2,
+      2,
+      2
+    ]
+  },
+  "wall_time_s": 53.73279509996064,
+  "gates": {
+    "finite_without_degenerate_triangles": true,
+    "both_pads_acquire_at_least_two_common_particles": true,
+    "same_patch_never_fully_lost_during_lift": true,
+    "tool_completes_50_mm_lift": true,
+    "acquired_patch_mean_lift_above_45_mm": true,
+    "cloth_center_of_mass_lift_above_8_mm": true,
+    "principal_stretch_bounded_0p95_to_1p08": true,
+    "no_cloth_pose_writes_or_direct_cloth_forces": true,
+    "coupling_truthfully_declared_one_way": true
+  },
+  "accepted": true
+}

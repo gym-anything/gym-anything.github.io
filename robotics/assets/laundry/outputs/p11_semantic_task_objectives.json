@@ -1,0 +1,433 @@
+{
+  "schema_version": "laundry-semantic-task-objectives/1.0",
+  "probe": "P11",
+  "purpose": "Semantic binding, rigid-frame invariance, baseline false-positive, and anti-cheat audit for one benchmark objective per garment.",
+  "cases": [
+    {
+      "construction_id": "cotton_jersey_half_sleeve_tee",
+      "task_id": "sleeve_tuck_fold",
+      "label": "Tuck both short sleeves into the T-shirt body footprint",
+      "particle_count": 651,
+      "goal_ids": [
+        "left_sleeve_contained",
+        "left_sleeve_stacked",
+        "right_sleeve_contained",
+        "right_sleeve_stacked"
+      ],
+      "baseline": {
+        "success": false,
+        "potential": 0.8610358858105542,
+        "failed_gates": [
+          "goal:left_sleeve_contained:contained_fraction",
+          "goal:left_sleeve_stacked:projected_nearest_rms",
+          "goal:right_sleeve_contained:contained_fraction"
+        ],
+        "goal_scores": {
+          "left_sleeve_contained": 0.9682539682539683,
+          "left_sleeve_stacked": 0.7389474627605712,
+          "right_sleeve_contained": 0.9523809523809523,
+          "right_sleeve_stacked": 0.7845611598467251
+        },
+        "goal_metrics": {
+          "left_sleeve_contained": {
+            "contained_fraction": 0.8714285714285714
+          },
+          "left_sleeve_stacked": {
+            "projected_nearest_rms_m": 0.04518945670309718,
+            "normal_gap_quantile_m": 0.001
+          },
+          "right_sleeve_contained": {
+            "contained_fraction": 0.8571428571428571
+          },
+          "right_sleeve_stacked": {
+            "projected_nearest_rms_m": 0.03688899122758947,
+            "normal_gap_quantile_m": 0.00105
+          }
+        }
+      },
+      "rigid_transform": {
+        "success": false,
+        "potential": 0.8610358858105542,
+        "failed_gates": [
+          "goal:left_sleeve_contained:contained_fraction",
+          "goal:left_sleeve_stacked:projected_nearest_rms",
+          "goal:right_sleeve_contained:contained_fraction"
+        ],
+        "goal_scores": {
+          "left_sleeve_contained": 0.9682539682539683,
+          "left_sleeve_stacked": 0.7389474627605712,
+          "right_sleeve_contained": 0.9523809523809523,
+          "right_sleeve_stacked": 0.7845611598467253
+        },
+        "goal_metrics": {
+          "left_sleeve_contained": {
+            "contained_fraction": 0.8714285714285714
+          },
+          "left_sleeve_stacked": {
+            "projected_nearest_rms_m": 0.04518945670309719,
+            "normal_gap_quantile_m": 0.0010000000000000009
+          },
+          "right_sleeve_contained": {
+            "contained_fraction": 0.8571428571428571
+          },
+          "right_sleeve_stacked": {
+            "projected_nearest_rms_m": 0.036888991227589464,
+            "normal_gap_quantile_m": 0.0010499999999999954
+          }
+        }
+      },
+      "gates": {
+        "task_binds_to_declared_construction": true,
+        "unfolded_fold_task_does_not_false_positive": true,
+        "registered_initial_untangled_ties_are_accepted": true,
+        "in_plane_rigid_transform_preserves_success": true,
+        "in_plane_rigid_transform_preserves_potential": true,
+        "runtime_pose_write_is_rejected": true,
+        "direct_particle_force_is_rejected": true
+      },
+      "accepted": true,
+      "calibration_status": "semantic objective and thresholds are engineering priors; no real-fold distribution registered"
+    },
+    {
+      "construction_id": "woven_button_down_shirt",
+      "task_id": "sleeve_fold",
+      "label": "Fold both long sleeves and cuffs onto the shirt body",
+      "particle_count": 1039,
+      "goal_ids": [
+        "left_sleeve_and_cuff_contained",
+        "left_sleeve_and_cuff_stacked",
+        "right_sleeve_and_cuff_contained",
+        "right_sleeve_and_cuff_stacked"
+      ],
+      "baseline": {
+        "success": false,
+        "potential": 0.7392007446082203,
+        "failed_gates": [
+          "goal:left_sleeve_and_cuff_contained:contained_fraction",
+          "goal:right_sleeve_and_cuff_contained:contained_fraction",
+          "goal:right_sleeve_and_cuff_stacked:projected_nearest_rms"
+        ],
+        "goal_scores": {
+          "left_sleeve_and_cuff_contained": 0.9722222222222222,
+          "left_sleeve_and_cuff_stacked": 0.8716131033032715,
+          "right_sleeve_and_cuff_contained": 0.6067251461988303,
+          "right_sleeve_and_cuff_stacked": 0.506242506708557
+        },
+        "goal_metrics": {
+          "left_sleeve_and_cuff_contained": {
+            "contained_fraction": 0.875
+          },
+          "left_sleeve_and_cuff_stacked": {
+            "projected_nearest_rms_m": 0.021459641405411133,
+            "normal_gap_quantile_m": 0.0011
+          },
+          "right_sleeve_and_cuff_contained": {
+            "contained_fraction": 0.5460526315789473
+          },
+          "right_sleeve_and_cuff_stacked": {
+            "projected_nearest_rms_m": 0.08730134879245974,
+            "normal_gap_quantile_m": 0.0010500000000000002
+          }
+        }
+      },
+      "rigid_transform": {
+        "success": false,
+        "potential": 0.7392007446082203,
+        "failed_gates": [
+          "goal:left_sleeve_and_cuff_contained:contained_fraction",
+          "goal:right_sleeve_and_cuff_contained:contained_fraction",
+          "goal:right_sleeve_and_cuff_stacked:projected_nearest_rms"
+        ],
+        "goal_scores": {
+          "left_sleeve_and_cuff_contained": 0.9722222222222222,
+          "left_sleeve_and_cuff_stacked": 0.8716131033032715,
+          "right_sleeve_and_cuff_contained": 0.6067251461988303,
+          "right_sleeve_and_cuff_stacked": 0.506242506708557
+        },
+        "goal_metrics": {
+          "left_sleeve_and_cuff_contained": {
+            "contained_fraction": 0.875
+          },
+          "left_sleeve_and_cuff_stacked": {
+            "projected_nearest_rms_m": 0.02145964140541113,
+            "normal_gap_quantile_m": 0.0011000000000000038
+          },
+          "right_sleeve_and_cuff_contained": {
+            "contained_fraction": 0.5460526315789473
+          },
+          "right_sleeve_and_cuff_stacked": {
+            "projected_nearest_rms_m": 0.08730134879245974,
+            "normal_gap_quantile_m": 0.0010500000000000093
+          }
+        }
+      },
+      "gates": {
+        "task_binds_to_declared_construction": true,
+        "unfolded_fold_task_does_not_false_positive": true,
+        "registered_initial_untangled_ties_are_accepted": true,
+        "in_plane_rigid_transform_preserves_success": true,
+        "in_plane_rigid_transform_preserves_potential": true,
+        "runtime_pose_write_is_rejected": true,
+        "direct_particle_force_is_rejected": true
+      },
+      "accepted": true,
+      "calibration_status": "semantic objective and thresholds are engineering priors; no real-fold distribution registered"
+    },
+    {
+      "construction_id": "denim_five_pocket_jeans",
+      "task_id": "leg_align_fold",
+      "label": "Fold one jeans leg shell onto the other",
+      "particle_count": 887,
+      "goal_ids": [
+        "leg_shell_overlap",
+        "front_hem_alignment",
+        "back_hem_alignment"
+      ],
+      "baseline": {
+        "success": false,
+        "potential": 0.16111111111111112,
+        "failed_gates": [
+          "goal:leg_shell_overlap:symmetric_projected_rms",
+          "goal:front_hem_alignment:rms",
+          "goal:front_hem_alignment:maximum",
+          "goal:back_hem_alignment:rms",
+          "goal:back_hem_alignment:maximum"
+        ],
+        "goal_scores": {
+          "leg_shell_overlap": 0.48333333333333334,
+          "front_hem_alignment": 0.0,
+          "back_hem_alignment": 0.0
+        },
+        "goal_metrics": {
+          "leg_shell_overlap": {
+            "symmetric_projected_rms_m": 0.11129012245607739,
+            "normal_gap_quantile_m": 0.002
+          },
+          "front_hem_alignment": {
+            "rms_m": 0.13869728463145506,
+            "maximum_m": 0.2775771100018312
+          },
+          "back_hem_alignment": {
+            "rms_m": 0.15509814643226336,
+            "maximum_m": 0.2775771100018312
+          }
+        }
+      },
+      "rigid_transform": {
+        "success": false,
+        "potential": 0.16111111111111112,
+        "failed_gates": [
+          "goal:leg_shell_overlap:symmetric_projected_rms",
+          "goal:front_hem_alignment:rms",
+          "goal:front_hem_alignment:maximum",
+          "goal:back_hem_alignment:rms",
+          "goal:back_hem_alignment:maximum"
+        ],
+        "goal_scores": {
+          "leg_shell_overlap": 0.48333333333333334,
+          "front_hem_alignment": 0.0,
+          "back_hem_alignment": 0.0
+        },
+        "goal_metrics": {
+          "leg_shell_overlap": {
+            "symmetric_projected_rms_m": 0.11129012245607739,
+            "normal_gap_quantile_m": 0.0020000000000000018
+          },
+          "front_hem_alignment": {
+            "rms_m": 0.1386972846314551,
+            "maximum_m": 0.27757711000183133
+          },
+          "back_hem_alignment": {
+            "rms_m": 0.15509814643226338,
+            "maximum_m": 0.27757711000183133
+          }
+        }
+      },
+      "gates": {
+        "task_binds_to_declared_construction": true,
+        "unfolded_fold_task_does_not_false_positive": true,
+        "registered_initial_untangled_ties_are_accepted": true,
+        "in_plane_rigid_transform_preserves_success": true,
+        "in_plane_rigid_transform_preserves_potential": true,
+        "runtime_pose_write_is_rejected": true,
+        "direct_particle_force_is_rejected": true
+      },
+      "accepted": true,
+      "calibration_status": "semantic objective and thresholds are engineering priors; no real-fold distribution registered"
+    },
+    {
+      "construction_id": "terry_cotton_bath_towel",
+      "task_id": "half_fold",
+      "label": "Fold the terry towel long edge to long edge",
+      "particle_count": 272,
+      "goal_ids": [
+        "long_hem_alignment",
+        "half_footprint"
+      ],
+      "baseline": {
+        "success": false,
+        "potential": 0.09677419354838707,
+        "failed_gates": [
+          "goal:long_hem_alignment:rms",
+          "goal:long_hem_alignment:maximum",
+          "goal:half_footprint:projected_area_fraction"
+        ],
+        "goal_scores": {
+          "long_hem_alignment": 0.0,
+          "half_footprint": 0.19354838709677413
+        },
+        "goal_metrics": {
+          "long_hem_alignment": {
+            "rms_m": 0.45,
+            "maximum_m": 0.45000000000000007
+          },
+          "half_footprint": {
+            "projected_area_fraction": 1.0,
+            "reference_projected_area_m2": 0.31499999999999995,
+            "current_projected_area_m2": 0.31499999999999995
+          }
+        }
+      },
+      "rigid_transform": {
+        "success": false,
+        "potential": 0.0967741935483869,
+        "failed_gates": [
+          "goal:long_hem_alignment:rms",
+          "goal:long_hem_alignment:maximum",
+          "goal:half_footprint:projected_area_fraction"
+        ],
+        "goal_scores": {
+          "long_hem_alignment": 0.0,
+          "half_footprint": 0.1935483870967738
+        },
+        "goal_metrics": {
+          "long_hem_alignment": {
+            "rms_m": 0.45,
+            "maximum_m": 0.45000000000000007
+          },
+          "half_footprint": {
+            "projected_area_fraction": 1.0000000000000004,
+            "reference_projected_area_m2": 0.31499999999999995,
+            "current_projected_area_m2": 0.31500000000000006
+          }
+        }
+      },
+      "gates": {
+        "task_binds_to_declared_construction": true,
+        "unfolded_fold_task_does_not_false_positive": true,
+        "registered_initial_untangled_ties_are_accepted": true,
+        "in_plane_rigid_transform_preserves_success": true,
+        "in_plane_rigid_transform_preserves_potential": true,
+        "runtime_pose_write_is_rejected": true,
+        "direct_particle_force_is_rejected": true
+      },
+      "accepted": true,
+      "calibration_status": "semantic objective and thresholds are engineering priors; no real-fold distribution registered"
+    },
+    {
+      "construction_id": "asymmetric_draped_one_sleeve_top",
+      "task_id": "tie_untangle",
+      "label": "Extend both asymmetric waist ties without intersections",
+      "particle_count": 941,
+      "goal_ids": [
+        "left_tie_extended",
+        "right_tie_extended"
+      ],
+      "baseline": {
+        "success": true,
+        "potential": 1.0,
+        "failed_gates": [],
+        "goal_scores": {
+          "left_tie_extended": 1.0,
+          "right_tie_extended": 1.0
+        },
+        "goal_metrics": {
+          "left_tie_extended": {
+            "end_to_end_reference_fraction": 1.0,
+            "end_to_end_distance_m": 0.5800001523635726,
+            "reference_distance_m": 0.5800001523635726
+          },
+          "right_tie_extended": {
+            "end_to_end_reference_fraction": 1.0,
+            "end_to_end_distance_m": 0.5800004955056308,
+            "reference_distance_m": 0.5800004955056308
+          }
+        }
+      },
+      "rigid_transform": {
+        "success": true,
+        "potential": 1.0,
+        "failed_gates": [],
+        "goal_scores": {
+          "left_tie_extended": 1.0,
+          "right_tie_extended": 1.0
+        },
+        "goal_metrics": {
+          "left_tie_extended": {
+            "end_to_end_reference_fraction": 1.0,
+            "end_to_end_distance_m": 0.5800001523635726,
+            "reference_distance_m": 0.5800001523635726
+          },
+          "right_tie_extended": {
+            "end_to_end_reference_fraction": 1.0,
+            "end_to_end_distance_m": 0.5800004955056308,
+            "reference_distance_m": 0.5800004955056308
+          }
+        }
+      },
+      "gates": {
+        "task_binds_to_declared_construction": true,
+        "unfolded_fold_task_does_not_false_positive": true,
+        "registered_initial_untangled_ties_are_accepted": true,
+        "in_plane_rigid_transform_preserves_success": true,
+        "in_plane_rigid_transform_preserves_potential": true,
+        "runtime_pose_write_is_rejected": true,
+        "direct_particle_force_is_rejected": true
+      },
+      "accepted": true,
+      "calibration_status": "semantic objective and thresholds are engineering priors; no real-fold distribution registered"
+    }
+  ],
+  "analytical_towel_oracle": {
+    "evidence_class": "predicate oracle only; particle coordinates analytically transformed, not simulated",
+    "result": {
+      "success": true,
+      "potential": 0.7983870967741933,
+      "failed_gates": [],
+      "goal_scores": {
+        "long_hem_alignment": 0.9999999999999996,
+        "half_footprint": 0.596774193548387
+      },
+      "goal_metrics": {
+        "long_hem_alignment": {
+          "rms_m": 2.6288190885734827e-17,
+          "maximum_m": 5.551115123125783e-17
+        },
+        "half_footprint": {
+          "projected_area_fraction": 0.5000000000000001,
+          "reference_projected_area_m2": 0.31499999999999995,
+          "current_projected_area_m2": 0.1575
+        }
+      }
+    },
+    "gates": {
+      "declared_target_geometry_is_accepted": true,
+      "accepted_geometry_still_rejects_pose_write": true
+    },
+    "accepted": true
+  },
+  "coverage": {
+    "construction_count": 5,
+    "registered_task_count": 5,
+    "constructions_with_at_least_one_task": 5
+  },
+  "limitations": [
+    "Task thresholds are engineering priors and have not been fitted to distributions of human folds.",
+    "P11 validates observation semantics and predicates, not controller success or dynamics.",
+    "Only one benchmark objective per construction is executable; the broader authored task lists remain future work."
+  ],
+  "wall_time_s": 27.70709160000024,
+  "accepted_case_count": 5,
+  "case_count": 5,
+  "accepted": true
+}

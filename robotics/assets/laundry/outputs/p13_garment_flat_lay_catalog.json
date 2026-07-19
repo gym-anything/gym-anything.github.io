@@ -1,0 +1,1014 @@
+{
+  "schema_version": "laundry-garment-flat-lay-catalog/1.1",
+  "probe": "P13",
+  "purpose": "Accepted construction-specific, topology-aware flat-lay states for the full canonical garment catalogue.",
+  "case_count": 5,
+  "accepted_case_count": 5,
+  "cases": [
+    {
+      "construction": {
+        "id": "cotton_jersey_half_sleeve_tee",
+        "label": "Cotton-jersey half-sleeve T-shirt",
+        "category": "knit_top",
+        "topology": "sewn_panel_shell",
+        "panel_count": 5,
+        "seam_count": 13,
+        "opening_count": 4,
+        "feature_count": 3,
+        "total_panel_area_m2": 0.7866554097724257,
+        "total_panel_mass_kg": 0.1263870211703418,
+        "material_profiles": [
+          "cotton_jersey_prior",
+          "cotton_rib_prior"
+        ],
+        "calibration_status": "construction-complete engineering prior; no named T-shirt measured"
+      },
+      "flat_lay_seed": {
+        "construction_id": "cotton_jersey_half_sleeve_tee",
+        "strategy_id": "sewn_tee_flattened_shell_v1",
+        "reset_only_numerical_preconditioner": true,
+        "body_layer_separation_m": 0.008,
+        "constrained_vertex_count_by_panel": {
+          "front": 0,
+          "back": 0,
+          "left_sleeve": 62,
+          "right_sleeve": 62,
+          "neck_rib": 32
+        },
+        "harmonic_vertex_count_by_panel": {
+          "front": 0,
+          "back": 0,
+          "left_sleeve": 46,
+          "right_sleeve": 46,
+          "neck_rib": 0
+        },
+        "inter_panel_seam_rms_gap_m": 0.005161768133825819,
+        "maximum_inter_panel_seam_rms_gap_m": 0.008,
+        "notes": [
+          "Body front and back are separated layers joined by welded construction seams.",
+          "Sleeves are open-cuff flattened tubes with cap, underarm, cuff, and fold-axis constraints.",
+          "The neck rib follows its stitched attachment and offsets toward the neck opening.",
+          "Layer separation is reset-only numerical preconditioning, not calibrated textile thickness."
+        ]
+      },
+      "mesh": {
+        "material_vertices": 780,
+        "physical_vertices": 650,
+        "triangles": 1248,
+        "panels": 5
+      },
+      "raw_seed": {
+        "minimum_principal_stretch": 0.42079748660195293,
+        "maximum_principal_stretch": 1.6691371038832161,
+        "mean_absolute_area_strain": 0.03865546409329353,
+        "maximum_absolute_area_strain": 0.5844275983287524,
+        "minimum_world_triangle_area_m2": 3.390810465906937e-05,
+        "degenerate_triangle_count": 0,
+        "span_m": [
+          0.9563928389838168,
+          0.6741702978037862,
+          0.008000000000000002
+        ],
+        "finite": true,
+        "exact_ipc_intersections": 0
+      },
+      "preconditioner": {
+        "kind": "material-metric reset preconditioner",
+        "iterations_requested": 4800,
+        "iterations_executed": 1578,
+        "optimizer_converged": true,
+        "planarity_weight": 2500.0,
+        "relaxed_panel_ids": [
+          "front",
+          "back",
+          "left_sleeve",
+          "right_sleeve",
+          "neck_rib"
+        ],
+        "initial_edge_energy": 34.481107617853425,
+        "final_edge_energy": 3.454341847751461
+      },
+      "acceptance_limits": {
+        "minimum_stretch": 0.68,
+        "maximum_stretch": 1.25,
+        "minimum_xy_span_m": [
+          0.58,
+          0.62
+        ],
+        "maximum_z_span_m": 0.065
+      },
+      "accepted_state": {
+        "minimum_principal_stretch": 0.6948044367298646,
+        "maximum_principal_stretch": 1.1695112747709338,
+        "mean_absolute_area_strain": 0.026005855577836308,
+        "maximum_absolute_area_strain": 0.25911264357555686,
+        "minimum_world_triangle_area_m2": 3.113394391425563e-05,
+        "degenerate_triangle_count": 0,
+        "span_m": [
+          0.9330932184295799,
+          0.690643149869869,
+          0.014629399705670405
+        ],
+        "finite": true,
+        "exact_ipc_intersections": 0,
+        "maximum_speed_m_s": 0.0,
+        "rms_speed_m_s": 0.0
+      },
+      "gates": {
+        "registered_construction_specific_strategy": true,
+        "actual_welded_particle_count_retained": true,
+        "all_actual_triangles_retained": true,
+        "finite_without_degenerate_triangles": true,
+        "zero_confirmed_ipc_crossing_pairs": true,
+        "garment_specific_principal_stretch_bounds": true,
+        "recognizable_xy_footprint_span": true,
+        "garment_specific_height_bound": true
+      },
+      "accepted": true,
+      "wall_time_s": 6.036181799998303
+    },
+    {
+      "construction": {
+        "id": "woven_button_down_shirt",
+        "label": "Woven cotton button-down shirt",
+        "category": "woven_shirt",
+        "topology": "sewn_panel_shell",
+        "panel_count": 11,
+        "seam_count": 25,
+        "opening_count": 6,
+        "feature_count": 8,
+        "total_panel_area_m2": 1.1570500654858566,
+        "total_panel_mass_kg": 0.15115507365559505,
+        "material_profiles": [
+          "cotton_poplin_prior"
+        ],
+        "calibration_status": "construction-complete engineering prior; no named woven shirt measured"
+      },
+      "flat_lay_seed": {
+        "construction_id": "woven_button_down_shirt",
+        "strategy_id": "woven_shirt_front_flattened_shell_v1",
+        "reset_only_numerical_preconditioner": true,
+        "body_layer_separation_m": 0.008,
+        "constrained_vertex_count_by_panel": {
+          "left_front": 0,
+          "right_front": 0,
+          "back": 0,
+          "left_sleeve": 174,
+          "right_sleeve": 174,
+          "left_cuff": 16,
+          "right_cuff": 16,
+          "back_yoke": 26,
+          "chest_pocket": 12,
+          "collar_stand": 30,
+          "collar": 28
+        },
+        "harmonic_vertex_count_by_panel": {
+          "left_front": 0,
+          "right_front": 0,
+          "back": 0,
+          "left_sleeve": 26,
+          "right_sleeve": 26,
+          "left_cuff": 6,
+          "right_cuff": 6,
+          "back_yoke": 62,
+          "chest_pocket": 22,
+          "collar_stand": 9,
+          "collar": 20
+        },
+        "inter_panel_seam_rms_gap_m": 0.0036259744421616442,
+        "maximum_inter_panel_seam_rms_gap_m": 0.00806225774829855,
+        "notes": [
+          "Front halves form a continuous open placket above a separated back layer.",
+          "Long sleeves and cuffs are authored as open-ended flattened tubes.",
+          "The physical patch pocket, doubled yoke, collar stand, and turn-down collar retain their own panels.",
+          "All visual landmarks come from compiled stitch correspondences; no shirt silhouette substitute is used."
+        ]
+      },
+      "mesh": {
+        "material_vertices": 1324,
+        "physical_vertices": 1104,
+        "triangles": 2114,
+        "panels": 11
+      },
+      "raw_seed": {
+        "minimum_principal_stretch": 0.259817299356312,
+        "maximum_principal_stretch": 6.357111601922671,
+        "mean_absolute_area_strain": 0.028796709628315105,
+        "maximum_absolute_area_strain": 4.159158242615686,
+        "minimum_world_triangle_area_m2": 2.182406445401516e-05,
+        "degenerate_triangle_count": 0,
+        "span_m": [
+          1.443178396737597,
+          0.7687568190747613,
+          0.0672306415590147
+        ],
+        "finite": true,
+        "exact_ipc_intersections": 0
+      },
+      "preconditioner": {
+        "kind": "material-metric reset preconditioner",
+        "iterations_requested": 4000,
+        "iterations_executed": 989,
+        "optimizer_converged": true,
+        "planarity_weight": 2500.0,
+        "relaxed_panel_ids": [
+          "left_sleeve",
+          "right_sleeve",
+          "collar_stand",
+          "collar"
+        ],
+        "initial_edge_energy": 1006.2661640525235,
+        "final_edge_energy": 7.712747515704694
+      },
+      "acceptance_limits": {
+        "minimum_stretch": 0.68,
+        "maximum_stretch": 1.25,
+        "minimum_xy_span_m": [
+          1.25,
+          0.64
+        ],
+        "maximum_z_span_m": 0.08
+      },
+      "accepted_state": {
+        "minimum_principal_stretch": 0.6969406694947489,
+        "maximum_principal_stretch": 1.2324079883374748,
+        "mean_absolute_area_strain": 0.021612544905927115,
+        "maximum_absolute_area_strain": 0.2982954712121213,
+        "minimum_world_triangle_area_m2": 3.404837277492775e-05,
+        "degenerate_triangle_count": 0,
+        "span_m": [
+          1.443178396737597,
+          0.7204789313348934,
+          0.06746981962417314
+        ],
+        "finite": true,
+        "exact_ipc_intersections": 0,
+        "maximum_speed_m_s": 0.0,
+        "rms_speed_m_s": 0.0
+      },
+      "gates": {
+        "registered_construction_specific_strategy": true,
+        "actual_welded_particle_count_retained": true,
+        "all_actual_triangles_retained": true,
+        "finite_without_degenerate_triangles": true,
+        "zero_confirmed_ipc_crossing_pairs": true,
+        "garment_specific_principal_stretch_bounds": true,
+        "recognizable_xy_footprint_span": true,
+        "garment_specific_height_bound": true
+      },
+      "accepted": true,
+      "wall_time_s": 8.153769299999112
+    },
+    {
+      "construction": {
+        "id": "denim_five_pocket_jeans",
+        "label": "Five-pocket denim jeans",
+        "category": "denim_trousers",
+        "topology": "sewn_panel_shell",
+        "panel_count": 19,
+        "seam_count": 44,
+        "opening_count": 9,
+        "feature_count": 9,
+        "total_panel_area_m2": 0.9327624762041614,
+        "total_panel_mass_kg": 0.3573006892338226,
+        "material_profiles": [
+          "cotton_poplin_prior",
+          "denim_twill_prior"
+        ],
+        "calibration_status": "construction-complete engineering prior; no named jeans specimen measured"
+      },
+      "flat_lay_seed": {
+        "construction_id": "denim_five_pocket_jeans",
+        "strategy_id": "five_pocket_jeans_flattened_leg_tubes_v1",
+        "reset_only_numerical_preconditioner": true,
+        "body_layer_separation_m": 0.008,
+        "constrained_vertex_count_by_panel": {
+          "front_left": 186,
+          "front_right": 193,
+          "back_left": 229,
+          "back_right": 229,
+          "front_left_waistband": 14,
+          "front_right_waistband": 14,
+          "back_left_waistband": 16,
+          "back_right_waistband": 16,
+          "left_pocket_outer": 19,
+          "left_pocket_inner": 19,
+          "right_pocket_outer": 19,
+          "right_pocket_inner": 19,
+          "left_back_patch_pocket": 12,
+          "back_left_yoke": 14,
+          "right_back_patch_pocket": 12,
+          "back_right_yoke": 14,
+          "coin_pocket": 8,
+          "fly_shield": 6,
+          "fly_facing": 6
+        },
+        "harmonic_vertex_count_by_panel": {
+          "front_left": 0,
+          "front_right": 0,
+          "back_left": 0,
+          "back_right": 0,
+          "front_left_waistband": 4,
+          "front_right_waistband": 4,
+          "back_left_waistband": 5,
+          "back_right_waistband": 5,
+          "left_pocket_outer": 17,
+          "left_pocket_inner": 17,
+          "right_pocket_outer": 17,
+          "right_pocket_inner": 17,
+          "left_back_patch_pocket": 34,
+          "back_left_yoke": 22,
+          "right_back_patch_pocket": 34,
+          "back_right_yoke": 22,
+          "coin_pocket": 9,
+          "fly_shield": 6,
+          "fly_facing": 6
+        },
+        "inter_panel_seam_rms_gap_m": 2.762385101288411e-17,
+        "maximum_inter_panel_seam_rms_gap_m": 1.1188630228279524e-16,
+        "notes": [
+          "Each leg is an actual front/back sewn tube flattened about inseam and outseam fold axes.",
+          "The four-piece waistband, two front pocket bags, two patch pockets, coin pocket, yokes, and fly pieces remain physical panels.",
+          "Pocket bags are laid behind their slanted openings; no pocket is a texture decal."
+        ]
+      },
+      "mesh": {
+        "material_vertices": 1264,
+        "physical_vertices": 991,
+        "triangles": 1912,
+        "panels": 19
+      },
+      "raw_seed": {
+        "minimum_principal_stretch": 0.17499750573930747,
+        "maximum_principal_stretch": 3.049727900299091,
+        "mean_absolute_area_strain": 0.16231988258279015,
+        "maximum_absolute_area_strain": 3.3135315772066223,
+        "minimum_world_triangle_area_m2": 1.5000113399696077e-05,
+        "degenerate_triangle_count": 0,
+        "span_m": [
+          0.5005541132518628,
+          1.062,
+          0.086619108847871
+        ],
+        "finite": true,
+        "exact_ipc_intersections": 0
+      },
+      "preconditioner": {
+        "kind": "two-stage zero-gravity Style3D/IPC material continuation",
+        "robot_or_policy_action": false,
+        "rest_state_modified": false,
+        "positions_modified_by_physical_integrator": true,
+        "adaptive_brake": {
+          "high_stage_stop_step": 120,
+          "velocity_reset_to_zero": true,
+          "purpose": "remove numerical continuation kinetic energy before settling"
+        },
+        "high_barrier_stage": {
+          "config": {
+            "time_step_s": 0.0010416666666666667,
+            "nonlinear_iterations": 20,
+            "linear_iterations": 60,
+            "damping_scale": 50.0,
+            "ipc_barrier_stiffness_prior": 30000000.0
+          },
+          "history": [
+            {
+              "step_count": 20,
+              "simulated_time_s": 0.020833333333333332,
+              "finite": true,
+              "minimum_principal_stretch": 0.035604606288610854,
+              "maximum_principal_stretch": 1.8299197518337524,
+              "degenerate_triangle_count": 0,
+              "maximum_speed_m_s": 10.325303503994961,
+              "rms_speed_m_s": 1.6323502914000143,
+              "center_of_mass_drift_m": 3.0527793448575584e-09,
+              "center_of_mass_velocity_m_s": 8.857540102979892e-08,
+              "linear_momentum_kg_m_s": 3.1648051639178936e-08,
+              "angular_momentum_kg_m2_s": 2.500317956848925e-09,
+              "total_mass_kg": 0.3573006892338225,
+              "span_m": [
+                0.40244391560554504,
+                1.044102966785431,
+                0.10634443536400795
+              ],
+              "exact_ipc_intersections": 0,
+              "ipc_step": {
+                "last_ccd_step_fraction": 0.35272216796875,
+                "last_accepted_step_fraction": 0.317449951171875,
+                "cumulative_clipped_step_count": 20,
+                "last_barrier_collision_count": 98,
+                "last_barrier_force_norm_n": 16.232436865195176,
+                "last_minimum_active_distance_m": 1.0716023102732567e-07
+              }
+            },
+            {
+              "step_count": 40,
+              "simulated_time_s": 0.041666666666666664,
+              "finite": true,
+              "minimum_principal_stretch": 0.09667698356946902,
+              "maximum_principal_stretch": 1.5335053713305193,
+              "degenerate_triangle_count": 0,
+              "maximum_speed_m_s": 2.775496625448766,
+              "rms_speed_m_s": 0.3404175263127986,
+              "center_of_mass_drift_m": 3.5406072008060244e-09,
+              "center_of_mass_velocity_m_s": 8.093677236862873e-09,
+              "linear_momentum_kg_m_s": 2.8918764370810864e-09,
+              "angular_momentum_kg_m2_s": 1.901895766381622e-09,
+              "total_mass_kg": 0.3573006892338225,
+              "span_m": [
+                0.4038807302713394,
+                1.04124915599823,
+                0.11658333986997604
+              ],
+              "exact_ipc_intersections": 0,
+              "ipc_step": {
+                "last_ccd_step_fraction": 0.18768310546875,
+                "last_accepted_step_fraction": 0.168914794921875,
+                "cumulative_clipped_step_count": 40,
+                "last_barrier_collision_count": 125,
+                "last_barrier_force_norm_n": 44.64020071105663,
+                "last_minimum_active_distance_m": 1.3523466026414527e-08
+              }
+            },
+            {
+              "step_count": 60,
+              "simulated_time_s": 0.0625,
+              "finite": true,
+              "minimum_principal_stretch": 0.3069948538435576,
+              "maximum_principal_stretch": 1.4365592851259779,
+              "degenerate_triangle_count": 0,
+              "maximum_speed_m_s": 1.177934939725031,
+              "rms_speed_m_s": 0.19547681864550737,
+              "center_of_mass_drift_m": 4.04944803660164e-09,
+              "center_of_mass_velocity_m_s": 4.987687039324305e-08,
+              "linear_momentum_kg_m_s": 1.7821040056877003e-08,
+              "angular_momentum_kg_m2_s": 4.52402859479227e-09,
+              "total_mass_kg": 0.3573006892338225,
+              "span_m": [
+                0.4038514047861099,
+                1.038492500782013,
+                0.12055102735757828
+              ],
+              "exact_ipc_intersections": 0,
+              "ipc_step": {
+                "last_ccd_step_fraction": 0.20263671875,
+                "last_accepted_step_fraction": 0.182373046875,
+                "cumulative_clipped_step_count": 60,
+                "last_barrier_collision_count": 162,
+                "last_barrier_force_norm_n": 44.873572963540354,
+                "last_minimum_active_distance_m": 1.5745745129265657e-08
+              }
+            },
+            {
+              "step_count": 80,
+              "simulated_time_s": 0.08333333333333333,
+              "finite": true,
+              "minimum_principal_stretch": 0.2524556510702739,
+              "maximum_principal_stretch": 1.3717066337804902,
+              "degenerate_triangle_count": 0,
+              "maximum_speed_m_s": 1.466560543858817,
+              "rms_speed_m_s": 0.29084631874630956,
+              "center_of_mass_drift_m": 3.4274410086580823e-09,
+              "center_of_mass_velocity_m_s": 2.0100010306263834e-07,
+              "linear_momentum_kg_m_s": 7.181747491119553e-08,
+              "angular_momentum_kg_m2_s": 9.337492658837829e-10,
+              "total_mass_kg": 0.3573006892338225,
+              "span_m": [
+                0.4013707935810089,
+                1.0355651676654816,
+                0.12423991411924362
+              ],
+              "exact_ipc_intersections": 0,
+              "ipc_step": {
+                "last_ccd_step_fraction": 0.39013671875,
+                "last_accepted_step_fraction": 0.351123046875,
+                "cumulative_clipped_step_count": 80,
+                "last_barrier_collision_count": 169,
+                "last_barrier_force_norm_n": 37.680189516995334,
+                "last_minimum_active_distance_m": 2.6732687083669618e-08
+              }
+            },
+            {
+              "step_count": 100,
+              "simulated_time_s": 0.10416666666666667,
+              "finite": true,
+              "minimum_principal_stretch": 0.44352916209573484,
+              "maximum_principal_stretch": 1.307282068930422,
+              "degenerate_triangle_count": 0,
+              "maximum_speed_m_s": 0.49985756076857885,
+              "rms_speed_m_s": 0.14666809290964758,
+              "center_of_mass_drift_m": 3.5156180621521055e-09,
+              "center_of_mass_velocity_m_s": 6.6348869278552e-08,
+              "linear_momentum_kg_m_s": 2.370649657484835e-08,
+              "angular_momentum_kg_m2_s": 3.702677121205083e-09,
+              "total_mass_kg": 0.3573006892338225,
+              "span_m": [
+                0.39843106269836426,
+                1.0316480696201324,
+                0.13096902146935463
+              ],
+              "exact_ipc_intersections": 0,
+              "ipc_step": {
+                "last_ccd_step_fraction": 0.2646484375,
+                "last_accepted_step_fraction": 0.23818359375,
+                "cumulative_clipped_step_count": 100,
+                "last_barrier_collision_count": 175,
+                "last_barrier_force_norm_n": 26.49225588574138,
+                "last_minimum_active_distance_m": 4.982287386040214e-08
+              }
+            },
+            {
+              "step_count": 120,
+              "simulated_time_s": 0.125,
+              "finite": true,
+              "minimum_principal_stretch": 0.7213030122604597,
+              "maximum_principal_stretch": 1.2677541955411862,
+              "degenerate_triangle_count": 0,
+              "maximum_speed_m_s": 0.35133809789527654,
+              "rms_speed_m_s": 0.08237941296637304,
+              "center_of_mass_drift_m": 3.718391940017511e-09,
+              "center_of_mass_velocity_m_s": 2.4104829820922682e-08,
+              "linear_momentum_kg_m_s": 8.612672255015058e-09,
+              "angular_momentum_kg_m2_s": 3.1366667703353133e-09,
+              "total_mass_kg": 0.3573006892338225,
+              "span_m": [
+                0.39629927277565,
+                1.0279561281204224,
+                0.1401439979672432
+              ],
+              "exact_ipc_intersections": 0,
+              "ipc_step": {
+                "last_ccd_step_fraction": 0.1678466796875,
+                "last_accepted_step_fraction": 0.15106201171875,
+                "cumulative_clipped_step_count": 120,
+                "last_barrier_collision_count": 195,
+                "last_barrier_force_norm_n": 23.896361374287043,
+                "last_minimum_active_distance_m": 2.0434459559058766e-08
+              }
+            }
+          ]
+        },
+        "settling_stage": {
+          "config": {
+            "time_step_s": 0.0020833333333333333,
+            "nonlinear_iterations": 20,
+            "linear_iterations": 60,
+            "damping_scale": 40.0,
+            "ipc_barrier_stiffness_prior": 1000000.0
+          },
+          "history": [
+            {
+              "step_count": 20,
+              "simulated_time_s": 0.041666666666666664,
+              "finite": true,
+              "minimum_principal_stretch": 0.7294463339768817,
+              "maximum_principal_stretch": 1.2622961132844162,
+              "degenerate_triangle_count": 0,
+              "maximum_speed_m_s": 0.0012417911944347167,
+              "rms_speed_m_s": 0.00045723943160170356,
+              "center_of_mass_drift_m": 4.894712334985816e-10,
+              "center_of_mass_velocity_m_s": 1.1785737949765245e-10,
+              "linear_momentum_kg_m_s": 4.211052266243949e-11,
+              "angular_momentum_kg_m2_s": 1.0412430391734346e-11,
+              "total_mass_kg": 0.3573006892338225,
+              "span_m": [
+                0.39592495560646057,
+                1.027232587337494,
+                0.14110280945897102
+              ],
+              "exact_ipc_intersections": 0,
+              "ipc_step": {
+                "last_ccd_step_fraction": 0.001220703125,
+                "last_accepted_step_fraction": 0.0010986328125,
+                "cumulative_clipped_step_count": 20,
+                "last_barrier_collision_count": 221,
+                "last_barrier_force_norm_n": 11.552711685113797,
+                "last_minimum_active_distance_m": 2.6256253917518268e-11
+              }
+            },
+            {
+              "step_count": 40,
+              "simulated_time_s": 0.08333333333333333,
+              "finite": true,
+              "minimum_principal_stretch": 0.7305492838426184,
+              "maximum_principal_stretch": 1.2610393764249759,
+              "degenerate_triangle_count": 0,
+              "maximum_speed_m_s": 0.001223100406197298,
+              "rms_speed_m_s": 0.00044433501529028035,
+              "center_of_mass_drift_m": 1.3702633481817141e-09,
+              "center_of_mass_velocity_m_s": 2.0239610361613179e-10,
+              "linear_momentum_kg_m_s": 7.231626686801003e-11,
+              "angular_momentum_kg_m2_s": 3.880992102887936e-12,
+              "total_mass_kg": 0.3573006892338225,
+              "span_m": [
+                0.3958379179239273,
+                1.0270584523677826,
+                0.14133775606751442
+              ],
+              "exact_ipc_intersections": 0,
+              "ipc_step": {
+                "last_ccd_step_fraction": 0.001220703125,
+                "last_accepted_step_fraction": 0.0010986328125,
+                "cumulative_clipped_step_count": 40,
+                "last_barrier_collision_count": 227,
+                "last_barrier_force_norm_n": 13.848170526560814,
+                "last_minimum_active_distance_m": 1.647181177002608e-11
+              }
+            },
+            {
+              "step_count": 60,
+              "simulated_time_s": 0.125,
+              "finite": true,
+              "minimum_principal_stretch": 0.7380234996299591,
+              "maximum_principal_stretch": 1.2582677099682347,
+              "degenerate_triangle_count": 0,
+              "maximum_speed_m_s": 0.001726685112738235,
+              "rms_speed_m_s": 0.00048425780650217243,
+              "center_of_mass_drift_m": 2.9891956766094158e-09,
+              "center_of_mass_velocity_m_s": 2.3076199328040734e-11,
+              "linear_momentum_kg_m_s": 8.245141873239989e-12,
+              "angular_momentum_kg_m2_s": 5.4739015162167806e-12,
+              "total_mass_kg": 0.3573006892338225,
+              "span_m": [
+                0.39565329253673553,
+                1.0266789495944977,
+                0.14188732206821442
+              ],
+              "exact_ipc_intersections": 0,
+              "ipc_step": {
+                "last_ccd_step_fraction": 0.0013427734375,
+                "last_accepted_step_fraction": 0.00120849609375,
+                "cumulative_clipped_step_count": 60,
+                "last_barrier_collision_count": 237,
+                "last_barrier_force_norm_n": 16.47284037659096,
+                "last_minimum_active_distance_m": 9.304488697868022e-12
+              }
+            },
+            {
+              "step_count": 80,
+              "simulated_time_s": 0.16666666666666666,
+              "finite": true,
+              "minimum_principal_stretch": 0.737763324014238,
+              "maximum_principal_stretch": 1.2528599707348693,
+              "degenerate_triangle_count": 0,
+              "maximum_speed_m_s": 0.04110933467261731,
+              "rms_speed_m_s": 0.010111024899940396,
+              "center_of_mass_drift_m": 1.4822141705783915e-09,
+              "center_of_mass_velocity_m_s": 2.094937137302891e-09,
+              "linear_momentum_kg_m_s": 7.485224783785109e-10,
+              "angular_momentum_kg_m2_s": 4.9601989044647015e-11,
+              "total_mass_kg": 0.3573006892338225,
+              "span_m": [
+                0.3952851742506027,
+                1.0259110033512115,
+                0.14300452917814255
+              ],
+              "exact_ipc_intersections": 0,
+              "ipc_step": {
+                "last_ccd_step_fraction": 0.028076171875,
+                "last_accepted_step_fraction": 0.0252685546875,
+                "cumulative_clipped_step_count": 80,
+                "last_barrier_collision_count": 231,
+                "last_barrier_force_norm_n": 3.6189669526078867,
+                "last_minimum_active_distance_m": 7.425263184848809e-10
+              }
+            },
+            {
+              "step_count": 100,
+              "simulated_time_s": 0.20833333333333334,
+              "finite": true,
+              "minimum_principal_stretch": 0.7377698206915996,
+              "maximum_principal_stretch": 1.2506833643460449,
+              "degenerate_triangle_count": 0,
+              "maximum_speed_m_s": 0.004440285833307176,
+              "rms_speed_m_s": 0.0015002488112810853,
+              "center_of_mass_drift_m": 1.88686375212327e-09,
+              "center_of_mass_velocity_m_s": 3.4525966732527146e-10,
+              "linear_momentum_kg_m_s": 1.2336151632844305e-10,
+              "angular_momentum_kg_m2_s": 5.841279962340065e-11,
+              "total_mass_kg": 0.3573006892338225,
+              "span_m": [
+                0.39511774480342865,
+                1.0255711674690247,
+                0.14349030330777168
+              ],
+              "exact_ipc_intersections": 0,
+              "ipc_step": {
+                "last_ccd_step_fraction": 0.004638671875,
+                "last_accepted_step_fraction": 0.0041748046875,
+                "cumulative_clipped_step_count": 100,
+                "last_barrier_collision_count": 241,
+                "last_barrier_force_norm_n": 18.917372874658724,
+                "last_minimum_active_distance_m": 7.650387369858285e-12
+              }
+            }
+          ]
+        },
+        "final_dynamic_metrics": {
+          "step_count": 100,
+          "simulated_time_s": 0.20833333333333334,
+          "finite": true,
+          "minimum_principal_stretch": 0.7377698206915996,
+          "maximum_principal_stretch": 1.2506833643460449,
+          "degenerate_triangle_count": 0,
+          "maximum_speed_m_s": 0.004440285833307176,
+          "rms_speed_m_s": 0.0015002488112810853,
+          "center_of_mass_drift_m": 1.88686375212327e-09,
+          "center_of_mass_velocity_m_s": 3.4525966732527146e-10,
+          "linear_momentum_kg_m_s": 1.2336151632844305e-10,
+          "angular_momentum_kg_m2_s": 5.841279962340065e-11,
+          "total_mass_kg": 0.3573006892338225,
+          "span_m": [
+            0.39511774480342865,
+            1.0255711674690247,
+            0.14349030330777168
+          ],
+          "exact_ipc_intersections": 0,
+          "ipc_step": {
+            "last_ccd_step_fraction": 0.004638671875,
+            "last_accepted_step_fraction": 0.0041748046875,
+            "cumulative_clipped_step_count": 100,
+            "last_barrier_collision_count": 241,
+            "last_barrier_force_norm_n": 18.917372874658724,
+            "last_minimum_active_distance_m": 7.650387369858285e-12
+          }
+        }
+      },
+      "acceptance_limits": {
+        "minimum_stretch": 0.55,
+        "maximum_stretch": 1.3,
+        "minimum_xy_span_m": [
+          0.36,
+          0.94
+        ],
+        "maximum_z_span_m": 0.17,
+        "maximum_speed_m_s": 0.02,
+        "rms_speed_m_s": 0.005
+      },
+      "accepted_state": {
+        "minimum_principal_stretch": 0.7377698206915996,
+        "maximum_principal_stretch": 1.2506833643460449,
+        "mean_absolute_area_strain": 0.011888333012621554,
+        "maximum_absolute_area_strain": 0.22204807772744228,
+        "minimum_world_triangle_area_m2": 1.3820319724184529e-05,
+        "degenerate_triangle_count": 0,
+        "span_m": [
+          0.39511774480342865,
+          1.0255711674690247,
+          0.14349030330777168
+        ],
+        "finite": true,
+        "exact_ipc_intersections": 0,
+        "maximum_speed_m_s": 0.004440285833307176,
+        "rms_speed_m_s": 0.0015002488112810853
+      },
+      "gates": {
+        "registered_construction_specific_strategy": true,
+        "actual_welded_particle_count_retained": true,
+        "all_actual_triangles_retained": true,
+        "finite_without_degenerate_triangles": true,
+        "zero_confirmed_ipc_crossing_pairs": true,
+        "garment_specific_principal_stretch_bounds": true,
+        "recognizable_xy_footprint_span": true,
+        "garment_specific_height_bound": true,
+        "settled_maximum_speed": true,
+        "settled_rms_speed": true
+      },
+      "accepted": true,
+      "wall_time_s": 90.73537769999893
+    },
+    {
+      "construction": {
+        "id": "terry_cotton_bath_towel",
+        "label": "Loop-pile terry cotton bath towel",
+        "category": "household_linen",
+        "topology": "rectangular_sheet",
+        "panel_count": 1,
+        "seam_count": 0,
+        "opening_count": 1,
+        "feature_count": 3,
+        "total_panel_area_m2": 0.315,
+        "total_panel_mass_kg": 0.14175000000000001,
+        "material_profiles": [
+          "terry_cotton_prior"
+        ],
+        "calibration_status": "construction-complete engineering prior; terry pile/compression unmeasured"
+      },
+      "flat_lay_seed": {
+        "construction_id": "terry_cotton_bath_towel",
+        "strategy_id": "terry_rectangular_sheet_isometric_v1",
+        "reset_only_numerical_preconditioner": true,
+        "body_layer_separation_m": 0.0,
+        "constrained_vertex_count_by_panel": {
+          "terry_body": 273
+        },
+        "harmonic_vertex_count_by_panel": {
+          "terry_body": 0
+        },
+        "inter_panel_seam_rms_gap_m": 0.0,
+        "maximum_inter_panel_seam_rms_gap_m": 0.0,
+        "notes": [
+          "The towel is one physical rectangular sheet, not a garment-shell surrogate.",
+          "Four multilayer hems and both dobby bands remain construction features on the real panel."
+        ]
+      },
+      "mesh": {
+        "material_vertices": 273,
+        "physical_vertices": 273,
+        "triangles": 484,
+        "panels": 1
+      },
+      "raw_seed": {
+        "minimum_principal_stretch": 0.9999999999999972,
+        "maximum_principal_stretch": 1.0000000000000024,
+        "mean_absolute_area_strain": 5.40889647121099e-16,
+        "maximum_absolute_area_strain": 2.55351295663786e-15,
+        "minimum_world_triangle_area_m2": 9.999999999999991e-05,
+        "degenerate_triangle_count": 0,
+        "span_m": [
+          0.45000000000000007,
+          0.7,
+          0.0
+        ],
+        "finite": true,
+        "exact_ipc_intersections": 0
+      },
+      "preconditioner": {
+        "kind": "material-metric reset preconditioner",
+        "iterations_requested": 0,
+        "iterations_executed": 0,
+        "optimizer_converged": true,
+        "planarity_weight": 0.0,
+        "relaxed_panel_ids": [],
+        "initial_edge_energy": 0.0,
+        "final_edge_energy": 0.0
+      },
+      "acceptance_limits": {
+        "minimum_stretch": 0.99,
+        "maximum_stretch": 1.01,
+        "minimum_xy_span_m": [
+          0.44,
+          0.69
+        ],
+        "maximum_z_span_m": 0.005
+      },
+      "accepted_state": {
+        "minimum_principal_stretch": 0.9999999999999972,
+        "maximum_principal_stretch": 1.0000000000000024,
+        "mean_absolute_area_strain": 5.40889647121099e-16,
+        "maximum_absolute_area_strain": 2.55351295663786e-15,
+        "minimum_world_triangle_area_m2": 9.999999999999991e-05,
+        "degenerate_triangle_count": 0,
+        "span_m": [
+          0.45000000000000007,
+          0.7,
+          0.0
+        ],
+        "finite": true,
+        "exact_ipc_intersections": 0,
+        "maximum_speed_m_s": 0.0,
+        "rms_speed_m_s": 0.0
+      },
+      "gates": {
+        "registered_construction_specific_strategy": true,
+        "actual_welded_particle_count_retained": true,
+        "all_actual_triangles_retained": true,
+        "finite_without_degenerate_triangles": true,
+        "zero_confirmed_ipc_crossing_pairs": true,
+        "garment_specific_principal_stretch_bounds": true,
+        "recognizable_xy_footprint_span": true,
+        "garment_specific_height_bound": true
+      },
+      "accepted": true,
+      "wall_time_s": 1.3122967000017525
+    },
+    {
+      "construction": {
+        "id": "asymmetric_draped_one_sleeve_top",
+        "label": "Asymmetric draped one-bell-sleeve top",
+        "category": "asymmetric_fashion_top",
+        "topology": "sewn_panel_shell",
+        "panel_count": 9,
+        "seam_count": 18,
+        "opening_count": 5,
+        "feature_count": 4,
+        "total_panel_area_m2": 1.061208598246652,
+        "total_panel_mass_kg": 0.15037271000745828,
+        "material_profiles": [
+          "viscose_crepe_prior"
+        ],
+        "calibration_status": "construction-complete engineering prior; no named fashion garment measured"
+      },
+      "flat_lay_seed": {
+        "construction_id": "asymmetric_draped_one_sleeve_top",
+        "strategy_id": "asymmetric_draped_shell_flat_lay_v2",
+        "reset_only_numerical_preconditioner": true,
+        "body_layer_separation_m": 0.008,
+        "constrained_vertex_count_by_panel": {
+          "front_under": 0,
+          "back": 0,
+          "left_bell_sleeve": 197,
+          "right_cap_sleeve": 73,
+          "drape_overlay": 13,
+          "left_tie": 2,
+          "right_tie": 2,
+          "front_neck_facing": 24,
+          "back_neck_facing": 16
+        },
+        "harmonic_vertex_count_by_panel": {
+          "front_under": 0,
+          "back": 0,
+          "left_bell_sleeve": 17,
+          "right_cap_sleeve": 13,
+          "drape_overlay": 160,
+          "left_tie": 31,
+          "right_tie": 31,
+          "front_neck_facing": 0,
+          "back_neck_facing": 0
+        },
+        "inter_panel_seam_rms_gap_m": 0.0038230072737812856,
+        "maximum_inter_panel_seam_rms_gap_m": 0.008,
+        "notes": [
+          "The front underlayer and back remain a sewn shell with unequal physical sleeve geometries.",
+          "The bias-cut drape overlay is a separate attached panel, not a painted motif.",
+          "Both 580 mm ties extend from their actual stitch anchors; separate curved front and back facings close into the sewn neck loop."
+        ]
+      },
+      "mesh": {
+        "material_vertices": 1116,
+        "physical_vertices": 976,
+        "triangles": 1788,
+        "panels": 9
+      },
+      "raw_seed": {
+        "minimum_principal_stretch": 0.3604021543735857,
+        "maximum_principal_stretch": 2.1178360723309533,
+        "mean_absolute_area_strain": 0.022668270862728802,
+        "maximum_absolute_area_strain": 0.6578157739162951,
+        "minimum_world_triangle_area_m2": 2.343749999997942e-05,
+        "degenerate_triangle_count": 0,
+        "span_m": [
+          1.0645184520945774,
+          0.9626826500842924,
+          0.05
+        ],
+        "finite": true,
+        "exact_ipc_intersections": 0
+      },
+      "preconditioner": {
+        "kind": "material-metric reset preconditioner",
+        "iterations_requested": 4000,
+        "iterations_executed": 1802,
+        "optimizer_converged": true,
+        "planarity_weight": 500.0,
+        "relaxed_panel_ids": [
+          "left_bell_sleeve",
+          "right_cap_sleeve"
+        ],
+        "initial_edge_energy": 64.55085863969776,
+        "final_edge_energy": 9.823694873990442
+      },
+      "acceptance_limits": {
+        "minimum_stretch": 0.68,
+        "maximum_stretch": 1.5,
+        "minimum_xy_span_m": [
+          1.0,
+          0.6
+        ],
+        "maximum_z_span_m": 0.06
+      },
+      "accepted_state": {
+        "minimum_principal_stretch": 0.7198106453332822,
+        "maximum_principal_stretch": 1.4776431758991118,
+        "mean_absolute_area_strain": 0.013928096119110833,
+        "maximum_absolute_area_strain": 0.4776431758991173,
+        "minimum_world_triangle_area_m2": 2.343749999997942e-05,
+        "degenerate_triangle_count": 0,
+        "span_m": [
+          1.1603994644654136,
+          0.9626826500842924,
+          0.05
+        ],
+        "finite": true,
+        "exact_ipc_intersections": 0,
+        "maximum_speed_m_s": 0.0,
+        "rms_speed_m_s": 0.0
+      },
+      "gates": {
+        "registered_construction_specific_strategy": true,
+        "actual_welded_particle_count_retained": true,
+        "all_actual_triangles_retained": true,
+        "finite_without_degenerate_triangles": true,
+        "zero_confirmed_ipc_crossing_pairs": true,
+        "garment_specific_principal_stretch_bounds": true,
+        "recognizable_xy_footprint_span": true,
+        "garment_specific_height_bound": true
+      },
+      "accepted": true,
+      "wall_time_s": 9.84280249999938
+    }
+  ],
+  "accepted": true,
+  "frame_artifact": "laundry/artifacts/frames/p13_garment_flat_lay_catalog.npz",
+  "frame_artifact_sha256": "sha256:0649585cbb4314b8aa298c9f4f02289bba15b247abd9133bde16ac2fea361e2c"
+}

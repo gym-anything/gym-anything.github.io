@@ -1,0 +1,178 @@
+{
+  "calibration_status": "prior-only / not physically calibrated",
+  "captures": [
+    {
+      "camera": "hero",
+      "keyframe": "initial",
+      "maximum_rgb": 196,
+      "mean_rgb": 137.13605107060187,
+      "minimum_rgb": 3,
+      "path": "renders/p6_initial_hero.png",
+      "sha256": "sha256:cd36cca2ed560afb0aa4f3c61e222370a5ee9accc4c9fd59ba66f73f67dc979b",
+      "simulation_time_s": 0.0
+    },
+    {
+      "camera": "workcell",
+      "keyframe": "initial",
+      "maximum_rgb": 212,
+      "mean_rgb": 105.20704981674383,
+      "minimum_rgb": 0,
+      "path": "renders/p6_initial_workcell.png",
+      "sha256": "sha256:aff8b1d3da18bb719d14573c5c334e879fdb12b25a11aa8db65a296a0b3ad63a",
+      "simulation_time_s": 0.0
+    },
+    {
+      "camera": "hero",
+      "keyframe": "fold_25_percent",
+      "maximum_rgb": 200,
+      "mean_rgb": 133.6270100308642,
+      "minimum_rgb": 2,
+      "path": "renders/p6_fold_25_percent_hero.png",
+      "sha256": "sha256:52a7628426847bdb48bdbbf103f184f1f8e81e0982c64acc7a9a24f306925a38",
+      "simulation_time_s": 2.0000000000000466
+    },
+    {
+      "camera": "hero",
+      "keyframe": "fold_50_percent",
+      "maximum_rgb": 196,
+      "mean_rgb": 135.87347391010803,
+      "minimum_rgb": 1,
+      "path": "renders/p6_fold_50_percent_hero.png",
+      "sha256": "sha256:88d03374010ea4296d761e95b25bb4f4b76a578c4ec03b5f9990f312dfbb7ba6",
+      "simulation_time_s": 3.2499999999999756
+    },
+    {
+      "camera": "hero",
+      "keyframe": "fold_75_percent",
+      "maximum_rgb": 197,
+      "mean_rgb": 140.22111448688273,
+      "minimum_rgb": 2,
+      "path": "renders/p6_fold_75_percent_hero.png",
+      "sha256": "sha256:4efdc49bec948dca125a348e51c5ac4aed4bb3cbb1b3d9aebcfba649d815301c",
+      "simulation_time_s": 4.499999999999905
+    },
+    {
+      "camera": "hero",
+      "keyframe": "placed",
+      "maximum_rgb": 194,
+      "mean_rgb": 144.34524594907407,
+      "minimum_rgb": 2,
+      "path": "renders/p6_placed_hero.png",
+      "sha256": "sha256:da8e3b865c8ed720a426e6203da09856eb9144c8026f4c8498fb4fe947bae1e2",
+      "simulation_time_s": 5.749999999999834
+    },
+    {
+      "camera": "crease",
+      "keyframe": "crease_pressed",
+      "maximum_rgb": 200,
+      "mean_rgb": 125.52857325424382,
+      "minimum_rgb": 1,
+      "path": "renders/p6_crease_pressed_crease.png",
+      "sha256": "sha256:37dccfdc3b5ae9a2615ecce3f5e625ec08ee426f95ef550a1c46a8a780210ee5",
+      "simulation_time_s": 9.749999999999607
+    },
+    {
+      "camera": "hero",
+      "keyframe": "released",
+      "maximum_rgb": 202,
+      "mean_rgb": 143.28106553819444,
+      "minimum_rgb": 2,
+      "path": "renders/p6_released_hero.png",
+      "sha256": "sha256:69e9353474b337f545c8227fd650f59de891ad82a579bbd5e36d0dab4ef5360e",
+      "simulation_time_s": 11.499999999999508
+    },
+    {
+      "camera": "overhead",
+      "keyframe": "fixture_retracted",
+      "maximum_rgb": 223,
+      "mean_rgb": 110.08247034143518,
+      "minimum_rgb": 8,
+      "path": "renders/p6_fixture_retracted_overhead.png",
+      "sha256": "sha256:fd000ce765f0a69431f143a1b4bf289e733290d1b4fc6f329f789913ca31654e",
+      "simulation_time_s": 15.599999999999275
+    },
+    {
+      "camera": "hero",
+      "keyframe": "settled",
+      "maximum_rgb": 190,
+      "mean_rgb": 144.9396662808642,
+      "minimum_rgb": 1,
+      "path": "renders/p6_settled_hero.png",
+      "sha256": "sha256:2ecae05e87deab7300a0f2c790180097286a271486cb549fcd74bb06c1927290",
+      "simulation_time_s": 19.600000000002115
+    },
+    {
+      "camera": "overhead",
+      "keyframe": "settled",
+      "maximum_rgb": 223,
+      "mean_rgb": 110.91445095486111,
+      "minimum_rgb": 9,
+      "path": "renders/p6_settled_overhead.png",
+      "sha256": "sha256:db2292f72a78a816580246af1ad9cdf5326d96859d2b4f3d690017998244ed2a",
+      "simulation_time_s": 19.600000000002115
+    },
+    {
+      "camera": "profile",
+      "keyframe": "settled",
+      "maximum_rgb": 184,
+      "mean_rgb": 144.16937813464506,
+      "minimum_rgb": 1,
+      "path": "renders/p6_settled_profile.png",
+      "sha256": "sha256:2be04eb1474c2e1110cf401679d7171a21a39b31b1b65ae59fb1249f0684fb61",
+      "simulation_time_s": 19.600000000002115
+    }
+  ],
+  "evidence_status": "automated render gates passed; visual review required",
+  "mechanical_state_diagnostics": {
+    "note": "The rounded fold ridge is retained from the accepted mechanical trace; it is not flattened or cosmetically edited for rendering.",
+    "prior_gravity_bending_length_m": 0.0189436075713861,
+    "settled_fraction_above_10_mm": 0.04,
+    "settled_maximum_height_m": 0.024279963225126266,
+    "settled_median_height_m": 0.0011903757695108652,
+    "settled_minimum_height_m": 0.00039999998989515007,
+    "settled_p95_height_m": 0.008015698194503781
+  },
+  "pass": true,
+  "render_resolution": [
+    1440,
+    960
+  ],
+  "scene_audit": {
+    "calibration_status": "prior-only / not physically calibrated",
+    "camera_paths": {
+      "crease": "/World/Cameras/Crease",
+      "hero": "/World/Cameras/Hero",
+      "operator": "/World/Cameras/Operator",
+      "overhead": "/World/Cameras/Overhead",
+      "profile": "/World/Cameras/Profile",
+      "workcell": "/World/Cameras/Workcell"
+    },
+    "cloth_mechanical_vertex_count": 425,
+    "cloth_render_triangle_count": 13824,
+    "cloth_render_vertex_count": 7154,
+    "gates": {
+      "all_fixture_links_present": true,
+      "calibration_card_present": true,
+      "finite_cloth_points": true,
+      "finite_thickness_closed_shell": true,
+      "multiple_cameras": true,
+      "visual_stage_has_no_rigid_body_dynamics": true
+    },
+    "pass": true,
+    "rigid_body_api_paths": [],
+    "schema_version": "laundry-scene-audit/1.0",
+    "visual_fixture_links": [
+      "crease_roller",
+      "gripper_gantry",
+      "gripper_negative_pad",
+      "gripper_positive_pad",
+      "gripper_wrist",
+      "gripper_x_carriage",
+      "roller_x_carriage",
+      "roller_z_carriage"
+    ]
+  },
+  "schema_version": "laundry-p6-render-manifest/1.0",
+  "source_trace": "traces/p6_released_half_fold_keyframes.npz",
+  "source_trace_hash": "sha256:6b064e04c2a3f79e23fb3c9327d4bb7bde2b537cd4dccaaf593cfc955ecd801c"
+}

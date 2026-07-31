@@ -1,0 +1,1488 @@
+{
+  "schema": "yam-cube-pick-artifact-manifest/1.0",
+  "hash_algorithm": "sha256",
+  "execution_source_sha256": "5ce65c1a57a32f922b5451f369c375cdadd81d31deb294b8902d97668216a718",
+  "evidence_software_source_sha256": [
+    "18f96936b14c02083b55a89758aa1bcb63a628663f596db9cdb26e6666e34942",
+    "2322a869cf32abc4444c1774401bcc57c071987c1ab13266bcdc2f722e282560"
+  ],
+  "run_artifact_count": 27,
+  "artifact_count": 220,
+  "total_bytes": 120087476,
+  "artifacts": [
+    {
+      "path": "yam_cube_pick/evidence/alignment_gate_sweep_seed588.json",
+      "role": "causal_probe",
+      "bytes": 131747,
+      "sha256": "d9f8fb0d3399ca9d3594ffb630518ed080641a1ecf0213900f29d3b644067e6a",
+      "schema": "yam-grasp-alignment-sweep/1.1",
+      "execution_source_sha256": "5ce65c1a57a32f922b5451f369c375cdadd81d31deb294b8902d97668216a718",
+      "record_count": 4
+    },
+    {
+      "path": "yam_cube_pick/evidence/final_boundary_5.json",
+      "role": "qualification",
+      "bytes": 5981937,
+      "sha256": "572a2cf460d5bbbf4e881599321f8482f986b8895c2cb9241709c60c549f4644",
+      "schema": "yam-cube-pick-run/1.0",
+      "execution_source_sha256": "5ce65c1a57a32f922b5451f369c375cdadd81d31deb294b8902d97668216a718",
+      "evidence_software_source_sha256": "18f96936b14c02083b55a89758aa1bcb63a628663f596db9cdb26e6666e34942",
+      "record_count": 5,
+      "pass": true
+    },
+    {
+      "path": "yam_cube_pick/evidence/final_contact_seed3819.json",
+      "role": "contact_visual_trace",
+      "bytes": 1158804,
+      "sha256": "198a43c7ff9f0d27298ae477fa78621be852ca5625a249e3b5ebb4ddc12d7b1d",
+      "schema": "yam-cube-pick-run/1.0",
+      "execution_source_sha256": "5ce65c1a57a32f922b5451f369c375cdadd81d31deb294b8902d97668216a718",
+      "evidence_software_source_sha256": "2322a869cf32abc4444c1774401bcc57c071987c1ab13266bcdc2f722e282560",
+      "record_count": 1,
+      "pass": true
+    },
+    {
+      "path": "yam_cube_pick/evidence/final_contact_verification.json",
+      "role": "visual_verification",
+      "bytes": 498,
+      "sha256": "56fbe468bc5a460ba1fb5c80bca0297c03328b9cf475d70c2874a2a79ca027e5",
+      "schema": "yam-cube-pick-verification/1.0",
+      "pass": true
+    },
+    {
+      "path": "yam_cube_pick/evidence/final_overview_seed3819.json",
+      "role": "overview_visual_trace",
+      "bytes": 1158817,
+      "sha256": "fea242a0a055e9a30b2bffc789e3a914ea074d27f9f059821180e777567242c8",
+      "schema": "yam-cube-pick-run/1.0",
+      "execution_source_sha256": "5ce65c1a57a32f922b5451f369c375cdadd81d31deb294b8902d97668216a718",
+      "evidence_software_source_sha256": "2322a869cf32abc4444c1774401bcc57c071987c1ab13266bcdc2f722e282560",
+      "record_count": 1,
+      "pass": true
+    },
+    {
+      "path": "yam_cube_pick/evidence/final_overview_verification.json",
+      "role": "visual_verification",
+      "bytes": 498,
+      "sha256": "56fbe468bc5a460ba1fb5c80bca0297c03328b9cf475d70c2874a2a79ca027e5",
+      "schema": "yam-cube-pick-verification/1.0",
+      "pass": true
+    },
+    {
+      "path": "yam_cube_pick/evidence/final_random_20.json",
+      "role": "qualification",
+      "bytes": 2846553,
+      "sha256": "c7b79b392584c3e44fc0464682fae13dbaca75ae0eceb3aba091aea37163975d",
+      "schema": "yam-cube-pick-run/1.0",
+      "execution_source_sha256": "5ce65c1a57a32f922b5451f369c375cdadd81d31deb294b8902d97668216a718",
+      "evidence_software_source_sha256": "18f96936b14c02083b55a89758aa1bcb63a628663f596db9cdb26e6666e34942",
+      "record_count": 20,
+      "pass": true
+    },
+    {
+      "path": "yam_cube_pick/evidence/final_video_seed3819.json",
+      "role": "video",
+      "bytes": 8211,
+      "sha256": "9fc8e26923cd53668b7684b0bc8ee88a3dd1e5c18dbfbd1251876ee8f4a6caef",
+      "schema": "yam-cube-pick-video/1.0",
+      "pass": true,
+      "decoded_frame_count": 103
+    },
+    {
+      "path": "yam_cube_pick/evidence/final_video_seed3819.mp4",
+      "role": "video",
+      "bytes": 3937957,
+      "sha256": "c4698cecbd595b9147379ee6874933398f678404280ca24a8368082df8e9fc12"
+    },
+    {
+      "path": "yam_cube_pick/evidence/final_visual_seed3819.json",
+      "role": "task_visual_trace",
+      "bytes": 1231407,
+      "sha256": "107fdfaad0ef731b891e7178434dcb85e4544c525fe0b47c0ec3514a1d0bf9c3",
+      "schema": "yam-cube-pick-run/1.0",
+      "execution_source_sha256": "5ce65c1a57a32f922b5451f369c375cdadd81d31deb294b8902d97668216a718",
+      "evidence_software_source_sha256": "18f96936b14c02083b55a89758aa1bcb63a628663f596db9cdb26e6666e34942",
+      "record_count": 1,
+      "pass": true
+    },
+    {
+      "path": "yam_cube_pick/evidence/final_visual_verification.json",
+      "role": "visual_verification",
+      "bytes": 500,
+      "sha256": "49135e17ce9dfe0a5e4a394b3d753da706aebcc697028349bb7a7ffd09cd3723",
+      "schema": "yam-cube-pick-verification/1.0",
+      "pass": true
+    },
+    {
+      "path": "yam_cube_pick/evidence/numerical_campaign/campaign_summary.json",
+      "role": "numerical_summary",
+      "bytes": 62271,
+      "sha256": "7c89f02e820eae1291f9b589de626354724545eb36f50bde9928c708c45a0d63",
+      "schema": "yam-cube-pick-numerical-summary/1.0",
+      "pass": true
+    },
+    {
+      "path": "yam_cube_pick/evidence/numerical_campaign/raw/baseline_repeat_0.json",
+      "role": "numerical_cell",
+      "bytes": 1154587,
+      "sha256": "5b06e654bf5f5330a8c488341089ac2b05ad57695ab925d2d30530470c6a8979",
+      "schema": "yam-cube-pick-run/1.0",
+      "execution_source_sha256": "5ce65c1a57a32f922b5451f369c375cdadd81d31deb294b8902d97668216a718",
+      "evidence_software_source_sha256": "18f96936b14c02083b55a89758aa1bcb63a628663f596db9cdb26e6666e34942",
+      "record_count": 1,
+      "pass": true
+    },
+    {
+      "path": "yam_cube_pick/evidence/numerical_campaign/raw/baseline_repeat_1.json",
+      "role": "numerical_cell",
+      "bytes": 1154587,
+      "sha256": "5b06e654bf5f5330a8c488341089ac2b05ad57695ab925d2d30530470c6a8979",
+      "schema": "yam-cube-pick-run/1.0",
+      "execution_source_sha256": "5ce65c1a57a32f922b5451f369c375cdadd81d31deb294b8902d97668216a718",
+      "evidence_software_source_sha256": "18f96936b14c02083b55a89758aa1bcb63a628663f596db9cdb26e6666e34942",
+      "record_count": 1,
+      "pass": true
+    },
+    {
+      "path": "yam_cube_pick/evidence/numerical_campaign/raw/baseline_repeat_2.json",
+      "role": "numerical_cell",
+      "bytes": 1154587,
+      "sha256": "5b06e654bf5f5330a8c488341089ac2b05ad57695ab925d2d30530470c6a8979",
+      "schema": "yam-cube-pick-run/1.0",
+      "execution_source_sha256": "5ce65c1a57a32f922b5451f369c375cdadd81d31deb294b8902d97668216a718",
+      "evidence_software_source_sha256": "18f96936b14c02083b55a89758aa1bcb63a628663f596db9cdb26e6666e34942",
+      "record_count": 1,
+      "pass": true
+    },
+    {
+      "path": "yam_cube_pick/evidence/numerical_campaign/raw/ccd_disabled.json",
+      "role": "numerical_cell",
+      "bytes": 1154619,
+      "sha256": "fbde05db64288e374a8f60d2dc35a2143af2faff173317d5cae3033dc29c1038",
+      "schema": "yam-cube-pick-run/1.0",
+      "execution_source_sha256": "5ce65c1a57a32f922b5451f369c375cdadd81d31deb294b8902d97668216a718",
+      "evidence_software_source_sha256": "18f96936b14c02083b55a89758aa1bcb63a628663f596db9cdb26e6666e34942",
+      "record_count": 1,
+      "pass": true
+    },
+    {
+      "path": "yam_cube_pick/evidence/numerical_campaign/raw/contact_offset_150um.json",
+      "role": "numerical_cell",
+      "bytes": 1154511,
+      "sha256": "a9ea7c7171a51db40c79e0b4a3e089a19c07835b6397f1f6077e422b6ac6a4e0",
+      "schema": "yam-cube-pick-run/1.0",
+      "execution_source_sha256": "5ce65c1a57a32f922b5451f369c375cdadd81d31deb294b8902d97668216a718",
+      "evidence_software_source_sha256": "18f96936b14c02083b55a89758aa1bcb63a628663f596db9cdb26e6666e34942",
+      "record_count": 1,
+      "pass": true
+    },
+    {
+      "path": "yam_cube_pick/evidence/numerical_campaign/raw/contact_offset_600um.json",
+      "role": "numerical_cell",
+      "bytes": 1154584,
+      "sha256": "54da46ea0f31190dcf695ea9f8050f5501cef657b8746307586589518b328373",
+      "schema": "yam-cube-pick-run/1.0",
+      "execution_source_sha256": "5ce65c1a57a32f922b5451f369c375cdadd81d31deb294b8902d97668216a718",
+      "evidence_software_source_sha256": "18f96936b14c02083b55a89758aa1bcb63a628663f596db9cdb26e6666e34942",
+      "record_count": 1,
+      "pass": true
+    },
+    {
+      "path": "yam_cube_pick/evidence/numerical_campaign/raw/density_1260.json",
+      "role": "numerical_cell",
+      "bytes": 1154466,
+      "sha256": "f023ca50727935d4d341130ea593290cf23bf0212180d00af540335ab45f9ec0",
+      "schema": "yam-cube-pick-run/1.0",
+      "execution_source_sha256": "5ce65c1a57a32f922b5451f369c375cdadd81d31deb294b8902d97668216a718",
+      "evidence_software_source_sha256": "18f96936b14c02083b55a89758aa1bcb63a628663f596db9cdb26e6666e34942",
+      "record_count": 1,
+      "pass": true
+    },
+    {
+      "path": "yam_cube_pick/evidence/numerical_campaign/raw/density_840.json",
+      "role": "numerical_cell",
+      "bytes": 1154497,
+      "sha256": "3277c0e048d51f688b7bd9a40dc874026dee15ef3de17afd8339797e4eb4b302",
+      "schema": "yam-cube-pick-run/1.0",
+      "execution_source_sha256": "5ce65c1a57a32f922b5451f369c375cdadd81d31deb294b8902d97668216a718",
+      "evidence_software_source_sha256": "18f96936b14c02083b55a89758aa1bcb63a628663f596db9cdb26e6666e34942",
+      "record_count": 1,
+      "pass": true
+    },
+    {
+      "path": "yam_cube_pick/evidence/numerical_campaign/raw/falsification_heavy_cube.json",
+      "role": "numerical_cell",
+      "bytes": 3215376,
+      "sha256": "8774ee380b457f14ca0aed14c881cb5f8341677b305ced905335a1748877623d",
+      "schema": "yam-cube-pick-run/1.0",
+      "execution_source_sha256": "5ce65c1a57a32f922b5451f369c375cdadd81d31deb294b8902d97668216a718",
+      "evidence_software_source_sha256": "18f96936b14c02083b55a89758aa1bcb63a628663f596db9cdb26e6666e34942",
+      "record_count": 1,
+      "pass": false
+    },
+    {
+      "path": "yam_cube_pick/evidence/numerical_campaign/raw/falsification_lift_200mm.json",
+      "role": "numerical_cell",
+      "bytes": 3235474,
+      "sha256": "19853abc07f00166529177131e95932eafe2220ac24297aed3ff7e27452c13d4",
+      "schema": "yam-cube-pick-run/1.0",
+      "execution_source_sha256": "5ce65c1a57a32f922b5451f369c375cdadd81d31deb294b8902d97668216a718",
+      "evidence_software_source_sha256": "18f96936b14c02083b55a89758aa1bcb63a628663f596db9cdb26e6666e34942",
+      "record_count": 1,
+      "pass": false
+    },
+    {
+      "path": "yam_cube_pick/evidence/numerical_campaign/raw/falsification_zero_friction.json",
+      "role": "numerical_cell",
+      "bytes": 2477429,
+      "sha256": "78c1fe0154246e4821e5e2023984717f65a6b70396405ea516f3c4f4c9315f39",
+      "schema": "yam-cube-pick-run/1.0",
+      "execution_source_sha256": "5ce65c1a57a32f922b5451f369c375cdadd81d31deb294b8902d97668216a718",
+      "evidence_software_source_sha256": "18f96936b14c02083b55a89758aa1bcb63a628663f596db9cdb26e6666e34942",
+      "record_count": 1,
+      "pass": false
+    },
+    {
+      "path": "yam_cube_pick/evidence/numerical_campaign/raw/finger_friction_lower.json",
+      "role": "numerical_cell",
+      "bytes": 1154676,
+      "sha256": "54251ea96a682abc88989832d137c02ac0d3400a2733a16d6be232a22d58f105",
+      "schema": "yam-cube-pick-run/1.0",
+      "execution_source_sha256": "5ce65c1a57a32f922b5451f369c375cdadd81d31deb294b8902d97668216a718",
+      "evidence_software_source_sha256": "18f96936b14c02083b55a89758aa1bcb63a628663f596db9cdb26e6666e34942",
+      "record_count": 1,
+      "pass": true
+    },
+    {
+      "path": "yam_cube_pick/evidence/numerical_campaign/raw/finger_friction_upper.json",
+      "role": "numerical_cell",
+      "bytes": 1154658,
+      "sha256": "342bfd5cc6d6debc1da44dc12844a9ebb4e778c2b5ef6b8a55aac113a9ad3d4d",
+      "schema": "yam-cube-pick-run/1.0",
+      "execution_source_sha256": "5ce65c1a57a32f922b5451f369c375cdadd81d31deb294b8902d97668216a718",
+      "evidence_software_source_sha256": "18f96936b14c02083b55a89758aa1bcb63a628663f596db9cdb26e6666e34942",
+      "record_count": 1,
+      "pass": true
+    },
+    {
+      "path": "yam_cube_pick/evidence/numerical_campaign/raw/physics_120hz.json",
+      "role": "numerical_cell",
+      "bytes": 1152114,
+      "sha256": "57d0e6df0eabc0520b1b37247193330d8a6eec3aa6c4b230dedcd14c49951276",
+      "schema": "yam-cube-pick-run/1.0",
+      "execution_source_sha256": "5ce65c1a57a32f922b5451f369c375cdadd81d31deb294b8902d97668216a718",
+      "evidence_software_source_sha256": "18f96936b14c02083b55a89758aa1bcb63a628663f596db9cdb26e6666e34942",
+      "record_count": 1,
+      "pass": true
+    },
+    {
+      "path": "yam_cube_pick/evidence/numerical_campaign/raw/physics_480hz.json",
+      "role": "numerical_cell",
+      "bytes": 1154426,
+      "sha256": "34e47658b4f10d9bbdcbc0e7ccee0d8e39d40e9e33c50073ecc1d6fd7a7a9003",
+      "schema": "yam-cube-pick-run/1.0",
+      "execution_source_sha256": "5ce65c1a57a32f922b5451f369c375cdadd81d31deb294b8902d97668216a718",
+      "evidence_software_source_sha256": "18f96936b14c02083b55a89758aa1bcb63a628663f596db9cdb26e6666e34942",
+      "record_count": 1,
+      "pass": true
+    },
+    {
+      "path": "yam_cube_pick/evidence/numerical_campaign/raw/position_iterations_16.json",
+      "role": "numerical_cell",
+      "bytes": 1154634,
+      "sha256": "fe397575fd6ddc30ecedad859deb19525a904217fb4d601e1ce7c03958f584ab",
+      "schema": "yam-cube-pick-run/1.0",
+      "execution_source_sha256": "5ce65c1a57a32f922b5451f369c375cdadd81d31deb294b8902d97668216a718",
+      "evidence_software_source_sha256": "18f96936b14c02083b55a89758aa1bcb63a628663f596db9cdb26e6666e34942",
+      "record_count": 1,
+      "pass": true
+    },
+    {
+      "path": "yam_cube_pick/evidence/numerical_campaign/raw/position_iterations_64.json",
+      "role": "numerical_cell",
+      "bytes": 1153073,
+      "sha256": "a3c750d1944cd1f8143957b58e7b2be7dbc5d6113812018a3750f7fa4f3e6182",
+      "schema": "yam-cube-pick-run/1.0",
+      "execution_source_sha256": "5ce65c1a57a32f922b5451f369c375cdadd81d31deb294b8902d97668216a718",
+      "evidence_software_source_sha256": "18f96936b14c02083b55a89758aa1bcb63a628663f596db9cdb26e6666e34942",
+      "record_count": 1,
+      "pass": true
+    },
+    {
+      "path": "yam_cube_pick/evidence/numerical_campaign/raw/restitution_0p10.json",
+      "role": "numerical_cell",
+      "bytes": 1154245,
+      "sha256": "edaecd7f1bd4dc4ceb52e0a7187f2e08684307a6d4805e0f6e8eebea0c5cc06c",
+      "schema": "yam-cube-pick-run/1.0",
+      "execution_source_sha256": "5ce65c1a57a32f922b5451f369c375cdadd81d31deb294b8902d97668216a718",
+      "evidence_software_source_sha256": "18f96936b14c02083b55a89758aa1bcb63a628663f596db9cdb26e6666e34942",
+      "record_count": 1,
+      "pass": true
+    },
+    {
+      "path": "yam_cube_pick/evidence/numerical_campaign/raw/restitution_zero.json",
+      "role": "numerical_cell",
+      "bytes": 1157278,
+      "sha256": "8c53f46dd784bd71a0b8829d2160ffc11be2c426ac2f5eb6bb6ad84dc9cc0cd8",
+      "schema": "yam-cube-pick-run/1.0",
+      "execution_source_sha256": "5ce65c1a57a32f922b5451f369c375cdadd81d31deb294b8902d97668216a718",
+      "evidence_software_source_sha256": "18f96936b14c02083b55a89758aa1bcb63a628663f596db9cdb26e6666e34942",
+      "record_count": 1,
+      "pass": true
+    },
+    {
+      "path": "yam_cube_pick/evidence/numerical_campaign/raw/solver_pgs.json",
+      "role": "numerical_cell",
+      "bytes": 1135533,
+      "sha256": "a9ca88cd9fde268ace42ef0a7753df16f695a00f8d83b64e03309612e3fb16a1",
+      "schema": "yam-cube-pick-run/1.0",
+      "execution_source_sha256": "5ce65c1a57a32f922b5451f369c375cdadd81d31deb294b8902d97668216a718",
+      "evidence_software_source_sha256": "18f96936b14c02083b55a89758aa1bcb63a628663f596db9cdb26e6666e34942",
+      "record_count": 1,
+      "pass": true
+    },
+    {
+      "path": "yam_cube_pick/evidence/numerical_campaign/raw/velocity_iterations_2.json",
+      "role": "numerical_cell",
+      "bytes": 1154874,
+      "sha256": "beff694215fec0fc781c63f7782c4ac58fd7ea81de845160020fc79b068ad314",
+      "schema": "yam-cube-pick-run/1.0",
+      "execution_source_sha256": "5ce65c1a57a32f922b5451f369c375cdadd81d31deb294b8902d97668216a718",
+      "evidence_software_source_sha256": "18f96936b14c02083b55a89758aa1bcb63a628663f596db9cdb26e6666e34942",
+      "record_count": 1,
+      "pass": true
+    },
+    {
+      "path": "yam_cube_pick/evidence/numerical_campaign/raw/velocity_iterations_8.json",
+      "role": "numerical_cell",
+      "bytes": 1156017,
+      "sha256": "66ec1069b9f74aa4c93ccd464398afc0fb5bbb345844fc4aacf7a2d1672b32c7",
+      "schema": "yam-cube-pick-run/1.0",
+      "execution_source_sha256": "5ce65c1a57a32f922b5451f369c375cdadd81d31deb294b8902d97668216a718",
+      "evidence_software_source_sha256": "18f96936b14c02083b55a89758aa1bcb63a628663f596db9cdb26e6666e34942",
+      "record_count": 1,
+      "pass": true
+    },
+    {
+      "path": "yam_cube_pick/evidence/qualification_summary.json",
+      "role": "independent_verification",
+      "bytes": 708,
+      "sha256": "027a1154fb9470aa5f892729815a8a11f1f40587d37e1fd8bb914d5c9f2c586c",
+      "schema": "yam-cube-pick-verification/1.0",
+      "pass": true
+    },
+    {
+      "path": "yam_cube_pick/paper/figures/alignment_gate_sweep.pdf",
+      "role": "report_figure",
+      "bytes": 22706,
+      "sha256": "84b5211d8f8c14f1098a9c3c62efb098d0048b1d13ff1a1be57dd8ae7bfa6ff5"
+    },
+    {
+      "path": "yam_cube_pick/paper/figures/alignment_gate_sweep.png",
+      "role": "report_figure",
+      "bytes": 150367,
+      "sha256": "52ce2c85ce6ae4c88319f8fbd585194ad2bc94796d16a2f767aa28702200c3f6"
+    },
+    {
+      "path": "yam_cube_pick/paper/figures/architecture.pdf",
+      "role": "report_figure",
+      "bytes": 32348,
+      "sha256": "510f3fb6599fd68c3c53e862678c39e17997ba595b658a9a781f0e5e2493f1bd"
+    },
+    {
+      "path": "yam_cube_pick/paper/figures/architecture.png",
+      "role": "report_figure",
+      "bytes": 105339,
+      "sha256": "5c69b8f0037b31525fada5f43d26bdcf242c3351a35b9e8f0776fa1d1242b9d8"
+    },
+    {
+      "path": "yam_cube_pick/paper/figures/calibration_pipeline.pdf",
+      "role": "report_figure",
+      "bytes": 26859,
+      "sha256": "ee14e96f6922e23246bf498daea3500472955af45bedb3e5f32d813a9b1a212a"
+    },
+    {
+      "path": "yam_cube_pick/paper/figures/calibration_pipeline.png",
+      "role": "report_figure",
+      "bytes": 83324,
+      "sha256": "343b687b84272ef2f6c417aa1aeb207e1cd8a0889c7f32ad39d0385436bd7ed8"
+    },
+    {
+      "path": "yam_cube_pick/paper/figures/evidence_values.tex",
+      "role": "report_figure",
+      "bytes": 2063,
+      "sha256": "f9101d548973a05cdf6857ae2cb9c08a6f57030187f00d2e4cc0de73d42591fe"
+    },
+    {
+      "path": "yam_cube_pick/paper/figures/falsification.pdf",
+      "role": "report_figure",
+      "bytes": 18891,
+      "sha256": "1805ecd995eb8c9502f55fe9fdd2c193812ba6540b16f6bae64595327d987435"
+    },
+    {
+      "path": "yam_cube_pick/paper/figures/falsification.png",
+      "role": "report_figure",
+      "bytes": 76191,
+      "sha256": "93e77cd8d19966500ee98543cb84443fb88405f4c0e64e97ab7b1b0fafc06eac"
+    },
+    {
+      "path": "yam_cube_pick/paper/figures/figure_manifest.json",
+      "role": "report_figure",
+      "bytes": 4025,
+      "sha256": "b392b7e17fc3467dce4b20188f1e09799d5d9cd917c02c1fd41c12821b0d1e59",
+      "schema": "yam-cube-pick-figure-manifest/1.0"
+    },
+    {
+      "path": "yam_cube_pick/paper/figures/motion_contact_sheet.png",
+      "role": "report_figure",
+      "bytes": 491906,
+      "sha256": "e2c93b5d041a2a575fce76abb2519434092c74266d813870435fa48a17493c41"
+    },
+    {
+      "path": "yam_cube_pick/paper/figures/qualification_distributions.pdf",
+      "role": "report_figure",
+      "bytes": 19184,
+      "sha256": "8970750cfd347149fece0ec450a1dde75f0729bec93ecd0d4d9b89367c42efe6"
+    },
+    {
+      "path": "yam_cube_pick/paper/figures/qualification_distributions.png",
+      "role": "report_figure",
+      "bytes": 123586,
+      "sha256": "12786238c65bb456a3c5aff47162a847b598ee291df01afc2f98cf2df8edede6"
+    },
+    {
+      "path": "yam_cube_pick/paper/figures/qualification_map.pdf",
+      "role": "report_figure",
+      "bytes": 20126,
+      "sha256": "d457478ce7c7c70c9a6f7976eefbabb8493e0c7944a423563ca4a1cb5017319b"
+    },
+    {
+      "path": "yam_cube_pick/paper/figures/qualification_map.png",
+      "role": "report_figure",
+      "bytes": 90533,
+      "sha256": "02fef6307ca741308b8d18a22a7c7509b229e711c3f709317321f86fbd531d05"
+    },
+    {
+      "path": "yam_cube_pick/paper/figures/reference_dynamics.pdf",
+      "role": "report_figure",
+      "bytes": 20097,
+      "sha256": "22c42457300d49cb1dd61cbb1e2007ba8b39796f19fb1a407ed5213767f592f4"
+    },
+    {
+      "path": "yam_cube_pick/paper/figures/reference_dynamics.png",
+      "role": "report_figure",
+      "bytes": 142326,
+      "sha256": "bda66298c9b92bc39a5fe8dda64812a936680430d6a2eb45a3a232a9606de664"
+    },
+    {
+      "path": "yam_cube_pick/paper/figures/reference_tracking.pdf",
+      "role": "report_figure",
+      "bytes": 19302,
+      "sha256": "10851d8df4fc6e1cf92bd2579b8514e7d0e8af8c4bc13cee77520bebc5e65c66"
+    },
+    {
+      "path": "yam_cube_pick/paper/figures/reference_tracking.png",
+      "role": "report_figure",
+      "bytes": 196724,
+      "sha256": "5389c954561a14b161788b240b771c342f6f0c990adcc1e6dba71920c82928b6"
+    },
+    {
+      "path": "yam_cube_pick/paper/figures/reward_objective.pdf",
+      "role": "report_figure",
+      "bytes": 21447,
+      "sha256": "282b4ce9c404a13b9e38375122f1504842aa1deafbf7f772b07257df4bf966c4"
+    },
+    {
+      "path": "yam_cube_pick/paper/figures/reward_objective.png",
+      "role": "report_figure",
+      "bytes": 59625,
+      "sha256": "b6c2edc93c0006d40029999c018216340b34aecdaeee6d24b197770a32be5f2c"
+    },
+    {
+      "path": "yam_cube_pick/paper/figures/sensitivity.pdf",
+      "role": "report_figure",
+      "bytes": 19091,
+      "sha256": "803e5a6e9d6ddf16e18780cdabfb2befcebf3c76e31f72a94765cd9cd487dbf3"
+    },
+    {
+      "path": "yam_cube_pick/paper/figures/sensitivity.png",
+      "role": "report_figure",
+      "bytes": 96297,
+      "sha256": "1d609cfa37deba9abea129411e2d12355059d79c698c6bb6111a6896cfe61655"
+    },
+    {
+      "path": "yam_cube_pick/paper/figures/solver_convergence.pdf",
+      "role": "report_figure",
+      "bytes": 17337,
+      "sha256": "3acb1250f0b38928aa1f849fd7ed8ba9c0f39e331a917478650e4d1dd15ac459"
+    },
+    {
+      "path": "yam_cube_pick/paper/figures/solver_convergence.png",
+      "role": "report_figure",
+      "bytes": 151791,
+      "sha256": "3fe1a44172202c667e939b030931a44c168ff18b4c75b9188932d3995c7c1486"
+    },
+    {
+      "path": "yam_cube_pick/paper/figures/temporal_convergence.pdf",
+      "role": "report_figure",
+      "bytes": 18582,
+      "sha256": "e9c86dc455873e64e5268002513891dd7c3830f078dc238f2e1500fdcabadea0"
+    },
+    {
+      "path": "yam_cube_pick/paper/figures/temporal_convergence.png",
+      "role": "report_figure",
+      "bytes": 182742,
+      "sha256": "8d90c9223f8c1c679c97000056848e8d7ceb95b288e40e763270485657df9ad1"
+    },
+    {
+      "path": "yam_cube_pick/paper/rendered_pages/page_01.png",
+      "role": "report_visual_qa",
+      "bytes": 307521,
+      "sha256": "db6b57f5e99b265ca915f4365d74163dbf6e2edb7ab820f3a3f34b5840c2f884"
+    },
+    {
+      "path": "yam_cube_pick/paper/rendered_pages/page_02.png",
+      "role": "report_visual_qa",
+      "bytes": 207752,
+      "sha256": "753db4966c182faadb0b2b4c0787c14b17bdd1545f2caf21dd96cc93213a5c15"
+    },
+    {
+      "path": "yam_cube_pick/paper/rendered_pages/page_03.png",
+      "role": "report_visual_qa",
+      "bytes": 98552,
+      "sha256": "e29945318804d30440cc8bd383e59362c8c4c5465ea598aaae5cae84ab40f0ee"
+    },
+    {
+      "path": "yam_cube_pick/paper/rendered_pages/page_04.png",
+      "role": "report_visual_qa",
+      "bytes": 91047,
+      "sha256": "c8ff24d462c879a50b88f9d5c373aef7e712e2580d2a83782f1df35aa589f8bc"
+    },
+    {
+      "path": "yam_cube_pick/paper/rendered_pages/page_05.png",
+      "role": "report_visual_qa",
+      "bytes": 170590,
+      "sha256": "0c6281627e634905530e8e27f79aaaec9b218fdb52901600caf36ab574e6e8d7"
+    },
+    {
+      "path": "yam_cube_pick/paper/rendered_pages/page_06.png",
+      "role": "report_visual_qa",
+      "bytes": 192696,
+      "sha256": "072f23587766b6a52b58ad0e04594fd97203279dfc2a965a08ca165ea379e84c"
+    },
+    {
+      "path": "yam_cube_pick/paper/rendered_pages/page_07.png",
+      "role": "report_visual_qa",
+      "bytes": 186459,
+      "sha256": "b9cf4c9f9b3973484d6e070a6712b63bb399395cd7ab562e83980debbcd032db"
+    },
+    {
+      "path": "yam_cube_pick/paper/rendered_pages/page_08.png",
+      "role": "report_visual_qa",
+      "bytes": 204872,
+      "sha256": "838955a099daf910c83015c0f3038226b0b36c2aa0888a8883c62c65e69f0f86"
+    },
+    {
+      "path": "yam_cube_pick/paper/rendered_pages/page_09.png",
+      "role": "report_visual_qa",
+      "bytes": 208501,
+      "sha256": "f203e53d73340ad1bf8d08114a101ad02999753f005313ffb52f1f6ca040fedd"
+    },
+    {
+      "path": "yam_cube_pick/paper/rendered_pages/page_10.png",
+      "role": "report_visual_qa",
+      "bytes": 237970,
+      "sha256": "c3ad4a8fcb77907f8f3dce8ffa31329b71eb361497450172c7f6472ceea8993e"
+    },
+    {
+      "path": "yam_cube_pick/paper/rendered_pages/page_11.png",
+      "role": "report_visual_qa",
+      "bytes": 392951,
+      "sha256": "3e527e0b795186708497cd4221133edfe9cf94ea28c785aa9dd148fced1b4546"
+    },
+    {
+      "path": "yam_cube_pick/paper/rendered_pages/page_12.png",
+      "role": "report_visual_qa",
+      "bytes": 152714,
+      "sha256": "43537ecd1e1aa6cbc5804ddd85cd3c5c3d57de66ac7b51617dd0a13c4b880cc7"
+    },
+    {
+      "path": "yam_cube_pick/paper/rendered_pages/page_13.png",
+      "role": "report_visual_qa",
+      "bytes": 203781,
+      "sha256": "2410b958a4bbae8b179f7178cad51931449a3b236a9638d5437b29d36c1d42d4"
+    },
+    {
+      "path": "yam_cube_pick/paper/rendered_pages/page_14.png",
+      "role": "report_visual_qa",
+      "bytes": 167362,
+      "sha256": "30db7152f1ff4a76ac4de7ad00861e9b15341b59b77c06e14f768d3ee2b341f3"
+    },
+    {
+      "path": "yam_cube_pick/paper/rendered_pages/page_15.png",
+      "role": "report_visual_qa",
+      "bytes": 203405,
+      "sha256": "a414297c8f1ddb2c5e1541464c8d6461a9c0f2f08265fab0c203b7123e2f971c"
+    },
+    {
+      "path": "yam_cube_pick/paper/rendered_pages/page_16.png",
+      "role": "report_visual_qa",
+      "bytes": 83094,
+      "sha256": "5f0abf1feb835315bed60954cdb9cc48f1ca6d66e87a65dff710fdc0268e4c0e"
+    },
+    {
+      "path": "yam_cube_pick/paper/rendered_pages/page_17.png",
+      "role": "report_visual_qa",
+      "bytes": 90411,
+      "sha256": "e535cf52c356bf7c9041a3dece365da28f78221510cfa0c7386a7da6e3c138e3"
+    },
+    {
+      "path": "yam_cube_pick/paper/rendered_pages/page_18.png",
+      "role": "report_visual_qa",
+      "bytes": 323367,
+      "sha256": "1a5dd900182eb31e09f776d515c5899666240c3c28cc1f8953e9e9ebb1abb834"
+    },
+    {
+      "path": "yam_cube_pick/paper/rendered_pages/page_19.png",
+      "role": "report_visual_qa",
+      "bytes": 251925,
+      "sha256": "836492ac3c78a70de9c77d12bc818c5ec750319fa7dd181ded88818552a6bbd0"
+    },
+    {
+      "path": "yam_cube_pick/paper/rendered_pages/page_20.png",
+      "role": "report_visual_qa",
+      "bytes": 194139,
+      "sha256": "3f82e7aaf8b86ca7ed73b70e9bf3165588abe9aaffa1c2e4ccdffae483c71c5f"
+    },
+    {
+      "path": "yam_cube_pick/paper/rendered_pages/page_21.png",
+      "role": "report_visual_qa",
+      "bytes": 245111,
+      "sha256": "ee2b8539cce630869323d893131998ccd5afc496e8906880720c8a5d64a01cd6"
+    },
+    {
+      "path": "yam_cube_pick/paper/rendered_pages/page_22.png",
+      "role": "report_visual_qa",
+      "bytes": 231124,
+      "sha256": "324ba673ba211ee93941b7c0fe6e482f8cbbc109f063b5ca6c649c59b0419e6b"
+    },
+    {
+      "path": "yam_cube_pick/paper/rendered_pages/page_23.png",
+      "role": "report_visual_qa",
+      "bytes": 203702,
+      "sha256": "cf234f685341a3e1ffe067ac56441b88eb1096b459ad1f1443cf887f168b22ae"
+    },
+    {
+      "path": "yam_cube_pick/paper/rendered_pages/page_24.png",
+      "role": "report_visual_qa",
+      "bytes": 209269,
+      "sha256": "351e9dc70f6171d7f5647db041e0743ca253e47c611842eed5822dafec646e07"
+    },
+    {
+      "path": "yam_cube_pick/paper/rendered_pages/page_25.png",
+      "role": "report_visual_qa",
+      "bytes": 203260,
+      "sha256": "87f1299a38672148bdba939b1c54c0527f513894cb1417d167b05d10a0696b6b"
+    },
+    {
+      "path": "yam_cube_pick/paper/rendered_pages/page_26.png",
+      "role": "report_visual_qa",
+      "bytes": 106670,
+      "sha256": "7160c49cc6cc0f9e8276f40ea6346d3ffb8b8d8b495d855a19312f21baee999b"
+    },
+    {
+      "path": "yam_cube_pick/paper/report_contact_sheet.jpg",
+      "role": "report_visual_qa",
+      "bytes": 629043,
+      "sha256": "0f6986e3e82c228e238fd1dfc0cc492043f41c8e5841dd13c95ba48ce038e428"
+    },
+    {
+      "path": "yam_cube_pick/paper/report_qa.json",
+      "role": "report_visual_qa",
+      "bytes": 5225,
+      "sha256": "9c8978fd3e44537858021ccd71227694c8dedfa031665d1095d79466cd51efe0",
+      "schema": "yam-cube-pick-report-qa/1.0",
+      "pass": true
+    },
+    {
+      "path": "yam_cube_pick/paper/yam_cube_pick_physics_report.pdf",
+      "role": "physics_report",
+      "bytes": 3132896,
+      "sha256": "f5e8076e0ecb1b285c4981b546670497107e919bdc2cf82358435d65c5f7fc03"
+    },
+    {
+      "path": "yam_cube_pick/paper/yam_cube_pick_physics_report.tex",
+      "role": "support",
+      "bytes": 76476,
+      "sha256": "15736e8267a53b66bc244e2541d190da3293b0205db5523287920b550d505572"
+    },
+    {
+      "path": "yam_cube_pick/paper/yam_cube_pick_physics_report.txt",
+      "role": "report_text_qa",
+      "bytes": 65535,
+      "sha256": "e96f600a4a98bb0ca9ba3470fd8e9aef255d0924a67677448c262cfa0e2752e9"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_stills_contact/episode_000_00_approach.png",
+      "role": "render",
+      "bytes": 351150,
+      "sha256": "df202a3bd65691c223feec7c7931753290967da3346a8290d7b06f85f9520786"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_stills_contact/episode_000_01_descend.png",
+      "role": "render",
+      "bytes": 441336,
+      "sha256": "64a66026285e78b0694816cd8dbb0a6e38047ce538058413347ace659d8c5bf1"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_stills_contact/episode_000_02_close.png",
+      "role": "render",
+      "bytes": 486307,
+      "sha256": "57f3b048857b8fd5b82a09fa274075841db033371aa43cd2630ae7cfbec138db"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_stills_contact/episode_000_03_lift.png",
+      "role": "render",
+      "bytes": 470741,
+      "sha256": "d012bbab92debb2fa935435dabf9703cda5f3dbbd988ea09cff300255b8c4c21"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_stills_contact/episode_000_04_hold.png",
+      "role": "render",
+      "bytes": 438189,
+      "sha256": "9e8bdce23117ac307e941e32560117f5afdb233d99635b6448b72b6c88c7931d"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_stills_contact/episode_000_05_terminal_success.png",
+      "role": "render",
+      "bytes": 417561,
+      "sha256": "d7e6eb140e9a6e515f70eb5387bfdaf8e61ef9b052f24b0b6343373eb7a1db9c"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_stills_overview/episode_000_00_approach.png",
+      "role": "render",
+      "bytes": 452348,
+      "sha256": "ffa9894fbc4a0332e6cd93bbf076bc4b732dc5771ccf1259fe40dd3d32d07b1d"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_stills_overview/episode_000_01_descend.png",
+      "role": "render",
+      "bytes": 478654,
+      "sha256": "5de3b7e7bc3c6e1bf254529b99aa97c91223ef6a7b36d92049cb5d64b5d23c63"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_stills_overview/episode_000_02_close.png",
+      "role": "render",
+      "bytes": 485969,
+      "sha256": "635da6b94e5088dda5631110d92a7b286f534f8ea0a0c1966d3f2bdf65b00596"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_stills_overview/episode_000_03_lift.png",
+      "role": "render",
+      "bytes": 484207,
+      "sha256": "d63b0b87a0bf813847e901944c2037d680e1d87c1853a2e8e28449d224aabf0f"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_stills_overview/episode_000_04_hold.png",
+      "role": "render",
+      "bytes": 486380,
+      "sha256": "1dee8f33f343aa5c12e0be9ae27607a397c63e381cf35b8d45108b0c642ca91c"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_stills_overview/episode_000_05_terminal_success.png",
+      "role": "render",
+      "bytes": 483638,
+      "sha256": "da37a6e6c977ae852998cae061c710cbd379fb31c14a100a49cc4c95b5246cde"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_stills_task/episode_000_00_approach.png",
+      "role": "render",
+      "bytes": 449292,
+      "sha256": "18bb0e19eacd696665084bfaebe349653ba38fc693552227e934767830682139"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_stills_task/episode_000_01_descend.png",
+      "role": "render",
+      "bytes": 490412,
+      "sha256": "c5be4dcd1c448b2c5876fa97e16d2c3f4141be6a7ffed861bc1ba29ef70afc43"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_stills_task/episode_000_02_close.png",
+      "role": "render",
+      "bytes": 499527,
+      "sha256": "c629216d6983175cc65db8d079e9c1c447bd3e624a07fffc6470d02a46d00ed5"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_stills_task/episode_000_03_lift.png",
+      "role": "render",
+      "bytes": 494528,
+      "sha256": "5e36d04d145de61f72d87711270c9f915c4e44b967de61f2a1c51372573e2419"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_stills_task/episode_000_04_hold.png",
+      "role": "render",
+      "bytes": 492292,
+      "sha256": "5424d3aa87c33c2b99354990b96c67eb1153a8ddb22e854eaf870197d90226f3"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_stills_task/episode_000_05_terminal_success.png",
+      "role": "render",
+      "bytes": 492047,
+      "sha256": "f1ebd9af7e1476db81f9bd206f5b02bf7fd8ac419f103311bb3a9eee21ec8e2e"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_00_approach.png",
+      "role": "video",
+      "bytes": 449292,
+      "sha256": "18bb0e19eacd696665084bfaebe349653ba38fc693552227e934767830682139"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_01_video_000003.png",
+      "role": "video",
+      "bytes": 455585,
+      "sha256": "9e34d7c30ed157aa59a6f3c095850b173a9189cf574d23498eaee0c93245f3a1"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_02_video_000006.png",
+      "role": "video",
+      "bytes": 461719,
+      "sha256": "141e2cf72362130fc7036160585d9099039edbfff3b8b819393280f6ff223cf7"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_03_video_000009.png",
+      "role": "video",
+      "bytes": 459822,
+      "sha256": "d7ffa5c7182813904485ea5397df30d6f420335f89ed40a703dfabe03a247afb"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_04_video_000012.png",
+      "role": "video",
+      "bytes": 461530,
+      "sha256": "b23c5e611302984c4ad3a80ad1c9b900a74f464a55837a2383e8fd8961068568"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_05_video_000015.png",
+      "role": "video",
+      "bytes": 461618,
+      "sha256": "dd688b11cf5d9c981b27f123afdf7613514b4dfc41c9700eacfc2344063c9526"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_06_video_000018.png",
+      "role": "video",
+      "bytes": 464155,
+      "sha256": "14ff62004e80a81f2831270a47d120e6fffff7a3ff16a5afe59ddeaaf480e021"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_07_video_000021.png",
+      "role": "video",
+      "bytes": 466688,
+      "sha256": "f11e451d229e3d27d5b6422f176cbedb809cede208bf194a6228372bc005d206"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_08_video_000024.png",
+      "role": "video",
+      "bytes": 469859,
+      "sha256": "db113cc709c1cd3eb63894475f375b8399a22c81ef90c3ff9deb41701f169897"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_09_video_000027.png",
+      "role": "video",
+      "bytes": 471825,
+      "sha256": "c02de7b723963b3192d64e2feb14d38ce33aa821f4d1c278b5ac0ce758a89c2f"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_100_video_000291.png",
+      "role": "video",
+      "bytes": 496452,
+      "sha256": "e22e379adc4d270d678de1930f10c57e294593b288efff17a79a2c01b17b94dd"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_101_hold.png",
+      "role": "video",
+      "bytes": 492292,
+      "sha256": "5424d3aa87c33c2b99354990b96c67eb1153a8ddb22e854eaf870197d90226f3"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_102_video_000294.png",
+      "role": "video",
+      "bytes": 486344,
+      "sha256": "1aae9c427d6a6d64b6366bd26f983325e6b49190f0078f93d5ee702954c36d31"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_103_video_000297.png",
+      "role": "video",
+      "bytes": 494418,
+      "sha256": "0eb46ba89a8494d110437975e3b7010c1ece8650d5c8f363291a55578b4848f4"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_104_video_000300.png",
+      "role": "video",
+      "bytes": 491082,
+      "sha256": "f540e07f033917c0fac55135458684cb1e6b71e8d6f28dbc828a4fad83a5daa5"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_105_video_000303.png",
+      "role": "video",
+      "bytes": 492866,
+      "sha256": "66c61fad2c477149cd83c53cd71a74882fc0a9fcdbf455f890fb1b0faf51c6ff"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_106_video_000306.png",
+      "role": "video",
+      "bytes": 494983,
+      "sha256": "bf3f077bacecce44a81b284e9e77c2b7701d6c906c8204545cafe8df79a14f9f"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_107_video_000309.png",
+      "role": "video",
+      "bytes": 497133,
+      "sha256": "d3bc7f81795abf238c0061ecdfb060eca4de5c6613442311379af69e8b4a6d36"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_108_terminal_success.png",
+      "role": "video",
+      "bytes": 492047,
+      "sha256": "f1ebd9af7e1476db81f9bd206f5b02bf7fd8ac419f103311bb3a9eee21ec8e2e"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_10_video_000030.png",
+      "role": "video",
+      "bytes": 476917,
+      "sha256": "bface2728db7918f710f633e6d2249bc09f14d6ddfda55129caf49953b74ce43"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_11_video_000033.png",
+      "role": "video",
+      "bytes": 476737,
+      "sha256": "9a66272bfecfc6873ac2f3231ef7d747161aad4756d40b63ae7eff9341d220f7"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_12_video_000036.png",
+      "role": "video",
+      "bytes": 473184,
+      "sha256": "e1b453cc496adae3a73bd32ea9ea960c9a106ffa88ee569a937254f78523d27f"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_13_video_000039.png",
+      "role": "video",
+      "bytes": 471013,
+      "sha256": "60dbde46073deedeef896c23314eacebd3174cdda19fb37faea5ee880f0af2cf"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_14_video_000042.png",
+      "role": "video",
+      "bytes": 469217,
+      "sha256": "94973239213cd71e3b156350a169c8a5077e1c31eb6f753dbb7e82b4e76370cc"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_15_video_000045.png",
+      "role": "video",
+      "bytes": 470394,
+      "sha256": "6f98c957a040675b5e053ffb698f5e6c0aba2377636106c098854fe86fd172d5"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_16_video_000048.png",
+      "role": "video",
+      "bytes": 471372,
+      "sha256": "bd5f631b0dd46fffa7d078edfc217c01e000fd2419e929096234ad8a1b4c2f87"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_17_video_000051.png",
+      "role": "video",
+      "bytes": 470252,
+      "sha256": "7f643172ccfa90225e4eb10c7dddad74c8ce875cd43e3fb1f653c32d662b1d16"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_18_video_000054.png",
+      "role": "video",
+      "bytes": 477356,
+      "sha256": "41ce8a530b04f1c4db4e0dccc66b1b3f4d3b02339d33a791cd24c0bbddc95089"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_19_video_000057.png",
+      "role": "video",
+      "bytes": 477064,
+      "sha256": "993de5a848c0f394dddaadaf719b834c003d601febe3a3b5fc621357df8933c9"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_20_video_000060.png",
+      "role": "video",
+      "bytes": 474655,
+      "sha256": "971e587966d26660607138ca6018f22ef4a44257aae4e4cf2363ddba9fc15f9e"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_21_video_000063.png",
+      "role": "video",
+      "bytes": 474210,
+      "sha256": "0737c23521cf59287cd003dc81a086eef7bee1a84100490b626d72da6f0953e9"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_22_video_000066.png",
+      "role": "video",
+      "bytes": 475502,
+      "sha256": "8aabc1afab4ab48f260c6e8611596c6719fd41f0bd95f1cf9d585be9f5b3880c"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_23_video_000069.png",
+      "role": "video",
+      "bytes": 475371,
+      "sha256": "964150ef2e7a61b6d890056a140192289964b98c16d9e6310c8cc2ea7f796dc9"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_24_video_000072.png",
+      "role": "video",
+      "bytes": 476575,
+      "sha256": "4e79ddc416194c87a45fbf096c18dfdad9da5a28215cfdc55ad9292ef1ec7dd9"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_25_video_000075.png",
+      "role": "video",
+      "bytes": 476372,
+      "sha256": "c685ac9bf0839eabdd572d71f0c63e2e08981a6cb35b7a27c4fdfb77df1cc4a0"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_26_video_000078.png",
+      "role": "video",
+      "bytes": 479366,
+      "sha256": "e400b115db8f1bbb82ffac71c74d4ea442061a7291c2ab7842a17a00574df457"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_27_video_000081.png",
+      "role": "video",
+      "bytes": 480093,
+      "sha256": "4f7a068e7523f4ff0c1899790bfe32b941b1192900a54a2c5c0f1e27507ad9df"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_28_video_000084.png",
+      "role": "video",
+      "bytes": 483092,
+      "sha256": "6a909f1f6628f49ee69456a3882d41eed2b56f17b6655b9735efb48ac604ab79"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_29_video_000087.png",
+      "role": "video",
+      "bytes": 483100,
+      "sha256": "941b915090f2de0340bbd5231c8f055ed7e4f648194462f75263f63fe2558224"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_30_video_000090.png",
+      "role": "video",
+      "bytes": 482861,
+      "sha256": "1dd2f157fac270bb679a06e7fc4bb5487af1715a67f725223547df0e347cf092"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_31_video_000093.png",
+      "role": "video",
+      "bytes": 485530,
+      "sha256": "835ce57879add347880f0e5c3addefff404c9c8d418ed47c1c54d3ab2242d7f5"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_32_video_000096.png",
+      "role": "video",
+      "bytes": 485206,
+      "sha256": "798a7a0f43eacae103000d1464c1d323d782789e8c101e33b2b3c5db4f6d3e89"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_33_video_000099.png",
+      "role": "video",
+      "bytes": 487278,
+      "sha256": "c0faf322c91d0423a6d9e1d8959578ea6fb71c34080b84d0bd2b0e8bfa9365d3"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_34_video_000102.png",
+      "role": "video",
+      "bytes": 484966,
+      "sha256": "c8e12e4293562575215fa635cec333ed141414c3357d91d251dedcb8466f0fbb"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_35_video_000105.png",
+      "role": "video",
+      "bytes": 486264,
+      "sha256": "9d974dd1c968b7bbb56bf9bec7d7255862932d2c0410cbb4339d5fcf877c02e2"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_36_video_000108.png",
+      "role": "video",
+      "bytes": 486692,
+      "sha256": "fdfed90caa6eb3f24dc7817cc602e9fde29f2a7f3ee78bcd80141001f8ca1dcf"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_37_video_000111.png",
+      "role": "video",
+      "bytes": 482874,
+      "sha256": "5720375e7ce78d44ac85a24ae2c24b796143fd06615ee6c996c2cf93dd512c11"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_38_video_000114.png",
+      "role": "video",
+      "bytes": 482451,
+      "sha256": "54640e0bce36648b392f17fb576047c37badace932c6ed10f8cca69df75f91cd"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_39_video_000117.png",
+      "role": "video",
+      "bytes": 483205,
+      "sha256": "ede098d24e9334ba06a036421162777ec75edd1c8b6819059a70978bef7c1848"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_40_video_000120.png",
+      "role": "video",
+      "bytes": 475719,
+      "sha256": "d11132a289540150bad804e0297e262dea976a15081a5ef76b992275250991e1"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_41_video_000123.png",
+      "role": "video",
+      "bytes": 479133,
+      "sha256": "84cd24a2b6cecba0348d60fb2eb458e24e62a380195e7843ee98b4467f0adc7f"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_42_video_000126.png",
+      "role": "video",
+      "bytes": 478507,
+      "sha256": "603e45230bd337a96bed84ec6fd0714178d67f698ec2447e51e05d8ffd42decd"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_43_video_000129.png",
+      "role": "video",
+      "bytes": 476032,
+      "sha256": "730c260a0e90b6d9a3f50ee6bb38a65e5c837b66a82ba4fdcd5200fd1d342d77"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_44_video_000132.png",
+      "role": "video",
+      "bytes": 475489,
+      "sha256": "f97a75864b2d20213877fd1746653b1d6b66c07f063d0521ab365c348c21c7b8"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_45_video_000135.png",
+      "role": "video",
+      "bytes": 477904,
+      "sha256": "756f27a1378dc05eaee6084fb696b71a537d4ce76bcb5811bb71d6e70f2d6d62"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_46_video_000138.png",
+      "role": "video",
+      "bytes": 480108,
+      "sha256": "0b85bf5d389d0927c24e99ba131ffb228ef0ba012b0d34347324d098000e1467"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_47_video_000141.png",
+      "role": "video",
+      "bytes": 483366,
+      "sha256": "fdf8334d85db54f74749ea2d58e9d51acf5d60c8b7ad6604f3b40bd8264bb372"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_48_video_000144.png",
+      "role": "video",
+      "bytes": 484788,
+      "sha256": "ae11515a614b23fdd9c6233d56743c33e9d4f1a62909293f73d825dfa6effa35"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_49_video_000147.png",
+      "role": "video",
+      "bytes": 483079,
+      "sha256": "4062108b96de8e56bab16fef0a8b396f740a29cec49bee533e4e3ec09a54e260"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_50_video_000150.png",
+      "role": "video",
+      "bytes": 482815,
+      "sha256": "36f81c198439103e5803c46b82a6de2a22cfcccc88a25a2ad27fef8d65436710"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_51_video_000153.png",
+      "role": "video",
+      "bytes": 483831,
+      "sha256": "5f4b7713d9def291a701e433cddd560043afa59bcaee2211e61daa740882f8af"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_52_video_000156.png",
+      "role": "video",
+      "bytes": 483696,
+      "sha256": "29bb598e9e47e277a0dd6f6ee9925bd83f59e7b78838e507ff8ac043744aaa7b"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_53_video_000159.png",
+      "role": "video",
+      "bytes": 485900,
+      "sha256": "87284bb16f8c13d7887327d4529f131f0f9732aa723169a01b7f69c1ea5b5539"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_54_video_000162.png",
+      "role": "video",
+      "bytes": 482710,
+      "sha256": "7f76f84521623b1be49aaca17482121254e595aafea0a239fa8de3d08df5844b"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_55_video_000165.png",
+      "role": "video",
+      "bytes": 488402,
+      "sha256": "af7b80f4d4d662e650d5ebe345174035d8479632c357c2fd0b447a576c9829b5"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_56_video_000168.png",
+      "role": "video",
+      "bytes": 484631,
+      "sha256": "f30fb36fd2441f2bacb66f368e92f97bddbdee1773fdc833028325eab7abcf07"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_57_video_000171.png",
+      "role": "video",
+      "bytes": 487025,
+      "sha256": "59586636fe2349053f86e0f62649dd9177a26900404e0a55f8d639fa6c8c55fe"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_58_video_000174.png",
+      "role": "video",
+      "bytes": 486065,
+      "sha256": "1d7eded8059d2f92b711d6c29de8ba8b9c41f36e4f0e1b74c745c4039c70bc6b"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_59_video_000177.png",
+      "role": "video",
+      "bytes": 488621,
+      "sha256": "4fa41cd14a2f75129a98742d6c3bcbed2f2700ad31bc4fdaef1942c72748fc21"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_60_video_000180.png",
+      "role": "video",
+      "bytes": 487791,
+      "sha256": "60089254a40fc7571807671c7e34e811b490ce038d358fda3996bf4341aa42ad"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_61_descend.png",
+      "role": "video",
+      "bytes": 490412,
+      "sha256": "c5be4dcd1c448b2c5876fa97e16d2c3f4141be6a7ffed861bc1ba29ef70afc43"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_62_video_000183.png",
+      "role": "video",
+      "bytes": 487611,
+      "sha256": "d26af202115536d3dcf581130e33d3901a591035e8c0d772298bc5ded1d0765b"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_63_video_000186.png",
+      "role": "video",
+      "bytes": 489881,
+      "sha256": "e2b1f25526a31d0eb2c6a75f739d4eddc947efd02f2592a85cf708740b1996c5"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_64_video_000189.png",
+      "role": "video",
+      "bytes": 494789,
+      "sha256": "88a412a33fd001afe1f38f3a5ad7957e6c9e077447b7557dbbf626b9ad0e7468"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_65_video_000192.png",
+      "role": "video",
+      "bytes": 496690,
+      "sha256": "34ecdbba75d52d8359742b22e4c1118a3ac99913925b322b1ad08ae05a6413d6"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_66_video_000195.png",
+      "role": "video",
+      "bytes": 500459,
+      "sha256": "2b4984f920595e1c4028e0235caa860d36c8e8d58799b7eb37ef4d62e4fe0167"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_67_video_000198.png",
+      "role": "video",
+      "bytes": 502186,
+      "sha256": "59d1ba42e33073e42911ebe1667b4af36a5c22d34d25bd1d0752d3828f045411"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_68_video_000201.png",
+      "role": "video",
+      "bytes": 502853,
+      "sha256": "64457d276468b208d62164caf50e953d95427aadf1366ff0bba9eaf7c1379b8f"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_69_video_000204.png",
+      "role": "video",
+      "bytes": 503566,
+      "sha256": "9709f9bed79eb8d78e23e4cb8c43de4e30ba8a35fd7b825cab299d751537f39e"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_70_video_000207.png",
+      "role": "video",
+      "bytes": 500495,
+      "sha256": "ea1af32a2e86b30ece2b91a76a6ff192d646f28162130332f3360bad464444c9"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_71_video_000210.png",
+      "role": "video",
+      "bytes": 501104,
+      "sha256": "942c6e22748a0bf8d1becf34630ae5dcc51f76c7c57dcb6a28ff5d742260fda0"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_72_video_000213.png",
+      "role": "video",
+      "bytes": 500093,
+      "sha256": "622596136f847299d751305aef6004f030d19973dcd6a4e9053b57660f553bd5"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_73_video_000216.png",
+      "role": "video",
+      "bytes": 502299,
+      "sha256": "b0ce3a55a45fdbfb8d668d3cded90cf6fe1fbb7f921a71b3200ffbbcda99c797"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_74_video_000219.png",
+      "role": "video",
+      "bytes": 501064,
+      "sha256": "92c9db3b2f5bce2a8a7d26d1b8fb4b73378ff05dc9f999041bc12fd5d71a34f9"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_75_video_000222.png",
+      "role": "video",
+      "bytes": 500533,
+      "sha256": "bc0f7ebf6f3fc073d4bd0f5316f8df0c85ab0fc87e608b8d12782d4e1cbffa33"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_76_video_000225.png",
+      "role": "video",
+      "bytes": 500112,
+      "sha256": "adcae00bb754e876e6d0c94540f809b05b18022d6bb45aad87422518a133c37a"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_77_video_000228.png",
+      "role": "video",
+      "bytes": 501273,
+      "sha256": "378436637d005cb1cf00a84bf1fdb194826d8b90441195427c8ec5a74a8dedae"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_78_video_000231.png",
+      "role": "video",
+      "bytes": 500806,
+      "sha256": "aa38d0cd12b023d20995cb0ae88d31bc21a5a73d9e6a7229146270bbb1d10207"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_79_video_000234.png",
+      "role": "video",
+      "bytes": 502798,
+      "sha256": "87c0b613fb286623e72279e133b9346ea709e7d06afbb09930398812ef739c09"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_80_video_000237.png",
+      "role": "video",
+      "bytes": 503210,
+      "sha256": "88b968fae2ed7f50fda470b4f87539c6a4ae387438efab320dcb9ace1476b8c4"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_81_video_000240.png",
+      "role": "video",
+      "bytes": 505076,
+      "sha256": "9ae1aa5f7d4eefafed8d25bca48813fb83c316f12627c0f297da3b94970bdd6e"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_82_video_000243.png",
+      "role": "video",
+      "bytes": 503704,
+      "sha256": "9c0ec6d92fc3e5e6ef9d3478f84a93aa9d24809b27ec1299c1c2cd0c098be813"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_83_video_000246.png",
+      "role": "video",
+      "bytes": 501183,
+      "sha256": "a1bf83da02c36ac3df6d86403363ce60cfb50a65094f6bcd32c8a8aec2f29d16"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_84_video_000249.png",
+      "role": "video",
+      "bytes": 497123,
+      "sha256": "42ac2b7412ce7c2fc880cb72d9b36a13aa031221499716666cf42990f000b739"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_85_video_000252.png",
+      "role": "video",
+      "bytes": 501347,
+      "sha256": "4f14987a9dc27beb492daf9c95764e9410382836f5fc06fe7c840e3af6459b22"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_86_video_000255.png",
+      "role": "video",
+      "bytes": 499619,
+      "sha256": "0c8cdf7b9579db1a622528ca39bb36f27ee00a4fb22e7170af6864fe154241fa"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_87_close.png",
+      "role": "video",
+      "bytes": 499527,
+      "sha256": "c629216d6983175cc65db8d079e9c1c447bd3e624a07fffc6470d02a46d00ed5"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_88_video_000258.png",
+      "role": "video",
+      "bytes": 495578,
+      "sha256": "a4dca6931aad05f1b6e3a8cce8f033abe067d504378240438aa8ca110bf9a06b"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_89_video_000261.png",
+      "role": "video",
+      "bytes": 496118,
+      "sha256": "59db1788f32fdab15e874745269fcc95024837e5a17ccf6736265d0f64912fde"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_90_video_000264.png",
+      "role": "video",
+      "bytes": 503187,
+      "sha256": "a356afddf42c29d080a052db979e1cfe9b50d9c000886d1f5c9bc96078701443"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_91_video_000267.png",
+      "role": "video",
+      "bytes": 501513,
+      "sha256": "bfefb38821a0e40db766da495eb2a6e2daaa2381f2ea98102096da2dacadf70c"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_92_lift.png",
+      "role": "video",
+      "bytes": 494528,
+      "sha256": "5e36d04d145de61f72d87711270c9f915c4e44b967de61f2a1c51372573e2419"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_93_video_000270.png",
+      "role": "video",
+      "bytes": 493600,
+      "sha256": "6f16687ba2da24df99133b7269bbb196d22baa9e2df474dfaddd861363c46920"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_94_video_000273.png",
+      "role": "video",
+      "bytes": 499717,
+      "sha256": "2d0ef61a491716371cdc9657154aa5512f36d40d8b949b2a1faff06ecac1c7c5"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_95_video_000276.png",
+      "role": "video",
+      "bytes": 502801,
+      "sha256": "05331b1b691422c99075139c1140300166d5af125479b12faa0a414aa2754678"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_96_video_000279.png",
+      "role": "video",
+      "bytes": 500776,
+      "sha256": "b6bbad0ffb71b3007ce7bb5c8dbe3bca2eba6bff4a19b954dbc981b1afa69a4d"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_97_video_000282.png",
+      "role": "video",
+      "bytes": 501406,
+      "sha256": "c627dcd358960266d8662e1153b3f5a482c2f8d4f56925f9dcca49751ad86cb8"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_98_video_000285.png",
+      "role": "video",
+      "bytes": 503035,
+      "sha256": "129731ebb955f84f03871e90d2761e01efdccb43252575e360519cf33523e69a"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_video_seed3819/episode_000_99_video_000288.png",
+      "role": "video",
+      "bytes": 499953,
+      "sha256": "1e562d19bfa3fe00193e5b1c4b27138334544871cae072ba22f9768f04390b74"
+    }
+  ]
+}

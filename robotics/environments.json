@@ -332,6 +332,149 @@
       ]
     },
     {
+      "id": "yam-cube-pick",
+      "title": "YAM Cube Pickup",
+      "eyebrow": "Bimanual contact manipulation",
+      "category": "Manipulation",
+      "summary": "Use the left YAM arm to physically grasp and lift a randomized cube while the independently simulated right arm remains inactive.",
+      "description": "YAM Cube Pickup loads the complete vendored bimanual station and treats a simple pickup as an audited contact experiment. A bounded Cartesian controller must approach, establish force-bearing contact on both fingers, lift the freely simulated cube at least 50 mm, clear the table, settle below the speed threshold, and hold for 0.20 seconds. Qualification covers four near-corner samples, the center, and 20 unselected random seeds; no attachment, post-reset cube pose write, hidden lift force, or right-arm assistance is allowed.",
+      "version": "1.0.0",
+      "updated": "2026-07-31",
+      "accent": "#e84b3c",
+      "hero": "yam_cube_pick/renders/final_stills_overview/episode_000_00_approach.png",
+      "featured": true,
+      "mode": "Autonomous reference policy \u00b7 physical contact",
+      "status": {
+        "label": "25 / 25 qualification pickups pass",
+        "tone": "amber",
+        "detail": "All boundary and unselected-seed episodes pass the runtime and independent-verifier gates; cube material and contact parameters remain engineering priors until calibrated to a named specimen."
+      },
+      "tags": [
+        "YAM",
+        "Bimanual",
+        "Grasping",
+        "Contact",
+        "Qualification"
+      ],
+      "metrics": [
+        {
+          "label": "Qualification",
+          "value": "25 / 25"
+        },
+        {
+          "label": "Physical lift",
+          "value": "80.4\u201385.1 mm"
+        },
+        {
+          "label": "Attachments",
+          "value": "0"
+        },
+        {
+          "label": "Right-arm actions",
+          "value": "All zero"
+        }
+      ],
+      "profiles": [
+        {
+          "id": "reference-pickup",
+          "label": "Run verified pickup",
+          "description": "Launch the visible seed-3819 reference policy with both physical YAM arms and the full runtime audit."
+        }
+      ],
+      "controls": [
+        {
+          "keys": "Automatic",
+          "action": "Run the observable-state left-arm reference controller"
+        },
+        {
+          "keys": "Alt + drag",
+          "action": "Orbit the live Isaac Sim camera"
+        },
+        {
+          "keys": "Mouse wheel",
+          "action": "Inspect the grasp and contact geometry"
+        },
+        {
+          "keys": "Toolbar",
+          "action": "Pause or resume the physical simulation"
+        }
+      ],
+      "artifacts": [
+        {
+          "label": "Physics report",
+          "path": "yam_cube_pick/paper/yam_cube_pick_physics_report.pdf",
+          "preview": "yam_cube_pick/paper/rendered_pages/page_01.png",
+          "type": "pdf",
+          "group": "Reports",
+          "caption": "Twenty-six-page mechanics dossier with model ownership, equations, sources, probes, qualification, sensitivity, reward, calibration protocol, and limitations."
+        },
+        {
+          "label": "Verified pickup video",
+          "path": "yam_cube_pick/evidence/final_video_seed3819.mp4",
+          "preview": "yam_cube_pick/renders/final_stills_task/episode_000_05_terminal_success.png",
+          "type": "video",
+          "group": "Motion",
+          "caption": "Fixed-simulation-time H.264 recording of the canonical contact-supported seed-3819 pickup."
+        },
+        {
+          "label": "Approach scene",
+          "path": "yam_cube_pick/renders/final_stills_overview/episode_000_00_approach.png",
+          "type": "image",
+          "group": "Renders",
+          "caption": "Complete bimanual YAM station, randomized cube, fixtures, and task camera before contact."
+        },
+        {
+          "label": "Finger closure",
+          "path": "yam_cube_pick/renders/final_stills_contact/episode_000_02_close.png",
+          "type": "image",
+          "group": "Motion",
+          "caption": "Close inspection of the physical two-finger contact phase."
+        },
+        {
+          "label": "Terminal pickup",
+          "path": "yam_cube_pick/renders/final_stills_task/episode_000_05_terminal_success.png",
+          "type": "image",
+          "group": "Motion",
+          "caption": "Cube held above the table after satisfying lift, contact, clearance, speed, and hold-time predicates."
+        },
+        {
+          "label": "Qualification summary",
+          "path": "yam_cube_pick/evidence/qualification_summary.json",
+          "type": "json",
+          "group": "Evidence",
+          "caption": "Independent aggregate gate for the five boundary and twenty unselected-seed episodes."
+        },
+        {
+          "label": "Numerical campaign",
+          "path": "yam_cube_pick/evidence/numerical_campaign/campaign_summary.json",
+          "type": "json",
+          "group": "Evidence",
+          "caption": "Twenty-two-cell determinism, timestep, solver, material, CCD, and falsification campaign."
+        },
+        {
+          "label": "Artifact manifest",
+          "path": "yam_cube_pick/evidence/artifact_manifest.json",
+          "type": "json",
+          "group": "Data",
+          "caption": "SHA-256 inventory binding the retained runs, video frames, renders, figures, and report QA."
+        },
+        {
+          "label": "Research and fidelity",
+          "path": "yam_cube_pick/RESEARCH_AND_FIDELITY.md",
+          "type": "text",
+          "group": "Notes",
+          "caption": "Primary-source research, model choices, calibration boundary, and falsification plan."
+        },
+        {
+          "label": "Environment contract",
+          "path": "yam_cube_pick/README.md",
+          "type": "text",
+          "group": "Notes",
+          "caption": "Task definition, physics settings, action and observation API, reproduction commands, qualification, and layout."
+        }
+      ]
+    },
+    {
       "id": "applecut",
       "title": "AppleCut",
       "eyebrow": "Deformable cutting",
@@ -1675,6 +1818,6 @@
   "hosting": {
     "mode": "static",
     "sourceRepository": "gym-anything/gym_anything_for_robotics",
-    "sourceCommit": "ab3449a7dc1584e0312f050f1d1ca5fc2f7ed4cd"
+    "sourceCommit": "62c2b0972ce488032877f5aa11acfc761babb552"
   }
 }

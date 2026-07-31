@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "siteUrl": "https://gym-anything.github.io/robotics/",
   "sourceRepository": "gym-anything/gym_anything_for_robotics",
-  "sourceCommit": "ab3449a7dc1584e0312f050f1d1ca5fc2f7ed4cd",
-  "assetCount": 132,
-  "assetBytes": 131898369,
+  "sourceCommit": "62c2b0972ce488032877f5aa11acfc761babb552",
+  "assetCount": 143,
+  "assetBytes": 140851413,
   "assets": [
     {
       "path": "applecut/FINDINGS.md",
@@ -665,6 +665,61 @@
       "path": "triage/paper/triage_station.pdf",
       "bytes": 75325,
       "sha256": "cf591eea2d2332856faa738ea1654f11447f56a593ffdf7296774f516823bcf8"
+    },
+    {
+      "path": "yam_cube_pick/README.md",
+      "bytes": 10028,
+      "sha256": "a3a418026c7ea5983ec167d231c3801b2d4079c04db87767ddd445acad4bc987"
+    },
+    {
+      "path": "yam_cube_pick/RESEARCH_AND_FIDELITY.md",
+      "bytes": 9947,
+      "sha256": "48d41051237374539c6f485c9ff6f20b3dba24cecca2a0f6375600ab6f038f13"
+    },
+    {
+      "path": "yam_cube_pick/evidence/artifact_manifest.json",
+      "bytes": 61014,
+      "sha256": "3cef7550444a30926863f811c72ea1f97feb9b0bc5b9d2ad43c3adf7af1c7e67"
+    },
+    {
+      "path": "yam_cube_pick/evidence/final_video_seed3819.mp4",
+      "bytes": 3937957,
+      "sha256": "c4698cecbd595b9147379ee6874933398f678404280ca24a8368082df8e9fc12"
+    },
+    {
+      "path": "yam_cube_pick/evidence/numerical_campaign/campaign_summary.json",
+      "bytes": 62271,
+      "sha256": "7c89f02e820eae1291f9b589de626354724545eb36f50bde9928c708c45a0d63"
+    },
+    {
+      "path": "yam_cube_pick/evidence/qualification_summary.json",
+      "bytes": 708,
+      "sha256": "027a1154fb9470aa5f892729815a8a11f1f40587d37e1fd8bb914d5c9f2c586c"
+    },
+    {
+      "path": "yam_cube_pick/paper/rendered_pages/page_01.png",
+      "bytes": 307521,
+      "sha256": "db6b57f5e99b265ca915f4365d74163dbf6e2edb7ab820f3a3f34b5840c2f884"
+    },
+    {
+      "path": "yam_cube_pick/paper/yam_cube_pick_physics_report.pdf",
+      "bytes": 3132896,
+      "sha256": "f5e8076e0ecb1b285c4981b546670497107e919bdc2cf82358435d65c5f7fc03"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_stills_contact/episode_000_02_close.png",
+      "bytes": 486307,
+      "sha256": "57f3b048857b8fd5b82a09fa274075841db033371aa43cd2630ae7cfbec138db"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_stills_overview/episode_000_00_approach.png",
+      "bytes": 452348,
+      "sha256": "ffa9894fbc4a0332e6cd93bbf076bc4b732dc5771ccf1259fe40dd3d32d07b1d"
+    },
+    {
+      "path": "yam_cube_pick/renders/final_stills_task/episode_000_05_terminal_success.png",
+      "bytes": 492047,
+      "sha256": "f1ebd9af7e1476db81f9bd206f5b02bf7fd8ac419f103311bb3a9eee21ec8e2e"
     }
   ]
 }

@@ -216,11 +216,12 @@ cannot be ignored.
 | Large tube outer radius | 3.3 mm | FEM | CAD prior only. |
 | Large tube thickness | 0.9 mm | FEM | CAD prior only. |
 | Radial oversize | 0.05 mm | FEM | Initial interference sweep center; not ground truth. |
-| ABS Young's modulus | 2.2 GPa in BrickFEM | FEM | Prior. LEGO material patent prefers >=2 GPa for candidate materials. |
+| ABS Young's modulus | 2.30 GPa | MFR material card | Terluran GP-22 toy-grade injection-molding ABS prior; not LEGO's proprietary compound. |
 | Poisson ratio | 0.35 | FEM | Prior; low sensitivity expected in lumped contact, but verify. |
-| Density | 1000 kg/m^3 in BrickFEM | FEM | Do not trust over measured mass/inertia. |
+| Density | 1040 kg/m^3 | MFR material card | Injection-molding-grade ABS prior; measured brick mass still overrides it. |
 | ABS/ABS friction coefficient | 0.2 | FEM/SIM | Prior only; identify static and dynamic values separately. |
 | Maximum friction load at a modeled contact point | 71.658 g x 9.8 m/s^2 = 0.702 N | MEAS | Useful structural prior; not a direct insertion curve. |
+| Active deformation geometry | tiny protrusions and small ribs | Published design observation | Only local material volumes deflect; a full-height cavity-wall cantilever is not physically defensible. |
 | 1x1 / 1x2 / 1x3 / 1x4 mass | 0.44 / 0.78 / 1.18 / 1.74 g | MEAS | Priors; reweigh our parts. |
 | 1x6 / 1x8 mass | 2.23 / 3.08 g | MEAS | Priors; reweigh our parts. |
 | 2x2 / 2x3 / 2x4 mass | 1.18 / 1.78 / 2.20 g | MEAS | Priors; reweigh our parts. |
@@ -270,6 +271,10 @@ Its implementation is intentionally not an insertion-physics reference:
 - collision inside a connected component is disabled;
 - real 1x1 yaw freedom is explicitly not modeled;
 - default gates are 1 mm vertical, 2 mm planar, 5 degrees tilt/yaw, and 1 N press.
+
+Its breakage model nevertheless provides an important cross-check: it uses three
+or four modeled contact points per stud, `mu = 0.2`, and `mu F0 = 0.7 N` per
+contact point, consistent with Legolization's identified 0.702 N value.
 
 This architecture is useful for fast structure planning, but cannot answer whether
 a robot's particular approach trajectory would self-align, jam, partially seat,
@@ -926,6 +931,13 @@ and holdout structures remain the authority.
 - Luo et al., *Legolization: Optimizing LEGO Designs* (70 physical configurations,
   contact-force capacity and measured masses):
   https://www.cs.columbia.edu/~yonghao/siga15/luo-Legolization.pdf
+- Ebro and Howard, *Robust Design Principles for Reducing Variation in Functional
+  Performance* (limited deformation volumes, tiny protrusions, and small ribs at
+  the LEGO interface):
+  https://www.designsociety.org/multimedia/publication/bd6af62a29b7748821fb44e77222620d490f5b6ae7733a00d4e14b979b0ef36c4da1a8601522617103.pdf
+- INEOS Styrolution, *Terluran GP-22* (toy-grade injection-molding ABS material
+  card: 2.30 GPa modulus, 45 MPa yield stress, 1040 kg/m^3 density):
+  https://www.ineos-styrolution.com/Product/Terluran_TERLURAN-GP-22_SKU300600120827.html
 - Pletz and Drvoderic, *BrickFEM* paper and implementation (explicit geometry,
   interference, ABS, friction, and FEM initialization):
   https://engrxiv.org/preprint/download/2898/5376/4213

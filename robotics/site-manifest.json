@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "siteUrl": "https://gym-anything.github.io/robotics/",
   "sourceRepository": "gym-anything/gym_anything_for_robotics",
-  "sourceCommit": "67f77871450b6162c36a6be582778fb1a347561c",
+  "sourceCommit": "b4d7a4e98c61cb5be496a3044a3375f3b1d25c6b",
   "assetCount": 143,
-  "assetBytes": 140851413,
+  "assetBytes": 140852470,
   "assets": [
     {
       "path": "applecut/FINDINGS.md",
@@ -358,8 +358,8 @@
     },
     {
       "path": "lego/RESEARCH.md",
-      "bytes": 48565,
-      "sha256": "ace725e5cdcf2f260a8d8ce7b1840f570c393473f8884fc2e5ebf427ff402b50"
+      "bytes": 49622,
+      "sha256": "42f9f4b06dd01e7c9c137bef1e2720f4f48b052bc978ed2061a5d0205582b675"
     },
     {
       "path": "lego/paper/lego_physics_report.pdf",

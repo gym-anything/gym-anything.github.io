@@ -2,10 +2,23 @@
   "schemaVersion": 1,
   "siteUrl": "https://gym-anything.github.io/robotics/",
   "sourceRepository": "gym-anything/gym_anything_for_robotics",
-  "sourceCommit": "8fb936a8e823bfa753c5a24f276caeba17d8ec44",
-  "assetCount": 143,
-  "assetBytes": 140852470,
+  "sourceCommit": "a5ffbf818a3894347e7dff5ace887950f87e7e6b",
+  "assetCount": 189,
+  "assetBytes": 206145373,
+  "groundingDatasets": 29,
+  "groundingInspectableRows": 295226,
+  "groundingLeaderboardRows": 9363,
   "assets": [
+    {
+      "path": "ROBOTICS_GROUNDING_METHODOLOGY.md",
+      "bytes": 18951,
+      "sha256": "101fb9d40840008dd16a792736e2699cdc38e6d2b44702db58629049fa95ad5b"
+    },
+    {
+      "path": "ROBOT_ACTION_GROUP_SELECTION_PLAN_v0.md",
+      "bytes": 7386,
+      "sha256": "84ea3482799cb4bc9d4b4ec31a37d7fe282280a9d6312d6db20d1c0319d5f23c"
+    },
     {
       "path": "applecut/FINDINGS.md",
       "bytes": 16677,
@@ -190,6 +203,226 @@
       "path": "football/videos/video_evidence_summary.json",
       "bytes": 3724,
       "sha256": "6415c52fc5f0aebd9cc03effc93c8c672bbbc1b6584226e8f22c7d5d5c9968d1"
+    },
+    {
+      "path": "grounding/data/derived/action_reuse_outcome_audited_final_v1/occurrence_reuse_map.jsonl.gz",
+      "bytes": 6374752,
+      "sha256": "2625c2255afcd16ef76b941caee925c813b4c22da5573e031352ff2e8095fecf"
+    },
+    {
+      "path": "grounding/data/derived/activity_weights.csv",
+      "bytes": 5306590,
+      "sha256": "8d8ed16a209388d850dd1022fd9b9144245e6cb6dee3e631788e58718534cd5a"
+    },
+    {
+      "path": "grounding/data/derived/atomic_action_decomposition_v2_final/atomic_actions.jsonl.gz",
+      "bytes": 2642490,
+      "sha256": "8a301a8049e7205d30c1ccd56464630054cc81d4ba6c47d3278f0a2bef1fbbb3"
+    },
+    {
+      "path": "grounding/data/derived/atomic_action_decomposition_v2_final/source_decompositions.jsonl.gz",
+      "bytes": 4652244,
+      "sha256": "a0574ac6163a48faf904dd87e57be767829327c3b52950ff481ea7ded16515f3"
+    },
+    {
+      "path": "grounding/data/derived/corrected_action_capability_dedup_final_v1/canonical_capabilities.jsonl.gz",
+      "bytes": 2652174,
+      "sha256": "33075edb67dd00ba28e54b861ba851ee5d30031c790dc16d1947363fe458c8c8"
+    },
+    {
+      "path": "grounding/data/derived/deduplicated_action_groups_v3/action_groups.jsonl.gz",
+      "bytes": 645339,
+      "sha256": "9343f029f46357bf62d80835c7044fa61f1f5900bf8af69e7327bab2f9978266"
+    },
+    {
+      "path": "grounding/data/derived/deduplicated_action_groups_v3/occurrence_group_map.jsonl.gz",
+      "bytes": 7033279,
+      "sha256": "6221f6bdbf351400c4e8e98002e707b487a4fd9ca5ce2b7780cb2a417653a13a"
+    },
+    {
+      "path": "grounding/data/derived/final_action_eligibility_v1/final_action_eligibility.jsonl.gz",
+      "bytes": 522886,
+      "sha256": "24984950f5b57b53d8a545a05c9db15a76e9ba82b75141c6f0b1e664a7bd774a"
+    },
+    {
+      "path": "grounding/data/derived/final_action_value_model_v1/action_capability_requirements.jsonl.gz",
+      "bytes": 6192403,
+      "sha256": "27aada0db4b65b84654fb7e26bf302e2c699503457f8571e93cb8462f412a2e6"
+    },
+    {
+      "path": "grounding/data/derived/final_action_value_model_v1/policy_units.jsonl.gz",
+      "bytes": 140003,
+      "sha256": "25be4fd010e2db57208585b9788e6b0a151b81e197b42de0b8181714e614df34"
+    },
+    {
+      "path": "grounding/data/derived/final_action_value_model_v1/source_action_allocations.jsonl.gz",
+      "bytes": 713717,
+      "sha256": "089266a9a7a19c846b39d6afa418aa2f5300cba48e8747df7df967368f569848"
+    },
+    {
+      "path": "grounding/data/derived/international_activity_sources_v1/activity_sources.csv",
+      "bytes": 18353478,
+      "sha256": "e0d315b75508e26bafc5b3dba3221c6947bb8d0017dee76ef6813cb23aae6835"
+    },
+    {
+      "path": "grounding/data/derived/iterative_capability_family_clustering_v4/round_01/nodes.jsonl.gz",
+      "bytes": 1151300,
+      "sha256": "0407e48935c16901b24bc992fcbeb7b8ef3d30dd8bcebc12c9e005cc189dc4aa"
+    },
+    {
+      "path": "grounding/data/derived/iterative_capability_family_clustering_v4/round_02/nodes.jsonl.gz",
+      "bytes": 942074,
+      "sha256": "e4ab6b420fc444aedaeb783bf4813987a59e3db15444b96e2019884f99578378"
+    },
+    {
+      "path": "grounding/data/derived/iterative_capability_family_clustering_v4/round_02/selection/robotics_only/selected_actions.jsonl.gz",
+      "bytes": 40806,
+      "sha256": "ee7652e7ef383dad232ae25e74968fd4899aec2727a28d13f3449a14d195f344"
+    },
+    {
+      "path": "grounding/data/derived/iterative_capability_family_clustering_v4/round_03/nodes.jsonl.gz",
+      "bytes": 830662,
+      "sha256": "efa44798defbb78afdbc4940e7bc1096352b8573b705884b863a9a56c4534839"
+    },
+    {
+      "path": "grounding/data/derived/iterative_capability_family_clustering_v4/round_03/selection/robotics_only/selected_actions.jsonl.gz",
+      "bytes": 40660,
+      "sha256": "18a0cbe3490cc2075d849b5b490b11ba39ae057e0b471aff1a1ed6377a363f25"
+    },
+    {
+      "path": "grounding/data/derived/iterative_capability_family_clustering_v4/round_04/action_capability_requirements.jsonl.gz",
+      "bytes": 3146284,
+      "sha256": "c7a3cad911dd40d344e793ec4856aedf3f4112d09753cf7e129f4a17ddd42adf"
+    },
+    {
+      "path": "grounding/data/derived/iterative_capability_family_clustering_v4/round_04/nodes.jsonl.gz",
+      "bytes": 753695,
+      "sha256": "91b12308b97f3dbc9db4e148027cd4352decf156fdd2cf92431c1b9751c9e2d3"
+    },
+    {
+      "path": "grounding/data/derived/iterative_capability_family_clustering_v4/round_04/selection/REPORT.md",
+      "bytes": 22335,
+      "sha256": "d4acbd23225f413b7e27f3b3655aba112965018c0b0608cc629ff31c336577f9"
+    },
+    {
+      "path": "grounding/data/derived/iterative_capability_family_clustering_v4/round_04/selection/comparison.json",
+      "bytes": 12461,
+      "sha256": "ce1591244b9f8c04fe8dc3eb578e3a5fc43e440e84406c2cb50fa42bc7e42748"
+    },
+    {
+      "path": "grounding/data/derived/iterative_capability_family_clustering_v4/round_04/selection/cross_mode_actions.jsonl.gz",
+      "bytes": 13702,
+      "sha256": "44e7f4d01d7b73f7852f28e423a1cc7ff7c8c935f0038a5ae0efab40681992d2"
+    },
+    {
+      "path": "grounding/data/derived/iterative_capability_family_clustering_v4/round_04/selection/physics_only/final_target_coverage.jsonl.gz",
+      "bytes": 710648,
+      "sha256": "ebff3ebcf2091014061a592f2b5b33408b5f07c1cdef0e2e700f93bfa5fd990c"
+    },
+    {
+      "path": "grounding/data/derived/iterative_capability_family_clustering_v4/round_04/selection/physics_only/selected_actions.jsonl.gz",
+      "bytes": 40125,
+      "sha256": "0f34483b401dfe20d0b7dbf9f439c5be3367eb7c5b82b245a504aa8856fcf33f"
+    },
+    {
+      "path": "grounding/data/derived/iterative_capability_family_clustering_v4/round_04/selection/physics_plus_robotics/final_target_coverage.jsonl.gz",
+      "bytes": 884311,
+      "sha256": "6158d15b225d6bf8375e4dab1ddcf7d8e392cb2858ecf024a314693bdd678e4b"
+    },
+    {
+      "path": "grounding/data/derived/iterative_capability_family_clustering_v4/round_04/selection/physics_plus_robotics/selected_actions.jsonl.gz",
+      "bytes": 52502,
+      "sha256": "438fcd69d7c9b9e988d7d8b93b5337969110786c73ee9bd96208ed963c94ca7e"
+    },
+    {
+      "path": "grounding/data/derived/iterative_capability_family_clustering_v4/round_04/selection/robotics_only/final_target_coverage.jsonl.gz",
+      "bytes": 686896,
+      "sha256": "e77f61464dd9c608a9c6a4dc2dad88a45b1612d2ef7837c6714d25874b4999d9"
+    },
+    {
+      "path": "grounding/data/derived/iterative_capability_family_clustering_v4/round_04/selection/robotics_only/selected_actions.jsonl.gz",
+      "bytes": 39243,
+      "sha256": "079145d43fad5f68fad1c717f8732f136cc8b4561f3ea2bec6d202e1c5a9c70c"
+    },
+    {
+      "path": "grounding/data/derived/iterative_capability_family_clustering_v4/round_04/selection_protocol.json",
+      "bytes": 9634,
+      "sha256": "a1e180bee8d9d4fa990df3710b76dda4c2058291c2bcec62626ac9a88a3c24ae"
+    },
+    {
+      "path": "grounding/data/derived/new_action_equivalence_complete_v1/decisions.jsonl.gz",
+      "bytes": 235369,
+      "sha256": "9640c7a6c274a9874aaaaea9647755e949b1a07276d81490b82f874760f89dcb"
+    },
+    {
+      "path": "grounding/experiments/robot_action_group_selection_k1_k5_three_mode_v1/protocol.json",
+      "bytes": 9196,
+      "sha256": "134083e2b09a408d2c76c8a910b6adb1d14733dfd406ae2175bc011d49198ed1"
+    },
+    {
+      "path": "grounding/paper/physical_activity_selection_executed.pdf",
+      "bytes": 49715,
+      "sha256": "c560cd160950841db80439967c0d913743b903888c16ad0d7c37ce92f364c88e"
+    },
+    {
+      "path": "grounding/src/atomic_action_decomposition_v2_protocol.py",
+      "bytes": 14936,
+      "sha256": "ac574f40d6221ea4aecf1a5eb481acb32098b7b44e05a3e1e09a6c5823ddfcc2"
+    },
+    {
+      "path": "grounding/src/build_action_reuse_candidates_v1.py",
+      "bytes": 18089,
+      "sha256": "fb1d2d1f737ed03ebff42aab7af49febd4abbf7a180c9ad8c4e63d62d61a5237"
+    },
+    {
+      "path": "grounding/src/build_activity_inventory.py",
+      "bytes": 64409,
+      "sha256": "f63a675ce053c4bfb906fa9fb4c79ff7116bedaf324c68133312cd71df5a332f"
+    },
+    {
+      "path": "grounding/src/build_atomic_action_decomposition_v2_final.py",
+      "bytes": 12160,
+      "sha256": "70e2bbd2160607f4ac4c797f27363ced092f8df0107b08693e768c42a36561b9"
+    },
+    {
+      "path": "grounding/src/build_deduplicated_action_groups_v1.py",
+      "bytes": 11549,
+      "sha256": "6119b9d638dac3fe6ca790254008ec3cfb4574ec40fc11184faa752a291cdf90"
+    },
+    {
+      "path": "grounding/src/build_final_action_eligibility_v1.py",
+      "bytes": 13461,
+      "sha256": "9a419e42ec5b99909bd393ab4c501958ad4538437148207faa4b351f3746906d"
+    },
+    {
+      "path": "grounding/src/build_final_action_value_model_v1.py",
+      "bytes": 42180,
+      "sha256": "5b1ce9e526e361005306e1a0520dfb35e9e7febadd1fb8fa745ff45869fb60f3"
+    },
+    {
+      "path": "grounding/src/build_weights.py",
+      "bytes": 29138,
+      "sha256": "8e59cf50bab3b256ee34477a11768e0608363310236b9de15652b02e9e9530eb"
+    },
+    {
+      "path": "grounding/src/finalize_corrected_action_capability_dedup_v1.py",
+      "bytes": 33014,
+      "sha256": "c2b61d2e2312b23569c5daac7a5624fadafd3fe042df89e9606902aa1f0abe7e"
+    },
+    {
+      "path": "grounding/src/run_iterative_capability_family_clustering_v4.py",
+      "bytes": 24554,
+      "sha256": "dad450bc3f0ba78da4c38c72b07d99e171f609f65977a303b4291a59e9a51f66"
+    },
+    {
+      "path": "grounding/src/run_new_action_equivalence_v1.py",
+      "bytes": 9418,
+      "sha256": "97cf7395b0f37678e2806ca011d9005e5b4fcb97f9f440574b9ba61fc0eadbb1"
+    },
+    {
+      "path": "grounding/src/select_robot_action_groups_k1_k5_three_mode_v1.py",
+      "bytes": 91804,
+      "sha256": "60a64d59f31d5409919700c6e45c82642258a511d2617dfd77b81801cf39b3a0"
     },
     {
       "path": "laundry/FINDINGS.md",
@@ -513,8 +746,8 @@
     },
     {
       "path": "portal/README.md",
-      "bytes": 5500,
-      "sha256": "e17c6f1588ea3fc3daec8aa595825ad6dad15cf8ceddf55978c48cd57f098054"
+      "bytes": 6381,
+      "sha256": "2580c7fb5eb39a1799b7c4571df8536ef9832f83134e457eb41651d669444dee"
     },
     {
       "path": "quarry/ATTRIBUTIONS.md",

@@ -1,0 +1,224 @@
+{
+  "mode_summaries": [
+    {
+      "all_exact_solver_stages_optimal": true,
+      "covered_action_group_fraction": {
+        "decimal": "0.7213499946598312506675210936665598632916800170885399978639325002670084374666239453166720068354159991",
+        "percent": "72.13499946598312506675210936665598632916800170885399978639325002670084374666239453166720068354159991"
+      },
+      "covered_action_groups": 6754,
+      "covered_paid_work_action_groups": 5454,
+      "economic_coverage": {
+        "decimal": "0.8322475265516979639095209496020202080892554213127046247196047487031051019752248940017039520667227102",
+        "percent": "83.22475265516979639095209496020202080892554213127046247196047487031051019752248940017039520667227102"
+      },
+      "everyday_life_coverage": {
+        "decimal": "0.7743330747761218643109556651151370499119629478208354180666025781847847035624936102444351955953756422",
+        "percent": "77.43330747761218643109556651151370499119629478208354180666025781847847035624936102444351955953756422"
+      },
+      "minimum_capability_family_coverage": {
+        "decimal": "0.7453490698139627925585117023404680936187237447489497899579915983196639327865573114622924584916983415",
+        "percent": "74.53490698139627925585117023404680936187237447489497899579915983196639327865573114622924584916983415"
+      },
+      "mode_id": "physics_only",
+      "occupation_minimum_unit_coverage": {
+        "decimal": "0",
+        "percent": "0"
+      },
+      "required_capability_domains": [
+        "physics_capabilities"
+      ],
+      "selected_action_groups": 100,
+      "soc_minimum_unit_coverage": {
+        "decimal": "0.8142638364768759021378623892454111078748581130912690263448018847993352527026260214719880878616193156",
+        "percent": "81.42638364768759021378623892454111078748581130912690263448018847993352527026260214719880878616193156"
+      },
+      "stem_minimum_unit_coverage": {
+        "decimal": "0.8684911788046831813482881180217665784719271794756632671350689896016156208467947953394127192047737675",
+        "percent": "86.84911788046831813482881180217665784719271794756632671350689896016156208467947953394127192047737675"
+      },
+      "strategic_minimum_unit_coverage": {
+        "decimal": "0.8215416105067254681837144288228573272947755412765762561550535713403837941436597343338026560567588565",
+        "percent": "82.15416105067254681837144288228573272947755412765762561550535713403837941436597343338026560567588565"
+      }
+    },
+    {
+      "all_exact_solver_stages_optimal": true,
+      "covered_action_group_fraction": {
+        "decimal": "0.4927907721884011534764498558154437680230695289971163088753604613905799423261775072092278115988465236",
+        "percent": "49.27907721884011534764498558154437680230695289971163088753604613905799423261775072092278115988465236"
+      },
+      "covered_action_groups": 4614,
+      "covered_paid_work_action_groups": 3791,
+      "economic_coverage": {
+        "decimal": "0.6633412115246462196970588152747427463758287197357698551115040864088194305746168467316319727270685897",
+        "percent": "66.33412115246462196970588152747427463758287197357698551115040864088194305746168467316319727270685897"
+      },
+      "everyday_life_coverage": {
+        "decimal": "0.5203850764299876688555116933975018565146588694863547112935421668454876383303282113735985914789754458",
+        "percent": "52.03850764299876688555116933975018565146588694863547112935421668454876383303282113735985914789754458"
+      },
+      "minimum_capability_family_coverage": {
+        "decimal": "0.6363885330556688876937756858489122956871825975454591962306593368275547517245644715921223997273580854",
+        "percent": "63.63885330556688876937756858489122956871825975454591962306593368275547517245644715921223997273580854"
+      },
+      "mode_id": "physics_plus_robotics",
+      "occupation_minimum_unit_coverage": {
+        "decimal": "0",
+        "percent": "0"
+      },
+      "required_capability_domains": [
+        "physics_capabilities",
+        "robot_capabilities"
+      ],
+      "selected_action_groups": 100,
+      "soc_minimum_unit_coverage": {
+        "decimal": "0.6253389434605696773582746963081106950093861539231753080126317306526665628027298648017790593641848728",
+        "percent": "62.53389434605696773582746963081106950093861539231753080126317306526665628027298648017790593641848728"
+      },
+      "stem_minimum_unit_coverage": {
+        "decimal": "0.7722364333181858167993002399546922471897528253653862766904955136407569552122382050769410541000891771",
+        "percent": "77.22364333181858167993002399546922471897528253653862766904955136407569552122382050769410541000891771"
+      },
+      "strategic_minimum_unit_coverage": {
+        "decimal": "0.6355428669989352904686934839700916527550095604977558095417025428896182267631185869033438249912822135",
+        "percent": "63.55428669989352904686934839700916527550095604977558095417025428896182267631185869033438249912822135"
+      }
+    },
+    {
+      "all_exact_solver_stages_optimal": true,
+      "covered_action_group_fraction": {
+        "decimal": "0.7715475809035565523870554309516180711310477411086190323614226209548221723806472284524190964434476129",
+        "percent": "77.15475809035565523870554309516180711310477411086190323614226209548221723806472284524190964434476129"
+      },
+      "covered_action_groups": 7224,
+      "covered_paid_work_action_groups": 5861,
+      "economic_coverage": {
+        "decimal": "0.8672510477209179124298041710894543315720692881049443971009241516494544562602692890151557005583119838",
+        "percent": "86.72510477209179124298041710894543315720692881049443971009241516494544562602692890151557005583119838"
+      },
+      "everyday_life_coverage": {
+        "decimal": "0.7508840305041078193862760227429661950570522442529376195550711408516546851283977664664538614107041316",
+        "percent": "75.08840305041078193862760227429661950570522442529376195550711408516546851283977664664538614107041316"
+      },
+      "minimum_capability_family_coverage": {
+        "decimal": "0.7165997342244630747884543979988665455042895389966973481073264153524457212092786930097125324891051595",
+        "percent": "71.65997342244630747884543979988665455042895389966973481073264153524457212092786930097125324891051595"
+      },
+      "mode_id": "robotics_only",
+      "occupation_minimum_unit_coverage": {
+        "decimal": "0",
+        "percent": "0"
+      },
+      "required_capability_domains": [
+        "robot_capabilities"
+      ],
+      "selected_action_groups": 100,
+      "soc_minimum_unit_coverage": {
+        "decimal": "0.8361654485725987338150832296760168353063667247482446962319570137288908397067372009861912288605075202",
+        "percent": "83.61654485725987338150832296760168353063667247482446962319570137288908397067372009861912288605075202"
+      },
+      "stem_minimum_unit_coverage": {
+        "decimal": "0.926408759924358249665668187835537284865836639193688986231137118021974765885538128956357626717578376",
+        "percent": "92.6408759924358249665668187835537284865836639193688986231137118021974765885538128956357626717578376"
+      },
+      "strategic_minimum_unit_coverage": {
+        "decimal": "0.85866230604122150458690673360987745908669355402618742552481770150953090760778379407161968049770018",
+        "percent": "85.866230604122150458690673360987745908669355402618742552481770150953090760778379407161968049770018"
+      }
+    }
+  ],
+  "overlap": {
+    "pairwise": [
+      {
+        "intersection_count": 27,
+        "jaccard": 0.15606936416184972,
+        "left_mode": "physics_only",
+        "right_mode": "physics_plus_robotics",
+        "shared_action_group_ids": [
+          "corrected-action-group-v1:1bc99d65f84e4a393a1244b9abfd02ca",
+          "physical-action-group-v1:04cf3701ec00a576ae0418afc560633a",
+          "physical-action-group-v1:07d1672e2e026f7f29345e7e9d27f2d6",
+          "physical-action-group-v1:18a8721bf330aa1321ee879dc9725eaa",
+          "physical-action-group-v1:1cade814e8aae374e9a493d6adcd5f69",
+          "physical-action-group-v1:313beed50076876fb3230cd5d1777fef",
+          "physical-action-group-v1:33519dd4e465c785e921b5f7a94b66a2",
+          "physical-action-group-v1:3423163f818a7b5e50e6ef6028416727",
+          "physical-action-group-v1:3528c1dcf3073709aec140d2f0f7c1bf",
+          "physical-action-group-v1:5992819895f638233bfae0f78e6a2998",
+          "physical-action-group-v1:70b133d52374e67a8c5708f96c60633f",
+          "physical-action-group-v1:77999ed92d9dfda51db9911e81dfeaee",
+          "physical-action-group-v1:7886c0c857f4dfd23736358ecd6f7459",
+          "physical-action-group-v1:7e2420a6cda7a1f9a0a6a4d710d47f86",
+          "physical-action-group-v1:91158d8f2a8592451b756d71082085c9",
+          "physical-action-group-v1:94491fc09ef5212a9c77b48322b5c55f",
+          "physical-action-group-v1:99e8cfbb691be05e214e08abe914e853",
+          "physical-action-group-v1:9fdeb3faaee9c67bcf94ae6b2f9419ad",
+          "physical-action-group-v1:c3e15068d8f5d6bb4cf73afe8402a3e3",
+          "physical-action-group-v1:c5f746a708a278be7bc19357f42da486",
+          "physical-action-group-v1:c6bcdc7ecfe826399b33701d82caa6aa",
+          "physical-action-group-v1:c84d52306fd3fe9fba52e5df021c8fad",
+          "physical-action-group-v1:c9ddccfe661409bf30db57a48994ecd2",
+          "physical-action-group-v1:cc7e9e89b41333d150908898cc60fab9",
+          "physical-action-group-v1:d6d7adcd417ec9593a72c28a8be75741",
+          "physical-action-group-v1:db34efd8a19ae74baad248457ea22370",
+          "physical-action-group-v1:fa5b3b543c048134087cdd8d94c08fe8"
+        ],
+        "union_count": 173
+      },
+      {
+        "intersection_count": 8,
+        "jaccard": 0.041666666666666664,
+        "left_mode": "physics_only",
+        "right_mode": "robotics_only",
+        "shared_action_group_ids": [
+          "physical-action-group-v1:01b10c6f9d9c419939f3a211e5dc0197",
+          "physical-action-group-v1:0283d8a59a5d11789c8b56e56544c1b8",
+          "physical-action-group-v1:049d272166c5481707e829410464c76e",
+          "physical-action-group-v1:0a347d8e5eef147997d037c79805fc2e",
+          "physical-action-group-v1:3423163f818a7b5e50e6ef6028416727",
+          "physical-action-group-v1:4416d2d0c8dd021a5437bea489c3a8d4",
+          "physical-action-group-v1:ae8b2b3533b4efc7be588ae8f10eba56",
+          "physical-action-group-v1:b177036bc7fd8dc78880b336f309567c"
+        ],
+        "union_count": 192
+      },
+      {
+        "intersection_count": 16,
+        "jaccard": 0.08695652173913043,
+        "left_mode": "physics_plus_robotics",
+        "right_mode": "robotics_only",
+        "shared_action_group_ids": [
+          "corrected-action-group-v1:38328171438e2c16539a880b43bca526",
+          "physical-action-group-v1:136587c18a7b78ec7afdf2ff61e2d3f9",
+          "physical-action-group-v1:13b1dfcd12d21c10ab8b346de8f69758",
+          "physical-action-group-v1:2b3b969dab4024ae44a6377e0ce678f2",
+          "physical-action-group-v1:3423163f818a7b5e50e6ef6028416727",
+          "physical-action-group-v1:34d6e30752c33f5bb430568dc77e1b40",
+          "physical-action-group-v1:379ff661e8bb6805424854df3f5db319",
+          "physical-action-group-v1:3d648bc2a769847a6a44f5cc819dae85",
+          "physical-action-group-v1:4534fdda846999d41a5dc12fcd338c10",
+          "physical-action-group-v1:4be1e854693f24d8be6e8a7dce8744c5",
+          "physical-action-group-v1:6b1ddc7efcda4f928134cda498a35d2f",
+          "physical-action-group-v1:74b330117a0f44f89c7e4d380d316a3b",
+          "physical-action-group-v1:7b3724329f7d4d769c20672bc2348373",
+          "physical-action-group-v1:a544cb1336429c78cb9ecd8c2730df8d",
+          "physical-action-group-v1:bfa5d413ba517b299db6c170407c3d99",
+          "physical-action-group-v1:c09b3f289d933ff895157676a9879f8f"
+        ],
+        "union_count": 184
+      }
+    ],
+    "three_way": {
+      "action_group_ids": [
+        "physical-action-group-v1:3423163f818a7b5e50e6ef6028416727"
+      ],
+      "count": 1
+    }
+  },
+  "protocol_status": "frozen_before_optimization",
+  "release_id": "robot-action-group-selection-k1-k5-capability-family-round-04-v1",
+  "shared_total_budget": 100,
+  "tier_migration_action_count": 4,
+  "union_selected_action_group_count": 250
+}

@@ -1,0 +1,2644 @@
+{
+  "releaseId": "current-robot-action-capability-dashboard-v1",
+  "title": "From real activity to capability-covering robot tasks",
+  "subtitle": "Trace 52,512 activity descriptions through action expansion, action deduplication, capability clustering, and three constrained k1\u2013k5 portfolios.",
+  "goal": "Select a small set of simulation action groups whose robot and physics capabilities cover as much modeled economic activity, strategic work, STEM/research, occupational diversity, and personal life as possible.",
+  "environmentDefinition": "The selection unit is a final physical-action group. A selected action supplies capabilities; a target action is covered only when all requirements active in the chosen mode are supplied at or above their thresholds.",
+  "executionStatus": "The source, action, value, capability, clustering, and optimization artifacts shown here are completed recorded releases. The semantic labels and merge decisions are model-produced and remain auditable in the linked files.",
+  "methodBoundary": "Coverage is defined on the current action and capability graphs. Broader\u2013narrower action relations, such as kick-ball being a subtype of strike-ball, are not yet represented and therefore do not transfer value.",
+  "exampleLabel": "sports-strike",
+  "walkthroughTitle": "Follow one sports action through all five stages",
+  "walkthroughIntro": "A broad paid-work sports description expands into \u201cstrike a sports ball or practice target.\u201d The rows show how that action receives value and capabilities, and why it can remain uncovered.",
+  "stages": [
+    {
+      "number": 1,
+      "slug": "sources-values",
+      "shortTitle": "Sources",
+      "eyebrow": "Stage 1 \u00b7 Source universe",
+      "title": "Collect and weight real activities",
+      "question": "Which parts of work and everyday life should the benchmark represent?",
+      "description": "Collect public activity descriptions, retain their provenance, and keep economic value and personal time as separate axes.",
+      "startsWith": "O*NET occupational tasks, ATUS activities, and source-native international occupation and time-use descriptions.",
+      "operation": "Build one traceable source record per description and attach U.S. work-value or population-time estimates where available.",
+      "produces": "52,512 source activity records: 19,261 U.S. weighted records and 33,251 international records.",
+      "nextStep": "Expand each U.S. description into concrete robot-relevant physical actions.",
+      "result": "The pipeline begins from observed activity descriptions rather than a hand-written robotics task list.",
+      "accent": "#8fe3ff",
+      "metrics": [
+        {
+          "value": "52,512",
+          "label": "activity descriptions"
+        },
+        {
+          "value": "18,796",
+          "label": "O*NET occupational tasks"
+        },
+        {
+          "value": "465",
+          "label": "ATUS everyday activities"
+        },
+        {
+          "value": "33,251",
+          "label": "international descriptions"
+        }
+      ],
+      "workedExample": {
+        "title": "A paid sports activity enters the source universe",
+        "intro": "The O*NET task remains broad at this stage; action expansion happens later.",
+        "rows": [
+          {
+            "label": "Source",
+            "value": "O*NET 30.3"
+          },
+          {
+            "label": "Occupation",
+            "value": "Athletes and Sports Competitors"
+          },
+          {
+            "label": "Activity",
+            "value": "Exercise or practice under the direction of athletic trainers or professional coaches\u2026"
+          },
+          {
+            "label": "Stored task value",
+            "value": "$829.841M under the current occupation/task allocation model"
+          }
+        ]
+      },
+      "terms": [
+        {
+          "term": "Source activity",
+          "definition": "One occupation-task or time-use description before action expansion."
+        },
+        {
+          "term": "Economic value",
+          "definition": "Allocated U.S. market-work value; not task revenue or duration."
+        },
+        {
+          "term": "Personal time",
+          "definition": "ATUS annual U.S. population-hours, kept separate from dollars."
+        },
+        {
+          "term": "Policy unit",
+          "definition": "A later coverage slice such as an occupation, SOC group, or strategic domain."
+        }
+      ],
+      "executionNote": "Source estimates are fixed public-data calculations. International descriptions broaden the action vocabulary but do not inherit U.S. value.",
+      "substeps": [
+        {
+          "id": "1.1",
+          "title": "Build the source inventory",
+          "description": "Normalize public descriptions into stable source records without changing their text.",
+          "input": "O*NET, ATUS, and international occupation/time-use releases.",
+          "output": "52,512 traceable activity descriptions.",
+          "example": "The broad exercise-or-practice task is retained verbatim.",
+          "datasets": [
+            "activity_weights_us",
+            "activity_sources_international"
+          ],
+          "decisionMethod": {
+            "kind": "Deterministic ingestion",
+            "heading": "Preserve the native source unit",
+            "criteria": [
+              {
+                "label": "Identity",
+                "text": "Assign a stable source ID."
+              },
+              {
+                "label": "Text",
+                "text": "Retain the original activity description."
+              },
+              {
+                "label": "Context",
+                "text": "Retain occupation or time-use context."
+              },
+              {
+                "label": "Provenance",
+                "text": "Record release, jurisdiction, and source kind."
+              }
+            ],
+            "sources": [
+              {
+                "label": "Inventory builder",
+                "path": "grounding/src/build_activity_inventory.py",
+                "type": "text"
+              }
+            ]
+          }
+        },
+        {
+          "id": "1.2",
+          "title": "Attach value axes",
+          "description": "Allocate U.S. work value across O*NET tasks and calculate ATUS annual population-hours.",
+          "input": "U.S. source records plus OEWS, BEA, O*NET ratings, and ATUS weights.",
+          "output": "A dollar or population-hour estimate stored once per weighted source.",
+          "example": "The sports-practice task receives a task-level work-value estimate; no atomic action has been valued yet.",
+          "datasets": [
+            "activity_weights_us"
+          ],
+          "decisionMethod": {
+            "kind": "Deterministic calculation",
+            "heading": "Keep the two axes separate",
+            "criteria": [
+              {
+                "label": "Work hierarchy",
+                "text": "Allocate occupation value to O*NET tasks using normalized relevance, importance, and ordinal frequency."
+              },
+              {
+                "label": "Everyday time",
+                "text": "Aggregate ATUS person-day weights and diary minutes."
+              },
+              {
+                "label": "No mixing",
+                "text": "Never add dollars to hours."
+              },
+              {
+                "label": "Conservation",
+                "text": "Normalize conditional task shares within an occupation."
+              }
+            ],
+            "sources": [
+              {
+                "label": "Weight builder",
+                "path": "grounding/src/build_weights.py",
+                "type": "text"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "slug": "action-expansion",
+      "shortTitle": "Expand actions",
+      "eyebrow": "Stage 2 \u00b7 Atomic action recovery",
+      "title": "Expand descriptions into physical actions",
+      "question": "What externally observable robot actions are contained in each description?",
+      "description": "Use a complete source-level pass to recover concrete atomic actions, including valid operations implied by broad activities.",
+      "startsWith": "19,261 weighted U.S. source descriptions.",
+      "operation": "Classify physical content, expand supported ordinary procedures, and run a bounded recall audit on disagreements.",
+      "produces": "31,961 source-specific atomic action occurrences from 9,340 action-bearing descriptions.",
+      "nextStep": "Map repeated or equivalent occurrences into stable action groups.",
+      "result": "Broad descriptions become concrete start-state-to-end-state physical operations with source provenance.",
+      "accent": "#b9f27c",
+      "metrics": [
+        {
+          "value": "19,261",
+          "label": "sources processed"
+        },
+        {
+          "value": "9,340",
+          "label": "sources with actions"
+        },
+        {
+          "value": "31,961",
+          "label": "atomic action occurrences"
+        },
+        {
+          "value": "61",
+          "label": "sources in bounded recall audit"
+        }
+      ],
+      "workedExample": {
+        "title": "The sports-practice description expands into six actions",
+        "intro": "The expansion is intentionally more concrete than the source sentence.",
+        "rows": [
+          {
+            "label": "Action 1",
+            "value": "lower the body into a squat position"
+          },
+          {
+            "label": "Action 2",
+            "value": "extend the body from a squat position to standing"
+          },
+          {
+            "label": "Actions 3\u20134",
+            "value": "lift and lower exercise weight or athletic equipment"
+          },
+          {
+            "label": "Actions 5\u20136",
+            "value": "strike a sports ball or practice target; catch a sports ball or athletic item"
+          }
+        ]
+      },
+      "terms": [
+        {
+          "term": "Atomic action occurrence",
+          "definition": "One physical operation recovered from one source context."
+        },
+        {
+          "term": "Ordinary procedure",
+          "definition": "A concrete physical operation supported by the ordinary execution of a broad source activity."
+        },
+        {
+          "term": "Recall audit",
+          "definition": "A bounded second pass over sources where the new decomposition unexpectedly removed prior physical content."
+        },
+        {
+          "term": "Action-bearing source",
+          "definition": "A source description for which at least one robot-relevant external physical action was recovered."
+        }
+      ],
+      "executionNote": "The expansion records model-generated interpretations and evidence bases. It is deliberately broader than literal verb extraction.",
+      "substeps": [
+        {
+          "id": "2.1",
+          "title": "Decompose every source",
+          "description": "Produce ordered atomic actions with objects, effectors, start states, end states, and support.",
+          "input": "All 19,261 U.S. source descriptions.",
+          "output": "A source decomposition and zero or more atomic actions for every source.",
+          "example": "The broad practice task yields a specific striking operation among five other actions.",
+          "datasets": [
+            "source_decompositions",
+            "atomic_action_occurrences"
+          ],
+          "decisionMethod": {
+            "kind": "Model classification and expansion",
+            "heading": "Recover externally observable physical operations",
+            "criteria": [
+              {
+                "label": "External change",
+                "text": "Require an observable physical or sensing result."
+              },
+              {
+                "label": "Atomicity",
+                "text": "Separate operations with distinct physical end states."
+              },
+              {
+                "label": "Recall",
+                "text": "Do not discard valid operations merely because the source is broad."
+              },
+              {
+                "label": "Provenance",
+                "text": "Keep source text, support, object, effector, and states."
+              }
+            ],
+            "sources": [
+              {
+                "label": "Decomposition protocol",
+                "path": "grounding/src/atomic_action_decomposition_v2_protocol.py",
+                "type": "text"
+              }
+            ]
+          }
+        },
+        {
+          "id": "2.2",
+          "title": "Run the bounded recall audit",
+          "description": "Recheck every prior-physical source that the new pass classified as having no physical action.",
+          "input": "61 old-physical/new-empty disagreements.",
+          "output": "56 recovered action-bearing sources and five confirmed empty sources.",
+          "example": "No recall override was needed for the sports-practice source because six actions were already recovered.",
+          "datasets": [
+            "source_decompositions",
+            "atomic_action_occurrences"
+          ],
+          "decisionMethod": {
+            "kind": "Independent bounded recheck",
+            "heading": "Protect against action omission",
+            "criteria": [
+              {
+                "label": "Scope",
+                "text": "Review only the frozen disagreement set."
+              },
+              {
+                "label": "Source fidelity",
+                "text": "Use the complete source description."
+              },
+              {
+                "label": "Recovery",
+                "text": "Replace the base result only when the audit finds supported actions."
+              },
+              {
+                "label": "Audit trail",
+                "text": "Record base and recall-audit prompt hashes."
+              }
+            ],
+            "sources": [
+              {
+                "label": "Final decomposition builder",
+                "path": "grounding/src/build_atomic_action_decomposition_v2_final.py",
+                "type": "text"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "slug": "action-deduplication",
+      "shortTitle": "Dedup actions",
+      "eyebrow": "Stage 3 \u00b7 Action equivalence",
+      "title": "Deduplicate occurrences into action groups",
+      "question": "Which source-specific actions are the same simulation-level physical operation?",
+      "description": "Reuse audited groups where possible, compare new actions, and retain a lossless occurrence-to-group map.",
+      "startsWith": "31,961 source-specific atomic action occurrences.",
+      "operation": "Match against existing groups, independently confirm reuse, adjudicate new-action equivalence, and form final equivalence classes.",
+      "produces": "9,363 action groups: 6,144 reused groups and 3,219 new corrected groups.",
+      "nextStep": "Attach robot and physics requirements to each action group.",
+      "result": "Every occurrence appears exactly once in the final group map; action value is not used to decide equivalence.",
+      "accent": "#ffcc7a",
+      "metrics": [
+        {
+          "value": "31,961",
+          "label": "input occurrences"
+        },
+        {
+          "value": "9,363",
+          "label": "final action groups"
+        },
+        {
+          "value": "2,209",
+          "label": "confirmed new equivalence edges"
+        },
+        {
+          "value": "9,354",
+          "label": "selection-eligible groups"
+        }
+      ],
+      "workedExample": {
+        "title": "Striking and kicking expose an ontology boundary",
+        "intro": "The current catalog represents equality, not broader\u2013narrower action relations.",
+        "rows": [
+          {
+            "label": "Broad group",
+            "value": "strike a sports ball or practice target"
+          },
+          {
+            "label": "Specific group",
+            "value": "Kick a soccer ball"
+          },
+          {
+            "label": "Current relation",
+            "value": "Separate groups; kicking is a subtype of striking, not an equality relation"
+          },
+          {
+            "label": "Consequence",
+            "value": "Value aggregates within an equivalence group but does not flow from a broader action to a narrower subtype"
+          }
+        ]
+      },
+      "terms": [
+        {
+          "term": "Action group",
+          "definition": "An equivalence class used as the selection unit."
+        },
+        {
+          "term": "Reuse",
+          "definition": "Assigning a recovered occurrence to an independently confirmed existing group."
+        },
+        {
+          "term": "Equivalence",
+          "definition": "The same simulation-level operation under role-preserving asset or parameter replacement."
+        },
+        {
+          "term": "Broader\u2013narrower relation",
+          "definition": "A subtype relation such as kick-ball \u2282 strike-ball; the current action-group graph does not encode it."
+        }
+      ],
+      "executionNote": "The final release groups actions only through confirmed old-group reuse or confirmed new-action equivalence. It does not merge existing old groups with one another.",
+      "substeps": [
+        {
+          "id": "3.1",
+          "title": "Retrieve and confirm existing groups",
+          "description": "Compare each recovered action to plausible existing groups and confirm proposed reuse independently.",
+          "input": "31,961 recovered occurrences and the prior action-group catalog.",
+          "output": "6,144 reused group identities plus unmatched new-action occurrences.",
+          "example": "Previously cataloged catch-ball and throw-ball actions reuse their existing groups.",
+          "datasets": [
+            "action_reuse_map"
+          ],
+          "decisionMethod": {
+            "kind": "Semantic retrieval plus confirmation",
+            "heading": "Reuse only a physically equivalent existing group",
+            "criteria": [
+              {
+                "label": "Candidate retrieval",
+                "text": "Retrieve physically plausible prior groups."
+              },
+              {
+                "label": "Mechanics",
+                "text": "Compare effectors, contacts, state change, and success condition."
+              },
+              {
+                "label": "Confirmation",
+                "text": "Require an independent reuse decision."
+              },
+              {
+                "label": "Fail closed",
+                "text": "Leave unmatched actions for new-action comparison."
+              }
+            ],
+            "sources": [
+              {
+                "label": "Reuse candidate builder",
+                "path": "grounding/src/build_action_reuse_candidates_v1.py",
+                "type": "text"
+              }
+            ]
+          }
+        },
+        {
+          "id": "3.2",
+          "title": "Adjudicate new-action equivalence",
+          "description": "Compare unmatched actions and retain only independently confirmed equivalence edges.",
+          "input": "New action occurrences and their semantic candidates.",
+          "output": "2,209 accepted and 1,142 rejected new-action equivalence edges.",
+          "example": "Text similarity alone cannot merge a tool strike with a mechanically different action.",
+          "datasets": [
+            "new_action_equivalence"
+          ],
+          "decisionMethod": {
+            "kind": "Pairwise semantic adjudication",
+            "heading": "Use simulation equivalence rather than lexical similarity",
+            "criteria": [
+              {
+                "label": "Preconditions",
+                "text": "Compare the initial physical relation."
+              },
+              {
+                "label": "Interaction",
+                "text": "Compare active parts, contacts, and ordered physical change."
+              },
+              {
+                "label": "Outcome",
+                "text": "Require the same success predicate."
+              },
+              {
+                "label": "Confirmation",
+                "text": "Use only independently confirmed edges."
+              }
+            ],
+            "sources": [
+              {
+                "label": "Equivalence runner",
+                "path": "grounding/src/run_new_action_equivalence_v1.py",
+                "type": "text"
+              }
+            ]
+          }
+        },
+        {
+          "id": "3.3",
+          "title": "Build final action groups",
+          "description": "Materialize equivalence components while preserving every occurrence and source link.",
+          "input": "Confirmed existing-group matches and confirmed new-action edges.",
+          "output": "9,363 action groups and a 31,961-row occurrence map.",
+          "example": "The broad sports strike receives its own stable action-group ID.",
+          "datasets": [
+            "final_action_groups",
+            "occurrence_group_map"
+          ],
+          "decisionMethod": {
+            "kind": "Deterministic release build",
+            "heading": "Preserve the confirmed equivalence boundary",
+            "criteria": [
+              {
+                "label": "Losslessness",
+                "text": "Assign every occurrence exactly once."
+              },
+              {
+                "label": "No value leakage",
+                "text": "Do not use economic value during matching."
+              },
+              {
+                "label": "Stable identity",
+                "text": "Preserve confirmed old group IDs."
+              },
+              {
+                "label": "Provenance",
+                "text": "Retain source, evidence, states, and reuse decisions."
+              }
+            ],
+            "sources": [
+              {
+                "label": "Group release builder",
+                "path": "grounding/src/build_deduplicated_action_groups_v1.py",
+                "type": "text"
+              }
+            ]
+          }
+        },
+        {
+          "id": "3.4",
+          "title": "Apply robot eligibility",
+          "description": "Exclude internal-human biological actions and quarantine the sealed holdout before selection.",
+          "input": "9,363 final action groups.",
+          "output": "9,354 eligible groups and nine sealed-holdout quarantines.",
+          "example": "External sports-ball manipulation remains eligible.",
+          "datasets": [
+            "final_action_eligibility"
+          ],
+          "decisionMethod": {
+            "kind": "Frozen low-bar policy",
+            "heading": "Select only externally robot-executable results",
+            "criteria": [
+              {
+                "label": "External result",
+                "text": "Keep external manipulation, sensing, and movement."
+              },
+              {
+                "label": "Internal biology",
+                "text": "Exclude internal-human-only physiological actions."
+              },
+              {
+                "label": "Ambiguity",
+                "text": "Default ambiguous external results to eligible."
+              },
+              {
+                "label": "Holdout",
+                "text": "Do not evaluate the sealed holdout."
+              }
+            ],
+            "sources": [
+              {
+                "label": "Eligibility builder",
+                "path": "grounding/src/build_final_action_eligibility_v1.py",
+                "type": "text"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "slug": "capabilities-values",
+      "shortTitle": "Capabilities",
+      "eyebrow": "Stage 4 \u00b7 Capability and value model",
+      "title": "Attach, deduplicate, and cluster capabilities",
+      "question": "Which robot and physics requirements let one selected action cover another?",
+      "description": "Label every action with requirement levels, conservatively deduplicate capability names, and iteratively cluster them into higher-level families.",
+      "startsWith": "9,363 eligible or quarantined action groups with source provenance.",
+      "operation": "Generate robot and physics requirements, build canonical capabilities, map values and policy views, then run four semantic clustering rounds.",
+      "produces": "A thresholded action-to-capability coverage graph at every clustering round.",
+      "nextStep": "Optimize fixed-budget portfolios against economic and policy coverage.",
+      "result": "The active vocabulary contracts from 11,543 leaf nodes to 2,490 round-4 family nodes while action requirements remain traceable to their leaves.",
+      "accent": "#cf9cff",
+      "metrics": [
+        {
+          "value": "66,346",
+          "label": "action\u2013capability links"
+        },
+        {
+          "value": "14,801",
+          "label": "canonical capabilities"
+        },
+        {
+          "value": "11,543",
+          "label": "active leaf nodes"
+        },
+        {
+          "value": "2,490",
+          "label": "active nodes after round 4"
+        }
+      ],
+      "workedExample": {
+        "title": "The broad sports strike becomes a capability bundle",
+        "intro": "Round 4 preserves separate robot and physics requirements and their threshold levels.",
+        "rows": [
+          {
+            "label": "Robot requirements",
+            "value": "rotational alignment, orientation control, end-effector velocity control, dynamic arm trajectory control"
+          },
+          {
+            "label": "Physics requirements",
+            "value": "momentum transfer and contact restitution"
+          },
+          {
+            "label": "Economic value",
+            "value": "$96.815M assigned to the broad strike action group"
+          },
+          {
+            "label": "Coverage test",
+            "value": "Every active-mode requirement must be supplied at an equal or higher level"
+          }
+        ]
+      },
+      "terms": [
+        {
+          "term": "Canonical capability",
+          "definition": "A conservatively deduplicated robot or physics requirement."
+        },
+        {
+          "term": "Requirement level",
+          "definition": "The relative threshold that a selected action must meet or exceed."
+        },
+        {
+          "term": "Capability-family node",
+          "definition": "A higher-level semantic cluster retaining links to its canonical leaves."
+        },
+        {
+          "term": "Active capability",
+          "definition": "A capability appearing in the eligible action coverage model."
+        }
+      ],
+      "executionNote": "Capability clustering changes only the capability abstraction. Action groups, values, eligibility, policy units, budgets, and solver settings remain fixed across rounds.",
+      "substeps": [
+        {
+          "id": "4.1",
+          "title": "Generate and conservatively deduplicate capabilities",
+          "description": "Assign open-ended robot and physics requirements, then merge only complete-link confirmed capability profiles.",
+          "input": "9,363 action groups.",
+          "output": "14,801 canonical capabilities and 66,346 action\u2013capability links.",
+          "example": "The sports strike receives both control requirements and contact/momentum requirements.",
+          "datasets": [
+            "canonical_capabilities",
+            "base_action_capabilities"
+          ],
+          "decisionMethod": {
+            "kind": "Model labeling plus complete-link deduplication",
+            "heading": "Preserve requirement meaning before abstraction",
+            "criteria": [
+              {
+                "label": "Separate domains",
+                "text": "Keep robot and physics capabilities distinct."
+              },
+              {
+                "label": "Open vocabulary",
+                "text": "Do not force actions into a fixed capability list."
+              },
+              {
+                "label": "Levels",
+                "text": "Record relative requirement thresholds."
+              },
+              {
+                "label": "Complete link",
+                "text": "Merge only when every required profile pair is confirmed equivalent."
+              }
+            ],
+            "sources": [
+              {
+                "label": "Capability deduplication",
+                "path": "grounding/src/finalize_corrected_action_capability_dedup_v1.py",
+                "type": "text"
+              }
+            ]
+          }
+        },
+        {
+          "id": "4.2",
+          "title": "Build action values and policy views",
+          "description": "Aggregate source allocations into action values and connect actions to occupations, SOC groups, strategic domains, STEM, and personal life.",
+          "input": "Source mass, final action groups, capability links, and eligibility.",
+          "output": "1,885 policy units and 62,556 policy-unit/action edges.",
+          "example": "The broad sports strike receives $96.815M from its paid-work source; the separate kick group retains personal-time value only.",
+          "datasets": [
+            "policy_units",
+            "source_action_allocations"
+          ],
+          "decisionMethod": {
+            "kind": "Deterministic conserved allocation",
+            "heading": "Keep source value and policy membership traceable",
+            "criteria": [
+              {
+                "label": "Source conservation",
+                "text": "Allocate no more than the frozen source physical mass."
+              },
+              {
+                "label": "Separate axes",
+                "text": "Keep dollars and personal hours separate."
+              },
+              {
+                "label": "Policy views",
+                "text": "Build occupation, SOC, strategic, STEM, and personal units."
+              },
+              {
+                "label": "No selection feedback",
+                "text": "Do not use future portfolio choices to change values."
+              }
+            ],
+            "sources": [
+              {
+                "label": "Final value builder",
+                "path": "grounding/src/build_final_action_value_model_v1.py",
+                "type": "text"
+              }
+            ]
+          }
+        },
+        {
+          "id": "4.3",
+          "title": "Iteratively cluster capabilities",
+          "description": "Group semantically related active nodes in bounded cases and materialize a new capability graph after each pass.",
+          "input": "11,543 active robot and physics leaf nodes.",
+          "output": "5,834 \u2192 4,038 \u2192 3,110 \u2192 2,490 active family nodes.",
+          "example": "Specific motion-control labels can become a shared high-level node while retaining their leaf provenance.",
+          "datasets": [
+            "cluster_round_1_nodes",
+            "cluster_round_2_nodes",
+            "cluster_round_3_nodes",
+            "cluster_round_4_nodes"
+          ],
+          "decisionMethod": {
+            "kind": "Iterative semantic clustering",
+            "heading": "Reduce vocabulary without changing action/value inputs",
+            "criteria": [
+              {
+                "label": "Bounded cases",
+                "text": "Limit each semantic grouping case."
+              },
+              {
+                "label": "Same domain",
+                "text": "Never merge robot with physics nodes."
+              },
+              {
+                "label": "Definition",
+                "text": "Author a common capability name and definition."
+              },
+              {
+                "label": "Traceability",
+                "text": "Retain every leaf ID and action incidence."
+              }
+            ],
+            "sources": [
+              {
+                "label": "Clustering runner",
+                "path": "grounding/src/run_iterative_capability_family_clustering_v4.py",
+                "type": "text"
+              }
+            ]
+          }
+        },
+        {
+          "id": "4.4",
+          "title": "Remap action requirements",
+          "description": "Replace leaf requirements with their active family nodes and remap direct equivalence edges.",
+          "input": "One clustering round's family graph and the frozen leaf requirements.",
+          "output": "A complete action-requirement table for constrained selection.",
+          "example": "The broad strike remains one target action with six round-4 requirements.",
+          "datasets": [
+            "round_4_action_capabilities"
+          ],
+          "decisionMethod": {
+            "kind": "Deterministic graph remap",
+            "heading": "Change only the capability abstraction",
+            "criteria": [
+              {
+                "label": "Leaf mapping",
+                "text": "Map each leaf to exactly one active node."
+              },
+              {
+                "label": "Levels",
+                "text": "Preserve the maximum applicable threshold."
+              },
+              {
+                "label": "Direct edges",
+                "text": "Remap direct equivalence without transitive closure."
+              },
+              {
+                "label": "Action identity",
+                "text": "Do not alter action IDs or values."
+              }
+            ],
+            "sources": [
+              {
+                "label": "Round materializer",
+                "path": "grounding/src/run_iterative_capability_family_clustering_v4.py",
+                "type": "text"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "slug": "constrained-selection",
+      "shortTitle": "Optimize",
+      "eyebrow": "Stage 5 \u00b7 Constrained portfolio optimization",
+      "title": "Select k1\u2013k5 action portfolios",
+      "question": "Which 100 actions maximize economic and policy coverage under each capability mode?",
+      "description": "Run the frozen Gym-Anything tier sequence in physics-only, combined, and robotics-only modes.",
+      "startsWith": "Eligible action groups, thresholded capabilities, values, policy units, and a fixed 100-slot budget.",
+      "operation": "Solve exact joint MILPs for k1 and k2, then frozen least-covered round-robin fills for k3\u2013k5.",
+      "produces": "Three auditable 100-action portfolios per complete round, with coverage snapshots, missing requirements, and leave-one-out criticality.",
+      "nextStep": "Use the portfolio explorer to inspect selected actions, covered targets, and remaining gaps.",
+      "result": "At round 4, robotics-only covers 86.73% of modeled economic mass, physics-only 83.22%, and combined 66.33%.",
+      "accent": "#ff7f91",
+      "metrics": [
+        {
+          "value": "3",
+          "label": "coverage modes"
+        },
+        {
+          "value": "100",
+          "label": "actions per portfolio"
+        },
+        {
+          "value": "6",
+          "label": "ordered selection tiers"
+        },
+        {
+          "value": "0",
+          "label": "MILP optimality gap"
+        }
+      ],
+      "workedExample": {
+        "title": "The broad sports strike is valuable but not selected in round 4",
+        "intro": "Selection depends on marginal portfolio coverage, not direct action value alone.",
+        "rows": [
+          {
+            "label": "Direct value",
+            "value": "$96.815M"
+          },
+          {
+            "label": "Physics-only result",
+            "value": "Not selected; contact restitution remains missing"
+          },
+          {
+            "label": "Robotics-only result",
+            "value": "Not selected; velocity and dynamic trajectory control remain missing"
+          },
+          {
+            "label": "Combined result",
+            "value": "Not selected; all three missing requirements remain active"
+          }
+        ]
+      },
+      "terms": [
+        {
+          "term": "Covered action",
+          "definition": "An action whose every active-mode requirement is supplied by the selected set."
+        },
+        {
+          "term": "Supply",
+          "definition": "An identical or directly equivalent capability at an equal or greater requirement level."
+        },
+        {
+          "term": "Joint MILP",
+          "definition": "A batch optimization that can select complementary actions together."
+        },
+        {
+          "term": "Selection tier",
+          "definition": "The policy reason an action entered the portfolio; it may improve every coverage view."
+        }
+      ],
+      "executionNote": "Existing simulations are not mandatory, rewarded, penalized, or read during selection. Joint k1/k2 batches are unordered; k3\u2013k5 preserve their sequential selection order.",
+      "substeps": [
+        {
+          "id": "5.1",
+          "title": "Freeze coverage, modes, and budgets",
+          "description": "Define all-requirements coverage, three capability modes, and the 20/20/20/23/9/8 tier allocation.",
+          "input": "Round-specific action requirements and the fixed value/policy model.",
+          "output": "A preregistered 100-slot optimization protocol.",
+          "example": "The sports strike is covered only if every requirement in the chosen mode is supplied.",
+          "datasets": [
+            "selection_tiers",
+            "round_4_mode_summary"
+          ],
+          "decisionMethod": {
+            "kind": "Frozen protocol",
+            "heading": "Prevent post-result objective changes",
+            "criteria": [
+              {
+                "label": "Coverage",
+                "text": "Require every active-mode capability threshold."
+              },
+              {
+                "label": "Modes",
+                "text": "Run physics-only, combined, and robotics-only separately."
+              },
+              {
+                "label": "Budget",
+                "text": "Fix 100 total selections."
+              },
+              {
+                "label": "Solver",
+                "text": "Use deterministic HiGHS settings with zero MIP gap."
+              }
+            ],
+            "sources": [
+              {
+                "label": "Frozen protocol",
+                "path": "grounding/experiments/robot_action_group_selection_k1_k5_three_mode_v1/protocol.json",
+                "type": "json"
+              }
+            ]
+          }
+        },
+        {
+          "id": "5.2",
+          "title": "k1 \u2014 economic core",
+          "description": "Jointly choose 20 eligible positive-value actions that maximize total covered economic mass.",
+          "input": "All eligible positive-work-value candidates.",
+          "output": "An unordered exact 20-action economic-core batch.",
+          "example": "A lower-value candidate may enter if its capabilities jointly cover many higher-value targets.",
+          "datasets": [
+            "selection_tiers",
+            "round_4_physics_selected",
+            "round_4_combined_selected",
+            "round_4_robotics_selected"
+          ],
+          "decisionMethod": {
+            "kind": "Exact joint MILP",
+            "heading": "Maximize capability-mediated economic coverage",
+            "criteria": [
+              {
+                "label": "Primary",
+                "text": "Maximize newly covered economic mass."
+              },
+              {
+                "label": "Complementarity",
+                "text": "Allow capabilities to be supplied by different selected actions."
+              },
+              {
+                "label": "Conditioning",
+                "text": "Start from an empty selected set."
+              },
+              {
+                "label": "Tie-break",
+                "text": "Minimize stable action-group indices at the optimum."
+              }
+            ],
+            "sources": [
+              {
+                "label": "Selection implementation",
+                "path": "grounding/src/select_robot_action_groups_k1_k5_three_mode_v1.py",
+                "type": "text"
+              }
+            ]
+          }
+        },
+        {
+          "id": "5.3",
+          "title": "k2.1 \u2014 strategic domains",
+          "description": "Add 20 actions maximizing the minimum coverage across healthcare, education, protective services, and transportation.",
+          "input": "The frozen k1 portfolio and strategic-domain candidates.",
+          "output": "An unordered exact 20-action strategic batch.",
+          "example": "Already covered strategic requirements consume no additional slot.",
+          "datasets": [
+            "selection_tiers",
+            "round_4_physics_selected",
+            "round_4_combined_selected",
+            "round_4_robotics_selected"
+          ],
+          "decisionMethod": {
+            "kind": "Exact maximin MILP",
+            "heading": "Balance four strategic domains",
+            "criteria": [
+              {
+                "label": "Primary",
+                "text": "Maximize the least-covered strategic domain."
+              },
+              {
+                "label": "Secondary",
+                "text": "Maximize total normalized strategic coverage."
+              },
+              {
+                "label": "Conditioning",
+                "text": "Preserve all capabilities supplied by k1."
+              },
+              {
+                "label": "Tie-break",
+                "text": "Use stable action-group indices."
+              }
+            ],
+            "sources": [
+              {
+                "label": "Selection implementation",
+                "path": "grounding/src/select_robot_action_groups_k1_k5_three_mode_v1.py",
+                "type": "text"
+              }
+            ]
+          }
+        },
+        {
+          "id": "5.4",
+          "title": "k2.2 \u2014 STEM and research",
+          "description": "Add 20 actions maximizing the minimum coverage across three STEM/research occupation groups.",
+          "input": "The frozen k1+k2.1 portfolio and STEM/research candidates.",
+          "output": "An unordered exact 20-action STEM/research batch.",
+          "example": "Architecture/engineering, computing/mathematics, and science are balanced by a maximin objective.",
+          "datasets": [
+            "selection_tiers",
+            "round_2_robotics_selected",
+            "round_3_robotics_selected",
+            "round_4_robotics_selected"
+          ],
+          "decisionMethod": {
+            "kind": "Exact maximin MILP",
+            "heading": "Balance three STEM/research groups",
+            "criteria": [
+              {
+                "label": "Primary",
+                "text": "Maximize the least-covered STEM group."
+              },
+              {
+                "label": "Secondary",
+                "text": "Maximize total normalized STEM coverage."
+              },
+              {
+                "label": "Conditioning",
+                "text": "Preserve all earlier capability supply."
+              },
+              {
+                "label": "Tie-break",
+                "text": "Use stable action-group indices."
+              }
+            ],
+            "sources": [
+              {
+                "label": "Selection implementation",
+                "path": "grounding/src/select_robot_action_groups_k1_k5_three_mode_v1.py",
+                "type": "text"
+              }
+            ]
+          }
+        },
+        {
+          "id": "5.5",
+          "title": "k3 \u2014 SOC-major diversity",
+          "description": "Sequentially add 23 actions from the currently least-covered SOC major group.",
+          "input": "The frozen k1+k2 portfolio and 22 SOC-major policy units.",
+          "output": "23 ordered SOC-diversity selections.",
+          "example": "After every selection, coverage is recomputed before choosing the next SOC group.",
+          "datasets": [
+            "selection_tiers",
+            "round_4_cross_mode_actions"
+          ],
+          "decisionMethod": {
+            "kind": "Frozen round-robin",
+            "heading": "Fill the least-covered SOC group",
+            "criteria": [
+              {
+                "label": "Unit choice",
+                "text": "Choose the least-covered SOC with a candidate."
+              },
+              {
+                "label": "Unit tie-break",
+                "text": "Prefer larger uncovered economic mass."
+              },
+              {
+                "label": "Candidate gain",
+                "text": "Maximize marginal economic coverage within that SOC."
+              },
+              {
+                "label": "Global tie-break",
+                "text": "Prefer larger global economic gain."
+              }
+            ],
+            "sources": [
+              {
+                "label": "Selection implementation",
+                "path": "grounding/src/select_robot_action_groups_k1_k5_three_mode_v1.py",
+                "type": "text"
+              }
+            ]
+          }
+        },
+        {
+          "id": "5.6",
+          "title": "k4 \u2014 niche occupations",
+          "description": "Add nine actions concentrated in exactly one economic-value occupation, processing least-covered occupations first.",
+          "input": "The frozen earlier portfolio and niche occupation candidates.",
+          "output": "Nine ordered niche-occupation selections.",
+          "example": "Broadly reused actions cannot displace a specialized single-occupation candidate in this tier.",
+          "datasets": [
+            "selection_tiers",
+            "round_4_cross_mode_actions"
+          ],
+          "decisionMethod": {
+            "kind": "Frozen occupation round-robin",
+            "heading": "Protect occupation-specific gaps",
+            "criteria": [
+              {
+                "label": "Niche rule",
+                "text": "Require provenance in exactly one valued occupation."
+              },
+              {
+                "label": "Unit choice",
+                "text": "Choose the least-covered occupation."
+              },
+              {
+                "label": "Candidate gain",
+                "text": "Maximize marginal coverage inside that occupation."
+              },
+              {
+                "label": "Global tie-break",
+                "text": "Prefer larger global economic gain."
+              }
+            ],
+            "sources": [
+              {
+                "label": "Selection implementation",
+                "path": "grounding/src/select_robot_action_groups_k1_k5_three_mode_v1.py",
+                "type": "text"
+              }
+            ]
+          }
+        },
+        {
+          "id": "5.7",
+          "title": "k5 \u2014 capability-family fill",
+          "description": "Add eight actions to the currently least-covered capability family with attainable gain.",
+          "input": "The frozen k1\u2013k4 portfolio and active capability-family incidence.",
+          "output": "Eight ordered capability-family fill selections.",
+          "example": "This final tier targets structural holes not captured by economic or occupation views.",
+          "datasets": [
+            "selection_tiers",
+            "round_4_cross_mode_actions"
+          ],
+          "decisionMethod": {
+            "kind": "Frozen family fill",
+            "heading": "Fill the least-covered active family",
+            "criteria": [
+              {
+                "label": "Family choice",
+                "text": "Choose the least-covered family with attainable gain."
+              },
+              {
+                "label": "Candidate gain",
+                "text": "Maximize newly supplied family incidence."
+              },
+              {
+                "label": "Economic tie-break",
+                "text": "Prefer larger marginal global economic coverage."
+              },
+              {
+                "label": "Stable tie-break",
+                "text": "Use action-group index."
+              }
+            ],
+            "sources": [
+              {
+                "label": "Selection implementation",
+                "path": "grounding/src/select_robot_action_groups_k1_k5_three_mode_v1.py",
+                "type": "text"
+              }
+            ]
+          }
+        },
+        {
+          "id": "5.8",
+          "title": "Audit coverage and criticality",
+          "description": "Recompute every target's coverage, record missing requirements, and remove each selected action once to measure its unique contribution.",
+          "input": "The final 100-action portfolio for each mode.",
+          "output": "Target coverage, policy-unit coverage, family coverage, cross-mode overlap, and leave-one-out criticality.",
+          "example": "The sports strike record names its exact missing requirements instead of merely reporting that it was not selected.",
+          "datasets": [
+            "round_4_physics_coverage",
+            "round_4_combined_coverage",
+            "round_4_robotics_coverage",
+            "round_4_mode_summary"
+          ],
+          "decisionMethod": {
+            "kind": "Deterministic recomputation",
+            "heading": "Make every coverage claim reproducible",
+            "criteria": [
+              {
+                "label": "Targets",
+                "text": "Recompute all 9,363 action targets."
+              },
+              {
+                "label": "Missing set",
+                "text": "Record each unsupplied threshold."
+              },
+              {
+                "label": "Policy views",
+                "text": "Aggregate economic, strategic, STEM, SOC, occupation, and personal coverage."
+              },
+              {
+                "label": "Criticality",
+                "text": "Measure coverage lost when each selected action is removed."
+              }
+            ],
+            "sources": [
+              {
+                "label": "Selection verifier",
+                "path": "grounding/src/select_robot_action_groups_k1_k5_three_mode_v1.py",
+                "type": "text"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "walkthrough": [
+    {
+      "stage": 1,
+      "label": "Collect the source",
+      "detail": "The O*NET practice task enters with a task-level value of $829.841M."
+    },
+    {
+      "stage": 2,
+      "label": "Expand the action",
+      "detail": "The broad description yields six concrete operations, including striking a sports ball or target."
+    },
+    {
+      "stage": 3,
+      "label": "Assign an action group",
+      "detail": "The strike occurrence becomes one of 9,363 equivalence groups."
+    },
+    {
+      "stage": 4,
+      "label": "Attach value and capabilities",
+      "detail": "The group receives $96.815M plus four robot and two physics requirements at round 4."
+    },
+    {
+      "stage": 5,
+      "label": "Test portfolio coverage",
+      "detail": "The latest portfolios do not select it; the audit records the exact missing requirements in each mode."
+    }
+  ],
+  "datasets": [
+    {
+      "id": "activity_weights_us",
+      "stage": 1,
+      "substep": "1.1",
+      "title": "Weighted U.S. activity descriptions",
+      "description": "All O*NET occupational tasks and ATUS activities used by the value model.",
+      "path": "grounding/data/derived/activity_weights.csv",
+      "format": "csv",
+      "columns": [
+        "source_unit_uid",
+        "source_kind",
+        "source_text",
+        "context_label",
+        "weight_axis",
+        "weight_value",
+        "weight_status"
+      ],
+      "rootPath": [],
+      "facets": [
+        "source_kind",
+        "weight_axis",
+        "weight_status"
+      ],
+      "defaultSort": null,
+      "defaultDirection": "asc",
+      "rowCount": 19261,
+      "bytes": 5306590,
+      "tags": [
+        "O*NET",
+        "ATUS",
+        "source values"
+      ],
+      "rowMeaning": "One U.S. source activity with its original description and separate work-value or population-time estimate."
+    },
+    {
+      "id": "activity_sources_international",
+      "stage": 1,
+      "substep": "1.1",
+      "title": "International activity descriptions",
+      "description": "Source-native occupation and time-use descriptions retained for coverage beyond the U.S. value model.",
+      "path": "grounding/data/derived/international_activity_sources_v1/activity_sources.csv",
+      "format": "csv",
+      "columns": [
+        "source_unit_uid",
+        "jurisdiction",
+        "source_kind",
+        "source_text",
+        "context_label",
+        "weight_status",
+        "source_collection"
+      ],
+      "rootPath": [],
+      "facets": [
+        "jurisdiction",
+        "source_kind",
+        "weight_status"
+      ],
+      "defaultSort": null,
+      "defaultDirection": "asc",
+      "rowCount": 33251,
+      "bytes": 18353478,
+      "tags": [
+        "international",
+        "source-native"
+      ],
+      "rowMeaning": "One activity description from an international occupation or time-use source."
+    },
+    {
+      "id": "source_decompositions",
+      "stage": 2,
+      "substep": "2.1",
+      "title": "Source-level action decompositions",
+      "description": "The complete decomposition decision for every U.S. source description, including coverage checks and extracted actions.",
+      "path": "grounding/data/derived/atomic_action_decomposition_v2_final/source_decompositions.jsonl.gz",
+      "format": "jsonl_gz",
+      "columns": [
+        "source_index",
+        "source",
+        "decomposition",
+        "result_origin"
+      ],
+      "rootPath": [],
+      "facets": [
+        "result_origin"
+      ],
+      "defaultSort": null,
+      "defaultDirection": "asc",
+      "rowCount": 19261,
+      "bytes": 4652244,
+      "tags": [
+        "complete rerun",
+        "recall audit"
+      ],
+      "rowMeaning": "One U.S. source description and the final decision about its robot-relevant atomic physical actions."
+    },
+    {
+      "id": "atomic_action_occurrences",
+      "stage": 2,
+      "substep": "2.1",
+      "title": "Recovered atomic action occurrences",
+      "description": "Every action occurrence recovered from the final source-level decomposition.",
+      "path": "grounding/data/derived/atomic_action_decomposition_v2_final/atomic_actions.jsonl.gz",
+      "format": "jsonl_gz",
+      "columns": [
+        "atomic_action_occurrence_id",
+        "source_unit_uid",
+        "action",
+        "object_or_person",
+        "tool_or_effector",
+        "start_state",
+        "end_state",
+        "evidence_basis"
+      ],
+      "rootPath": [],
+      "facets": [
+        "source_kind",
+        "evidence_basis",
+        "result_origin"
+      ],
+      "defaultSort": null,
+      "defaultDirection": "asc",
+      "rowCount": 31961,
+      "bytes": 2642490,
+      "tags": [
+        "atomic actions",
+        "full provenance"
+      ],
+      "rowMeaning": "One atomic physical action recovered from one source description."
+    },
+    {
+      "id": "action_reuse_map",
+      "stage": 3,
+      "substep": "3.1",
+      "title": "Existing-group reuse decisions",
+      "description": "For each recovered occurrence, the audited decision to reuse an existing action group or create a new action.",
+      "path": "grounding/data/derived/action_reuse_outcome_audited_final_v1/occurrence_reuse_map.jsonl.gz",
+      "format": "jsonl_gz",
+      "columns": [
+        "atomic_action_occurrence_id",
+        "action",
+        "reuse_status",
+        "primary_old_group_id",
+        "first_pass",
+        "confirmation",
+        "outcome_audit"
+      ],
+      "rootPath": [],
+      "facets": [
+        "reuse_status",
+        "source_kind",
+        "group_origin"
+      ],
+      "defaultSort": null,
+      "defaultDirection": "asc",
+      "rowCount": 31961,
+      "bytes": 6374752,
+      "tags": [
+        "action deduplication",
+        "audited"
+      ],
+      "rowMeaning": "One atomic action occurrence and its final existing-group reuse decision."
+    },
+    {
+      "id": "new_action_equivalence",
+      "stage": 3,
+      "substep": "3.2",
+      "title": "Equivalence decisions among new actions",
+      "description": "Pairwise decisions used to merge newly created actions only when their physical operation is equivalent.",
+      "path": "grounding/data/derived/new_action_equivalence_complete_v1/decisions.jsonl.gz",
+      "format": "jsonl_gz",
+      "columns": [
+        "atomic_action_occurrence_id",
+        "decision",
+        "matched_candidate_action_occurrence_id",
+        "confidence",
+        "reason"
+      ],
+      "rootPath": [],
+      "facets": [
+        "decision",
+        "confidence",
+        "decision_origin"
+      ],
+      "defaultSort": null,
+      "defaultDirection": "asc",
+      "rowCount": 5263,
+      "bytes": 235369,
+      "tags": [
+        "semantic equivalence",
+        "confirmed pairs"
+      ],
+      "rowMeaning": "One final candidate decision for a new action occurrence."
+    },
+    {
+      "id": "final_action_groups",
+      "stage": 3,
+      "substep": "3.3",
+      "title": "Final action groups",
+      "description": "The current equivalence groups produced from all 31,961 action occurrences.",
+      "path": "grounding/data/derived/deduplicated_action_groups_v3/action_groups.jsonl.gz",
+      "format": "jsonl_gz",
+      "columns": [
+        "action_group_id",
+        "representative_action",
+        "action_occurrence_count",
+        "group_origin",
+        "old_group_aliases",
+        "atomic_action_occurrence_ids"
+      ],
+      "rootPath": [],
+      "facets": [
+        "group_origin",
+        "action_occurrence_count"
+      ],
+      "defaultSort": "action_occurrence_count",
+      "defaultDirection": "desc",
+      "rowCount": 9363,
+      "bytes": 645339,
+      "tags": [
+        "9,363 groups",
+        "selection unit"
+      ],
+      "rowMeaning": "One final physical-action equivalence group."
+    },
+    {
+      "id": "occurrence_group_map",
+      "stage": 3,
+      "substep": "3.3",
+      "title": "Occurrence-to-group map",
+      "description": "The lossless map from every recovered source action to its final action group.",
+      "path": "grounding/data/derived/deduplicated_action_groups_v3/occurrence_group_map.jsonl.gz",
+      "format": "jsonl_gz",
+      "columns": [
+        "atomic_action_occurrence_id",
+        "source_unit_uid",
+        "action",
+        "action_group_id",
+        "group_origin",
+        "source_text",
+        "context_label"
+      ],
+      "rootPath": [],
+      "facets": [
+        "group_origin",
+        "source_kind",
+        "evidence_basis"
+      ],
+      "defaultSort": null,
+      "defaultDirection": "asc",
+      "rowCount": 31961,
+      "bytes": 7033279,
+      "tags": [
+        "provenance",
+        "lossless map"
+      ],
+      "rowMeaning": "One source-specific action occurrence and the final action group containing it."
+    },
+    {
+      "id": "final_action_eligibility",
+      "stage": 3,
+      "substep": "3.4",
+      "title": "Robot-selection eligibility",
+      "description": "The final selection gate, including the sealed holdout quarantine.",
+      "path": "grounding/data/derived/final_action_eligibility_v1/final_action_eligibility.jsonl.gz",
+      "format": "jsonl_gz",
+      "columns": [
+        "action_group_id",
+        "representative_action",
+        "selection_status",
+        "selection_eligible",
+        "category",
+        "decision_source",
+        "rationale"
+      ],
+      "rootPath": [],
+      "facets": [
+        "selection_status",
+        "category",
+        "decision_source",
+        "group_origin"
+      ],
+      "defaultSort": null,
+      "defaultDirection": "asc",
+      "rowCount": 9363,
+      "bytes": 522886,
+      "tags": [
+        "9,354 eligible",
+        "9 quarantined"
+      ],
+      "rowMeaning": "One final action group and its robot-selection eligibility decision."
+    },
+    {
+      "id": "canonical_capabilities",
+      "stage": 4,
+      "substep": "4.1",
+      "title": "Conservatively deduplicated capabilities",
+      "description": "The canonical robot and physics capability vocabulary before iterative high-level clustering.",
+      "path": "grounding/data/derived/corrected_action_capability_dedup_final_v1/canonical_capabilities.jsonl.gz",
+      "format": "jsonl_gz",
+      "columns": [
+        "canonical_capability_id",
+        "canonical_name",
+        "domain",
+        "action_group_count",
+        "mention_count",
+        "member_profile_count",
+        "catalog_origin",
+        "aliases"
+      ],
+      "rootPath": [],
+      "facets": [
+        "domain",
+        "catalog_origin",
+        "member_profile_count"
+      ],
+      "defaultSort": "action_group_count",
+      "defaultDirection": "desc",
+      "rowCount": 14801,
+      "bytes": 2652174,
+      "tags": [
+        "7,123 robot",
+        "7,678 physics"
+      ],
+      "rowMeaning": "One canonical robot or physics capability after conservative semantic deduplication."
+    },
+    {
+      "id": "base_action_capabilities",
+      "stage": 4,
+      "substep": "4.1",
+      "title": "Action-to-capability requirements",
+      "description": "Every action group's robot and physics requirements with relative requirement levels.",
+      "path": "grounding/data/derived/final_action_value_model_v1/action_capability_requirements.jsonl.gz",
+      "format": "jsonl_gz",
+      "columns": [
+        "action_group_id",
+        "representative_action",
+        "action_occurrence_count",
+        "group_origin",
+        "robot_capabilities",
+        "physics_capabilities"
+      ],
+      "rootPath": [],
+      "facets": [
+        "group_origin"
+      ],
+      "defaultSort": null,
+      "defaultDirection": "asc",
+      "rowCount": 9363,
+      "bytes": 6192403,
+      "tags": [
+        "66,346 links",
+        "requirement levels"
+      ],
+      "rowMeaning": "One final action group and all canonical capabilities assigned to it."
+    },
+    {
+      "id": "policy_units",
+      "stage": 4,
+      "substep": "4.2",
+      "title": "Value and policy units",
+      "description": "Occupations, SOC groups, strategic domains, STEM domains, and personal-life units used by the optimizer.",
+      "path": "grounding/data/derived/final_action_value_model_v1/policy_units.jsonl.gz",
+      "format": "jsonl_gz",
+      "columns": [
+        "policy_unit_id",
+        "view_id",
+        "target_uid",
+        "target_label",
+        "target_type",
+        "denominator_mass",
+        "positive_action_group_count"
+      ],
+      "rootPath": [],
+      "facets": [
+        "view_id",
+        "target_type"
+      ],
+      "defaultSort": null,
+      "defaultDirection": "asc",
+      "rowCount": 1885,
+      "bytes": 140003,
+      "tags": [
+        "8 policy views",
+        "coverage targets"
+      ],
+      "rowMeaning": "One policy unit against which action coverage is measured."
+    },
+    {
+      "id": "source_action_allocations",
+      "stage": 4,
+      "substep": "4.2",
+      "title": "Source-to-action value allocations",
+      "description": "The conserved source-level work value or personal time assigned to final action groups.",
+      "path": "grounding/data/derived/final_action_value_model_v1/source_action_allocations.jsonl.gz",
+      "format": "jsonl_gz",
+      "columns": [
+        "source_unit_uid",
+        "target_uid",
+        "weight_axis",
+        "source_robot_relevant_validated_physical_mass",
+        "source_atomic_action_occurrences",
+        "action_group_id",
+        "allocation_share",
+        "allocated_point_mass"
+      ],
+      "rootPath": [],
+      "facets": [
+        "weight_axis"
+      ],
+      "defaultSort": null,
+      "defaultDirection": "asc",
+      "rowCount": 23849,
+      "bytes": 713717,
+      "tags": [
+        "mass-conserving",
+        "source provenance"
+      ],
+      "rowMeaning": "One source-to-action-group value allocation."
+    },
+    {
+      "id": "cluster_round_1_nodes",
+      "stage": 4,
+      "substep": "4.3",
+      "title": "Capability clusters after round 1",
+      "description": "Active capability-family nodes after the first high-level semantic clustering pass.",
+      "path": "grounding/data/derived/iterative_capability_family_clustering_v4/round_01/nodes.jsonl.gz",
+      "format": "jsonl_gz",
+      "columns": [
+        "node_id",
+        "name",
+        "definition",
+        "domain",
+        "leaf_count",
+        "action_count_sum",
+        "created_in_round",
+        "leaf_examples"
+      ],
+      "rootPath": [],
+      "facets": [
+        "domain",
+        "created_in_round",
+        "leaf_count"
+      ],
+      "defaultSort": "action_count_sum",
+      "defaultDirection": "desc",
+      "rowCount": 5834,
+      "bytes": 1151300,
+      "tags": [
+        "round 1",
+        "5,834 nodes"
+      ],
+      "rowMeaning": "One active capability-family node after clustering round 1."
+    },
+    {
+      "id": "cluster_round_2_nodes",
+      "stage": 4,
+      "substep": "4.3",
+      "title": "Capability clusters after round 2",
+      "description": "Active capability-family nodes after the second high-level semantic clustering pass.",
+      "path": "grounding/data/derived/iterative_capability_family_clustering_v4/round_02/nodes.jsonl.gz",
+      "format": "jsonl_gz",
+      "columns": [
+        "node_id",
+        "name",
+        "definition",
+        "domain",
+        "leaf_count",
+        "action_count_sum",
+        "created_in_round",
+        "leaf_examples"
+      ],
+      "rootPath": [],
+      "facets": [
+        "domain",
+        "created_in_round",
+        "leaf_count"
+      ],
+      "defaultSort": "action_count_sum",
+      "defaultDirection": "desc",
+      "rowCount": 4038,
+      "bytes": 942074,
+      "tags": [
+        "round 2",
+        "4,038 nodes"
+      ],
+      "rowMeaning": "One active capability-family node after clustering round 2."
+    },
+    {
+      "id": "cluster_round_3_nodes",
+      "stage": 4,
+      "substep": "4.3",
+      "title": "Capability clusters after round 3",
+      "description": "Active capability-family nodes after the third high-level semantic clustering pass.",
+      "path": "grounding/data/derived/iterative_capability_family_clustering_v4/round_03/nodes.jsonl.gz",
+      "format": "jsonl_gz",
+      "columns": [
+        "node_id",
+        "name",
+        "definition",
+        "domain",
+        "leaf_count",
+        "action_count_sum",
+        "created_in_round",
+        "leaf_examples"
+      ],
+      "rootPath": [],
+      "facets": [
+        "domain",
+        "created_in_round",
+        "leaf_count"
+      ],
+      "defaultSort": "action_count_sum",
+      "defaultDirection": "desc",
+      "rowCount": 3110,
+      "bytes": 830662,
+      "tags": [
+        "round 3",
+        "3,110 nodes"
+      ],
+      "rowMeaning": "One active capability-family node after clustering round 3."
+    },
+    {
+      "id": "cluster_round_4_nodes",
+      "stage": 4,
+      "substep": "4.3",
+      "title": "Capability clusters after round 4",
+      "description": "Active capability-family nodes after the fourth high-level semantic clustering pass.",
+      "path": "grounding/data/derived/iterative_capability_family_clustering_v4/round_04/nodes.jsonl.gz",
+      "format": "jsonl_gz",
+      "columns": [
+        "node_id",
+        "name",
+        "definition",
+        "domain",
+        "leaf_count",
+        "action_count_sum",
+        "created_in_round",
+        "leaf_examples"
+      ],
+      "rootPath": [],
+      "facets": [
+        "domain",
+        "created_in_round",
+        "leaf_count"
+      ],
+      "defaultSort": "action_count_sum",
+      "defaultDirection": "desc",
+      "rowCount": 2490,
+      "bytes": 753695,
+      "tags": [
+        "round 4",
+        "2,490 nodes"
+      ],
+      "rowMeaning": "One active capability-family node after clustering round 4."
+    },
+    {
+      "id": "round_4_action_capabilities",
+      "stage": 4,
+      "substep": "4.4",
+      "title": "Round-4 action requirements",
+      "description": "Every action group's requirements remapped to the round-4 capability-family nodes.",
+      "path": "grounding/data/derived/iterative_capability_family_clustering_v4/round_04/action_capability_requirements.jsonl.gz",
+      "format": "jsonl_gz",
+      "columns": [
+        "action_group_id",
+        "representative_action",
+        "action_occurrence_count",
+        "robot_capabilities",
+        "physics_capabilities"
+      ],
+      "rootPath": [],
+      "facets": [
+        "group_origin"
+      ],
+      "defaultSort": null,
+      "defaultDirection": "asc",
+      "rowCount": 9363,
+      "bytes": 3146284,
+      "tags": [
+        "optimizer input",
+        "round 4"
+      ],
+      "rowMeaning": "One final action group and its requirements after four capability-clustering rounds."
+    },
+    {
+      "id": "selection_tiers",
+      "stage": 5,
+      "substep": "5.1",
+      "title": "Frozen k1\u2013k5 optimization tiers",
+      "description": "The budgets, candidate sets, objectives, and tie-break rules frozen before optimization.",
+      "path": "grounding/data/derived/iterative_capability_family_clustering_v4/round_04/selection_protocol.json",
+      "format": "json",
+      "columns": [
+        "tier_id",
+        "budget",
+        "candidate_rule",
+        "target_view",
+        "selection_method",
+        "lexicographic_objective",
+        "unit_order",
+        "candidate_order"
+      ],
+      "rootPath": [
+        "tiers"
+      ],
+      "facets": [
+        "selection_method"
+      ],
+      "defaultSort": null,
+      "defaultDirection": "asc",
+      "rowCount": 6,
+      "bytes": 9634,
+      "tags": [
+        "100 total slots",
+        "frozen protocol"
+      ],
+      "rowMeaning": "One constrained-selection tier in the frozen k1\u2013k5 protocol."
+    },
+    {
+      "id": "round_4_mode_summary",
+      "stage": 5,
+      "substep": "5.2",
+      "title": "Round-4 mode comparison",
+      "description": "Coverage outcomes for physics-only, combined, and robotics-only constrained portfolios.",
+      "path": "grounding/data/derived/iterative_capability_family_clustering_v4/round_04/selection/comparison.json",
+      "format": "json",
+      "columns": [
+        "mode_id",
+        "required_capability_domains",
+        "selected_action_groups",
+        "covered_action_groups",
+        "economic_coverage",
+        "everyday_life_coverage",
+        "strategic_minimum_unit_coverage",
+        "stem_minimum_unit_coverage",
+        "soc_minimum_unit_coverage"
+      ],
+      "rootPath": [
+        "mode_summaries"
+      ],
+      "facets": [
+        "mode_id"
+      ],
+      "defaultSort": null,
+      "defaultDirection": "asc",
+      "rowCount": 3,
+      "bytes": 12461,
+      "tags": [
+        "three modes",
+        "exact optimization"
+      ],
+      "rowMeaning": "One complete round-4 optimization mode and its headline coverage results."
+    },
+    {
+      "id": "round_4_physics_selected",
+      "stage": 5,
+      "substep": "5.3",
+      "title": "Round-4 physics-only portfolio",
+      "description": "The 100 action groups selected when only physics requirements define coverage.",
+      "path": "grounding/data/derived/iterative_capability_family_clustering_v4/round_04/selection/physics_only/selected_actions.jsonl.gz",
+      "format": "jsonl_gz",
+      "columns": [
+        "portfolio_display_sequence",
+        "tier_id",
+        "representative_action",
+        "market_work_economic_value_usd",
+        "active_requirement_count",
+        "active_capability_requirements",
+        "leave_one_out_criticality"
+      ],
+      "rootPath": [],
+      "facets": [
+        "tier_id",
+        "joint_batch"
+      ],
+      "defaultSort": "portfolio_display_sequence",
+      "defaultDirection": "asc",
+      "rowCount": 100,
+      "bytes": 40125,
+      "tags": [
+        "physics only",
+        "100 actions"
+      ],
+      "rowMeaning": "One selected action group in the round-4 physics-only portfolio."
+    },
+    {
+      "id": "round_4_combined_selected",
+      "stage": 5,
+      "substep": "5.3",
+      "title": "Round-4 combined portfolio",
+      "description": "The 100 action groups selected when both physics and robotics requirements define coverage.",
+      "path": "grounding/data/derived/iterative_capability_family_clustering_v4/round_04/selection/physics_plus_robotics/selected_actions.jsonl.gz",
+      "format": "jsonl_gz",
+      "columns": [
+        "portfolio_display_sequence",
+        "tier_id",
+        "representative_action",
+        "market_work_economic_value_usd",
+        "active_requirement_count",
+        "active_capability_requirements",
+        "leave_one_out_criticality"
+      ],
+      "rootPath": [],
+      "facets": [
+        "tier_id",
+        "joint_batch"
+      ],
+      "defaultSort": "portfolio_display_sequence",
+      "defaultDirection": "asc",
+      "rowCount": 100,
+      "bytes": 52502,
+      "tags": [
+        "physics plus robotics",
+        "100 actions"
+      ],
+      "rowMeaning": "One selected action group in the round-4 combined portfolio."
+    },
+    {
+      "id": "round_4_robotics_selected",
+      "stage": 5,
+      "substep": "5.3",
+      "title": "Round-4 robotics-only portfolio",
+      "description": "The 100 action groups selected when only robotics requirements define coverage.",
+      "path": "grounding/data/derived/iterative_capability_family_clustering_v4/round_04/selection/robotics_only/selected_actions.jsonl.gz",
+      "format": "jsonl_gz",
+      "columns": [
+        "portfolio_display_sequence",
+        "tier_id",
+        "representative_action",
+        "market_work_economic_value_usd",
+        "active_requirement_count",
+        "active_capability_requirements",
+        "leave_one_out_criticality"
+      ],
+      "rootPath": [],
+      "facets": [
+        "tier_id",
+        "joint_batch"
+      ],
+      "defaultSort": "portfolio_display_sequence",
+      "defaultDirection": "asc",
+      "rowCount": 100,
+      "bytes": 39243,
+      "tags": [
+        "robotics only",
+        "100 actions"
+      ],
+      "rowMeaning": "One selected action group in the round-4 robotics-only portfolio."
+    },
+    {
+      "id": "round_2_robotics_selected",
+      "stage": 5,
+      "substep": "5.4",
+      "title": "Round-2 robotics-only portfolio",
+      "description": "The robotics-only portfolio discussed during the second capability-clustering iteration.",
+      "path": "grounding/data/derived/iterative_capability_family_clustering_v4/round_02/selection/robotics_only/selected_actions.jsonl.gz",
+      "format": "jsonl_gz",
+      "columns": [
+        "portfolio_display_sequence",
+        "tier_id",
+        "representative_action",
+        "market_work_economic_value_usd",
+        "active_requirement_count",
+        "active_capability_requirements",
+        "leave_one_out_criticality"
+      ],
+      "rootPath": [],
+      "facets": [
+        "tier_id",
+        "joint_batch"
+      ],
+      "defaultSort": "portfolio_display_sequence",
+      "defaultDirection": "asc",
+      "rowCount": 100,
+      "bytes": 40806,
+      "tags": [
+        "round 2",
+        "robotics only"
+      ],
+      "rowMeaning": "One selected action group in the round-2 robotics-only portfolio."
+    },
+    {
+      "id": "round_3_robotics_selected",
+      "stage": 5,
+      "substep": "5.4",
+      "title": "Round-3 robotics-only portfolio",
+      "description": "The robotics-only portfolio after the third capability-clustering iteration.",
+      "path": "grounding/data/derived/iterative_capability_family_clustering_v4/round_03/selection/robotics_only/selected_actions.jsonl.gz",
+      "format": "jsonl_gz",
+      "columns": [
+        "portfolio_display_sequence",
+        "tier_id",
+        "representative_action",
+        "market_work_economic_value_usd",
+        "active_requirement_count",
+        "active_capability_requirements",
+        "leave_one_out_criticality"
+      ],
+      "rootPath": [],
+      "facets": [
+        "tier_id",
+        "joint_batch"
+      ],
+      "defaultSort": "portfolio_display_sequence",
+      "defaultDirection": "asc",
+      "rowCount": 100,
+      "bytes": 40660,
+      "tags": [
+        "round 3",
+        "robotics only"
+      ],
+      "rowMeaning": "One selected action group in the round-3 robotics-only portfolio."
+    },
+    {
+      "id": "round_4_physics_coverage",
+      "stage": 5,
+      "substep": "5.5",
+      "title": "Round-4 physics-only target coverage",
+      "description": "Coverage and missing physics requirements for every action group.",
+      "path": "grounding/data/derived/iterative_capability_family_clustering_v4/round_04/selection/physics_only/final_target_coverage.jsonl.gz",
+      "format": "jsonl_gz",
+      "columns": [
+        "action_group_id",
+        "representative_action",
+        "selected",
+        "covered",
+        "active_requirement_count",
+        "missing_requirement_count",
+        "missing_requirements",
+        "market_work_economic_value_usd"
+      ],
+      "rootPath": [],
+      "facets": [
+        "selected",
+        "covered",
+        "selection_eligible"
+      ],
+      "defaultSort": null,
+      "defaultDirection": "asc",
+      "rowCount": 9363,
+      "bytes": 710648,
+      "tags": [
+        "physics only",
+        "coverage"
+      ],
+      "rowMeaning": "One action-group coverage result under the round-4 physics-only portfolio."
+    },
+    {
+      "id": "round_4_combined_coverage",
+      "stage": 5,
+      "substep": "5.5",
+      "title": "Round-4 combined target coverage",
+      "description": "Coverage and missing requirements for every action group when both domains are required.",
+      "path": "grounding/data/derived/iterative_capability_family_clustering_v4/round_04/selection/physics_plus_robotics/final_target_coverage.jsonl.gz",
+      "format": "jsonl_gz",
+      "columns": [
+        "action_group_id",
+        "representative_action",
+        "selected",
+        "covered",
+        "active_requirement_count",
+        "missing_requirement_count",
+        "missing_requirements",
+        "market_work_economic_value_usd"
+      ],
+      "rootPath": [],
+      "facets": [
+        "selected",
+        "covered",
+        "selection_eligible"
+      ],
+      "defaultSort": null,
+      "defaultDirection": "asc",
+      "rowCount": 9363,
+      "bytes": 884311,
+      "tags": [
+        "combined",
+        "coverage"
+      ],
+      "rowMeaning": "One action-group coverage result under the round-4 combined portfolio."
+    },
+    {
+      "id": "round_4_robotics_coverage",
+      "stage": 5,
+      "substep": "5.5",
+      "title": "Round-4 robotics-only target coverage",
+      "description": "Coverage and missing robotics requirements for every action group.",
+      "path": "grounding/data/derived/iterative_capability_family_clustering_v4/round_04/selection/robotics_only/final_target_coverage.jsonl.gz",
+      "format": "jsonl_gz",
+      "columns": [
+        "action_group_id",
+        "representative_action",
+        "selected",
+        "covered",
+        "active_requirement_count",
+        "missing_requirement_count",
+        "missing_requirements",
+        "market_work_economic_value_usd"
+      ],
+      "rootPath": [],
+      "facets": [
+        "selected",
+        "covered",
+        "selection_eligible"
+      ],
+      "defaultSort": null,
+      "defaultDirection": "asc",
+      "rowCount": 9363,
+      "bytes": 686896,
+      "tags": [
+        "robotics only",
+        "coverage"
+      ],
+      "rowMeaning": "One action-group coverage result under the round-4 robotics-only portfolio."
+    },
+    {
+      "id": "round_4_cross_mode_actions",
+      "stage": 5,
+      "substep": "5.6",
+      "title": "Actions selected across modes",
+      "description": "The union of round-4 selected actions with mode membership and tier migration.",
+      "path": "grounding/data/derived/iterative_capability_family_clustering_v4/round_04/selection/cross_mode_actions.jsonl.gz",
+      "format": "jsonl_gz",
+      "columns": [
+        "action_group_id",
+        "representative_action",
+        "mode_count",
+        "physics_only_selected",
+        "physics_only_tier",
+        "physics_plus_robotics_selected",
+        "physics_plus_robotics_tier",
+        "robotics_only_selected",
+        "robotics_only_tier"
+      ],
+      "rootPath": [],
+      "facets": [
+        "mode_count",
+        "physics_only_selected",
+        "physics_plus_robotics_selected",
+        "robotics_only_selected"
+      ],
+      "defaultSort": null,
+      "defaultDirection": "asc",
+      "rowCount": 250,
+      "bytes": 13702,
+      "tags": [
+        "cross-mode overlap",
+        "tier migration"
+      ],
+      "rowMeaning": "One action group selected by at least one round-4 optimization mode."
+    }
+  ],
+  "documents": [
+    {
+      "label": "Current k1\u2013k5 selection plan",
+      "path": "ROBOT_ACTION_GROUP_SELECTION_PLAN_v0.md",
+      "type": "text",
+      "description": "The sequential capability-mediated selection formulation and fixed tier budgets."
+    },
+    {
+      "label": "Frozen three-mode optimization protocol",
+      "path": "grounding/experiments/robot_action_group_selection_k1_k5_three_mode_v1/protocol.json",
+      "type": "json",
+      "description": "Exact coverage rules, candidate sets, tier objectives, solver settings, and reporting requirements."
+    },
+    {
+      "label": "Round-4 three-mode report",
+      "path": "grounding/data/derived/iterative_capability_family_clustering_v4/round_04/selection/REPORT.md",
+      "type": "text",
+      "description": "Latest complete comparison of physics-only, combined, and robotics-only portfolios."
+    },
+    {
+      "label": "Robotics grounding methodology",
+      "path": "ROBOTICS_GROUNDING_METHODOLOGY.md",
+      "type": "text",
+      "description": "The source, action, value, and simulation-grounding methodology."
+    },
+    {
+      "label": "Original Gym-Anything adaptation paper",
+      "path": "grounding/paper/physical_activity_selection_executed.pdf",
+      "type": "pdf",
+      "description": "The earlier activity-selection baseline retained for methodological comparison."
+    }
+  ],
+  "totals": {
+    "sourceRows": 52512,
+    "usSourceRows": 19261,
+    "internationalSourceRows": 33251,
+    "rawActions": 31961,
+    "actionGroups": 9363,
+    "eligibleActionGroups": 9354,
+    "canonicalCapabilities": 14801,
+    "actionCapabilityLinks": 66346,
+    "activeCapabilityNodes": 11543,
+    "clusteredCapabilityNodes": 2490,
+    "selectedActionsPerMode": 100,
+    "inspectableRows": 295226,
+    "datasets": 29,
+    "stages": 5,
+    "substeps": 20
+  },
+  "glossary": [
+    {
+      "term": "Source activity",
+      "definition": "One O*NET task, ATUS activity, or international activity description."
+    },
+    {
+      "term": "Action occurrence",
+      "definition": "One atomic physical operation recovered from one source context."
+    },
+    {
+      "term": "Action group",
+      "definition": "An equivalence class of occurrences and the unit selected by the optimizer."
+    },
+    {
+      "term": "Canonical capability",
+      "definition": "A conservatively deduplicated robot or physics requirement."
+    },
+    {
+      "term": "Capability cluster",
+      "definition": "A higher-level family node retaining its canonical leaf provenance."
+    },
+    {
+      "term": "Requirement level",
+      "definition": "The minimum relative capability threshold needed to cover a target action."
+    },
+    {
+      "term": "Covered action",
+      "definition": "A target for which every active-mode requirement is supplied by the portfolio."
+    },
+    {
+      "term": "Selection tier",
+      "definition": "The policy reason an action entered the portfolio."
+    }
+  ],
+  "capabilityClustering": {
+    "rounds": [
+      {
+        "round": 0,
+        "label": "Active canonical leaves",
+        "nodes": 11543,
+        "robotNodes": 5569,
+        "physicsNodes": 5974,
+        "reduction": 0,
+        "status": "baseline"
+      },
+      {
+        "round": 1,
+        "label": "Clustering round 1",
+        "nodes": 5834,
+        "robotNodes": 2814,
+        "physicsNodes": 3020,
+        "reduction": 5709,
+        "multiInputGroups": 2103,
+        "largestLeafGroup": 24,
+        "uncertainCases": 1,
+        "status": "materialized"
+      },
+      {
+        "round": 2,
+        "label": "Clustering round 2",
+        "nodes": 4038,
+        "robotNodes": 1960,
+        "physicsNodes": 2078,
+        "reduction": 1796,
+        "multiInputGroups": 861,
+        "largestLeafGroup": 52,
+        "uncertainCases": 0,
+        "status": "materialized"
+      },
+      {
+        "round": 3,
+        "label": "Clustering round 3",
+        "nodes": 3110,
+        "robotNodes": 1520,
+        "physicsNodes": 1590,
+        "reduction": 928,
+        "multiInputGroups": 443,
+        "largestLeafGroup": 97,
+        "uncertainCases": 0,
+        "status": "materialized"
+      },
+      {
+        "round": 4,
+        "label": "Clustering round 4",
+        "nodes": 2490,
+        "robotNodes": 1232,
+        "physicsNodes": 1258,
+        "reduction": 620,
+        "multiInputGroups": 329,
+        "largestLeafGroup": 97,
+        "uncertainCases": 0,
+        "status": "materialized"
+      }
+    ],
+    "initialCanonicalCapabilities": 14801,
+    "initialActiveNodes": 11543,
+    "latestNodes": 2490,
+    "domainRule": "Robot and physics nodes are clustered separately.",
+    "invariant": "Only capability abstraction changes across rounds; actions, values, policy units, eligibility, budgets, and solver settings remain fixed."
+  },
+  "selection": {
+    "latestRound": 4,
+    "totalBudget": 100,
+    "tierBudgets": [
+      {
+        "id": "k1_economic_core",
+        "short": "k1",
+        "label": "Economic core",
+        "count": 20,
+        "accent": "#8fe3ff",
+        "method": "Exact joint MILP.",
+        "targetView": "All economic_value policy units aggregated without double-counting their separately sourced action allocations."
+      },
+      {
+        "id": "k2_1_strategic_domains",
+        "short": "k2.1",
+        "label": "Strategic domains",
+        "count": 20,
+        "accent": "#5ed9c2",
+        "method": "Exact joint MILP conditioned on every earlier selection.",
+        "targetView": "strategic_domain_breadth"
+      },
+      {
+        "id": "k2_2_stem_research",
+        "short": "k2.2",
+        "label": "STEM and research",
+        "count": 20,
+        "accent": "#b9f27c",
+        "method": "Exact joint MILP conditioned on every earlier selection.",
+        "targetView": "stem_research_breadth"
+      },
+      {
+        "id": "k3_soc_major_diversity",
+        "short": "k3",
+        "label": "SOC-major diversity",
+        "count": 23,
+        "accent": "#ffcc7a",
+        "method": "Sequential frozen round-robin conditioned on every earlier selection.",
+        "targetView": "soc_major_breadth"
+      },
+      {
+        "id": "k4_niche_occupations",
+        "short": "k4",
+        "label": "Niche occupations",
+        "count": 9,
+        "accent": "#cf9cff",
+        "method": "Sequential least-covered-occupation round-robin conditioned on every earlier selection.",
+        "targetView": "economic_value"
+      },
+      {
+        "id": "k5_capability_family_fill",
+        "short": "k5",
+        "label": "Capability-family fill",
+        "count": 8,
+        "accent": "#ff7f91",
+        "method": "Sequential least-covered-family fill conditioned on every earlier selection.",
+        "targetView": "All final action-group requirement incidences in the mode; each action contributes total unit weight divided equally across its active-mode requirements."
+      }
+    ],
+    "modes": [
+      {
+        "id": "physics_only",
+        "label": "Physics only",
+        "short": "Physics",
+        "description": "Only physics requirements determine whether a target action is covered.",
+        "accent": "#ffcc7a"
+      },
+      {
+        "id": "physics_plus_robotics",
+        "label": "Physics + robotics",
+        "short": "Combined",
+        "description": "Every physics and robot requirement must be supplied.",
+        "accent": "#cf9cff"
+      },
+      {
+        "id": "robotics_only",
+        "label": "Robotics only",
+        "short": "Robotics",
+        "description": "Only robot-control, sensing, and manipulation requirements define coverage.",
+        "accent": "#8fe3ff"
+      }
+    ],
+    "roundResults": [
+      {
+        "round": 1,
+        "mode": "physics_only",
+        "status": "complete",
+        "selected": 100,
+        "coveredActions": 4393,
+        "coveredActionPercent": 46.92,
+        "economicPercent": 63.24,
+        "personalPercent": 48.54,
+        "strategicMinimumPercent": 60.48,
+        "stemMinimumPercent": 69.6,
+        "socMinimumPercent": 58.05,
+        "minimumFamilyPercent": 58.15
+      },
+      {
+        "round": 1,
+        "mode": "physics_plus_robotics",
+        "status": "complete",
+        "selected": 100,
+        "coveredActions": 2106,
+        "coveredActionPercent": 22.49,
+        "economicPercent": 39.6,
+        "personalPercent": 22.72,
+        "strategicMinimumPercent": 36.63,
+        "stemMinimumPercent": 51.86,
+        "socMinimumPercent": 35.86,
+        "minimumFamilyPercent": 40.45
+      },
+      {
+        "round": 1,
+        "mode": "robotics_only",
+        "status": "complete",
+        "selected": 100,
+        "coveredActions": 5192,
+        "coveredActionPercent": 55.45,
+        "economicPercent": 67.16,
+        "personalPercent": 55.74,
+        "strategicMinimumPercent": 68.16,
+        "stemMinimumPercent": 76.4,
+        "socMinimumPercent": 60.72,
+        "minimumFamilyPercent": 53.45
+      },
+      {
+        "round": 2,
+        "mode": "physics_only",
+        "status": "complete",
+        "selected": 100,
+        "coveredActions": 5408,
+        "coveredActionPercent": 57.76,
+        "economicPercent": 71.95,
+        "personalPercent": 57.42,
+        "strategicMinimumPercent": 68.46,
+        "stemMinimumPercent": 80.63,
+        "socMinimumPercent": 67.96,
+        "minimumFamilyPercent": 66.14
+      },
+      {
+        "round": 2,
+        "mode": "physics_plus_robotics",
+        "status": "complete",
+        "selected": 100,
+        "coveredActions": 3208,
+        "coveredActionPercent": 34.26,
+        "economicPercent": 51.66,
+        "personalPercent": 35.94,
+        "strategicMinimumPercent": 50.24,
+        "stemMinimumPercent": 62.4,
+        "socMinimumPercent": 47.77,
+        "minimumFamilyPercent": 48.58
+      },
+      {
+        "round": 2,
+        "mode": "robotics_only",
+        "status": "complete",
+        "selected": 100,
+        "coveredActions": 6159,
+        "coveredActionPercent": 65.78,
+        "economicPercent": 77.07,
+        "personalPercent": 64.41,
+        "strategicMinimumPercent": 76.89,
+        "stemMinimumPercent": 85.16,
+        "socMinimumPercent": 72.67,
+        "minimumFamilyPercent": 59.05
+      },
+      {
+        "round": 3,
+        "mode": "physics_only",
+        "status": "complete",
+        "selected": 100,
+        "coveredActions": 6142,
+        "coveredActionPercent": 65.6,
+        "economicPercent": 78.98,
+        "personalPercent": 68.94,
+        "strategicMinimumPercent": 76.56,
+        "stemMinimumPercent": 85.12,
+        "socMinimumPercent": 76.3,
+        "minimumFamilyPercent": 69.92
+      },
+      {
+        "round": 3,
+        "mode": "physics_plus_robotics",
+        "status": "complete",
+        "selected": 100,
+        "coveredActions": 4023,
+        "coveredActionPercent": 42.97,
+        "economicPercent": 59.49,
+        "personalPercent": 47.67,
+        "strategicMinimumPercent": 56.75,
+        "stemMinimumPercent": 73.21,
+        "socMinimumPercent": 55.1,
+        "minimumFamilyPercent": 55.22
+      },
+      {
+        "round": 3,
+        "mode": "robotics_only",
+        "status": "complete",
+        "selected": 100,
+        "coveredActions": 6754,
+        "coveredActionPercent": 72.13,
+        "economicPercent": 82.8,
+        "personalPercent": 73.06,
+        "strategicMinimumPercent": 81.68,
+        "stemMinimumPercent": 89.57,
+        "socMinimumPercent": 78.46,
+        "minimumFamilyPercent": 67.13
+      },
+      {
+        "round": 4,
+        "mode": "physics_only",
+        "status": "complete",
+        "selected": 100,
+        "coveredActions": 6754,
+        "coveredActionPercent": 72.13,
+        "economicPercent": 83.22,
+        "personalPercent": 77.43,
+        "strategicMinimumPercent": 82.15,
+        "stemMinimumPercent": 86.85,
+        "socMinimumPercent": 81.43,
+        "minimumFamilyPercent": 74.53
+      },
+      {
+        "round": 4,
+        "mode": "physics_plus_robotics",
+        "status": "complete",
+        "selected": 100,
+        "coveredActions": 4614,
+        "coveredActionPercent": 49.28,
+        "economicPercent": 66.33,
+        "personalPercent": 52.04,
+        "strategicMinimumPercent": 63.55,
+        "stemMinimumPercent": 77.22,
+        "socMinimumPercent": 62.53,
+        "minimumFamilyPercent": 63.64
+      },
+      {
+        "round": 4,
+        "mode": "robotics_only",
+        "status": "complete",
+        "selected": 100,
+        "coveredActions": 7224,
+        "coveredActionPercent": 77.15,
+        "economicPercent": 86.73,
+        "personalPercent": 75.09,
+        "strategicMinimumPercent": 85.87,
+        "stemMinimumPercent": 92.64,
+        "socMinimumPercent": 83.62,
+        "minimumFamilyPercent": 71.66
+      }
+    ],
+    "coverageRule": "An action is covered when every requirement in the mode is supplied by at least one selected action at an equal or greater level. Different selected actions may supply different requirements.",
+    "supplyRule": "Supply uses the identical or one directly confirmed equivalent capability. No transitive equivalence closure is used.",
+    "solver": "HiGHS, zero relative and absolute MIP gap, one thread, deterministic seed.",
+    "axisWarning": "Economic value and personal time remain separate. Portfolio coverage is capability-mediated; direct action value alone does not determine selection."
+  },
+  "leaderboard": {
+    "id": "action_group_portfolios",
+    "title": "Action-group portfolio explorer",
+    "expectedRows": 9363,
+    "defaultMode": "robotics_only",
+    "defaultRound": 4,
+    "views": [
+      {
+        "id": "selected",
+        "label": "Selected 100",
+        "description": "Actions entering the chosen mode's portfolio."
+      },
+      {
+        "id": "covered",
+        "label": "Covered targets",
+        "description": "All actions whose active requirements are supplied."
+      },
+      {
+        "id": "uncovered",
+        "label": "Coverage gaps",
+        "description": "Unselected targets with one or more missing requirements."
+      },
+      {
+        "id": "paid-work",
+        "label": "Economic value",
+        "description": "Positive modeled U.S. work value, descending."
+      },
+      {
+        "id": "everyday-life",
+        "label": "Personal time",
+        "description": "Positive annual U.S. population-hours, descending."
+      },
+      {
+        "id": "all",
+        "label": "All 9,363",
+        "description": "The complete final action-group catalog."
+      }
+    ]
+  }
+}

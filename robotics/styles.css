@@ -447,7 +447,7 @@ kbd { display: inline-block; width: fit-content; border: 1px solid #3a424d; bord
   .brand-copy { display: block; }
   .brand-sub { display: none; }
   .sidebar nav { margin-left: auto; display: flex; }
-  .sidebar .nav-label, .sidebar-bottom, .sidebar nav .nav-item:nth-of-type(n+3) { display: none; }
+  .sidebar .nav-label, .sidebar-bottom, .sidebar nav .nav-item:nth-of-type(n+4) { display: none; }
   .sidebar nav .nav-item { width: 42px; }
   .main { margin-left: 0; }
   .content { padding: 25px 15px 76px; }

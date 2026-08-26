@@ -1,0 +1,196 @@
+{
+  "experiment_id": "robot-action-group-selection-k1-k5-three-mode-v1",
+  "status": "frozen_before_optimization",
+  "selection_unit": "final_action_group",
+  "total_budget": 100,
+  "mode_order": [
+    {
+      "mode_id": "physics_only",
+      "required_capability_domains": [
+        "physics_capabilities"
+      ]
+    },
+    {
+      "mode_id": "physics_plus_robotics",
+      "required_capability_domains": [
+        "physics_capabilities",
+        "robot_capabilities"
+      ]
+    },
+    {
+      "mode_id": "robotics_only",
+      "required_capability_domains": [
+        "robot_capabilities"
+      ]
+    }
+  ],
+  "shared_inputs": {
+    "action_requirements": "grounding/data/derived/final_action_value_model_v1/action_capability_requirements.jsonl.gz",
+    "action_values": "grounding/data/derived/final_action_value_model_v1/action_values.jsonl.gz",
+    "policy_units": "grounding/data/derived/final_action_value_model_v1/policy_units.jsonl.gz",
+    "policy_unit_action_weights": "grounding/data/derived/final_action_value_model_v1/policy_unit_action_weights.jsonl.gz",
+    "direct_capability_equivalences": "grounding/data/derived/final_action_value_model_v1/direct_capability_equivalences.jsonl.gz",
+    "eligibility": "grounding/data/derived/final_action_eligibility_v1/final_action_eligibility.jsonl.gz"
+  },
+  "coverage_definition": {
+    "target_rule": "An action is covered when every requirement in the mode's required capability domains is supplied by the selected portfolio.",
+    "supply_rule": "A selected action supplies a requirement when it contains the identical or one directly confirmed equivalent canonical capability in the same domain at a level greater than or equal to the target requirement.",
+    "direct_equivalence_only": true,
+    "transitive_equivalence_closure": false,
+    "zero_requirement_policy": "An action with no requirements in the active mode is vacuously covered.",
+    "eligibility_policy": "Only final action groups with selection_status=eligible may be selected; excluded, quarantined, and unresolved groups are fail-closed."
+  },
+  "tier_order": [
+    "k1_economic_core",
+    "k2_1_strategic_domains",
+    "k2_2_stem_research",
+    "k3_soc_major_diversity",
+    "k4_niche_occupations",
+    "k5_capability_family_fill"
+  ],
+  "tiers": [
+    {
+      "tier_id": "k1_economic_core",
+      "budget": 20,
+      "candidate_rule": "Eligible unselected actions with positive market-work economic value.",
+      "target_view": "All economic_value policy units aggregated without double-counting their separately sourced action allocations.",
+      "selection_method": "Exact joint MILP.",
+      "lexicographic_objective": [
+        "maximize total covered paid-work economic mass",
+        "holding covered mass within the frozen solver tolerance, minimize the sum of final action-group indices"
+      ]
+    },
+    {
+      "tier_id": "k2_1_strategic_domains",
+      "budget": 20,
+      "candidate_rule": "Eligible unselected actions with positive mass in at least one strategic_domain_breadth policy unit.",
+      "target_view": "strategic_domain_breadth",
+      "selection_method": "Exact joint MILP conditioned on every earlier selection.",
+      "lexicographic_objective": [
+        "maximize the minimum absolute coverage fraction across healthcare, education, protective services, and transportation",
+        "holding the maximin optimum, maximize total normalized covered strategic mass",
+        "holding both substantive optima, minimize the sum of final action-group indices"
+      ]
+    },
+    {
+      "tier_id": "k2_2_stem_research",
+      "budget": 20,
+      "candidate_rule": "Eligible unselected actions with positive mass in at least one stem_research_breadth policy unit.",
+      "target_view": "stem_research_breadth",
+      "selection_method": "Exact joint MILP conditioned on every earlier selection.",
+      "lexicographic_objective": [
+        "maximize the minimum absolute coverage fraction across Architecture and Engineering, Computer and Mathematical, and Life, Physical, and Social Science",
+        "holding the maximin optimum, maximize total normalized covered STEM/research mass",
+        "holding both substantive optima, minimize the sum of final action-group indices"
+      ]
+    },
+    {
+      "tier_id": "k3_soc_major_diversity",
+      "budget": 23,
+      "candidate_rule": "For the active SOC major group, eligible unselected actions with positive mass in that group's soc_major_breadth policy unit.",
+      "target_view": "soc_major_breadth",
+      "selection_method": "Sequential frozen round-robin conditioned on every earlier selection.",
+      "unit_order": [
+        "choose the currently least-covered SOC major group that still has a candidate",
+        "break equal coverage by larger uncovered economic mass",
+        "break remaining ties by policy-unit ID"
+      ],
+      "candidate_order": [
+        "maximize marginal covered economic mass inside the active SOC group",
+        "break ties by marginal global economic coverage",
+        "then larger direct mass in the active group",
+        "then lower final action-group index"
+      ]
+    },
+    {
+      "tier_id": "k4_niche_occupations",
+      "budget": 9,
+      "candidate_rule": "For the active occupation, eligible unselected actions with positive mass in that occupation and positive provenance in exactly one economic_value occupation overall.",
+      "niche_maximum_occupation_count": 1,
+      "target_view": "economic_value",
+      "selection_method": "Sequential least-covered-occupation round-robin conditioned on every earlier selection.",
+      "unit_order": [
+        "choose the currently least-covered occupation that still has a niche candidate",
+        "break equal coverage by larger uncovered economic mass",
+        "break remaining ties by policy-unit ID"
+      ],
+      "candidate_order": [
+        "maximize marginal covered economic mass inside the active occupation",
+        "break ties by marginal global economic coverage",
+        "then larger direct mass in the active occupation",
+        "then lower final action-group index"
+      ]
+    },
+    {
+      "tier_id": "k5_capability_family_fill",
+      "budget": 8,
+      "candidate_rule": "Every eligible unselected final action group that supplies positive unmet requirement incidence in the active capability family.",
+      "target_view": "All final action-group requirement incidences in the mode; each action contributes total unit weight divided equally across its active-mode requirements.",
+      "selection_method": "Sequential least-covered-family fill conditioned on every earlier selection.",
+      "unit_order": [
+        "choose the currently least-covered active-mode family with positive attainable gain",
+        "break equal coverage by larger unmet family requirement weight",
+        "break remaining ties by frozen family order"
+      ],
+      "candidate_order": [
+        "maximize newly supplied weighted requirement incidence in the active family",
+        "break ties by marginal global economic coverage",
+        "then lower final action-group index"
+      ],
+      "robot_family_order": [
+        "bimanual_coordination",
+        "locomotion_navigation",
+        "perception_vision",
+        "tactile_proprioceptive_sensing",
+        "tool_use_actuation",
+        "manipulation_grasping",
+        "force_compliance",
+        "positioning_motion",
+        "other_robot"
+      ],
+      "physics_family_order": [
+        "biological_tissue",
+        "thermal_phase_change",
+        "aerodynamics",
+        "fluids",
+        "granular_matter",
+        "cloth_thin_shell_rope",
+        "fracture_cutting_wear",
+        "adhesion",
+        "optics_electromagnetics",
+        "articulated_mechanisms",
+        "compliance_deformation",
+        "rigid_contact_friction",
+        "other_physics"
+      ],
+      "combined_mode_family_order": "All physics families in physics_family_order, followed by all robot families in robot_family_order.",
+      "family_assignment": "Each canonical capability is assigned to the first matching family in its domain's frozen order using the keyword rules embedded in the versioned implementation; unmatched names enter the domain-specific other family."
+    }
+  ],
+  "solver": {
+    "name": "HiGHS",
+    "mip_relative_gap": 0.0,
+    "mip_absolute_gap": 0.0,
+    "parallel": "off",
+    "threads": 1,
+    "random_seed": 0,
+    "stage_fix_tolerance": 1e-09
+  },
+  "existing_environment_policy": {
+    "mandatory": false,
+    "bonus": false,
+    "penalty": false,
+    "read_during_selection": false
+  },
+  "reporting": {
+    "joint_batch_rule": "Actions selected by k1, k2.1, or k2.2 form an unordered joint batch; stable display order is not a claim of greedy entry.",
+    "sequential_rule": "k3, k4, and k5 report their actual frozen sequential selection step and active unit.",
+    "required_outputs": [
+      "100 selected action groups per mode with tier provenance and rationale",
+      "coverage snapshots after every tier",
+      "economic, strategic, STEM, SOC, occupation, action, and capability-family coverage",
+      "final leave-one-out criticality",
+      "cross-mode overlap and tier migration"
+    ]
+  }
+}

@@ -4,7 +4,7 @@ Environment Atlas is the repository's local visual catalog, evidence browser,
 and allowlisted Isaac Sim launcher. It gives every environment the same path:
 
 1. discover the task as an image-first card;
-2. read exactly what the current evidence does and does not prove;
+2. review the current scope, measurements, and supporting evidence;
 3. start a configured Isaac Sim entrypoint;
 4. keep the keyboard control card beside the running scene; and
 5. inspect reports, renders, motion frames, notes, and raw traces in one place.
@@ -14,6 +14,15 @@ shown first with a visual preview and opens directly in a browser tab. The same
 library can then be filtered across renders, motion, evidence, data, and notes.
 Curated policy-attempt videos appear as poster-backed Motion cards and play in
 the portal lightbox; raw episode captures remain outside the dashboard bundle.
+
+The **Grounding** workspace presents the current activity-to-action selection
+record. Its five stages cover source collection, action expansion, action
+deduplication, capability modeling and clustering, and constrained k1–k5
+selection. The data browser exposes 29 recorded artifacts with local search,
+facets, sorting, pagination, downloads, and nested-record inspection. The final
+explorer joins all 9,363 action groups to their values, robot and physics
+requirements, three 100-action portfolios, coverage results, and exact missing
+capabilities.
 
 The visual and interaction model is informed by the useful information
 architecture of the Prime Intellect Environments Hub—catalog, compact metadata,
@@ -57,6 +66,11 @@ the ignored `portal/runtime/` directory and can be opened from the live run bar.
   process status, and stops the complete child process tree.
 - `static/app.js` implements hash-based catalog/detail navigation, filters,
   artifact viewers, runtime polling, launch/stop actions, and the image lightbox.
+- `grounding_dashboard.py` exposes the five-stage data model; the current
+  release implementation is in `grounding_dashboard_current.py`.
+- `static/grounding.js` and `static/grounding.css` implement the stage
+  walkthrough, clustering funnel, optimization comparisons, data explorer, and
+  mode-aware action portfolio browser.
 - `static/styles.css` provides the responsive dark interface without a build
   step or third-party web dependency.
 

@@ -1,3 +1,5 @@
+import { createGroundingUI } from "./grounding.js";
+
 const app = document.querySelector("#app");
 const lightbox = document.querySelector("#lightbox");
 const toastRegion = document.querySelector("#toast-region");
@@ -12,6 +14,7 @@ const publicRuntime = Object.freeze({
 
 const state = {
   manifest: null,
+  groundingManifest: null,
   runtime: staticMode ? publicRuntime : null,
   query: "",
   category: "All",
@@ -24,6 +27,8 @@ const state = {
   libraryQuery: "",
   profiles: {},
 };
+
+let groundingUI = null;
 
 const escapeHTML = (value = "") =>
   String(value)
@@ -42,6 +47,13 @@ const assetUrl = (path) => {
 };
 const environmentById = (id) => state.manifest?.environments.find((item) => item.id === id);
 const route = () => {
+  if (location.hash.startsWith("#/grounding/leaderboard")) return { name: "grounding-leaderboard" };
+  const groundingStage = location.hash.match(/^#\/grounding\/stage\/(\d+)/);
+  if (groundingStage) return { name: "grounding-stage", number: Number(groundingStage[1]) };
+  const groundingData = location.hash.match(/^#\/grounding\/data\/([^/?]+)/);
+  if (groundingData) return { name: "grounding-data-detail", id: decodeURIComponent(groundingData[1]) };
+  if (location.hash.startsWith("#/grounding/data")) return { name: "grounding-data" };
+  if (location.hash.startsWith("#/grounding")) return { name: "grounding" };
   if (location.hash.startsWith("#/artifacts")) return { name: "artifacts" };
   const match = location.hash.match(/^#\/environment\/([^/?]+)(?:\?(.+))?/);
   if (!match) return { name: "catalog" };
@@ -90,13 +102,15 @@ function shell(content, active = "catalog") {
           <div class="nav-label">Workspace</div>
           <button class="nav-item ${active === "catalog" ? "active" : ""}" data-action="catalog"><span class="nav-icon">⌗</span><span>Environments</span></button>
           <button class="nav-item ${active === "artifacts" ? "active" : ""}" data-action="artifacts"><span class="nav-icon">▧</span><span>Artifacts</span></button>
+          <button class="nav-item ${active === "grounding" ? "active" : ""}" data-action="grounding"><span class="nav-icon">◇</span><span>How tasks were chosen</span></button>
+          ${active === "grounding" ? `<div class="grounding-nav-links"><a href="#/grounding">Selection process</a><a href="#/grounding/leaderboard">Action portfolios</a><a href="#/grounding/data">Pipeline data</a></div>` : ""}
           <div class="nav-label">Repository</div>
           <button class="nav-item" data-action="guide"><span class="nav-icon">≡</span><span>Portal guide</span></button>
           ${staticMode
             ? `<a class="nav-item" href="${escapeHTML(portalConfig.organizationUrl || "https://github.com/gym-anything")}" target="_blank" rel="noreferrer"><span class="nav-icon">↗</span><span>GitHub org</span></a>`
             : `<button class="nav-item" data-action="copy-root"><span class="nav-icon">⌘</span><span>Copy repo path</span></button>`}
         </nav>
-        <div class="sidebar-bottom">
+        <div class="sidebar-bottom" ${active === "grounding" ? "hidden" : ""}>
           <div class="runtime-card">
             <div class="runtime-row"><span class="runtime-dot ${runtimeTone}"></span><span>${escapeHTML(runtimeTitle)}</span></div>
             <div class="runtime-copy">${escapeHTML(runtimeCopy)}</div>
@@ -148,8 +162,8 @@ function filteredEnvironments() {
 function renderCatalog() {
   const environments = filteredEnvironments();
   const subtitle = staticMode
-    ? "Explore each scene, inspect what it proves, and move from render to report to raw trace in one public evidence catalog."
-    : "Launch a scene, inspect what it proves, and move from render to report to raw trace without hunting through the repository.";
+    ? "Browse environments and inspect their reports, renders, videos, and numerical results."
+    : "Browse environments, launch configured simulations, and inspect their reports and results.";
   const totals = state.manifest.environments.reduce(
     (acc, item) => ({ environments: acc.environments + 1, artifacts: acc.artifacts + item.artifacts.length }),
     { environments: 0, artifacts: 0 },
@@ -161,19 +175,19 @@ function renderCatalog() {
     <div class="content">
       <header class="topline">
         <div>
-          <div class="eyebrow">Physics-first embodied systems</div>
+          <div class="eyebrow">Robotics simulation environments</div>
           <h1 class="page-title">Environment Atlas</h1>
           <p class="page-subtitle">${escapeHTML(subtitle)}</p>
         </div>
         <div class="header-actions">
           <button class="button" data-action="guide">Read guide</button>
-          <button class="button primary" data-action="first-featured">Explore featured <span>↗</span></button>
+          <button class="button primary" data-action="first-featured">View featured <span>↗</span></button>
         </div>
       </header>
       <div class="catalog-tabs" role="tablist" aria-label="Catalog view">
         <button class="catalog-tab ${state.catalogTab === "explore" ? "active" : ""}" data-catalog-tab="explore">Explore</button>
         <button class="catalog-tab ${state.catalogTab === "featured" ? "active" : ""}" data-catalog-tab="featured">Featured</button>
-        <button class="catalog-tab ${state.catalogTab === "verified" ? "active" : ""}" data-catalog-tab="verified">Verified gates</button>
+        <button class="catalog-tab ${state.catalogTab === "verified" ? "active" : ""}" data-catalog-tab="verified">Validated</button>
       </div>
       <div class="toolbar">
         <label class="search-wrap">
@@ -195,8 +209,8 @@ function renderCatalog() {
         ${state.manifest.categories.map((category) => `<button class="chip ${state.category === category ? "active" : ""}" data-category="${escapeHTML(category)}">${escapeHTML(category)}</button>`).join("")}
       </div>
       <div class="results-head">
-        <h2 class="section-title">${state.catalogTab === "featured" ? "Featured environments" : state.catalogTab === "verified" ? "Passed evidence gates" : "All environments"}</h2>
-        <span class="result-count">${environments.length} shown · ${totals.environments} total · ${totals.artifacts} curated artifacts</span>
+        <h2 class="section-title">${state.catalogTab === "featured" ? "Featured environments" : state.catalogTab === "verified" ? "Validated environments" : "All environments"}</h2>
+        <span class="result-count">${environments.length} shown · ${totals.environments} total · ${totals.artifacts} artifacts</span>
       </div>
       <div class="env-grid ${state.view}">${cards}</div>
     </div>`;
@@ -230,9 +244,9 @@ function renderArtifactLibrary() {
     <div class="content">
       <header class="topline">
         <div>
-          <div class="eyebrow">Repository evidence</div>
+          <div class="eyebrow">Reports and supporting files</div>
           <h1 class="page-title">Artifact Library</h1>
-          <p class="page-subtitle">Open the report first, then follow its claims into renders, motion frames, traces, and retained research notes.</p>
+          <p class="page-subtitle">Browse reports, renders, videos, data, and research notes for each environment.</p>
         </div>
         <div class="header-actions">
           <a class="button primary" href="#/">Browse environments <span>↗</span></a>
@@ -240,7 +254,7 @@ function renderArtifactLibrary() {
       </header>
       <section class="report-callout">
         <div class="report-callout-mark">PDF</div>
-        <div><div class="report-callout-title">${reportCount} complete simulation reports</div><div class="report-callout-copy">The default view is reports. Every PDF opens directly in a new browser tab.</div></div>
+        <div><div class="report-callout-title">${reportCount} simulation reports</div><div class="report-callout-copy">Reports are shown by default and open in a new browser tab.</div></div>
         <span class="result-count">${records.length} total artifacts</span>
       </section>
       <div class="toolbar library-toolbar">
@@ -380,22 +394,22 @@ function renderDetailPanel(environment) {
   }
   if (state.detailTab === "evidence") {
     const evidence = [
-      ["Claim boundary", environment.status.detail],
-      ["Measured scorecard", environment.metrics.map((metric) => `${metric.label}: ${metric.value}`).join(" · ")],
-      ["Inspectable record", `${environment.artifacts.length} curated artifacts connect renders to reports, raw traces, and retained findings.`],
-      ["Reproducible entrypoint", `${environment.profiles.length} allowlisted launch ${environment.profiles.length === 1 ? "profile is" : "profiles are"} ${staticMode ? "documented here and available from an authorized local checkout" : "available from this page"}.`],
+      ["Scope", environment.status.detail],
+      ["Measurements", environment.metrics.map((metric) => `${metric.label}: ${metric.value}`).join(" · ")],
+      ["Available artifacts", `${environment.artifacts.length} files include renders, reports, numerical data, and retained findings.`],
+      ["Launch profiles", `${environment.profiles.length} configured launch ${environment.profiles.length === 1 ? "profile is" : "profiles are"} ${staticMode ? "documented here and available from an authorized local checkout" : "available from this page"}.`],
     ];
-    return `<div class="tab-panel copy-section"><h2>What the current environment proves</h2><p>This summary keeps presentation quality separate from physics acceptance. Open the report and traces for the exact gates.</p><div style="margin-top:18px" class="evidence-list">${evidence.map((item, index) => `<div class="evidence-row"><div class="evidence-index">${String(index + 1).padStart(2, "0")}</div><div><h3>${escapeHTML(item[0])}</h3><p>${escapeHTML(item[1])}</p></div></div>`).join("")}</div></div>`;
+    return `<div class="tab-panel copy-section"><h2>Current evidence</h2><p>This section summarizes the environment's scope, measurements, artifacts, and launch configuration. See the report and data files for the acceptance criteria.</p><div style="margin-top:18px" class="evidence-list">${evidence.map((item, index) => `<div class="evidence-row"><div class="evidence-index">${String(index + 1).padStart(2, "0")}</div><div><h3>${escapeHTML(item[0])}</h3><p>${escapeHTML(item[1])}</p></div></div>`).join("")}</div></div>`;
   }
   return `<div class="tab-panel copy-section">
     <h2>Environment intent</h2>
     <p>${escapeHTML(environment.description)}</p>
     <div class="metric-grid">${environment.metrics.map((metric) => `<div class="metric"><div class="metric-value ${escapeHTML(metric.tone || "")}">${escapeHTML(metric.value)}</div><div class="metric-label">${escapeHTML(metric.label)}</div></div>`).join("")}</div>
-    <h2>From scene to evidence</h2>
+    <h2>Environment workflow</h2>
     <div class="mechanism-strip">
-      <div class="mechanism-item"><div class="mechanism-number">01</div><div class="mechanism-title">${staticMode ? "Choose a profile" : "Run the world"}</div><div class="mechanism-copy">${staticMode ? "Inspect the exact local Isaac entrypoint represented by each evidence bundle." : "Start an allowlisted Isaac entrypoint with its correct working directory."}</div></div>
-      <div class="mechanism-item"><div class="mechanism-number">02</div><div class="mechanism-title">Interact and inspect</div><div class="mechanism-copy">Use the control card and cameras without hiding the underlying physics state.</div></div>
-      <div class="mechanism-item"><div class="mechanism-number">03</div><div class="mechanism-title">Audit the claim</div><div class="mechanism-copy">Open the exact render, motion frame, report, source note, or numerical trace.</div></div>
+      <div class="mechanism-item"><div class="mechanism-number">01</div><div class="mechanism-title">${staticMode ? "Choose a profile" : "Start the simulation"}</div><div class="mechanism-copy">${staticMode ? "Select a documented Isaac Sim launch profile." : "Start a configured Isaac Sim entrypoint."}</div></div>
+      <div class="mechanism-item"><div class="mechanism-number">02</div><div class="mechanism-title">Interact and inspect</div><div class="mechanism-copy">Use the listed controls and cameras to inspect the simulation.</div></div>
+      <div class="mechanism-item"><div class="mechanism-number">03</div><div class="mechanism-title">Review results</div><div class="mechanism-copy">Open the renders, videos, reports, research notes, and numerical data.</div></div>
     </div>
   </div>`;
 }
@@ -434,7 +448,9 @@ function renderApp() {
     return;
   }
   const current = route();
-  if (current.name === "detail") {
+  if (current.name.startsWith("grounding")) {
+    groundingUI.render(current);
+  } else if (current.name === "detail") {
     const environment = environmentById(current.id);
     if (!environment) {
       app.innerHTML = shell(`<div class="content"><div class="empty"><strong>Environment not found.</strong><a href="#/">Return to the catalog</a></div></div>`);
@@ -555,9 +571,11 @@ async function openArtifact(artifact) {
 }
 
 document.addEventListener("click", (event) => {
+  if (groundingUI?.handleClick(event)) return;
   const action = event.target.closest("[data-action]")?.dataset.action;
   if (action === "catalog") location.hash = "#/";
   if (action === "artifacts") location.hash = "#/artifacts";
+  if (action === "grounding") location.hash = "#/grounding";
   if (action === "guide") openArtifact({ label: "Environment portal guide", path: "portal/README.md", type: "text" });
   if (action === "copy-root") copyRepositoryPath();
   if (action === "first-featured") {
@@ -607,6 +625,7 @@ document.addEventListener("click", (event) => {
 });
 
 document.addEventListener("change", (event) => {
+  if (groundingUI?.handleChange(event)) return;
   if (event.target.matches('[data-action="sort"]')) { state.sort = event.target.value; renderCatalog(); }
   if (event.target.matches('[data-action="profile"]')) {
     const current = route();
@@ -615,7 +634,12 @@ document.addEventListener("change", (event) => {
   }
 });
 
+document.addEventListener("input", (event) => {
+  groundingUI?.handleInput(event);
+});
+
 document.addEventListener("keydown", (event) => {
+  if (groundingUI?.handleKeydown(event)) return;
   if (event.key === "Escape" && !lightbox.hidden) lightbox.hidden = true;
   if ((event.key === "Enter" || event.key === " ") && event.target.matches(".env-card, .artifact")) event.target.click();
 });
@@ -633,16 +657,32 @@ window.addEventListener("hashchange", () => {
 });
 
 async function init() {
+  groundingUI = createGroundingUI({
+    app,
+    lightbox,
+    state,
+    shell,
+    escapeHTML,
+    assetUrl,
+    staticMode,
+    portalConfig,
+    openArtifact,
+    toast,
+  });
   renderApp();
   try {
     const manifestUrl = staticMode ? (portalConfig.manifestUrl || "./environments.json") : "/api/environments";
+    const groundingManifestUrl = staticMode ? (portalConfig.groundingManifestUrl || "./grounding.json") : "/api/grounding";
     const runtimeRequest = staticMode ? Promise.resolve(null) : fetch("/api/status", { cache: "no-store" });
-    const [manifestResponse, runtimeResponse] = await Promise.all([
+    const [manifestResponse, groundingResponse, runtimeResponse] = await Promise.all([
       fetch(manifestUrl, { cache: "no-store" }),
+      fetch(groundingManifestUrl, { cache: "no-store" }),
       runtimeRequest,
     ]);
     if (!manifestResponse.ok) throw new Error("Environment manifest could not be loaded");
+    if (!groundingResponse.ok) throw new Error("Task-selection data could not be loaded");
     state.manifest = await manifestResponse.json();
+    state.groundingManifest = await groundingResponse.json();
     if (runtimeResponse?.ok) state.runtime = await runtimeResponse.json();
     const initialRoute = route();
     if (["overview", "artifacts", "controls", "evidence"].includes(initialRoute.tab)) {

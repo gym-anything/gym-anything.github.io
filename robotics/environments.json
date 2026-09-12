@@ -1818,6 +1818,6 @@
   "hosting": {
     "mode": "static",
     "sourceRepository": "gym-anything/gym_anything_for_robotics",
-    "sourceCommit": "b8b66b76b55276b8ecf517e8832967352c055b93"
+    "sourceCommit": "86765f3455250a3b4cff094a907b4a6ff8e15a7c"
   }
 }

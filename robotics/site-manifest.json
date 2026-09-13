@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "siteUrl": "https://gym-anything.github.io/robotics/",
   "sourceRepository": "gym-anything/gym_anything_for_robotics",
-  "sourceCommit": "163109729164687d4ea46dc12c6669a7cdb6f213",
+  "sourceCommit": "0d5a545c8583799d0bd5ac3e48ad4f318a72e253",
   "assetCount": 189,
   "assetBytes": 206145373,
   "groundingDatasets": 29,
